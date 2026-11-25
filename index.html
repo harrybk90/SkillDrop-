@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>SkillDrop - Live Creator & Student Studio</title>
+  <title>SkillDrop - Student Freelance & Creator Marketplace India</title>
+  <meta name="description" content="SkillDrop (@skill_drop07) is India's free student creator marketplace. Learn video editing, thumbnail design, drop your work samples, and earn via direct UPI payouts.">
+  <meta name="keywords" content="SkillDrop, skill_drop07, student earning website India, freelance video editing students, earn money online students India">
   <style>
     :root {
       --bg-body: #040406;
@@ -55,7 +57,6 @@
       overflow: hidden;
     }
 
-    /* TOUCH & ANIMATIONS */
     .touchable {
       position: relative;
       overflow: hidden;
@@ -82,10 +83,9 @@
       100% { opacity: 1; transform: scale(1); }
     }
 
-    /* TOAST */
     #app-toast {
       position: fixed;
-      top: -80px;
+      top: -85px;
       left: 50%;
       transform: translateX(-50%);
       width: 90%;
@@ -109,7 +109,7 @@
 
     /* AUTH SCREEN */
     #auth-screen {
-      padding: 28px 20px;
+      padding: 24px 20px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -118,58 +118,68 @@
       animation: pageSlideUp 0.5s ease;
     }
 
-    .open-hero { text-align: center; margin-bottom: 24px; }
+    .open-hero { text-align: center; margin-bottom: 20px; }
     .app-icon-box {
-      width: 62px; height: 62px; margin: 0 auto 14px auto;
+      width: 60px; height: 60px; margin: 0 auto 10px auto;
       border-radius: 20px;
       background: linear-gradient(135deg, var(--emerald), var(--lime));
-      color: #052e16; font-size: 28px; font-weight: 900;
+      color: #052e16; font-size: 26px; font-weight: 900;
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 10px 28px rgba(16, 185, 129, 0.35);
     }
-    .open-hero h1 { font-size: 32px; font-weight: 900; letter-spacing: -0.6px; }
+    .open-hero h1 { font-size: 30px; font-weight: 900; letter-spacing: -0.6px; }
     .open-hero h1 span { color: var(--emerald); }
-    .open-hero p { font-size: 13px; color: var(--text-muted); margin-top: 5px; }
+    .open-hero p { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+    .trust-badges-login {
+      display: flex; justify-content: center; gap: 7px; flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .t-pill {
+      font-size: 10px; font-weight: 700; padding: 4px 9px;
+      border-radius: 20px; background: rgba(16, 185, 129, 0.12);
+      color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.25);
+    }
 
     .card-box {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 20px;
+      padding: 18px;
     }
 
     .segment-tabs {
       display: flex; background: var(--bg-elevated);
-      border-radius: 12px; padding: 4px; margin-bottom: 16px;
+      border-radius: 12px; padding: 4px; margin-bottom: 14px;
     }
     .segment-btn {
-      flex: 1; text-align: center; padding: 9px;
-      font-size: 13px; font-weight: 600; border-radius: 9px;
+      flex: 1; text-align: center; padding: 8px;
+      font-size: 12px; font-weight: 600; border-radius: 9px;
       cursor: pointer; color: var(--text-muted); transition: 0.25s;
     }
     .segment-btn.active {
       background: var(--emerald); color: #042f2e; font-weight: 700;
     }
 
-    .field { margin-bottom: 14px; }
-    .field label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+    .field { margin-bottom: 12px; }
+    .field label { display: block; font-size: 11px; color: var(--text-muted); margin-bottom: 5px; }
     .field input, .field select, .field textarea {
-      width: 100%; padding: 12px 14px;
+      width: 100%; padding: 11px 13px;
       background: var(--bg-elevated); border: 1px solid var(--border);
       border-radius: 12px; color: var(--text-main); font-size: 14px; outline: none;
     }
     .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--emerald); }
 
     .btn-emerald {
-      width: 100%; padding: 14px;
+      width: 100%; padding: 13px;
       background: linear-gradient(135deg, var(--emerald), var(--lime));
       color: #052e16; border: none; border-radius: 13px;
       font-weight: 800; font-size: 15px; cursor: pointer;
     }
 
-    .or-line { text-align: center; font-size: 11px; color: var(--text-muted); margin: 16px 0; }
+    .or-line { text-align: center; font-size: 11px; color: var(--text-muted); margin: 12px 0; }
     .btn-google-full {
-      width: 100%; padding: 12px;
+      width: 100%; padding: 11px;
       background: #ffffff; color: #111827;
       border: none; border-radius: 12px;
       font-size: 14px; font-weight: 700;
@@ -181,8 +191,8 @@
     #main-app { display: none; flex-direction: column; height: 100vh; }
 
     .top-bar {
-      padding: 15px 18px;
-      background: rgba(9, 9, 13, 0.88);
+      padding: 14px 18px;
+      background: rgba(9, 9, 13, 0.9);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
       display: flex; justify-content: space-between; align-items: center;
@@ -194,16 +204,16 @@
       border-radius: 50%; background: var(--emerald); margin-right: 5px;
       box-shadow: 0 0 8px var(--emerald);
     }
-    .user-greet small { font-size: 11px; color: var(--emerald); font-weight: 700; text-transform: uppercase; }
-    .user-greet h2 { font-size: 20px; font-weight: 800; margin-top: 1px; }
+    .user-greet small { font-size: 10px; color: var(--emerald); font-weight: 700; text-transform: uppercase; }
+    .user-greet h2 { font-size: 19px; font-weight: 800; margin-top: 1px; }
     .user-greet h2 span { color: var(--lime); }
 
-    .avatar-pill {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(163,230,53,0.2));
-      border: 1.5px solid var(--emerald); color: var(--lime);
-      font-weight: 800; font-size: 16px;
-      display: flex; align-items: center; justify-content: center; cursor: pointer;
+    .wallet-pill-top {
+      background: rgba(163, 230, 53, 0.14);
+      border: 1px solid rgba(163, 230, 53, 0.35);
+      color: var(--lime);
+      padding: 6px 12px; border-radius: 20px;
+      font-size: 13px; font-weight: 800; cursor: pointer;
     }
 
     .viewport { flex: 1; overflow-y: auto; padding: 16px 16px 95px 16px; }
@@ -217,11 +227,11 @@
       font-size: 12px; font-weight: 700; cursor: pointer;
     }
 
-    /* HOME STUDIO */
+    /* HOME STUDIO & HOW IT WORKS */
     .studio-banner {
       background: linear-gradient(135deg, #131b2e 0%, #0d1f1a 100%);
       border: 1px solid rgba(16, 185, 129, 0.25);
-      border-radius: 20px; padding: 18px 20px; margin-bottom: 18px;
+      border-radius: 20px; padding: 18px; margin-bottom: 14px;
     }
     .studio-tag {
       display: inline-block; background: rgba(163, 230, 53, 0.14);
@@ -230,6 +240,21 @@
     }
     .studio-banner h3 { font-size: 17px; font-weight: 800; margin-bottom: 5px; }
     .studio-banner p { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+
+    .how-box {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 14px; margin-bottom: 18px;
+    }
+    .how-step {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-top: 9px; font-size: 12px; color: var(--text-muted); line-height: 1.35;
+    }
+    .how-num {
+      min-width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(16, 185, 129, 0.18); color: var(--emerald);
+      font-size: 11px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
 
     .sec-heading {
       font-size: 12px; font-weight: 700; color: var(--text-muted);
@@ -252,8 +277,9 @@
     .social-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
     .social-box {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 13px; padding: 11px 8px; text-align: center;
-      text-decoration: none; color: var(--text-main); font-size: 12px; font-weight: 600;
+      border-radius: 14px; padding: 12px 6px; text-align: center;
+      text-decoration: none; color: var(--text-main); font-size: 12px; font-weight: 700;
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
     }
 
     /* CARDS & LISTS */
@@ -268,7 +294,10 @@
     .demand-pill { font-size: 11px; font-weight: 700; padding: 4px 9px; border-radius: 7px; background: rgba(16,185,129,0.14); color: var(--emerald); }
     .free-pill { font-size: 11px; font-weight: 800; padding: 4px 9px; border-radius: 7px; background: rgba(163,230,53,0.16); color: var(--lime); }
     .badge-cat { background: rgba(56,189,248,0.14); color: var(--sky); padding: 4px 10px; border-radius: 7px; font-size: 11px; font-weight: 700; }
-    .badge-urgent { background: rgba(245,158,11,0.15); color: var(--amber); padding: 4px 9px; border-radius: 7px; font-size: 11px; font-weight: 700; margin-left: 5px; }
+    .badge-status { padding: 4px 9px; border-radius: 7px; font-size: 11px; font-weight: 700; margin-left: 5px; }
+    .st-open { background: rgba(16,185,129,0.15); color: var(--emerald); }
+    .st-taken { background: rgba(245,158,11,0.15); color: var(--amber); }
+    .st-done { background: rgba(192,132,252,0.15); color: var(--purple); }
     .comm-badge { font-size: 10px; background: rgba(192,132,252,0.15); color: var(--purple); padding: 3px 8px; border-radius: 6px; font-weight: 700; }
     .price-tag { font-size: 17px; font-weight: 800; color: var(--lime); }
 
@@ -282,14 +311,25 @@
       font-weight: 700; text-decoration: none; margin-bottom: 11px;
     }
 
+    .submit-work-box {
+      background: var(--bg-elevated); border: 1px dashed var(--emerald);
+      border-radius: 12px; padding: 10px; margin-bottom: 10px;
+    }
+
     .task-bottom, .comm-actions {
       display: flex; justify-content: space-between; align-items: center;
       border-top: 1px solid var(--border); padding-top: 10px; margin-top: 6px;
     }
 
     .btn-mini {
-      padding: 8px 14px; border-radius: 10px; border: none;
+      padding: 8px 13px; border-radius: 10px; border: none;
       font-size: 12px; font-weight: 700; cursor: pointer;
+    }
+
+    .empty-state {
+      text-align: center; padding: 34px 18px;
+      background: var(--bg-card); border: 1px dashed var(--border);
+      border-radius: 18px; color: var(--text-muted);
     }
 
     .comm-post-box {
@@ -315,13 +355,23 @@
     }
     .chip.active { background: var(--emerald); color: #042f2e; border-color: var(--emerald); font-weight: 700; }
 
-    /* CHAT */
+    /* CHAT INBOX & ROOM */
+    .inbox-strip {
+      display: flex; gap: 8px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 8px;
+    }
+    .inbox-pill {
+      background: var(--bg-card); border: 1px solid var(--border);
+      padding: 8px 13px; border-radius: 12px; font-size: 12px;
+      font-weight: 700; white-space: nowrap; cursor: pointer; color: var(--text-main);
+    }
+    .inbox-pill.active { border-color: var(--emerald); background: rgba(16,185,129,0.14); color: var(--lime); }
+
     .chat-wrap {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 18px; height: calc(100vh - 185px);
+      border-radius: 18px; height: calc(100vh - 230px);
       display: flex; flex-direction: column;
     }
-    .chat-top { padding: 13px 15px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .chat-top { padding: 12px 15px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .chat-body { flex: 1; padding: 14px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
     .bubble { max-width: 80%; padding: 10px 14px; border-radius: 15px; font-size: 13px; line-height: 1.4; }
     .bubble.them { background: var(--bg-elevated); align-self: flex-start; border-bottom-left-radius: 4px; }
@@ -329,22 +379,30 @@
     .chat-foot { padding: 10px; border-top: 1px solid var(--border); display: flex; gap: 8px; }
     .chat-foot input { flex: 1; padding: 11px 13px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; color: #fff; outline: none; }
 
-    /* ACCOUNT */
+    /* ACCOUNT, REFER & ADMIN */
     .wallet-box {
       background: linear-gradient(135deg, #064e3b, #111827);
       border: 1px solid rgba(16, 185, 129, 0.35);
       border-radius: 18px; padding: 20px; margin-bottom: 16px; text-align: center;
     }
-    .wallet-box h1 { font-size: 34px; color: var(--lime); margin: 4px 0; }
-    .stats-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 16px 0; }
-    .stat-pill { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 10px 6px; text-align: center; }
-    .stat-pill strong { display: block; font-size: 16px; color: var(--lime); }
-    .stat-pill span { font-size: 10px; color: var(--text-muted); }
+    .wallet-box h1 { font-size: 36px; color: var(--lime); margin: 4px 0; }
+
+    .refer-card {
+      background: linear-gradient(135deg, #1e1b4b, #111827);
+      border: 1px solid rgba(192, 132, 252, 0.35);
+      border-radius: 18px; padding: 18px; margin-bottom: 14px; text-align: center;
+    }
+    .ref-code-box {
+      background: rgba(0,0,0,0.35); border: 1px dashed var(--purple);
+      padding: 12px; border-radius: 12px; font-size: 20px;
+      font-weight: 900; letter-spacing: 2px; color: var(--lime);
+      margin: 12px 0;
+    }
 
     .hist-row {
       background: var(--bg-card); border: 1px solid var(--border);
       padding: 13px 14px; border-radius: 14px; margin-bottom: 10px;
-      display: flex; justify-content: space-between; align-items: center;
+      display: flex; justify-content: space-between; align-items: center; gap: 10px;
     }
 
     /* BOTTOM NAV */
@@ -374,12 +432,17 @@
 <div class="app-shell">
   <div id="app-toast">✨ <span id="toast-msg">Welcome to SkillDrop!</span></div>
 
-  <!-- 1. LOGIN SCREEN (PROPER VALIDATION + REAL GOOGLE LOGIN) -->
+  <!-- 1. LOGIN / SIGNUP SCREEN -->
   <div id="auth-screen">
     <div class="open-hero">
       <div class="app-icon-box">SD</div>
       <h1>Skill<span>Drop</span></h1>
-      <p>Learn Skills • Drop Videos • Ghar Baithe Kamao</p>
+      <p>India's Student Creator & Freelance Marketplace</p>
+      <div class="trust-badges-login">
+        <span class="t-pill">✓ ₹0 Joining Fee</span>
+        <span class="t-pill">✓ ₹150 Min. UPI Payout</span>
+        <span class="t-pill">✓ Number Protected</span>
+      </div>
     </div>
 
     <div class="card-box">
@@ -408,9 +471,14 @@
         <input type="password" id="in-pass" placeholder="••••••••">
       </div>
 
-      <button class="btn-emerald touchable" onclick="loginWithForm()">Login / Create Account →</button>
+      <div class="field">
+        <label>Referral Code (Optional — ₹25 Bonus layi)</label>
+        <input type="text" id="in-ref-code" placeholder="Jiven: HARR-402" style="text-transform:uppercase;">
+      </div>
 
-      <div class="or-line">YA ASLI GOOGLE ACCOUNT NAAL JADO</div>
+      <button class="btn-emerald touchable" onclick="loginWithForm()">Join SkillDrop Free →</button>
+
+      <div class="or-line">YA GOOGLE ACCOUNT NAAL JADO</div>
 
       <button class="btn-google-full touchable" onclick="loginWithGoogle()">
         <span style="font-size:17px;">G</span> Continue with Google
@@ -422,64 +490,84 @@
   <div id="main-app">
     <div class="top-bar">
       <div class="user-greet">
-        <small><span class="live-dot"></span><span id="db-status-text">Live Cloud Connected</span></small>
+        <small><span class="live-dot"></span><span>Verified Live Cloud</span></small>
         <h2>Welcome, <span id="user-title-name">User</span>! 👋</h2>
       </div>
-      <div class="avatar-pill touchable" id="user-avatar" onclick="openAccountSub('profile')">U</div>
+      <div class="wallet-pill-top touchable" onclick="openAccountSub('payout')">
+        ₹<span id="top-balance">0</span>
+      </div>
     </div>
 
     <div class="viewport">
       <!-- HOME PAGE -->
       <div id="page-home" class="view-page active">
         <div class="studio-banner">
-          <span class="studio-tag">STUDENT CREATOR STUDIO</span>
+          <span class="studio-tag">100% REAL STUDENT PLATFORM</span>
           <h3>Sikho, Skill Drop Karo Te Kamao</h3>
-          <p>Free courses naal nava hunar sikho, community naal judo, te live clients naal kamm shuru karo.</p>
+          <p>Koi joining fee nahi. Real tasks accept karo, apna work link submit karo, te approval ton baad UPI te ₹150 ton withdraw karo.</p>
         </div>
 
-        <div class="sec-heading">Tuhade Options</div>
+        <!-- HOW SKILLDROP WORKS -->
+        <div class="how-box">
+          <strong style="font-size:13px; color:var(--lime);">⚡ How SkillDrop Works (3 Easy Steps)</strong>
+          <div class="how-step"><span class="how-num">1</span><span><strong>Tasks</strong> tab vichon kamm accept karo ya <strong>Drop</strong> vich apna sample link pao.</span></div>
+          <div class="how-step"><span class="how-num">2</span><span>In-app <strong>Chat</strong> te gal pakki karke apna final Google Drive / Video link submit karo.</span></div>
+          <div class="how-step"><span class="how-num">3</span><span>Client/Admin approval hunde hi balance wallet vich jud jauga—UPI te withdraw karo!</span></div>
+        </div>
+
+        <div class="sec-heading">Tuhade Studio Options</div>
         <div class="bento-grid">
-          <div class="bento-item touchable" onclick="goPage('skills')">
-            <div class="bento-icon" style="background:rgba(56,189,248,0.15); color:#38bdf8;">🚀</div>
-            <h4>Explore Skills</h4>
-            <p>High-demand skills te rates dekho</p>
+          <div class="bento-item touchable" onclick="goPage('tasks', 1)">
+            <div class="bento-icon" style="background:rgba(245,158,11,0.15); color:#f59e0b;">💼</div>
+            <h4>Live Tasks</h4>
+            <p>Real kamm accept karo te kamao</p>
+          </div>
+          <div class="bento-item touchable" onclick="goPage('drop', 2)">
+            <div class="bento-icon" style="background:rgba(16,185,129,0.15); color:#10b981;">🎬</div>
+            <h4>Drop Video / Task</h4>
+            <p>Sample pao ya editor hire karo</p>
+          </div>
+          <div class="bento-item touchable" onclick="openAccountSub('refer')">
+            <div class="bento-icon" style="background:rgba(192,132,252,0.15); color:#c084fc;">🎁</div>
+            <h4>Refer & Earn ₹25</h4>
+            <p>Dosta nu jodo te bonus kamao</p>
+          </div>
+          <div class="bento-item touchable" onclick="goPage('community')">
+            <div class="bento-icon" style="background:rgba(244,114,182,0.15); color:#f472b6;">👥</div>
+            <h4>Community</h4>
+            <p>Students naal live sawal-jawab</p>
           </div>
           <div class="bento-item touchable" onclick="goPage('courses')">
             <div class="bento-icon" style="background:rgba(163,230,53,0.15); color:#a3e635;">🎓</div>
             <h4>Free Courses</h4>
-            <p>Mobile ton editing te design sikho</p>
+            <p>Editing te thumbnail tutorials</p>
           </div>
-          <div class="bento-item touchable" onclick="goPage('community')">
-            <div class="bento-icon" style="background:rgba(192,132,252,0.15); color:#c084fc;">👥</div>
-            <h4>Student Community</h4>
-            <p>Live sawal puchho te tips share karo</p>
-          </div>
-          <div class="bento-item touchable" onclick="openAccountSub('profile')">
-            <div class="bento-icon" style="background:rgba(244,114,182,0.15); color:#f472b6;">👤</div>
-            <h4>My Profile</h4>
-            <p>Apna bio, badges te stats dekho</p>
-          </div>
-          <div class="bento-item touchable" onclick="goPage('tasks', 1)">
-            <div class="bento-icon" style="background:rgba(245,158,11,0.15); color:#f59e0b;">💼</div>
-            <h4>Browse Tasks</h4>
-            <p>Live bounties te kamm labho</p>
-          </div>
-          <div class="bento-item touchable" onclick="goPage('drop', 2)">
-            <div class="bento-icon" style="background:rgba(16,185,129,0.15); color:#10b981;">🎬</div>
-            <h4>Drop Video</h4>
-            <p>Sample link pao ya hire karo</p>
+          <div class="bento-item touchable" onclick="goPage('skills')">
+            <div class="bento-icon" style="background:rgba(56,189,248,0.15); color:#38bdf8;">🚀</div>
+            <h4>Skill Rates</h4>
+            <p>Market rates te demand dekho</p>
           </div>
         </div>
 
-        <div class="sec-heading">Official Pages</div>
+        <!-- OFFICIAL CHANNELS (@skill_drop07) -->
+        <div class="sec-heading">Official Channels (@skill_drop07)</div>
         <div class="social-strip">
-          <a href="https://t.me/skilldrop_in" target="_blank" class="social-box touchable">✈️ Telegram</a>
-          <a href="https://instagram.com/skilldrop.in" target="_blank" class="social-box touchable">📸 Instagram</a>
-          <a href="mailto:support@skilldrop.in" class="social-box touchable">✉️ Gmail</a>
+          <a href="https://www.youtube.com/@skill_drop07" target="_blank" class="social-box touchable">
+            <span style="font-size:18px;">▶️</span>
+            <span>YouTube</span>
+          </a>
+          <a href="https://www.instagram.com/skill_drop07/" target="_blank" class="social-box touchable">
+            <span style="font-size:18px;">📸</span>
+            <span>Instagram</span>
+          </a>
+          <a href="https://t.me/skill_drop07" target="_blank" class="social-box touchable">
+            <span style="font-size:18px;">✈️</span>
+            <span>Telegram</span>
+          </a>
         </div>
 
-        <div class="sec-heading">Tuhada Apna Kamm (My Drops)</div>
-        <div id="my-own-list"></div>
+        <div class="sec-heading">Tuhada Active Kamm (My Tasks)</div>
+        <div id="my-active-work-list"></div>
       </div>
 
       <!-- EXPLORE SKILLS -->
@@ -517,9 +605,9 @@
       <div id="page-tasks" class="view-page">
         <input type="text" class="search-bar" id="task-search" placeholder="🔍 Live task labho (Reels, Thumbnail, Voice)..." onkeyup="renderPublicTasks()">
         <div class="chip-row">
-          <div class="chip touchable active" onclick="setTaskFilter('All', this)">All Tasks</div>
-          <div class="chip touchable" onclick="setTaskFilter('Bounty', this)">⚡ Urgent Bounties</div>
-          <div class="chip touchable" onclick="setTaskFilter('SkillDrop', this)">🎬 Video Drops</div>
+          <div class="chip touchable active" onclick="setTaskFilter('All', this)">All Live</div>
+          <div class="chip touchable" onclick="setTaskFilter('Bounty', this)">⚡ Client Tasks</div>
+          <div class="chip touchable" onclick="setTaskFilter('SkillDrop', this)">🎬 Student Samples</div>
           <div class="chip touchable" onclick="setTaskFilter('Video Editing', this)">Video Editing</div>
           <div class="chip touchable" onclick="setTaskFilter('Graphic Design', this)">Thumbnails</div>
           <div class="chip touchable" onclick="setTaskFilter('Voiceover', this)">Voiceover</div>
@@ -529,7 +617,7 @@
 
       <!-- DROP VIDEO / CREATE TASK -->
       <div id="page-drop" class="view-page">
-        <div class="sec-heading">Live Task Pao Ya Skill Drop Karo</div>
+        <div class="sec-heading">Live Task Pao Ya Apna Sample Drop Karo</div>
         <div class="card-box">
           <div class="field">
             <label>Ki Karna Chahunde Ho?</label>
@@ -552,7 +640,7 @@
           </div>
           <div class="field">
             <label>Price / Budget (₹)</label>
-            <input type="number" id="drop-price" placeholder="250">
+            <input type="number" id="drop-price" placeholder="200">
           </div>
           <div class="field">
             <label>Sample / Raw Video Link (Google Drive / YouTube / Insta)</label>
@@ -566,18 +654,23 @@
         </div>
       </div>
 
-      <!-- LIVE PRIVATE CHAT -->
+      <!-- LIVE PRIVATE CHAT + INBOX -->
       <div id="page-chat" class="view-page">
+        <div class="sec-heading" style="margin-bottom:6px;">💬 My Chats (Inbox)</div>
+        <div class="inbox-strip" id="chat-inbox-list">
+          <div class="inbox-pill active" onclick="startChat('SkillDrop Support', 'skilldrop_support', 'Help')">SkillDrop Support</div>
+        </div>
+
         <div class="chat-wrap">
           <div class="chat-top">
             <div>
-              <strong id="chat-with-name" style="font-size:14px;">Rohan Creator</strong>
+              <strong id="chat-with-name" style="font-size:14px;">SkillDrop Support</strong>
               <div style="font-size:11px; color:var(--emerald);">● Live Private Room</div>
             </div>
             <span style="font-size:11px; background:rgba(16,185,129,0.12); color:var(--emerald); padding:4px 9px; border-radius:8px; font-weight:600;">🔒 Number Hidden</span>
           </div>
           <div class="chat-body" id="chat-feed">
-            <div class="bubble them">Sat Sri Akal! Ethe live message bhejo—bina number share kite gal pakki karo.</div>
+            <div class="bubble them">Sat Sri Akal! Ethe live message bhejo—bina mobile number share kite deal pakki karo.</div>
           </div>
           <div class="chat-foot">
             <input type="text" id="chat-msg-box" placeholder="Message likho...">
@@ -586,58 +679,84 @@
         </div>
       </div>
 
-      <!-- ACCOUNT (PROFILE + PAYOUT + HISTORY) -->
+      <!-- ACCOUNT (PROFILE + PAYOUT + REFER + ADMIN) -->
       <div id="page-account" class="view-page">
         <div class="segment-tabs">
-          <div class="segment-btn touchable active" id="sub-btn-profile" onclick="switchAccountSub('profile')">👤 My Profile</div>
+          <div class="segment-btn touchable active" id="sub-btn-profile" onclick="switchAccountSub('profile')">👤 Profile</div>
           <div class="segment-btn touchable" id="sub-btn-payout" onclick="switchAccountSub('payout')">💳 Payout</div>
-          <div class="segment-btn touchable" id="sub-btn-history" onclick="switchAccountSub('history')">📜 History</div>
+          <div class="segment-btn touchable" id="sub-btn-refer" onclick="switchAccountSub('refer')">🎁 Refer</div>
+          <div class="segment-btn touchable" id="sub-btn-admin" onclick="openAdminGate()">🛡️ Admin</div>
         </div>
 
+        <!-- PROFILE -->
         <div id="acc-profile">
           <div class="card-box" style="text-align:center; margin-bottom:14px;">
             <div class="app-icon-box" style="border-radius:50%; margin-bottom:10px;" id="prof-big-avatar">U</div>
             <h3 id="prof-full-name" style="font-size:19px;">User</h3>
-            <p id="prof-skill-tag" style="font-size:12px; color:var(--lime); font-weight:700; margin-top:3px;">Video Editor & Content Creator</p>
-            <p id="prof-contact-info" style="font-size:11px; color:var(--text-muted); margin-top:3px;">Verified Student Member</p>
+            <p id="prof-skill-tag" style="font-size:12px; color:var(--lime); font-weight:700; margin-top:3px;">Student Creator</p>
+            <p id="prof-contact-info" style="font-size:11px; color:var(--text-muted); margin-top:3px;">Verified Member</p>
 
-            <div class="stats-trio">
-              <div class="stat-pill"><strong id="stat-drops">1</strong><span>Active Drops</span></div>
-              <div class="stat-pill"><strong id="stat-courses">0</strong><span>Courses</span></div>
-              <div class="stat-pill"><strong>Live</strong><span>Studio Badge</span></div>
-            </div>
-
-            <div class="field" style="text-align:left; margin-top:10px;">
+            <div class="field" style="text-align:left; margin-top:14px;">
               <label>Apna Skill Bio Update Karo</label>
-              <input type="text" id="edit-bio-input" value="Video Editor & Content Creator">
+              <input type="text" id="edit-bio-input" placeholder="Jiven: Reel Editor & Thumbnail Designer">
             </div>
             <button class="btn-mini touchable" style="background:var(--bg-elevated); color:var(--emerald); border:1px solid var(--emerald); width:100%; padding:10px; margin-bottom:10px;" onclick="updateProfileBio()">Save Profile Bio ✓</button>
             <button class="btn-emerald touchable" style="background:var(--danger); color:#fff; padding:11px;" onclick="logoutApp()">Logout Account</button>
           </div>
         </div>
 
+        <!-- PAYOUT -->
         <div id="acc-payout" style="display:none;">
           <div class="wallet-box">
-            <small style="color:#a7f3d0; font-size:12px;">Available Balance</small>
-            <h1>₹<span id="acc-balance">1250</span></h1>
-            <span style="font-size:11px; color:var(--emerald);">✓ Instant UPI Transfer</span>
+            <small style="color:#a7f3d0; font-size:12px;">Verified Wallet Balance</small>
+            <h1>₹<span id="acc-balance">0</span></h1>
+            <span style="font-size:11px; color:var(--emerald);">Min. Withdrawal: ₹150 • Direct UPI</span>
           </div>
           <div class="card-box">
-            <div class="field"><label>Amount (₹)</label><input type="number" id="pay-amt" placeholder="500"></div>
+            <div class="field"><label>Amount (Min. ₹150)</label><input type="number" id="pay-amt" placeholder="150"></div>
             <div class="field">
-              <label>Method</label>
+              <label>Payment Method</label>
               <select id="pay-method">
                 <option value="UPI">UPI (GPay / PhonePe / Paytm)</option>
                 <option value="Bank">Bank Account (IMPS)</option>
               </select>
             </div>
-            <div class="field"><label>UPI ID / Account Number</label><input type="text" id="pay-id" placeholder="harry@okaxis"></div>
-            <button class="btn-emerald touchable" onclick="doWithdraw()">Withdraw Paise</button>
+            <div class="field"><label>UPI ID / Account Number</label><input type="text" id="pay-id" placeholder="yourname@okaxis"></div>
+            <button class="btn-emerald touchable" onclick="doWithdraw()">Request Payout →</button>
           </div>
         </div>
 
-        <div id="acc-history" style="display:none;">
-          <div id="history-feed"></div>
+        <!-- REFER & EARN -->
+        <div id="acc-refer" style="display:none;">
+          <div class="refer-card">
+            <span class="studio-tag" style="background:rgba(192,132,252,0.18); color:var(--purple);">REFER & EARN ₹25</span>
+            <h3 style="font-size:18px; margin-top:4px;">Dosta Nu Invite Karo Te Kamao</h3>
+            <p style="font-size:12px; color:var(--text-muted); margin-top:6px; line-height:1.4;">
+              Jadon tuhada dost tuhade code naal join karke <strong>apna pehla task complete karega</strong>, tad dono de wallet vich <strong>₹25</strong> apne aap jud jaange!
+            </p>
+            <div class="ref-code-box" id="my-ref-code-display">LOADING</div>
+            <button class="btn-emerald touchable" onclick="copyInviteLink()">📋 Copy Invite Link & Code</button>
+          </div>
+        </div>
+
+        <!-- SECRET OWNER ADMIN PANEL (PIN: 2026) -->
+        <div id="acc-admin" style="display:none;">
+          <div class="sec-heading">🛡️ Owner Control Room</div>
+
+          <div class="card-box" style="margin-bottom:14px;">
+            <strong style="font-size:13px; color:var(--lime);">1. Submitted Work (Approve & Add Balance)</strong>
+            <div id="admin-submissions-list" style="margin-top:10px;"></div>
+          </div>
+
+          <div class="card-box" style="margin-bottom:14px;">
+            <strong style="font-size:13px; color:var(--amber);">2. Pending Payout Requests</strong>
+            <div id="admin-payouts-list" style="margin-top:10px;"></div>
+          </div>
+
+          <div class="card-box">
+            <strong style="font-size:13px; color:var(--sky);">3. Manage Live Tasks (Delete Spam)</strong>
+            <div id="admin-tasks-list" style="margin-top:10px;"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -656,7 +775,7 @@
 <!-- FIREBASE LIVE DATABASE & AUTH ENGINE -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, doc, updateDoc, increment, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  import { getFirestore, collection, addDoc, setDoc, getDoc, getDocs, onSnapshot, query, where, orderBy, doc, updateDoc, deleteDoc, increment, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
   import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
   const firebaseConfig = {
@@ -677,11 +796,20 @@
   let unsubscribeChat = null;
   let authMode = 'email';
   let currentUser = "";
-  let balance = 1250;
+  let currentUserId = "";
+  let myReferralCode = "";
+  let balance = 0;
   let currentFilter = "All";
-  let coursesJoined = 0;
-  let activeChatPartner = "Rohan Creator";
+  let activeChatPartner = "SkillDrop Support";
+  let activeChatPartnerId = "skilldrop_support";
+  let liveTasksList = [];
   let toastTimer;
+
+  // Auto-fill Referral Code from URL (?ref=...)
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('ref')) {
+    document.getElementById('in-ref-code').value = urlParams.get('ref').toUpperCase();
+  }
 
   // RIPPLE & TOAST
   document.addEventListener('pointerdown', function(e) {
@@ -703,10 +831,10 @@
     document.getElementById('toast-msg').innerText = message;
     toast.classList.add('show');
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove('show'), 3000);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
   }
 
-  // DIRECTORIES
+  // STATIC DIRECTORIES
   const skillsList = [
     { name: "Short-Form Reel Editing", rate: "₹150 - ₹400 / Reel", demand: "🔥 High Demand", desc: "CapCut, VN ya Premiere Pro vich fast cuts, sound effects te captions launa." },
     { name: "YouTube Thumbnail Design", rate: "₹100 - ₹300 / Design", demand: "⚡ Fast Earning", desc: "Pixellab ya Canva te bright, high-click thumbnails banauna." },
@@ -714,45 +842,13 @@
     { name: "Instagram Page Handling", rate: "₹1,500 - ₹4,000 / Week", demand: "📈 Long Term", desc: "Daily Reels upload karna, captions likhna te page grow karna." }
   ];
 
-  let freeCourses = [
-    { id: 1, title: "Mobile Reel Editing Mastery (CapCut & VN)", duration: "45 Mins • 5 Lessons", enrolled: false, desc: "Zero ton viral transitions, beat sync te auto-captions launa sikho." },
-    { id: 2, title: "High-CTR Thumbnail Design on Phone", duration: "30 Mins • 4 Lessons", enrolled: false, desc: "Pixellab te Canva naal professional gaming te vlog thumbnails banao." },
-    { id: 3, title: "Creators Naal Deal Kiwe Pakki Kariye", duration: "20 Mins • 3 Lessons", enrolled: false, desc: "Pehla client labhan, sample bhejan te sahi rate mangn da tarika." }
+  const freeCourses = [
+    { title: "Mobile Reel Editing Mastery (CapCut & VN)", duration: "Free Video Tutorial", url: "https://www.youtube.com/results?search_query=capcut+viral+reel+editing+tutorial+hindi", desc: "Zero ton viral transitions, beat sync te auto-captions launa sikho." },
+    { title: "High-CTR Thumbnail Design on Phone", duration: "Free Video Tutorial", url: "https://www.youtube.com/results?search_query=pixellab+youtube+thumbnail+tutorial+hindi", desc: "Pixellab te Canva naal professional gaming te vlog thumbnails banao." },
+    { title: "Creators Naal Deal Kiwe Pakki Kariye", duration: "Pro Guide", url: "https://www.youtube.com/results?search_query=how+to+get+video+editing+clients+india", desc: "Pehla client labhan, sample bhejan te sahi rate mangn da tarika." }
   ];
 
-  let communityPosts = [
-    { id: "demo1", author: "Simran Kaur", badge: "Top Designer", text: "Ajj main apna pehla thumbnail task ₹150 vich complete kita! Free course vichon tips bahut kamm aayiyan.", likes: 14 }
-  ];
-
-  let allTasks = [
-    { id: "t1", type: "Bounty", cat: "Video Editing", title: "Podcast Chon 2 Viral Reels Cut Karniyan", price: 300, owner: "Rohan Creator", desc: "Fast cuts te captions laune ne. 3 ghante vich delivery chahidi.", videoLink: "" },
-    { id: "t2", type: "SkillDrop", cat: "Graphic Design", title: "Gaming & Vlog Thumbnails Sample", price: 150, owner: "Simran Design", desc: "High CTR thumbnails bana sakdi haan. Hire karan layi chat karo.", videoLink: "" }
-  ];
-
-  let myOwnItems = [{ title: "Studio Profile Active", status: "Ready for Projects", tag: "Live" }];
-  let historyList = [{ title: "Welcome Bonus Credited", date: "Today", amount: "+₹1250", color: "var(--emerald)" }];
-
-  function startRealtimeSync() {
-    try {
-      const qTasks = query(collection(db, "tasks"), orderBy("createdAt", "desc"));
-      onSnapshot(qTasks, (snapshot) => {
-        const liveList = [];
-        snapshot.forEach(docSnap => liveList.push({ id: docSnap.id, ...docSnap.data() }));
-        if (liveList.length > 0) allTasks = liveList;
-        renderPublicTasks();
-      });
-
-      const qComm = query(collection(db, "community"), orderBy("createdAt", "desc"));
-      onSnapshot(qComm, (snapshot) => {
-        const livePosts = [];
-        snapshot.forEach(docSnap => livePosts.push({ id: docSnap.id, ...docSnap.data() }));
-        if (livePosts.length > 0) communityPosts = livePosts;
-        renderCommunityFeed();
-      });
-    } catch (e) {}
-  }
-
-  // PROPER AUTH SYSTEM
+  // AUTH & CLOUD USER PROFILE SYNC
   function setAuthTab(mode, el) {
     authMode = mode;
     document.querySelectorAll('#auth-screen .segment-btn').forEach(b => b.classList.remove('active'));
@@ -766,60 +862,82 @@
     const emailVal = document.getElementById('in-email').value.trim();
     const phoneVal = document.getElementById('in-phone').value.trim();
     const passVal = document.getElementById('in-pass').value.trim();
+    const refVal = document.getElementById('in-ref-code').value.trim().toUpperCase();
 
-    if (nameVal.length < 2) {
-      return showToast("⚠️ Pehla apna sahi naam likho!");
-    }
-    if (authMode === 'email' && (!emailVal || !emailVal.includes('@'))) {
-      return showToast("⚠️ Sahi Gmail / Email address bharo!");
-    }
-    if (authMode === 'phone' && phoneVal.length < 10) {
-      return showToast("⚠️ 10-digit mobile number bharo!");
-    }
-    if (passVal.length < 4) {
-      return showToast("⚠️ Kam ton kam 4 akharan da password rakho!");
-    }
+    if (nameVal.length < 2) return showToast("⚠️ Pehla apna sahi naam likho!");
+    if (authMode === 'email' && (!emailVal || !emailVal.includes('@'))) return showToast("⚠️ Sahi Gmail / Email bharo!");
+    if (authMode === 'phone' && phoneVal.length < 10) return showToast("⚠️ 10-digit mobile number bharo!");
+    if (passVal.length < 4) return showToast("⚠️ Kam ton kam 4 akharan da password rakho!");
 
-    const contact = authMode === 'email' ? emailVal : phoneVal;
-    completeLogin(nameVal, contact);
+    const contact = authMode === 'email' ? emailVal.toLowerCase() : phoneVal;
+    completeLogin(nameVal, contact, refVal);
   }
 
   async function loginWithGoogle() {
+    const refVal = document.getElementById('in-ref-code').value.trim().toUpperCase();
     try {
       const result = await signInWithPopup(auth, googleProvider);
-      const user = result.user;
-      completeLogin(user.displayName || "Creator", user.email);
+      completeLogin(result.user.displayName || "Creator", result.user.email.toLowerCase(), refVal);
     } catch (err) {
-      if (err.code === 'auth/operation-not-allowed' || err.code === 'auth/configuration-not-found') {
-        showToast("⚠️ Firebase Console vich Authentication -> Google Enable karo!");
-      } else {
-        showToast("⚠️ Google login cancel ho gaya: " + err.message);
-      }
+      showToast("⚠️ Google login error: " + err.message);
     }
   }
 
-  function completeLogin(userName, contactInfo) {
+  async function completeLogin(userName, contactInfo, refCodeUsed = "") {
     currentUser = userName;
+    currentUserId = contactInfo.replace(/[^a-z0-9]/g, '_');
+
     localStorage.setItem('sd_logged_in', 'true');
     localStorage.setItem('sd_user', userName);
     localStorage.setItem('sd_contact', contactInfo);
 
     document.getElementById('user-title-name').innerText = currentUser;
     document.getElementById('prof-full-name').innerText = currentUser;
-    document.getElementById('user-avatar').innerText = currentUser.charAt(0).toUpperCase();
     document.getElementById('prof-big-avatar').innerText = currentUser.charAt(0).toUpperCase();
     document.getElementById('prof-contact-info').innerText = contactInfo;
 
     document.getElementById('auth-screen').style.display = 'none';
     document.getElementById('main-app').style.display = 'flex';
 
-    renderHomeMyWork();
+    // Initialize or Sync User Profile in Firestore
+    const userRef = doc(db, "users", currentUserId);
+    try {
+      const snap = await getDoc(userRef);
+      if (!snap.exists()) {
+        const cleanPrefix = userName.replace(/[^a-zA-Z]/g, '').substring(0, 4).toUpperCase() || "USER";
+        const newRefCode = `${cleanPrefix}-${Math.floor(100 + Math.random() * 899)}`;
+        await setDoc(userRef, {
+          name: userName,
+          contact: contactInfo,
+          balance: 0,
+          bio: "Student Creator",
+          referralCode: newRefCode,
+          referredBy: refCodeUsed || "",
+          referralRewardPaid: false,
+          createdAt: serverTimestamp()
+        });
+      }
+
+      onSnapshot(userRef, (uDoc) => {
+        if (uDoc.exists()) {
+          const data = uDoc.data();
+          balance = data.balance || 0;
+          myReferralCode = data.referralCode || "SD-000";
+          document.getElementById('top-balance').innerText = balance;
+          document.getElementById('acc-balance').innerText = balance;
+          document.getElementById('my-ref-code-display').innerText = myReferralCode;
+          if (data.bio) {
+            document.getElementById('prof-skill-tag').innerText = data.bio;
+            document.getElementById('edit-bio-input').value = data.bio;
+          }
+        }
+      });
+    } catch (e) {}
+
     renderSkillsDirectory();
     renderFreeCourses();
-    renderCommunityFeed();
-    renderPublicTasks();
-    renderHistory();
     startRealtimeSync();
+    loadChatInbox();
     showToast(`Welcome, ${currentUser}!`);
   }
 
@@ -829,23 +947,57 @@
     localStorage.removeItem('sd_contact');
     try { await signOut(auth); } catch (e) {}
 
-    document.getElementById('in-name').value = '';
-    document.getElementById('in-email').value = '';
-    document.getElementById('in-phone').value = '';
-    document.getElementById('in-pass').value = '';
-
     document.getElementById('main-app').style.display = 'none';
     document.getElementById('auth-screen').style.display = 'flex';
     showToast("Account logout ho gaya");
   }
 
-  // Auto-restore session ONLY if user previously logged in properly
   window.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('sd_logged_in') === 'true' && localStorage.getItem('sd_user')) {
-      completeLogin(localStorage.getItem('sd_user'), localStorage.getItem('sd_contact') || 'Verified Member');
+      completeLogin(localStorage.getItem('sd_user'), localStorage.getItem('sd_contact'));
     }
   });
 
+  // REAL-TIME TASKS & COMMUNITY (0 FAKE DATA)
+  function startRealtimeSync() {
+    const qTasks = query(collection(db, "tasks"), orderBy("createdAt", "desc"));
+    onSnapshot(qTasks, (snapshot) => {
+      liveTasksList = [];
+      snapshot.forEach(docSnap => liveTasksList.push({ id: docSnap.id, ...docSnap.data() }));
+      renderPublicTasks();
+      renderMyActiveWork();
+      renderAdminLists();
+    });
+
+    const qComm = query(collection(db, "community"), orderBy("createdAt", "desc"));
+    onSnapshot(qComm, (snapshot) => {
+      const feed = document.getElementById('community-feed');
+      feed.innerHTML = '';
+      if (snapshot.empty) {
+        feed.innerHTML = `<div class="empty-state">👥 Aje koi post nahi aa.<br>Pehla message post karke community shuru karo!</div>`;
+        return;
+      }
+      snapshot.forEach(docSnap => {
+        const p = docSnap.data();
+        const pid = docSnap.id;
+        feed.innerHTML += `
+          <div class="comm-card">
+            <div class="comm-user-row">
+              <div><strong style="font-size:13px;">${p.author}</strong></div>
+              <span class="comm-badge">Student Member</span>
+            </div>
+            <p style="font-size:13px; line-height:1.45; color:var(--text-main);">${p.text}</p>
+            <div class="comm-actions">
+              <button class="btn-mini touchable" style="background:var(--bg-elevated); color:var(--pink);" onclick="toggleLike('${pid}')">❤️ ${p.likes || 0}</button>
+              <button class="btn-mini touchable" style="background:var(--bg-elevated); color:var(--sky);" onclick="startChat('${p.author}', '${p.authorId || 'member'}', 'Community')">💬 Message</button>
+            </div>
+          </div>
+        `;
+      });
+    });
+  }
+
+  // NAVIGATION
   function goPage(pageId, navIndex) {
     document.querySelectorAll('.view-page').forEach(p => p.classList.remove('active'));
     const targetPage = document.getElementById('page-' + pageId);
@@ -862,143 +1014,20 @@
   }
 
   function switchAccountSub(subName) {
-    ['profile', 'payout', 'history'].forEach(s => {
+    ['profile', 'payout', 'refer', 'admin'].forEach(s => {
       document.getElementById('acc-' + s).style.display = (s === subName) ? 'block' : 'none';
       document.getElementById('sub-btn-' + s).classList.toggle('active', s === subName);
     });
   }
 
-  function renderSkillsDirectory() {
-    const box = document.getElementById('skills-directory-list');
-    box.innerHTML = '';
-    skillsList.forEach(s => {
-      box.innerHTML += `
-        <div class="feature-card">
-          <div class="feature-top">
-            <span class="demand-pill">${s.demand}</span>
-            <strong style="color:var(--lime); font-size:13px;">${s.rate}</strong>
-          </div>
-          <h3>${s.name}</h3>
-          <p>${s.desc}</p>
-          <div style="display:flex; gap:8px;">
-            <button class="btn-mini touchable" style="background:var(--bg-elevated); color:#fff; border:1px solid var(--border); flex:1;" onclick="goPage('tasks', 1)">View Tasks</button>
-            <button class="btn-mini touchable" style="background:var(--emerald); color:#042f2e; flex:1;" onclick="goPage('drop', 2)">Drop Skill</button>
-          </div>
-        </div>
-      `;
-    });
+  function copyInviteLink() {
+    const shareUrl = `${window.location.origin}${window.location.pathname}?ref=${myReferralCode}`;
+    const msg = `SkillDrop te free join karo te Reels/Thumbnails bana ke UPI te kamao! Mera Referral Code: ${myReferralCode} | Link: ${shareUrl}`;
+    navigator.clipboard.writeText(msg);
+    showToast("📋 Invite link & code copy ho gaya!");
   }
 
-  function renderFreeCourses() {
-    const box = document.getElementById('free-courses-list');
-    box.innerHTML = '';
-    freeCourses.forEach(c => {
-      const btnText = c.enrolled ? "✓ Enrolled (Continue)" : "Start Free Course →";
-      const btnStyle = c.enrolled ? "background:var(--bg-elevated); color:var(--lime); border:1px solid var(--lime);" : "background:var(--emerald); color:#042f2e;";
-      box.innerHTML += `
-        <div class="feature-card">
-          <div class="feature-top">
-            <span class="free-pill">100% FREE</span>
-            <span style="font-size:11px; color:var(--text-muted);">${c.duration}</span>
-          </div>
-          <h3>${c.title}</h3>
-          <p>${c.desc}</p>
-          <button class="btn-mini touchable" style="${btnStyle} width:100%; padding:10px;" onclick="enrollCourse(${c.id})">${btnText}</button>
-        </div>
-      `;
-    });
-  }
-
-  function enrollCourse(id) {
-    const course = freeCourses.find(c => c.id === id);
-    if (!course) return;
-    if (!course.enrolled) {
-      course.enrolled = true;
-      coursesJoined++;
-      document.getElementById('stat-courses').innerText = coursesJoined;
-      historyList.unshift({ title: `Enrolled: ${course.title}`, date: "Just Now", amount: "FREE", color: "var(--lime)" });
-      renderFreeCourses();
-      renderHistory();
-      showToast("🎓 Course shuru ho gaya aa!");
-    } else {
-      showToast("📚 Lesson 1 chal reha aa...");
-    }
-  }
-
-  function renderCommunityFeed() {
-    const feed = document.getElementById('community-feed');
-    feed.innerHTML = '';
-    communityPosts.forEach(p => {
-      feed.innerHTML += `
-        <div class="comm-card">
-          <div class="comm-user-row">
-            <div><strong style="font-size:13px;">${p.author}</strong></div>
-            <span class="comm-badge">${p.badge || 'Member'}</span>
-          </div>
-          <p style="font-size:13px; line-height:1.45; color:var(--text-main);">${p.text}</p>
-          <div class="comm-actions">
-            <button class="btn-mini touchable" style="background:var(--bg-elevated); color:var(--pink);" onclick="toggleLike('${p.id}')">❤️ ${p.likes || 0}</button>
-            <button class="btn-mini touchable" style="background:var(--bg-elevated); color:var(--sky);" onclick="startChat('${p.author}', 'Community Chat')">💬 Message</button>
-          </div>
-        </div>
-      `;
-    });
-  }
-
-  async function addCommunityPost() {
-    const input = document.getElementById('comm-input');
-    const txt = input.value.trim();
-    if (!txt) return showToast("⚠️ Pehla kujh likho!");
-    input.value = '';
-
-    try {
-      await addDoc(collection(db, "community"), {
-        author: currentUser,
-        badge: "Student Creator",
-        text: txt,
-        likes: 1,
-        createdAt: serverTimestamp()
-      });
-      showToast("🚀 Post live ho gayi aa!");
-    } catch (e) {
-      showToast("⚠️ Database error: " + e.message);
-    }
-  }
-
-  async function toggleLike(id) {
-    if (!id.startsWith("demo")) {
-      const postRef = doc(db, "community", id);
-      await updateDoc(postRef, { likes: increment(1) });
-    } else {
-      const post = communityPosts.find(p => p.id === id);
-      if (post) { post.likes = (post.likes || 0) + 1; renderCommunityFeed(); }
-    }
-  }
-
-  function updateProfileBio() {
-    const newBio = document.getElementById('edit-bio-input').value.trim();
-    if (!newBio) return showToast("⚠️ Bio khali nahi rakh sakde");
-    document.getElementById('prof-skill-tag').innerText = newBio;
-    showToast("✓ Profile bio update ho gaya!");
-  }
-
-  function renderHomeMyWork() {
-    const box = document.getElementById('my-own-list');
-    box.innerHTML = '';
-    document.getElementById('stat-drops').innerText = myOwnItems.length;
-    myOwnItems.forEach(item => {
-      box.innerHTML += `
-        <div class="hist-row">
-          <div>
-            <div style="font-size:13px; font-weight:700;">${item.title}</div>
-            <div style="font-size:11px; color:var(--emerald); margin-top:2px;">${item.status}</div>
-          </div>
-          <span style="background:rgba(163,230,53,0.14); color:var(--lime); padding:4px 10px; border-radius:8px; font-size:11px; font-weight:700;">${item.tag}</span>
-        </div>
-      `;
-    });
-  }
-
+  // TASKS RENDERING, LOCKING & WORK SUBMISSION
   function setTaskFilter(filterVal, el) {
     currentFilter = filterVal;
     document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
@@ -1011,23 +1040,58 @@
     const container = document.getElementById('public-tasks-list');
     container.innerHTML = '';
 
-    const filtered = allTasks.filter(t => {
+    const filtered = liveTasksList.filter(t => {
       const matchFilter = currentFilter === 'All' || t.type === currentFilter || t.cat === currentFilter;
       const matchSearch = (t.title || '').toLowerCase().includes(queryTxt) || (t.cat || '').toLowerCase().includes(queryTxt);
       return matchFilter && matchSearch;
     });
 
+    if (filtered.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state">
+          <div style="font-size:28px; margin-bottom:8px;">💼</div>
+          <strong>Aje koi live task nahi aa</strong>
+          <p style="font-size:12px; margin-top:4px; margin-bottom:12px;">Thalle '+' Drop button dabba ke apna pehla task ya sample video pao!</p>
+          <button class="btn-mini touchable" style="background:var(--emerald); color:#042f2e;" onclick="goPage('drop', 2)">+ Drop First Task</button>
+        </div>
+      `;
+      return;
+    }
+
     filtered.forEach(t => {
-      const vidBtn = t.videoLink ? `<a href="${t.videoLink}" target="_blank" class="video-link-btn">▶️ Watch Sample / Raw Video</a>` : '';
-      const badgeLabel = t.type === 'Bounty' ? '⚡ Urgent Bounty' : '🎬 Video Drop';
-      const actionLabel = t.type === 'Bounty' ? 'Accept Task' : 'Hire Now';
+      const vidBtn = t.videoLink ? `<a href="${t.videoLink}" target="_blank" class="video-link-btn">▶️ View Sample / Raw Link</a>` : '';
+      const status = t.status || 'open';
+      let statusBadge = `<span class="badge-status st-open">● Open</span>`;
+      let actionBtn = '';
+
+      if (t.type === 'SkillDrop') {
+        statusBadge = `<span class="badge-status st-open">🎬 Student Sample</span>`;
+        actionBtn = `<button class="btn-mini touchable" style="background:var(--emerald); color:#042f2e;" onclick="startChat('${t.owner}', '${t.ownerId}', '${t.title}')">Hire / Chat</button>`;
+      } else {
+        if (status === 'open') {
+          if (t.ownerId === currentUserId) {
+            actionBtn = `<span style="font-size:11px; color:var(--text-muted);">Your Post</span>`;
+          } else {
+            actionBtn = `<button class="btn-mini touchable" style="background:var(--emerald); color:#042f2e;" onclick="acceptLiveTask('${t.id}')">Accept Task</button>`;
+          }
+        } else if (status === 'in_progress') {
+          statusBadge = `<span class="badge-status st-taken">🔒 Taken by ${t.worker}</span>`;
+          actionBtn = `<span style="font-size:11px; color:var(--amber); font-weight:700;">In Progress</span>`;
+        } else if (status === 'submitted') {
+          statusBadge = `<span class="badge-status st-taken">⏳ Under Review</span>`;
+          actionBtn = `<span style="font-size:11px; color:var(--sky); font-weight:700;">Submitted</span>`;
+        } else if (status === 'completed') {
+          statusBadge = `<span class="badge-status st-done">✓ Completed</span>`;
+          actionBtn = `<span style="font-size:11px; color:var(--lime); font-weight:700;">Paid ✓</span>`;
+        }
+      }
 
       container.innerHTML += `
         <div class="task-card">
           <div class="task-meta">
             <div>
               <span class="badge-cat">${t.cat}</span>
-              <span class="badge-urgent">${badgeLabel}</span>
+              ${statusBadge}
             </div>
             <span class="price-tag">₹${t.price}</span>
           </div>
@@ -1036,14 +1100,89 @@
           ${vidBtn}
           <div class="task-bottom">
             <span style="font-size:12px; color:var(--text-muted); font-weight:600;">👤 ${t.owner}</span>
-            <div style="display:flex; gap:8px;">
-              <button class="btn-mini touchable" style="background:var(--bg-elevated); color:#fff; border:1px solid var(--border);" onclick="startChat('${t.owner}', '${t.title}')">💬 Chat</button>
-              <button class="btn-mini touchable" style="background:var(--emerald); color:#042f2e;" onclick="claimTask('${t.title}', ${t.price})">${actionLabel}</button>
+            <div style="display:flex; gap:8px; align-items:center;">
+              <button class="btn-mini touchable" style="background:var(--bg-elevated); color:#fff; border:1px solid var(--border);" onclick="startChat('${t.owner}', '${t.ownerId}', '${t.title}')">💬 Chat</button>
+              ${actionBtn}
             </div>
           </div>
         </div>
       `;
     });
+  }
+
+  async function acceptLiveTask(taskId) {
+    try {
+      await updateDoc(doc(db, "tasks", taskId), {
+        status: "in_progress",
+        worker: currentUser,
+        workerId: currentUserId
+      });
+      showToast("✅ Task lock ho gaya! Hun Home te ja ke work link submit karo.");
+      goPage('home', 0);
+    } catch (e) {
+      showToast("⚠️ Error: " + e.message);
+    }
+  }
+
+  function renderMyActiveWork() {
+    const box = document.getElementById('my-active-work-list');
+    const myWork = liveTasksList.filter(t => t.workerId === currentUserId || t.ownerId === currentUserId);
+
+    if (myWork.length === 0) {
+      box.innerHTML = `<div class="empty-state" style="padding:20px;">Aje tuhada koi active task nahi aa. <strong>Live Tasks</strong> vichon kamm chuno!</div>`;
+      return;
+    }
+
+    box.innerHTML = '';
+    myWork.forEach(t => {
+      const isWorker = t.workerId === currentUserId && t.type === 'Bounty';
+      let extraUI = '';
+
+      if (isWorker && t.status === 'in_progress') {
+        extraUI = `
+          <div class="submit-work-box">
+            <label style="font-size:11px; color:var(--lime); display:block; margin-bottom:6px;">Apna Completed Video / Google Drive Link Submit Karo:</label>
+            <div style="display:flex; gap:6px;">
+              <input type="url" id="sub-link-${t.id}" placeholder="https://drive.google.com/..." style="flex:1; padding:8px; border-radius:8px; border:1px solid var(--border); background:var(--bg-card); color:#fff; font-size:12px;">
+              <button class="btn-mini touchable" style="background:var(--emerald); color:#042f2e;" onclick="submitCompletedWork('${t.id}')">Submit</button>
+            </div>
+          </div>
+        `;
+      } else if (t.status === 'submitted') {
+        extraUI = `<div style="font-size:11px; color:var(--sky); margin-top:6px;">⏳ Work submitted! Admin verification ton baad balance wallet vich jud jauga.</div>`;
+      } else if (t.status === 'completed') {
+        extraUI = `<div style="font-size:11px; color:var(--lime); margin-top:6px;">✓ Approved! Earning wallet vich add ho gayi aa.</div>`;
+      }
+
+      box.innerHTML += `
+        <div class="feature-card" style="padding:14px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <strong style="font-size:14px;">${t.title}</strong>
+            <span style="color:var(--lime); font-weight:800; font-size:14px;">₹${t.price}</span>
+          </div>
+          <div style="font-size:11px; color:var(--text-muted); margin-top:3px;">
+            Role: ${isWorker ? 'Worker' : 'Posted by You'} • Status: <strong style="color:var(--emerald);">${(t.status || 'open').toUpperCase()}</strong>
+          </div>
+          ${extraUI}
+        </div>
+      `;
+    });
+  }
+
+  async function submitCompletedWork(taskId) {
+    const input = document.getElementById('sub-link-' + taskId);
+    const link = input.value.trim();
+    if (!link) return showToast("⚠️ Pehla apna Drive ya Video link paste karo!");
+
+    try {
+      await updateDoc(doc(db, "tasks", taskId), {
+        status: "submitted",
+        submissionLink: link
+      });
+      showToast("🚀 Work submit ho gaya! Approval ton baad wallet update hovega.");
+    } catch (e) {
+      showToast("⚠️ Error: " + e.message);
+    }
   }
 
   async function submitDrop() {
@@ -1061,21 +1200,18 @@
         type, cat, title,
         price: Number(price),
         owner: currentUser,
+        ownerId: currentUserId,
+        status: "open",
         desc: desc || "Direct in-app chat te gal karo.",
         videoLink: videoLink,
         createdAt: serverTimestamp()
       });
-
-      myOwnItems.unshift({ title, status: type === 'Bounty' ? 'Posted Live' : 'Your Skill Drop', tag: `₹${price}` });
-      historyList.unshift({ title: `Created: ${title}`, date: "Just Now", amount: `₹${price}`, color: "var(--sky)" });
 
       document.getElementById('drop-title').value = '';
       document.getElementById('drop-price').value = '';
       document.getElementById('drop-desc').value = '';
       document.getElementById('drop-video-link').value = '';
 
-      renderHomeMyWork();
-      renderHistory();
       goPage('tasks', 1);
       showToast("🚀 Live ho gaya! Hun saare users nu dikhega.");
     } catch (e) {
@@ -1083,29 +1219,65 @@
     }
   }
 
-  function claimTask(title, price) {
-    myOwnItems.unshift({ title, status: "In Progress", tag: `₹${price}` });
-    historyList.unshift({ title: `Accepted: ${title}`, date: "Just Now", amount: `₹${price}`, color: "var(--amber)" });
-    renderHomeMyWork();
-    renderHistory();
-    showToast("✅ Task add ho gaya! Hun Chat vich gal karo.");
+  // COMMUNITY
+  async function addCommunityPost() {
+    const input = document.getElementById('comm-input');
+    const txt = input.value.trim();
+    if (!txt) return showToast("⚠️ Pehla kujh likho!");
+    input.value = '';
+
+    try {
+      await addDoc(collection(db, "community"), {
+        author: currentUser,
+        authorId: currentUserId,
+        text: txt,
+        likes: 1,
+        createdAt: serverTimestamp()
+      });
+      showToast("🚀 Post live ho gayi aa!");
+    } catch (e) {
+      showToast("⚠️ Error: " + e.message);
+    }
   }
 
-  function startChat(person, topic) {
-    activeChatPartner = person;
-    document.getElementById('chat-with-name').innerText = person;
+  async function toggleLike(id) {
+    await updateDoc(doc(db, "community", id), { likes: increment(1) });
+  }
+
+  // LIVE PRIVATE CHAT + INBOX
+  function loadChatInbox() {
+    if (!currentUserId) return;
+    const qRooms = query(collection(db, "chatRooms"), where("participants", "array-contains", currentUserId));
+    onSnapshot(qRooms, (snap) => {
+      const strip = document.getElementById('chat-inbox-list');
+      strip.innerHTML = `<div class="inbox-pill ${activeChatPartnerId === 'skilldrop_support' ? 'active' : ''}" onclick="startChat('SkillDrop Support', 'skilldrop_support', 'Support')">SkillDrop Support</div>`;
+      snap.forEach(d => {
+        const r = d.data();
+        const otherId = r.participants.find(p => p !== currentUserId);
+        const otherName = (r.names && r.names[otherId]) ? r.names[otherId] : otherId;
+        if (otherId && otherId !== 'skilldrop_support') {
+          strip.innerHTML += `<div class="inbox-pill ${activeChatPartnerId === otherId ? 'active' : ''}" onclick="startChat('${otherName}', '${otherId}', 'Chat')">💬 ${otherName}</div>`;
+        }
+      });
+    });
+  }
+
+  function startChat(personName, personId, topic) {
+    activeChatPartner = personName;
+    activeChatPartnerId = personId || personName.toLowerCase().replace(/[^a-z0-9]/g, '_');
+    document.getElementById('chat-with-name').innerText = personName;
     const feed = document.getElementById('chat-feed');
-    feed.innerHTML = `<div class="bubble them">Hello! Tusi "${topic}" baare gal karna chahunde ho?</div>`;
+    feed.innerHTML = `<div class="bubble them">🔒 Private room with ${personName} (${topic})</div>`;
     goPage('chat', 3);
 
     if (unsubscribeChat) unsubscribeChat();
-    const roomId = [currentUser.toLowerCase(), person.toLowerCase()].sort().join('_');
+    const roomId = [currentUserId, activeChatPartnerId].sort().join('_');
     const qChat = query(collection(db, "chats", roomId, "messages"), orderBy("createdAt", "asc"));
     unsubscribeChat = onSnapshot(qChat, (snap) => {
-      feed.innerHTML = `<div class="bubble them">🔒 Private room with ${person}</div>`;
+      feed.innerHTML = `<div class="bubble them">🔒 Private room with ${personName}</div>`;
       snap.forEach(d => {
         const m = d.data();
-        const cls = m.sender === currentUser ? "me" : "them";
+        const cls = m.senderId === currentUserId ? "me" : "them";
         feed.innerHTML += `<div class="bubble ${cls}">${m.text}</div>`;
       });
       feed.scrollTop = feed.scrollHeight;
@@ -1118,14 +1290,28 @@
     if (!txt) return;
     box.value = '';
 
+    const roomId = [currentUserId, activeChatPartnerId].sort().join('_');
     try {
-      const roomId = [currentUser.toLowerCase(), activeChatPartner.toLowerCase()].sort().join('_');
       await addDoc(collection(db, "chats", roomId, "messages"), {
         sender: currentUser,
+        senderId: currentUserId,
         text: txt,
         createdAt: serverTimestamp()
       });
+      await setDoc(doc(db, "chatRooms", roomId), {
+        participants: [currentUserId, activeChatPartnerId],
+        names: { [currentUserId]: currentUser, [activeChatPartnerId]: activeChatPartner },
+        updatedAt: serverTimestamp()
+      }, { merge: true });
     } catch (e) {}
+  }
+
+  // PROFILE & WITHDRAWAL (MIN ₹150)
+  async function updateProfileBio() {
+    const newBio = document.getElementById('edit-bio-input').value.trim();
+    if (!newBio) return showToast("⚠️ Bio khali nahi rakh sakde");
+    await updateDoc(doc(db, "users", currentUserId), { bio: newBio });
+    showToast("✓ Profile bio update ho gaya!");
   }
 
   async function doWithdraw() {
@@ -1133,41 +1319,171 @@
     const id = document.getElementById('pay-id').value.trim();
     const method = document.getElementById('pay-method').value;
 
-    if (!amt || amt < 100) return showToast("⚠️ Minimum ₹100 withdraw ho sakda aa.");
-    if (amt > balance) return showToast("⚠️ Balance ghat aa!");
+    if (!amt || amt < 150) return showToast("⚠️ Minimum ₹150 withdraw ho sakda aa.");
+    if (amt > balance) return showToast("⚠️ Wallet balance ghat aa!");
     if (!id) return showToast("⚠️ Apni UPI ID ya Bank details bharo.");
 
-    balance -= amt;
-    document.getElementById('acc-balance').innerText = balance;
-
     try {
+      await updateDoc(doc(db, "users", currentUserId), { balance: increment(-amt) });
       await addDoc(collection(db, "payouts"), {
         user: currentUser,
+        userId: currentUserId,
         amount: amt,
         method: method,
         payoutId: id,
         status: "Pending",
         createdAt: serverTimestamp()
       });
-    } catch (e) {}
-
-    historyList.unshift({ title: `Payout to ${id}`, date: "Just Now", amount: `-₹${amt}`, color: "var(--amber)" });
-    document.getElementById('pay-amt').value = '';
-    renderHistory();
-    showToast(`💸 ₹${amt} di payout request save ho gayi!`);
+      document.getElementById('pay-amt').value = '';
+      showToast(`💸 ₹${amt} di UPI payout request bhej ditti gayi!`);
+    } catch (e) {
+      showToast("⚠️ Error: " + e.message);
+    }
   }
 
-  function renderHistory() {
-    const feed = document.getElementById('history-feed');
-    feed.innerHTML = '';
-    historyList.forEach(h => {
-      feed.innerHTML += `
+  // SECRET ADMIN PANEL (PIN: 2026)
+  function openAdminGate() {
+    const pin = prompt("Owner Admin PIN bharo:");
+    if (pin === "2026") {
+      switchAccountSub('admin');
+      loadAdminPayouts();
+      renderAdminLists();
+      showToast("🛡️ Owner Admin Panel Unlocked!");
+    } else if (pin !== null) {
+      showToast("⚠️ Galat Admin PIN!");
+    }
+  }
+
+  function renderAdminLists() {
+    const subBox = document.getElementById('admin-submissions-list');
+    const tBox = document.getElementById('admin-tasks-list');
+    if (!subBox || !tBox) return;
+
+    // 1. Submitted Work Approvals
+    const submittedTasks = liveTasksList.filter(t => t.status === 'submitted');
+    subBox.innerHTML = submittedTasks.length === 0 ? '<div style="font-size:12px; color:var(--text-muted);">Koi pending work approval nahi aa.</div>' : '';
+    submittedTasks.forEach(t => {
+      const workerPay = Math.round(t.price * 0.90); // 10% Platform Commission
+      subBox.innerHTML += `
+        <div class="hist-row" style="flex-direction:column; align-items:flex-start;">
+          <div style="font-size:13px; font-weight:700;">${t.title} (₹${t.price})</div>
+          <div style="font-size:11px; color:var(--sky);">Worker: ${t.worker} • Payout (90%): ₹${workerPay}</div>
+          <a href="${t.submissionLink}" target="_blank" style="font-size:11px; color:var(--lime); margin:4px 0;">🔗 Open Submitted Work Link</a>
+          <button class="btn-mini touchable" style="background:var(--emerald); color:#042f2e; width:100%;" onclick="approveAndPayWorker('${t.id}', '${t.workerId}', ${workerPay})">
+            ✓ Approve & Add ₹${workerPay} to Wallet
+          </button>
+        </div>
+      `;
+    });
+
+    // 2. All Live Tasks Moderation
+    tBox.innerHTML = liveTasksList.length === 0 ? '<div style="font-size:12px; color:var(--text-muted);">Koi task nahi aa.</div>' : '';
+    liveTasksList.forEach(t => {
+      tBox.innerHTML += `
         <div class="hist-row">
           <div>
-            <div style="font-size:13px; font-weight:700;">${h.title}</div>
-            <div style="font-size:11px; color:var(--text-muted);">${h.date}</div>
+            <div style="font-size:12px; font-weight:700;">${t.title}</div>
+            <div style="font-size:10px; color:var(--text-muted);">By ${t.owner} • ₹${t.price} (${t.status})</div>
           </div>
-          <strong style="color:${h.color}; font-size:14px;">${h.amount}</strong>
+          <button class="btn-mini touchable" style="background:var(--danger); color:#fff;" onclick="deleteLiveTask('${t.id}')">Delete</button>
+        </div>
+      `;
+    });
+  }
+
+  async function approveAndPayWorker(taskId, workerId, amountToPay) {
+    try {
+      await updateDoc(doc(db, "tasks", taskId), { status: "completed" });
+      const workerRef = doc(db, "users", workerId);
+      await updateDoc(workerRef, { balance: increment(amountToPay) });
+
+      // Check & Pay ₹25 Referral Bonus on First Completed Task
+      const wSnap = await getDoc(workerRef);
+      if (wSnap.exists()) {
+        const wData = wSnap.data();
+        if (wData.referredBy && !wData.referralRewardPaid) {
+          const qRef = query(collection(db, "users"), where("referralCode", "==", wData.referredBy));
+          const refSnap = await getDocs(qRef);
+          if (!refSnap.empty) {
+            const referrerDoc = refSnap.docs[0];
+            await updateDoc(doc(db, "users", referrerDoc.id), { balance: increment(25) });
+            await updateDoc(workerRef, { balance: increment(25), referralRewardPaid: true });
+            showToast("🎉 Work Approved + ₹25 Referral Bonus dono nu mil gaya!");
+            return;
+          }
+        }
+      }
+      showToast(`✓ Approved! ₹${amountToPay} worker de wallet vich add ho gaye.`);
+    } catch (e) {
+      showToast("⚠️ Error: " + e.message);
+    }
+  }
+
+  function loadAdminPayouts() {
+    const box = document.getElementById('admin-payouts-list');
+    const qPay = query(collection(db, "payouts"), orderBy("createdAt", "desc"));
+    onSnapshot(qPay, (snap) => {
+      box.innerHTML = snap.empty ? '<div style="font-size:12px; color:var(--text-muted);">Koi payout request nahi aayi.</div>' : '';
+      snap.forEach(d => {
+        const p = d.data();
+        const isPaid = p.status === "Paid";
+        box.innerHTML += `
+          <div class="hist-row">
+            <div>
+              <div style="font-size:13px; font-weight:700;">${p.user} • ₹${p.amount}</div>
+              <div style="font-size:11px; color:var(--sky);">${p.method}: ${p.payoutId}</div>
+            </div>
+            <button class="btn-mini touchable" style="background:${isPaid ? 'var(--bg-elevated)' : 'var(--emerald)'}; color:${isPaid ? 'var(--lime)' : '#042f2e'};" onclick="markPayoutPaid('${d.id}')">
+              ${isPaid ? '✓ Paid' : 'Mark Paid'}
+            </button>
+          </div>
+        `;
+      });
+    });
+  }
+
+  async function markPayoutPaid(docId) {
+    await updateDoc(doc(db, "payouts", docId), { status: "Paid" });
+    showToast("✓ Payout Marked as Paid!");
+  }
+
+  async function deleteLiveTask(id) {
+    await deleteDoc(doc(db, "tasks", id));
+    showToast("🗑️ Task delete ho gaya!");
+  }
+
+  function renderSkillsDirectory() {
+    const box = document.getElementById('skills-directory-list');
+    box.innerHTML = '';
+    skillsList.forEach(s => {
+      box.innerHTML += `
+        <div class="feature-card">
+          <div class="feature-top">
+            <span class="demand-pill">${s.demand}</span>
+            <strong style="color:var(--lime); font-size:13px;">${s.rate}</strong>
+          </div>
+          <h3>${s.name}</h3>
+          <p>${s.desc}</p>
+        </div>
+      `;
+    });
+  }
+
+  function renderFreeCourses() {
+    const box = document.getElementById('free-courses-list');
+    box.innerHTML = '';
+    freeCourses.forEach(c => {
+      box.innerHTML += `
+        <div class="feature-card">
+          <div class="feature-top">
+            <span class="free-pill">100% FREE</span>
+            <span style="font-size:11px; color:var(--text-muted);">${c.duration}</span>
+          </div>
+          <h3>${c.title}</h3>
+          <p>${c.desc}</p>
+          <a href="${c.url}" target="_blank" class="btn-mini touchable" style="display:block; text-align:center; text-decoration:none; background:var(--emerald); color:#042f2e; width:100%; padding:10px;">
+            ▶️ Watch Free Tutorial on YouTube
+          </a>
         </div>
       `;
     });
@@ -1180,17 +1496,22 @@
   window.goPage = goPage;
   window.openAccountSub = openAccountSub;
   window.switchAccountSub = switchAccountSub;
-  window.enrollCourse = enrollCourse;
-  window.addCommunityPost = addCommunityPost;
-  window.toggleLike = toggleLike;
-  window.updateProfileBio = updateProfileBio;
+  window.copyInviteLink = copyInviteLink;
   window.setTaskFilter = setTaskFilter;
   window.renderPublicTasks = renderPublicTasks;
+  window.acceptLiveTask = acceptLiveTask;
+  window.submitCompletedWork = submitCompletedWork;
   window.submitDrop = submitDrop;
-  window.claimTask = claimTask;
+  window.addCommunityPost = addCommunityPost;
+  window.toggleLike = toggleLike;
   window.startChat = startChat;
   window.pushChat = pushChat;
+  window.updateProfileBio = updateProfileBio;
   window.doWithdraw = doWithdraw;
+  window.openAdminGate = openAdminGate;
+  window.approveAndPayWorker = approveAndPayWorker;
+  window.markPayoutPaid = markPayoutPaid;
+  window.deleteLiveTask = deleteLiveTask;
 </script>
 
 </body>
