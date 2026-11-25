@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SkillDrop - Live Creator & Student Studio</title>
+  <style>
+    :root {
+      --bg-body: #040406;
+      --bg-app: #09090d;
+      --bg-card: #121219;
+      --bg-elevated: #1b1b26;
+      --emerald: #10b981;
+      --lime: #a3e635;
+      --amber: #f59e0b;
+      --sky: #38bdf8;
+      --purple: #c084fc;
+      --pink: #f472b6;
+      --danger: #ef4444;
+      --text-main: #f4f4f5;
+      --text-muted: #9ca3af;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    input, textarea, select { user-select: text; }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .app-shell {
+      width: 100%;
+      max-width: 480px;
+      background-color: var(--bg-app);
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    /* TOUCH & ANIMATIONS */
+    .touchable {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.14s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.2s ease;
+    }
+    .touchable:active { transform: scale(0.96); }
+
+    .ripple-wave {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      transform: scale(0);
+      animation: rippleAnim 0.55s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes rippleAnim { to { transform: scale(3.5); opacity: 0; } }
+    @keyframes pageSlideUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.94); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* TOAST */
+    #app-toast {
+      position: fixed;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 440px;
+      background: rgba(24, 24, 34, 0.96);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--emerald);
+      color: #fff;
+      padding: 13px 16px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      z-index: 100;
+      transition: top 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    #app-toast.show { top: 16px; }
+
+    /* AUTH SCREEN */
+    #auth-screen {
+      padding: 28px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+      background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.18), var(--bg-app) 55%);
+      animation: pageSlideUp 0.5s ease;
+    }
+
+    .open-hero { text-align: center; margin-bottom: 26px; }
+    .app-icon-box {
+      width: 62px; height: 62px; margin: 0 auto 14px auto;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--emerald), var(--lime));
+      color: #052e16; font-size: 28px; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 28px rgba(16, 185, 129, 0.35);
+    }
+    .open-hero h1 { font-size: 32px; font-weight: 900; letter-spacing: -0.6px; }
+    .open-hero h1 span { color: var(--emerald); }
+    .open-hero p { font-size: 13px; color: var(--text-muted); margin-top: 5px; }
+
+    .card-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .segment-tabs {
+      display: flex; background: var(--bg-elevated);
+      border-radius: 12px; padding: 4px; margin-bottom: 16px;
+    }
+    .segment-btn {
+      flex: 1; text-align: center; padding: 9px;
+      font-size: 13px; font-weight: 600; border-radius: 9px;
+      cursor: pointer; color: var(--text-muted); transition: 0.25s;
+    }
+    .segment-btn.active {
+      background: var(--emerald); color: #042f2e; font-weight: 700;
+    }
+
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+    .field input, .field select, .field textarea {
+      width: 100%; padding: 12px 14px;
+      background: var(--bg-elevated); border: 1px solid var(--border);
+      border-radius: 12px; color: var(--text-main); font-size: 14px; outline: none;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--emerald); }
+
+    .btn-emerald {
+      width: 100%; padding: 14px;
+      background: linear-gradient(135deg, var(--emerald), var(--lime));
+      color: #052e16; border: none; border-radius: 13px;
+      font-weight: 800; font-size: 15px; cursor: pointer;
+    }
+
+    .or-line { text-align: center; font-size: 11px; color: var(--text-muted); margin: 16px 0; }
+    .quick-auth-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .btn-ghost {
+      padding: 12px; background: var(--bg-elevated); border: 1px solid var(--border);
+      border-radius: 12px; color: var(--text-main); font-size: 13px; font-weight: 600;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 7px;
+    }
+
+    /* MAIN APP */
+    #main-app { display: none; flex-direction: column; height: 100vh; }
+
+    .top-bar {
+      padding: 15px 18px;
+      background: rgba(9, 9, 13, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 15;
+    }
+
+    .live-dot {
+      display: inline-block; width: 7px; height: 7px;
+      border-radius: 50%; background: var(--emerald); margin-right: 5px;
+      box-shadow: 0 0 8px var(--emerald);
+    }
+    .user-greet small { font-size: 11px; color: var(--emerald); font-weight: 700; text-transform: uppercase; }
+    .user-greet h2 { font-size: 20px; font-weight: 800; margin-top: 1px; }
+    .user-greet h2 span { color: var(--lime); }
+
+    .avatar-pill {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(163,230,53,0.2));
+      border: 1.5px solid var(--emerald); color: var(--lime);
+      font-weight: 800; font-size: 16px;
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+    }
+
+    .viewport { flex: 1; overflow-y: auto; padding: 16px 16px 95px 16px; }
+    .view-page { display: none; }
+    .view-page.active { display: block; animation: pageSlideUp 0.32s ease; }
+
+    .sub-page-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .back-btn {
+      background: var(--bg-elevated); border: 1px solid var(--border);
+      color: var(--text-main); padding: 7px 12px; border-radius: 10px;
+      font-size: 12px; font-weight: 700; cursor: pointer;
+    }
+
+    /* HOME STUDIO */
+    .studio-banner {
+      background: linear-gradient(135deg, #131b2e 0%, #0d1f1a 100%);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 20px; padding: 18px 20px; margin-bottom: 18px;
+    }
+    .studio-tag {
+      display: inline-block; background: rgba(163, 230, 53, 0.14);
+      color: var(--lime); font-size: 10px; font-weight: 700;
+      padding: 4px 10px; border-radius: 20px; margin-bottom: 7px;
+    }
+    .studio-banner h3 { font-size: 17px; font-weight: 800; margin-bottom: 5px; }
+    .studio-banner p { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+
+    .sec-heading {
+      font-size: 12px; font-weight: 700; color: var(--text-muted);
+      margin-bottom: 11px; text-transform: uppercase; letter-spacing: 0.7px;
+    }
+
+    .bento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-bottom: 20px; }
+    .bento-item {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 15px; cursor: pointer;
+    }
+    .bento-icon {
+      width: 38px; height: 38px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; margin-bottom: 10px;
+    }
+    .bento-item h4 { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+    .bento-item p { font-size: 11px; color: var(--text-muted); line-height: 1.35; }
+
+    .social-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+    .social-box {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 13px; padding: 11px 8px; text-align: center;
+      text-decoration: none; color: var(--text-main); font-size: 12px; font-weight: 600;
+    }
+
+    /* CARDS & LISTS */
+    .feature-card, .task-card, .comm-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 16px; margin-bottom: 12px;
+      animation: popIn 0.3s ease;
+    }
+    .feature-top, .task-meta, .comm-user-row {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
+    }
+    .demand-pill { font-size: 11px; font-weight: 700; padding: 4px 9px; border-radius: 7px; background: rgba(16,185,129,0.14); color: var(--emerald); }
+    .free-pill { font-size: 11px; font-weight: 800; padding: 4px 9px; border-radius: 7px; background: rgba(163,230,53,0.16); color: var(--lime); }
+    .badge-cat { background: rgba(56,189,248,0.14); color: var(--sky); padding: 4px 10px; border-radius: 7px; font-size: 11px; font-weight: 700; }
+    .badge-urgent { background: rgba(245,158,11,0.15); color: var(--amber); padding: 4px 9px; border-radius: 7px; font-size: 11px; font-weight: 700; margin-left: 5px; }
+    .comm-badge { font-size: 10px; background: rgba(192,132,252,0.15); color: var(--purple); padding: 3px 8px; border-radius: 6px; font-weight: 700; }
+    .price-tag { font-size: 17px; font-weight: 800; color: var(--lime); }
+
+    .feature-card h3, .task-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 5px; }
+    .feature-card p, .task-card p { font-size: 13px; color: var(--text-muted); line-height: 1.45; margin-bottom: 11px; }
+
+    .video-link-btn {
+      display: inline-block; background: rgba(56, 189, 248, 0.12);
+      color: var(--sky); border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 7px 12px; border-radius: 9px; font-size: 12px;
+      font-weight: 700; text-decoration: none; margin-bottom: 11px;
+    }
+
+    .task-bottom, .comm-actions {
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid var(--border); padding-top: 10px; margin-top: 6px;
+    }
+
+    .btn-mini {
+      padding: 8px 14px; border-radius: 10px; border: none;
+      font-size: 12px; font-weight: 700; cursor: pointer;
+    }
+
+    .comm-post-box {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 14px; margin-bottom: 16px;
+    }
+    .comm-post-box textarea {
+      width: 100%; background: var(--bg-elevated); border: 1px solid var(--border);
+      border-radius: 11px; padding: 10px 12px; color: #fff; font-size: 13px;
+      outline: none; margin-bottom: 10px; resize: none;
+    }
+
+    .search-bar {
+      width: 100%; padding: 13px 15px; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 14px;
+      color: var(--text-main); font-size: 14px; margin-bottom: 12px; outline: none;
+    }
+    .chip-row { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 12px; scrollbar-width: none; }
+    .chip {
+      padding: 7px 14px; background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; font-size: 12px; font-weight: 600;
+      color: var(--text-muted); white-space: nowrap; cursor: pointer;
+    }
+    .chip.active { background: var(--emerald); color: #042f2e; border-color: var(--emerald); font-weight: 700; }
+
+    /* CHAT */
+    .chat-wrap {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 18px; height: calc(100vh - 185px);
+      display: flex; flex-direction: column;
+    }
+    .chat-top { padding: 13px 15px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .chat-body { flex: 1; padding: 14px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+    .bubble { max-width: 80%; padding: 10px 14px; border-radius: 15px; font-size: 13px; line-height: 1.4; }
+    .bubble.them { background: var(--bg-elevated); align-self: flex-start; border-bottom-left-radius: 4px; }
+    .bubble.me { background: linear-gradient(135deg, var(--emerald), #059669); color: #022c22; font-weight: 600; align-self: flex-end; border-bottom-right-radius: 4px; }
+    .chat-foot { padding: 10px; border-top: 1px solid var(--border); display: flex; gap: 8px; }
+    .chat-foot input { flex: 1; padding: 11px 13px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; color: #fff; outline: none; }
+
+    /* ACCOUNT */
+    .wallet-box {
+      background: linear-gradient(135deg, #064e3b, #111827);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 18px; padding: 20px; margin-bottom: 16px; text-align: center;
+    }
+    .wallet-box h1 { font-size: 34px; color: var(--lime); margin: 4px 0; }
+    .stats-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 16px 0; }
+    .stat-pill { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 10px 6px; text-align: center; }
+    .stat-pill strong { display: block; font-size: 16px; color: var(--lime); }
+    .stat-pill span { font-size: 10px; color: var(--text-muted); }
+
+    .hist-row {
+      background: var(--bg-card); border: 1px solid var(--border);
+      padding: 13px 14px; border-radius: 14px; margin-bottom: 10px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    /* BOTTOM NAV */
+    .nav-bar {
+      position: fixed; bottom: 0; width: 100%; max-width: 480px;
+      background: rgba(14, 14, 20, 0.94); backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-around; padding: 8px 0 12px 0; z-index: 20;
+    }
+    .nav-btn {
+      display: flex; flex-direction: column; align-items: center;
+      font-size: 11px; color: var(--text-muted); cursor: pointer; gap: 4px;
+      padding: 4px 10px; border-radius: 12px; transition: 0.2s;
+    }
+    .nav-btn.active { color: var(--emerald); font-weight: 700; transform: translateY(-2px); }
+    .nav-btn span.ico { font-size: 19px; }
+    .nav-drop-btn {
+      background: linear-gradient(135deg, var(--emerald), var(--lime));
+      color: #052e16 !important; font-weight: 800;
+      padding: 8px 15px; border-radius: 15px; margin-top: -16px;
+      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35);
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-shell">
+  <div id="app-toast">✨ <span id="toast-msg">Welcome to SkillDrop!</span></div>
+
+  <!-- 1. LOGIN SCREEN -->
+  <div id="auth-screen">
+    <div class="open-hero">
+      <div class="app-icon-box">SD</div>
+      <h1>Skill<span>Drop</span></h1>
+      <p>Learn Skills • Drop Videos • Ghar Baithe Kamao</p>
+    </div>
+
+    <div class="card-box">
+      <div class="segment-tabs">
+        <div class="segment-btn touchable active" onclick="setAuthTab('email', this)">Email Login</div>
+        <div class="segment-btn touchable" onclick="setAuthTab('phone', this)">Mobile Number</div>
+      </div>
+
+      <div class="field">
+        <label>Tuhada Naam (Home te eh naam dikhega)</label>
+        <input type="text" id="in-name" placeholder="Jiven: Harry" value="Harry">
+      </div>
+
+      <div class="field" id="box-email">
+        <label>Gmail / Email Address</label>
+        <input type="email" id="in-email" placeholder="harry@gmail.com">
+      </div>
+
+      <div class="field" id="box-phone" style="display:none;">
+        <label>Mobile Number (100% Private Rahega)</label>
+        <input type="tel" id="in-phone" placeholder="98765 XXXXX">
+      </div>
+
+      <div class="field">
+        <label>Password / OTP</label>
+        <input type="password" id="in-pass" placeholder="••••••••">
+      </div>
+
+      <button class="btn-emerald touchable" onclick="enterApp('Account')">Open SkillDrop →</button>
+
+      <div class="or-line">YA DIRECT LOGIN KARO</div>
+
+      <div class="quick-auth-row">
+        <button class="btn-ghost touchable" onclick="enterApp('Google')">🔵 Google</button>
+        <button class="btn-ghost touchable" onclick="enterApp('Telegram')">✈️ Telegram</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. MAIN APP -->
+  <div id="main-app">
+    <div class="top-bar">
+      <div class="user-greet">
+        <small><span class="live-dot"></span><span id="db-status-text">Live Cloud Connected</span></small>
+        <h2>Welcome, <span id="user-title-name">Harry</span>! 👋</h2>
+      </div>
+      <div class="avatar-pill touchable" id="user-avatar" onclick="openAccountSub('profile')">H</div>
+    </div>
+
+    <div class="viewport">
+      <!-- HOME PAGE -->
+      <div id="page-home" class="view-page active">
+        <div class="studio-banner">
+          <span class="studio-tag">STUDENT CREATOR STUDIO</span>
+          <h3>Sikho, Skill Drop Karo Te Kamao</h3>
+          <p>Free courses naal nava hunar sikho, community naal judo, te live clients naal kamm shuru karo.</p>
+        </div>
+
+        <div class="sec-heading">Tuhade Options</div>
+        <div class="bento-grid">
+          <div class="bento-item touchable" onclick="goPage('skills')">
+            <div class="bento-icon" style="background:rgba(56,189,248,0.15); color:#38bdf8;">🚀</div>
+            <h4>Explore Skills</h4>
+            <p>High-demand skills te rates dekho</p>
+          </div>
+          <div class="bento-item touchable" onclick="goPage('courses')">
+            <div class="bento-icon" style="background:rgba(163,230,53,0.15); color:#a3e635;">🎓</div>
+            <h4>Free Courses</h4>
+            <p>Mobile ton editing te design sikho</p>
+          </div>
+          <div class="bento-item touchable" onclick="goPage('community')">
+            <div class="bento-icon" style="background:rgba(192,132,252,0.15); color:#c084fc;">👥</div>
+            <h4>Student Community</h4>
+            <p>Live sawal puchho te tips share karo</p>
+          </div>
+          <div class="bento-item touchable" onclick="openAccountSub('profile')">
+            <div class="bento-icon" style="background:rgba(244,114,182,0.15); color:#f472b6;">👤</div>
+            <h4>My Profile</h4>
+            <p>Apna bio, badges te stats dekho</p>
+          </div>
+          <div class="bento-item touchable" onclick="goPage('tasks', 1)">
+            <div class="bento-icon" style="background:rgba(245,158,11,0.15); color:#f59e0b;">💼</div>
+            <h4>Browse Tasks</h4>
+            <p>Live bounties te kamm labho</p>
+          </div>
+          <div class="bento-item touchable" onclick="goPage('drop', 2)">
+            <div class="bento-icon" style="background:rgba(16,185,129,0.15); color:#10b981;">🎬</div>
+            <h4>Drop Video</h4>
+            <p>Sample link pao ya hire karo</p>
+          </div>
+        </div>
+
+        <div class="sec-heading">Official Pages</div>
+        <div class="social-strip">
+          <a href="https://t.me/skilldrop_in" target="_blank" class="social-box touchable">✈️ Telegram</a>
+          <a href="https://instagram.com/skilldrop.in" target="_blank" class="social-box touchable">📸 Instagram</a>
+          <a href="mailto:support@skilldrop.in" class="social-box touchable">✉️ Gmail</a>
+        </div>
+
+        <div class="sec-heading">Tuhada Apna Kamm (My Drops)</div>
+        <div id="my-own-list"></div>
+      </div>
+
+      <!-- EXPLORE SKILLS -->
+      <div id="page-skills" class="view-page">
+        <div class="sub-page-header">
+          <button class="back-btn touchable" onclick="goPage('home', 0)">← Home</button>
+          <h3 style="font-size:17px;">Explore Trending Skills</h3>
+        </div>
+        <div id="skills-directory-list"></div>
+      </div>
+
+      <!-- FREE COURSES -->
+      <div id="page-courses" class="view-page">
+        <div class="sub-page-header">
+          <button class="back-btn touchable" onclick="goPage('home', 0)">← Home</button>
+          <h3 style="font-size:17px;">Free Student Courses 🎓</h3>
+        </div>
+        <div id="free-courses-list"></div>
+      </div>
+
+      <!-- LIVE STUDENT COMMUNITY -->
+      <div id="page-community" class="view-page">
+        <div class="sub-page-header">
+          <button class="back-btn touchable" onclick="goPage('home', 0)">← Home</button>
+          <h3 style="font-size:17px;">Student Community 👥</h3>
+        </div>
+        <div class="comm-post-box">
+          <textarea id="comm-input" rows="2" placeholder="Apna koi sawal, tip ya update students naal share karo..."></textarea>
+          <button class="btn-mini touchable" style="background:var(--emerald); color:#042f2e; width:100%; padding:10px;" onclick="addCommunityPost()">Post Live 🚀</button>
+        </div>
+        <div id="community-feed"></div>
+      </div>
+
+      <!-- LIVE TASKS MARKETPLACE -->
+      <div id="page-tasks" class="view-page">
+        <input type="text" class="search-bar" id="task-search" placeholder="🔍 Live task labho (Reels, Thumbnail, Voice)..." onkeyup="renderPublicTasks()">
+        <div class="chip-row">
+          <div class="chip touchable active" onclick="setTaskFilter('All', this)">All Tasks</div>
+          <div class="chip touchable" onclick="setTaskFilter('Bounty', this)">⚡ Urgent Bounties</div>
+          <div class="chip touchable" onclick="setTaskFilter('SkillDrop', this)">🎬 Video Drops</div>
+          <div class="chip touchable" onclick="setTaskFilter('Video Editing', this)">Video Editing</div>
+          <div class="chip touchable" onclick="setTaskFilter('Graphic Design', this)">Thumbnails</div>
+          <div class="chip touchable" onclick="setTaskFilter('Voiceover', this)">Voiceover</div>
+        </div>
+        <div id="public-tasks-list"></div>
+      </div>
+
+      <!-- DROP VIDEO / CREATE TASK -->
+      <div id="page-drop" class="view-page">
+        <div class="sec-heading">Live Task Pao Ya Skill Drop Karo</div>
+        <div class="card-box">
+          <div class="field">
+            <label>Ki Karna Chahunde Ho?</label>
+            <select id="drop-type">
+              <option value="Bounty">⚡ Hire Karna (Mainu Editor/Worker Chahida)</option>
+              <option value="SkillDrop">🎬 Apna Skill Drop Karna (Sample Work)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Category</label>
+            <select id="drop-cat">
+              <option value="Video Editing">Video Editing / Reels</option>
+              <option value="Graphic Design">Thumbnail / Poster Design</option>
+              <option value="Voiceover">Punjabi / Hindi Voiceover</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Title</label>
+            <input type="text" id="drop-title" placeholder="Jiven: 2 Gaming Reels Edit Karniyan">
+          </div>
+          <div class="field">
+            <label>Price / Budget (₹)</label>
+            <input type="number" id="drop-price" placeholder="250">
+          </div>
+          <div class="field">
+            <label>Sample / Raw Video Link (Google Drive / YouTube / Insta)</label>
+            <input type="url" id="drop-video-link" placeholder="https://drive.google.com/...">
+          </div>
+          <div class="field">
+            <label>Details</label>
+            <textarea id="drop-desc" rows="3" placeholder="Poori details likho..."></textarea>
+          </div>
+          <button class="btn-emerald touchable" onclick="submitDrop()">Publish Live 🚀</button>
+        </div>
+      </div>
+
+      <!-- LIVE PRIVATE CHAT -->
+      <div id="page-chat" class="view-page">
+        <div class="chat-wrap">
+          <div class="chat-top">
+            <div>
+              <strong id="chat-with-name" style="font-size:14px;">Rohan Creator</strong>
+              <div style="font-size:11px; color:var(--emerald);">● Live Private Room</div>
+            </div>
+            <span style="font-size:11px; background:rgba(16,185,129,0.12); color:var(--emerald); padding:4px 9px; border-radius:8px; font-weight:600;">🔒 Number Hidden</span>
+          </div>
+          <div class="chat-body" id="chat-feed">
+            <div class="bubble them">Sat Sri Akal! Ethe live message bhejo—bina number share kite gal pakki karo.</div>
+          </div>
+          <div class="chat-foot">
+            <input type="text" id="chat-msg-box" placeholder="Message likho...">
+            <button class="btn-mini touchable" style="background:var(--emerald); color:#042f2e;" onclick="pushChat()">Send</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCOUNT (PROFILE + PAYOUT + HISTORY) -->
+      <div id="page-account" class="view-page">
+        <div class="segment-tabs">
+          <div class="segment-btn touchable active" id="sub-btn-profile" onclick="switchAccountSub('profile')">👤 My Profile</div>
+          <div class="segment-btn touchable" id="sub-btn-payout" onclick="switchAccountSub('payout')">💳 Payout</div>
+          <div class="segment-btn touchable" id="sub-btn-history" onclick="switchAccountSub('history')">📜 History</div>
+        </div>
+
+        <div id="acc-profile">
+          <div class="card-box" style="text-align:center; margin-bottom:14px;">
+            <div class="app-icon-box" style="border-radius:50%; margin-bottom:10px;" id="prof-big-avatar">H</div>
+            <h3 id="prof-full-name" style="font-size:19px;">Harry</h3>
+            <p id="prof-skill-tag" style="font-size:12px; color:var(--lime); font-weight:700; margin-top:3px;">Video Editor & Content Creator</p>
+            <p id="prof-contact-info" style="font-size:11px; color:var(--text-muted); margin-top:3px;">Verified Student Member</p>
+
+            <div class="stats-trio">
+              <div class="stat-pill"><strong id="stat-drops">1</strong><span>Active Drops</span></div>
+              <div class="stat-pill"><strong id="stat-courses">0</strong><span>Courses</span></div>
+              <div class="stat-pill"><strong>Live</strong><span>Studio Badge</span></div>
+            </div>
+
+            <div class="field" style="text-align:left; margin-top:10px;">
+              <label>Apna Skill Bio Update Karo</label>
+              <input type="text" id="edit-bio-input" value="Video Editor & Content Creator">
+            </div>
+            <button class="btn-mini touchable" style="background:var(--bg-elevated); color:var(--emerald); border:1px solid var(--emerald); width:100%; padding:10px; margin-bottom:10px;" onclick="updateProfileBio()">Save Profile Bio ✓</button>
+            <button class="btn-emerald touchable" style="background:var(--danger); color:#fff; padding:11px;" onclick="logoutApp()">Logout Account</button>
+          </div>
+        </div>
+
+        <div id="acc-payout" style="display:none;">
+          <div class="wallet-box">
+            <small style="color:#a7f3d0; font-size:12px;">Available Balance</small>
+            <h1>₹<span id="acc-balance">1250</span></h1>
+            <span style="font-size:11px; color:var(--emerald);">✓ Instant UPI Transfer</span>
+          </div>
+          <div class="card-box">
+            <div class="field"><label>Amount (₹)</label><input type="number" id="pay-amt" placeholder="500"></div>
+            <div class="field">
+              <label>Method</label>
+              <select id="pay-method">
+                <option value="UPI">UPI (GPay / PhonePe / Paytm)</option>
+                <option value="Bank">Bank Account (IMPS)</option>
+              </select>
+            </div>
+            <div class="field"><label>UPI ID / Account Number</label><input type="text" id="pay-id" placeholder="harry@okaxis"></div>
+            <button class="btn-emerald touchable" onclick="doWithdraw()">Withdraw Paise</button>
+          </div>
+        </div>
+
+        <div id="acc-history" style="display:none;">
+          <div id="history-feed"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM NAV -->
+    <div class="nav-bar">
+      <div class="nav-btn touchable active" onclick="goPage('home', 0)"><span class="ico">🏠</span><span>Home</span></div>
+      <div class="nav-btn touchable" onclick="goPage('tasks', 1)"><span class="ico">💼</span><span>Tasks</span></div>
+      <div class="nav-btn touchable nav-drop-btn" onclick="goPage('drop', 2)"><span class="ico">➕</span><span>Drop</span></div>
+      <div class="nav-btn touchable" onclick="goPage('chat', 3)"><span class="ico">💬</span><span>Chat</span></div>
+      <div class="nav-btn touchable" onclick="goPage('account', 4)"><span class="ico">👤</span><span>Account</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- FIREBASE LIVE DATABASE ENGINE -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, doc, updateDoc, increment, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  // TUHADA ASLI FIREBASE CONFIG FIT KAR DITTA AA
+  const firebaseConfig = {
+    apiKey: "AIzaSyD5qXfK_I_GWVEi2uOq-U1ELIqjIagSmPc",
+    authDomain: "skilldrop-e3f49.firebaseapp.com",
+    projectId: "skilldrop-e3f49",
+    storageBucket: "skilldrop-e3f49.firebasestorage.app",
+    messagingSenderId: "279084272794",
+    appId: "1:279084272794:web:1a825cbfd3e8ce1d1d2323",
+    measurementId: "G-TE96CHSQQ1"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  let unsubscribeChat = null;
+
+  let currentUser = localStorage.getItem('sd_user') || "Harry";
+  let balance = 1250;
+  let currentFilter = "All";
+  let coursesJoined = 0;
+  let activeChatPartner = "Rohan Creator";
+  let toastTimer;
+
+  // RIPPLE & TOAST
+  document.addEventListener('pointerdown', function(e) {
+    const target = e.target.closest('.touchable');
+    if (!target) return;
+    const rect = target.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    const size = Math.max(rect.width, rect.height);
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+    ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+    ripple.className = 'ripple-wave';
+    target.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 550);
+  });
+
+  function showToast(message) {
+    const toast = document.getElementById('app-toast');
+    document.getElementById('toast-msg').innerText = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+  }
+
+  // STATIC DIRECTORIES
+  const skillsList = [
+    { name: "Short-Form Reel Editing", rate: "₹150 - ₹400 / Reel", demand: "🔥 High Demand", desc: "CapCut, VN ya Premiere Pro vich fast cuts, sound effects te captions launa." },
+    { name: "YouTube Thumbnail Design", rate: "₹100 - ₹300 / Design", demand: "⚡ Fast Earning", desc: "Pixellab ya Canva te bright, high-click thumbnails banauna." },
+    { name: "Punjabi / Hindi Voiceover", rate: "₹150 - ₹350 / Audio", demand: "🎙️ Trending", desc: "Fact videos, stories te Reels layi saaf te energetic voice recording." },
+    { name: "Instagram Page Handling", rate: "₹1,500 - ₹4,000 / Week", demand: "📈 Long Term", desc: "Daily Reels upload karna, captions likhna te page grow karna." }
+  ];
+
+  let freeCourses = [
+    { id: 1, title: "Mobile Reel Editing Mastery (CapCut & VN)", duration: "45 Mins • 5 Lessons", enrolled: false, desc: "Zero ton viral transitions, beat sync te auto-captions launa sikho." },
+    { id: 2, title: "High-CTR Thumbnail Design on Phone", duration: "30 Mins • 4 Lessons", enrolled: false, desc: "Pixellab te Canva naal professional gaming te vlog thumbnails banao." },
+    { id: 3, title: "Creators Naal Deal Kiwe Pakki Kariye", duration: "20 Mins • 3 Lessons", enrolled: false, desc: "Pehla client labhan, sample bhejan te sahi rate mangn da tarika." }
+  ];
+
+  let communityPosts = [
+    { id: "demo1", author: "Simran Kaur", badge: "Top Designer", text: "Ajj main apna pehla thumbnail task ₹150 vich complete kita! Free course vichon tips bahut kamm aayiyan.", likes: 14 }
+  ];
+
+  let allTasks = [
+    { id: "t1", type: "Bounty", cat: "Video Editing", title: "Podcast Chon 2 Viral Reels Cut Karniyan", price: 300, owner: "Rohan Creator", desc: "Fast cuts te captions laune ne. 3 ghante vich delivery chahidi.", videoLink: "" },
+    { id: "t2", type: "SkillDrop", cat: "Graphic Design", title: "Gaming & Vlog Thumbnails Sample", price: 150, owner: "Simran Design", desc: "High CTR thumbnails bana sakdi haan. Hire karan layi chat karo.", videoLink: "" }
+  ];
+
+  let myOwnItems = [{ title: "Studio Profile Active", status: "Ready for Projects", tag: "Live" }];
+  let historyList = [{ title: "Welcome Bonus Credited", date: "Today", amount: "+₹1250", color: "var(--emerald)" }];
+
+  // LIVE FIRESTORE SYNC
+  function startRealtimeSync() {
+    try {
+      const qTasks = query(collection(db, "tasks"), orderBy("createdAt", "desc"));
+      onSnapshot(qTasks, (snapshot) => {
+        const liveList = [];
+        snapshot.forEach(docSnap => {
+          liveList.push({ id: docSnap.id, ...docSnap.data() });
+        });
+        if (liveList.length > 0) allTasks = liveList;
+        renderPublicTasks();
+      }, (err) => {
+        console.log("Firestore note:", err.message);
+      });
+
+      const qComm = query(collection(db, "community"), orderBy("createdAt", "desc"));
+      onSnapshot(qComm, (snapshot) => {
+        const livePosts = [];
+        snapshot.forEach(docSnap => {
+          livePosts.push({ id: docSnap.id, ...docSnap.data() });
+        });
+        if (livePosts.length > 0) communityPosts = livePosts;
+        renderCommunityFeed();
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  // AUTH
+  function setAuthTab(mode, el) {
+    document.querySelectorAll('#auth-screen .segment-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('box-email').style.display = mode === 'email' ? 'block' : 'none';
+    document.getElementById('box-phone').style.display = mode === 'phone' ? 'block' : 'none';
+  }
+
+  function enterApp(method) {
+    let nameVal = document.getElementById('in-name').value.trim();
+    currentUser = nameVal || "Harry";
+    localStorage.setItem('sd_user', currentUser);
+
+    const emailVal = document.getElementById('in-email').value.trim();
+    const phoneVal = document.getElementById('in-phone').value.trim();
+
+    document.getElementById('user-title-name').innerText = currentUser;
+    document.getElementById('prof-full-name').innerText = currentUser;
+    document.getElementById('user-avatar').innerText = currentUser.charAt(0).toUpperCase();
+    document.getElementById('prof-big-avatar').innerText = currentUser.charAt(0).toUpperCase();
+    document.getElementById('prof-contact-info').innerText = emailVal || phoneVal || `Logged in via ${method}`;
+
+    document.getElementById('auth-screen').style.display = 'none';
+    document.getElementById('main-app').style.display = 'flex';
+
+    renderHomeMyWork();
+    renderSkillsDirectory();
+    renderFreeCourses();
+    renderCommunityFeed();
+    renderPublicTasks();
+    renderHistory();
+    startRealtimeSync();
+    showToast(`Welcome back, ${currentUser}!`);
+  }
+
+  function logoutApp() {
+    document.getElementById('main-app').style.display = 'none';
+    document.getElementById('auth-screen').style.display = 'flex';
+    showToast("Logged out");
+  }
+
+  function goPage(pageId, navIndex) {
+    document.querySelectorAll('.view-page').forEach(p => p.classList.remove('active'));
+    const targetPage = document.getElementById('page-' + pageId);
+    void targetPage.offsetWidth;
+    targetPage.classList.add('active');
+
+    document.querySelectorAll('.nav-btn').forEach(n => n.classList.remove('active'));
+    if (navIndex !== undefined) document.querySelectorAll('.nav-btn')[navIndex].classList.add('active');
+  }
+
+  function openAccountSub(subName) {
+    goPage('account', 4);
+    switchAccountSub(subName);
+  }
+
+  function switchAccountSub(subName) {
+    ['profile', 'payout', 'history'].forEach(s => {
+      document.getElementById('acc-' + s).style.display = (s === subName) ? 'block' : 'none';
+      document.getElementById('sub-btn-' + s).classList.toggle('active', s === subName);
+    });
+  }
+
+  function renderSkillsDirectory() {
+    const box = document.getElementById('skills-directory-list');
+    box.innerHTML = '';
+    skillsList.forEach(s => {
+      box.innerHTML += `
+        <div class="feature-card">
+          <div class="feature-top">
+            <span class="demand-pill">${s.demand}</span>
+            <strong style="color:var(--lime); font-size:13px;">${s.rate}</strong>
+          </div>
+          <h3>${s.name}</h3>
+          <p>${s.desc}</p>
+          <div style="display:flex; gap:8px;">
+            <button class="btn-mini touchable" style="background:var(--bg-elevated); color:#fff; border:1px solid var(--border); flex:1;" onclick="goPage('tasks', 1)">View Tasks</button>
+            <button class="btn-mini touchable" style="background:var(--emerald); color:#042f2e; flex:1;" onclick="goPage('drop', 2)">Drop Skill</button>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  function renderFreeCourses() {
+    const box = document.getElementById('free-courses-list');
+    box.innerHTML = '';
+    freeCourses.forEach(c => {
+      const btnText = c.enrolled ? "✓ Enrolled (Continue)" : "Start Free Course →";
+      const btnStyle = c.enrolled ? "background:var(--bg-elevated); color:var(--lime); border:1px solid var(--lime);" : "background:var(--emerald); color:#042f2e;";
+      box.innerHTML += `
+        <div class="feature-card">
+          <div class="feature-top">
+            <span class="free-pill">100% FREE</span>
+            <span style="font-size:11px; color:var(--text-muted);">${c.duration}</span>
+          </div>
+          <h3>${c.title}</h3>
+          <p>${c.desc}</p>
+          <button class="btn-mini touchable" style="${btnStyle} width:100%; padding:10px;" onclick="enrollCourse(${c.id})">${btnText}</button>
+        </div>
+      `;
+    });
+  }
+
+  function enrollCourse(id) {
+    const course = freeCourses.find(c => c.id === id);
+    if (!course) return;
+    if (!course.enrolled) {
+      course.enrolled = true;
+      coursesJoined++;
+      document.getElementById('stat-courses').innerText = coursesJoined;
+      historyList.unshift({ title: `Enrolled: ${course.title}`, date: "Just Now", amount: "FREE", color: "var(--lime)" });
+      renderFreeCourses();
+      renderHistory();
+      showToast("🎓 Course shuru ho gaya aa!");
+    } else {
+      showToast("📚 Lesson 1 chal reha aa...");
+    }
+  }
+
+  // COMMUNITY
+  function renderCommunityFeed() {
+    const feed = document.getElementById('community-feed');
+    feed.innerHTML = '';
+    communityPosts.forEach(p => {
+      feed.innerHTML += `
+        <div class="comm-card">
+          <div class="comm-user-row">
+            <div><strong style="font-size:13px;">${p.author}</strong></div>
+            <span class="comm-badge">${p.badge || 'Member'}</span>
+          </div>
+          <p style="font-size:13px; line-height:1.45; color:var(--text-main);">${p.text}</p>
+          <div class="comm-actions">
+            <button class="btn-mini touchable" style="background:var(--bg-elevated); color:var(--pink);" onclick="toggleLike('${p.id}')">❤️ ${p.likes || 0}</button>
+            <button class="btn-mini touchable" style="background:var(--bg-elevated); color:var(--sky);" onclick="startChat('${p.author}', 'Community Chat')">💬 Message</button>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  async function addCommunityPost() {
+    const input = document.getElementById('comm-input');
+    const txt = input.value.trim();
+    if (!txt) return showToast("⚠️ Pehla kujh likho!");
+    input.value = '';
+
+    try {
+      await addDoc(collection(db, "community"), {
+        author: currentUser,
+        badge: "Student Creator",
+        text: txt,
+        likes: 1,
+        createdAt: serverTimestamp()
+      });
+      showToast("🚀 Post live ho gayi aa!");
+    } catch (e) {
+      showToast("⚠️ Pehla Firebase vich Firestore Database enable karo!");
+    }
+  }
+
+  async function toggleLike(id) {
+    if (!id.startsWith("demo")) {
+      const postRef = doc(db, "community", id);
+      await updateDoc(postRef, { likes: increment(1) });
+    } else {
+      const post = communityPosts.find(p => p.id === id);
+      if (post) { post.likes = (post.likes || 0) + 1; renderCommunityFeed(); }
+    }
+  }
+
+  function updateProfileBio() {
+    const newBio = document.getElementById('edit-bio-input').value.trim();
+    if (!newBio) return showToast("⚠️ Bio khali nahi rakh sakde");
+    document.getElementById('prof-skill-tag').innerText = newBio;
+    showToast("✓ Profile bio update ho gaya!");
+  }
+
+  function renderHomeMyWork() {
+    const box = document.getElementById('my-own-list');
+    box.innerHTML = '';
+    document.getElementById('stat-drops').innerText = myOwnItems.length;
+    myOwnItems.forEach(item => {
+      box.innerHTML += `
+        <div class="hist-row">
+          <div>
+            <div style="font-size:13px; font-weight:700;">${item.title}</div>
+            <div style="font-size:11px; color:var(--emerald); margin-top:2px;">${item.status}</div>
+          </div>
+          <span style="background:rgba(163,230,53,0.14); color:var(--lime); padding:4px 10px; border-radius:8px; font-size:11px; font-weight:700;">${item.tag}</span>
+        </div>
+      `;
+    });
+  }
+
+  function setTaskFilter(filterVal, el) {
+    currentFilter = filterVal;
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    renderPublicTasks();
+  }
+
+  function renderPublicTasks() {
+    const queryTxt = document.getElementById('task-search').value.toLowerCase();
+    const container = document.getElementById('public-tasks-list');
+    container.innerHTML = '';
+
+    const filtered = allTasks.filter(t => {
+      const matchFilter = currentFilter === 'All' || t.type === currentFilter || t.cat === currentFilter;
+      const matchSearch = (t.title || '').toLowerCase().includes(queryTxt) || (t.cat || '').toLowerCase().includes(queryTxt);
+      return matchFilter && matchSearch;
+    });
+
+    filtered.forEach(t => {
+      const vidBtn = t.videoLink ? `<a href="${t.videoLink}" target="_blank" class="video-link-btn">▶️ Watch Sample / Raw Video</a>` : '';
+      const badgeLabel = t.type === 'Bounty' ? '⚡ Urgent Bounty' : '🎬 Video Drop';
+      const actionLabel = t.type === 'Bounty' ? 'Accept Task' : 'Hire Now';
+
+      container.innerHTML += `
+        <div class="task-card">
+          <div class="task-meta">
+            <div>
+              <span class="badge-cat">${t.cat}</span>
+              <span class="badge-urgent">${badgeLabel}</span>
+            </div>
+            <span class="price-tag">₹${t.price}</span>
+          </div>
+          <h3>${t.title}</h3>
+          <p>${t.desc}</p>
+          ${vidBtn}
+          <div class="task-bottom">
+            <span style="font-size:12px; color:var(--text-muted); font-weight:600;">👤 ${t.owner}</span>
+            <div style="display:flex; gap:8px;">
+              <button class="btn-mini touchable" style="background:var(--bg-elevated); color:#fff; border:1px solid var(--border);" onclick="startChat('${t.owner}', '${t.title}')">💬 Chat</button>
+              <button class="btn-mini touchable" style="background:var(--emerald); color:#042f2e;" onclick="claimTask('${t.title}', ${t.price})">${actionLabel}</button>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  async function submitDrop() {
+    const type = document.getElementById('drop-type').value;
+    const cat = document.getElementById('drop-cat').value;
+    const title = document.getElementById('drop-title').value.trim();
+    const price = document.getElementById('drop-price').value.trim();
+    const desc = document.getElementById('drop-desc').value.trim();
+    const videoLink = document.getElementById('drop-video-link').value.trim();
+
+    if (!title || !price) return showToast("⚠️ Title te Price zaroor bharo!");
+
+    try {
+      await addDoc(collection(db, "tasks"), {
+        type, cat, title,
+        price: Number(price),
+        owner: currentUser,
+        desc: desc || "Direct in-app chat te gal karo.",
+        videoLink: videoLink,
+        createdAt: serverTimestamp()
+      });
+
+      myOwnItems.unshift({ title, status: type === 'Bounty' ? 'Posted Live' : 'Your Skill Drop', tag: `₹${price}` });
+      historyList.unshift({ title: `Created: ${title}`, date: "Just Now", amount: `₹${price}`, color: "var(--sky)" });
+
+      document.getElementById('drop-title').value = '';
+      document.getElementById('drop-price').value = '';
+      document.getElementById('drop-desc').value = '';
+      document.getElementById('drop-video-link').value = '';
+
+      renderHomeMyWork();
+      renderHistory();
+      goPage('tasks', 1);
+      showToast("🚀 Live ho gaya! Hun saare users nu dikhega.");
+    } catch (e) {
+      showToast("⚠️ Pehla Firebase vich Firestore Database enable karo!");
+    }
+  }
+
+  function claimTask(title, price) {
+    myOwnItems.unshift({ title, status: "In Progress", tag: `₹${price}` });
+    historyList.unshift({ title: `Accepted: ${title}`, date: "Just Now", amount: `₹${price}`, color: "var(--amber)" });
+    renderHomeMyWork();
+    renderHistory();
+    showToast("✅ Task add ho gaya! Hun Chat vich gal karo.");
+  }
+
+  // LIVE PRIVATE CHAT
+  function startChat(person, topic) {
+    activeChatPartner = person;
+    document.getElementById('chat-with-name').innerText = person;
+    const feed = document.getElementById('chat-feed');
+    feed.innerHTML = `<div class="bubble them">Hello! Tusi "${topic}" baare gal karna chahunde ho?</div>`;
+    goPage('chat', 3);
+
+    if (unsubscribeChat) unsubscribeChat();
+    const roomId = [currentUser.toLowerCase(), person.toLowerCase()].sort().join('_');
+    const qChat = query(collection(db, "chats", roomId, "messages"), orderBy("createdAt", "asc"));
+    unsubscribeChat = onSnapshot(qChat, (snap) => {
+      feed.innerHTML = `<div class="bubble them">🔒 Private room with ${person}</div>`;
+      snap.forEach(d => {
+        const m = d.data();
+        const cls = m.sender === currentUser ? "me" : "them";
+        feed.innerHTML += `<div class="bubble ${cls}">${m.text}</div>`;
+      });
+      feed.scrollTop = feed.scrollHeight;
+    });
+  }
+
+  async function pushChat() {
+    const box = document.getElementById('chat-msg-box');
+    const txt = box.value.trim();
+    if (!txt) return;
+    box.value = '';
+
+    try {
+      const roomId = [currentUser.toLowerCase(), activeChatPartner.toLowerCase()].sort().join('_');
+      await addDoc(collection(db, "chats", roomId, "messages"), {
+        sender: currentUser,
+        text: txt,
+        createdAt: serverTimestamp()
+      });
+    } catch (e) {
+      showToast("⚠️ Firestore Database enable karo!");
+    }
+  }
+
+  async function doWithdraw() {
+    const amt = parseInt(document.getElementById('pay-amt').value);
+    const id = document.getElementById('pay-id').value.trim();
+    const method = document.getElementById('pay-method').value;
+
+    if (!amt || amt < 100) return showToast("⚠️ Minimum ₹100 withdraw ho sakda aa.");
+    if (amt > balance) return showToast("⚠️ Balance ghat aa!");
+    if (!id) return showToast("⚠️ Apni UPI ID ya Bank details bharo.");
+
+    balance -= amt;
+    document.getElementById('acc-balance').innerText = balance;
+
+    try {
+      await addDoc(collection(db, "payouts"), {
+        user: currentUser,
+        amount: amt,
+        method: method,
+        payoutId: id,
+        status: "Pending",
+        createdAt: serverTimestamp()
+      });
+    } catch (e) {}
+
+    historyList.unshift({ title: `Payout to ${id}`, date: "Just Now", amount: `-₹${amt}`, color: "var(--amber)" });
+    document.getElementById('pay-amt').value = '';
+    renderHistory();
+    showToast(`💸 ₹${amt} di payout request save ho gayi!`);
+  }
+
+  function renderHistory() {
+    const feed = document.getElementById('history-feed');
+    feed.innerHTML = '';
+    historyList.forEach(h => {
+      feed.innerHTML += `
+        <div class="hist-row">
+          <div>
+            <div style="font-size:13px; font-weight:700;">${h.title}</div>
+            <div style="font-size:11px; color:var(--text-muted);">${h.date}</div>
+          </div>
+          <strong style="color:${h.color}; font-size:14px;">${h.amount}</strong>
+        </div>
+      `;
+    });
+  }
+
+  window.setAuthTab = setAuthTab;
+  window.enterApp = enterApp;
+  window.logoutApp = logoutApp;
+  window.goPage = goPage;
+  window.openAccountSub = openAccountSub;
+  window.switchAccountSub = switchAccountSub;
+  window.enrollCourse = enrollCourse;
+  window.addCommunityPost = addCommunityPost;
+  window.toggleLike = toggleLike;
+  window.updateProfileBio = updateProfileBio;
+  window.setTaskFilter = setTaskFilter;
+  window.renderPublicTasks = renderPublicTasks;
+  window.submitDrop = submitDrop;
+  window.claimTask = claimTask;
+  window.startChat = startChat;
+  window.pushChat = pushChat;
+  window.doWithdraw = doWithdraw;
+</script>
+
+</body>
+</html>
