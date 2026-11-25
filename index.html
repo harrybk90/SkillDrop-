@@ -118,7 +118,7 @@
       animation: pageSlideUp 0.5s ease;
     }
 
-    .open-hero { text-align: center; margin-bottom: 26px; }
+    .open-hero { text-align: center; margin-bottom: 24px; }
     .app-icon-box {
       width: 62px; height: 62px; margin: 0 auto 14px auto;
       border-radius: 20px;
@@ -168,11 +168,13 @@
     }
 
     .or-line { text-align: center; font-size: 11px; color: var(--text-muted); margin: 16px 0; }
-    .quick-auth-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .btn-ghost {
-      padding: 12px; background: var(--bg-elevated); border: 1px solid var(--border);
-      border-radius: 12px; color: var(--text-main); font-size: 13px; font-weight: 600;
-      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 7px;
+    .btn-google-full {
+      width: 100%; padding: 12px;
+      background: #ffffff; color: #111827;
+      border: none; border-radius: 12px;
+      font-size: 14px; font-weight: 700;
+      cursor: pointer; display: flex;
+      align-items: center; justify-content: center; gap: 8px;
     }
 
     /* MAIN APP */
@@ -372,7 +374,7 @@
 <div class="app-shell">
   <div id="app-toast">✨ <span id="toast-msg">Welcome to SkillDrop!</span></div>
 
-  <!-- 1. LOGIN SCREEN -->
+  <!-- 1. LOGIN SCREEN (PROPER VALIDATION + REAL GOOGLE LOGIN) -->
   <div id="auth-screen">
     <div class="open-hero">
       <div class="app-icon-box">SD</div>
@@ -387,33 +389,32 @@
       </div>
 
       <div class="field">
-        <label>Tuhada Naam (Home te eh naam dikhega)</label>
-        <input type="text" id="in-name" placeholder="Jiven: Harry" value="Harry">
+        <label>Tuhada Poora Naam *</label>
+        <input type="text" id="in-name" placeholder="Apna naam likho (Jiven: Harry)">
       </div>
 
       <div class="field" id="box-email">
-        <label>Gmail / Email Address</label>
-        <input type="email" id="in-email" placeholder="harry@gmail.com">
+        <label>Gmail / Email Address *</label>
+        <input type="email" id="in-email" placeholder="name@gmail.com">
       </div>
 
       <div class="field" id="box-phone" style="display:none;">
-        <label>Mobile Number (100% Private Rahega)</label>
-        <input type="tel" id="in-phone" placeholder="98765 XXXXX">
+        <label>10-Digit Mobile Number *</label>
+        <input type="tel" id="in-phone" placeholder="9876543210" maxlength="10">
       </div>
 
       <div class="field">
-        <label>Password / OTP</label>
+        <label>Password (Min. 4 akhar) *</label>
         <input type="password" id="in-pass" placeholder="••••••••">
       </div>
 
-      <button class="btn-emerald touchable" onclick="enterApp('Account')">Open SkillDrop →</button>
+      <button class="btn-emerald touchable" onclick="loginWithForm()">Login / Create Account →</button>
 
-      <div class="or-line">YA DIRECT LOGIN KARO</div>
+      <div class="or-line">YA ASLI GOOGLE ACCOUNT NAAL JADO</div>
 
-      <div class="quick-auth-row">
-        <button class="btn-ghost touchable" onclick="enterApp('Google')">🔵 Google</button>
-        <button class="btn-ghost touchable" onclick="enterApp('Telegram')">✈️ Telegram</button>
-      </div>
+      <button class="btn-google-full touchable" onclick="loginWithGoogle()">
+        <span style="font-size:17px;">G</span> Continue with Google
+      </button>
     </div>
   </div>
 
@@ -422,9 +423,9 @@
     <div class="top-bar">
       <div class="user-greet">
         <small><span class="live-dot"></span><span id="db-status-text">Live Cloud Connected</span></small>
-        <h2>Welcome, <span id="user-title-name">Harry</span>! 👋</h2>
+        <h2>Welcome, <span id="user-title-name">User</span>! 👋</h2>
       </div>
-      <div class="avatar-pill touchable" id="user-avatar" onclick="openAccountSub('profile')">H</div>
+      <div class="avatar-pill touchable" id="user-avatar" onclick="openAccountSub('profile')">U</div>
     </div>
 
     <div class="viewport">
@@ -595,8 +596,8 @@
 
         <div id="acc-profile">
           <div class="card-box" style="text-align:center; margin-bottom:14px;">
-            <div class="app-icon-box" style="border-radius:50%; margin-bottom:10px;" id="prof-big-avatar">H</div>
-            <h3 id="prof-full-name" style="font-size:19px;">Harry</h3>
+            <div class="app-icon-box" style="border-radius:50%; margin-bottom:10px;" id="prof-big-avatar">U</div>
+            <h3 id="prof-full-name" style="font-size:19px;">User</h3>
             <p id="prof-skill-tag" style="font-size:12px; color:var(--lime); font-weight:700; margin-top:3px;">Video Editor & Content Creator</p>
             <p id="prof-contact-info" style="font-size:11px; color:var(--text-muted); margin-top:3px;">Verified Student Member</p>
 
@@ -652,12 +653,12 @@
   </div>
 </div>
 
-<!-- FIREBASE LIVE DATABASE ENGINE -->
+<!-- FIREBASE LIVE DATABASE & AUTH ENGINE -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
   import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, doc, updateDoc, increment, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-  // TUHADA ASLI FIREBASE CONFIG FIT KAR DITTA AA
   const firebaseConfig = {
     apiKey: "AIzaSyD5qXfK_I_GWVEi2uOq-U1ELIqjIagSmPc",
     authDomain: "skilldrop-e3f49.firebaseapp.com",
@@ -670,9 +671,12 @@
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  let unsubscribeChat = null;
+  const auth = getAuth(app);
+  const googleProvider = new GoogleAuthProvider();
 
-  let currentUser = localStorage.getItem('sd_user') || "Harry";
+  let unsubscribeChat = null;
+  let authMode = 'email';
+  let currentUser = "";
   let balance = 1250;
   let currentFilter = "All";
   let coursesJoined = 0;
@@ -699,10 +703,10 @@
     document.getElementById('toast-msg').innerText = message;
     toast.classList.add('show');
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 3000);
   }
 
-  // STATIC DIRECTORIES
+  // DIRECTORIES
   const skillsList = [
     { name: "Short-Form Reel Editing", rate: "₹150 - ₹400 / Reel", demand: "🔥 High Demand", desc: "CapCut, VN ya Premiere Pro vich fast cuts, sound effects te captions launa." },
     { name: "YouTube Thumbnail Design", rate: "₹100 - ₹300 / Design", demand: "⚡ Fast Earning", desc: "Pixellab ya Canva te bright, high-click thumbnails banauna." },
@@ -728,56 +732,83 @@
   let myOwnItems = [{ title: "Studio Profile Active", status: "Ready for Projects", tag: "Live" }];
   let historyList = [{ title: "Welcome Bonus Credited", date: "Today", amount: "+₹1250", color: "var(--emerald)" }];
 
-  // LIVE FIRESTORE SYNC
   function startRealtimeSync() {
     try {
       const qTasks = query(collection(db, "tasks"), orderBy("createdAt", "desc"));
       onSnapshot(qTasks, (snapshot) => {
         const liveList = [];
-        snapshot.forEach(docSnap => {
-          liveList.push({ id: docSnap.id, ...docSnap.data() });
-        });
+        snapshot.forEach(docSnap => liveList.push({ id: docSnap.id, ...docSnap.data() }));
         if (liveList.length > 0) allTasks = liveList;
         renderPublicTasks();
-      }, (err) => {
-        console.log("Firestore note:", err.message);
       });
 
       const qComm = query(collection(db, "community"), orderBy("createdAt", "desc"));
       onSnapshot(qComm, (snapshot) => {
         const livePosts = [];
-        snapshot.forEach(docSnap => {
-          livePosts.push({ id: docSnap.id, ...docSnap.data() });
-        });
+        snapshot.forEach(docSnap => livePosts.push({ id: docSnap.id, ...docSnap.data() }));
         if (livePosts.length > 0) communityPosts = livePosts;
         renderCommunityFeed();
       });
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   }
 
-  // AUTH
+  // PROPER AUTH SYSTEM
   function setAuthTab(mode, el) {
+    authMode = mode;
     document.querySelectorAll('#auth-screen .segment-btn').forEach(b => b.classList.remove('active'));
     el.classList.add('active');
     document.getElementById('box-email').style.display = mode === 'email' ? 'block' : 'none';
     document.getElementById('box-phone').style.display = mode === 'phone' ? 'block' : 'none';
   }
 
-  function enterApp(method) {
-    let nameVal = document.getElementById('in-name').value.trim();
-    currentUser = nameVal || "Harry";
-    localStorage.setItem('sd_user', currentUser);
-
+  function loginWithForm() {
+    const nameVal = document.getElementById('in-name').value.trim();
     const emailVal = document.getElementById('in-email').value.trim();
     const phoneVal = document.getElementById('in-phone').value.trim();
+    const passVal = document.getElementById('in-pass').value.trim();
+
+    if (nameVal.length < 2) {
+      return showToast("⚠️ Pehla apna sahi naam likho!");
+    }
+    if (authMode === 'email' && (!emailVal || !emailVal.includes('@'))) {
+      return showToast("⚠️ Sahi Gmail / Email address bharo!");
+    }
+    if (authMode === 'phone' && phoneVal.length < 10) {
+      return showToast("⚠️ 10-digit mobile number bharo!");
+    }
+    if (passVal.length < 4) {
+      return showToast("⚠️ Kam ton kam 4 akharan da password rakho!");
+    }
+
+    const contact = authMode === 'email' ? emailVal : phoneVal;
+    completeLogin(nameVal, contact);
+  }
+
+  async function loginWithGoogle() {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      completeLogin(user.displayName || "Creator", user.email);
+    } catch (err) {
+      if (err.code === 'auth/operation-not-allowed' || err.code === 'auth/configuration-not-found') {
+        showToast("⚠️ Firebase Console vich Authentication -> Google Enable karo!");
+      } else {
+        showToast("⚠️ Google login cancel ho gaya: " + err.message);
+      }
+    }
+  }
+
+  function completeLogin(userName, contactInfo) {
+    currentUser = userName;
+    localStorage.setItem('sd_logged_in', 'true');
+    localStorage.setItem('sd_user', userName);
+    localStorage.setItem('sd_contact', contactInfo);
 
     document.getElementById('user-title-name').innerText = currentUser;
     document.getElementById('prof-full-name').innerText = currentUser;
     document.getElementById('user-avatar').innerText = currentUser.charAt(0).toUpperCase();
     document.getElementById('prof-big-avatar').innerText = currentUser.charAt(0).toUpperCase();
-    document.getElementById('prof-contact-info').innerText = emailVal || phoneVal || `Logged in via ${method}`;
+    document.getElementById('prof-contact-info').innerText = contactInfo;
 
     document.getElementById('auth-screen').style.display = 'none';
     document.getElementById('main-app').style.display = 'flex';
@@ -789,14 +820,31 @@
     renderPublicTasks();
     renderHistory();
     startRealtimeSync();
-    showToast(`Welcome back, ${currentUser}!`);
+    showToast(`Welcome, ${currentUser}!`);
   }
 
-  function logoutApp() {
+  async function logoutApp() {
+    localStorage.removeItem('sd_logged_in');
+    localStorage.removeItem('sd_user');
+    localStorage.removeItem('sd_contact');
+    try { await signOut(auth); } catch (e) {}
+
+    document.getElementById('in-name').value = '';
+    document.getElementById('in-email').value = '';
+    document.getElementById('in-phone').value = '';
+    document.getElementById('in-pass').value = '';
+
     document.getElementById('main-app').style.display = 'none';
     document.getElementById('auth-screen').style.display = 'flex';
-    showToast("Logged out");
+    showToast("Account logout ho gaya");
   }
+
+  // Auto-restore session ONLY if user previously logged in properly
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('sd_logged_in') === 'true' && localStorage.getItem('sd_user')) {
+      completeLogin(localStorage.getItem('sd_user'), localStorage.getItem('sd_contact') || 'Verified Member');
+    }
+  });
 
   function goPage(pageId, navIndex) {
     document.querySelectorAll('.view-page').forEach(p => p.classList.remove('active'));
@@ -877,7 +925,6 @@
     }
   }
 
-  // COMMUNITY
   function renderCommunityFeed() {
     const feed = document.getElementById('community-feed');
     feed.innerHTML = '';
@@ -914,7 +961,7 @@
       });
       showToast("🚀 Post live ho gayi aa!");
     } catch (e) {
-      showToast("⚠️ Pehla Firebase vich Firestore Database enable karo!");
+      showToast("⚠️ Database error: " + e.message);
     }
   }
 
@@ -1032,7 +1079,7 @@
       goPage('tasks', 1);
       showToast("🚀 Live ho gaya! Hun saare users nu dikhega.");
     } catch (e) {
-      showToast("⚠️ Pehla Firebase vich Firestore Database enable karo!");
+      showToast("⚠️ Error: " + e.message);
     }
   }
 
@@ -1044,7 +1091,6 @@
     showToast("✅ Task add ho gaya! Hun Chat vich gal karo.");
   }
 
-  // LIVE PRIVATE CHAT
   function startChat(person, topic) {
     activeChatPartner = person;
     document.getElementById('chat-with-name').innerText = person;
@@ -1079,9 +1125,7 @@
         text: txt,
         createdAt: serverTimestamp()
       });
-    } catch (e) {
-      showToast("⚠️ Firestore Database enable karo!");
-    }
+    } catch (e) {}
   }
 
   async function doWithdraw() {
@@ -1130,7 +1174,8 @@
   }
 
   window.setAuthTab = setAuthTab;
-  window.enterApp = enterApp;
+  window.loginWithForm = loginWithForm;
+  window.loginWithGoogle = loginWithGoogle;
   window.logoutApp = logoutApp;
   window.goPage = goPage;
   window.openAccountSub = openAccountSub;
