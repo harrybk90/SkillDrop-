@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" content="#06090c" />
+  <meta name="theme-color" content="#070b14" />
   <title>SkillDrop — Learn • Drop • Earn</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-main: #05080b;
-      --bg-card: rgba(15, 25, 23, 0.9);
-      --bg-solid: #0c1513;
-      --border-subtle: rgba(52, 211, 153, 0.16);
-      --border-strong: rgba(52, 211, 153, 0.42);
-      --emerald: #10b981;
-      --emerald-bright: #34d399;
-      --emerald-glow: rgba(16, 185, 129, 0.25);
+      --bg-main: #070b14;
+      --bg-card: rgba(16, 24, 40, 0.92);
+      --bg-elevated: #131d31;
+      --border-subtle: rgba(45, 212, 191, 0.16);
+      --border-strong: rgba(45, 212, 191, 0.42);
+      --teal: #14b8a6;
+      --teal-bright: #2dd4bf;
+      --teal-glow: rgba(20, 184, 166, 0.28);
       --gold: #f59e0b;
       --gold-soft: rgba(245, 158, 11, 0.16);
-      --text-main: #f3f7f6;
-      --text-muted: #93a7a1;
+      --indigo: #6366f1;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
       --danger: #ef4444;
     }
 
@@ -34,7 +35,7 @@
     }
 
     body {
-      background: radial-gradient(circle at 50% 0%, #0d271f 0%, var(--bg-main) 55%);
+      background: radial-gradient(circle at 50% 0%, #132240 0%, var(--bg-main) 58%);
       color: var(--text-main);
       min-height: 100vh;
       padding-bottom: 92px;
@@ -47,14 +48,14 @@
       padding: 10px 13px;
     }
 
-    /* Live Activity Ticker */
+    /* Real Withdrawal Ticker */
     .ticker-bar {
-      background: rgba(16, 185, 129, 0.1);
+      background: rgba(20, 184, 166, 0.1);
       border: 1px solid var(--border-subtle);
       border-radius: 10px;
       padding: 5px 10px;
       font-size: 11px;
-      color: #d1fae5;
+      color: #ccfbf1;
       margin-bottom: 9px;
       overflow: hidden;
       white-space: nowrap;
@@ -65,7 +66,7 @@
 
     .ticker-text {
       display: inline-block;
-      animation: tickerMove 18s linear infinite;
+      animation: tickerMove 20s linear infinite;
     }
 
     @keyframes tickerMove {
@@ -73,64 +74,64 @@
       100% { transform: translateX(-100%); }
     }
 
-    /* Top Header */
+    /* Clean Top Header */
     .top-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 6px;
-      padding: 9px 11px;
+      padding: 9px 12px;
       background: var(--bg-card);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(16px);
       border: 1px solid var(--border-subtle);
       border-radius: 18px;
       margin-bottom: 10px;
       position: sticky;
       top: 6px;
       z-index: 50;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     }
 
     .brand-box {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
       cursor: pointer;
       user-select: none;
     }
 
     .brand-logo {
-      width: 35px;
-      height: 35px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #059669, #34d399);
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, #0d9488, #2dd4bf);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 14px var(--emerald-glow);
+      box-shadow: 0 0 15px var(--teal-glow);
       flex-shrink: 0;
     }
 
     .brand-title {
-      font-size: 15.5px;
+      font-size: 16px;
       font-weight: 800;
       letter-spacing: -0.3px;
       line-height: 1.1;
     }
 
     .brand-title span {
-      color: var(--emerald-bright);
+      color: var(--teal-bright);
     }
 
     .live-pill {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
       font-size: 10px;
       font-weight: 700;
-      color: var(--emerald-bright);
-      background: rgba(16, 185, 129, 0.12);
-      padding: 2px 6px;
+      color: var(--teal-bright);
+      background: rgba(20, 184, 166, 0.14);
+      padding: 2px 7px;
       border-radius: 99px;
       margin-top: 2px;
     }
@@ -151,14 +152,14 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
     }
 
     .icon-btn {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 10px;
-      background: rgba(255,255,255,0.06);
+      background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--border-subtle);
       color: var(--text-main);
       display: flex;
@@ -179,26 +180,10 @@
       border-radius: 50%;
     }
 
-    .lang-select {
-      background: rgba(255,255,255,0.06);
-      color: var(--text-main);
-      border: 1px solid var(--border-subtle);
-      border-radius: 9px;
-      padding: 5px 6px;
-      font-size: 11px;
-      font-weight: 700;
-      outline: none;
-    }
-
-    .lang-select option {
-      background: #0d1714;
-      color: #fff;
-    }
-
-    /* Important Notice Board (First Thing Users Check) */
+    /* Important Notice Board */
     .notice-card {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(16, 185, 129, 0.1));
-      border: 1px solid rgba(245, 158, 11, 0.45);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.14), rgba(99, 102, 241, 0.12));
+      border: 1px solid rgba(245, 158, 11, 0.42);
       border-radius: 15px;
       padding: 11px 13px;
       margin-bottom: 11px;
@@ -252,14 +237,14 @@
       overflow: hidden;
     }
 
-    /* Wallet & Level Hero Card (Home Only) */
+    /* Hero Wallet Card */
     .hero-card {
-      background: linear-gradient(145deg, #0e241d 0%, #0a1210 100%);
+      background: linear-gradient(145deg, #12213c 0%, #0b1222 100%);
       border: 1px solid var(--border-strong);
       border-radius: 20px;
       padding: 15px;
       margin-bottom: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
     }
 
     .hero-top {
@@ -276,10 +261,22 @@
       background: var(--gold-soft);
       border: 1px solid rgba(245, 158, 11, 0.38);
       color: #fbbf24;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 800;
       padding: 4px 10px;
       border-radius: 99px;
+    }
+
+    .uid-pill {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal-bright);
+      background: rgba(20, 184, 166, 0.12);
+      padding: 2px 8px;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
     .coin-wallet {
@@ -289,7 +286,7 @@
     .coin-amount {
       font-size: 22px;
       font-weight: 800;
-      color: var(--emerald-bright);
+      color: var(--teal-bright);
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -314,7 +311,7 @@
     .xp-bar {
       width: 100%;
       height: 8px;
-      background: rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 99px;
       overflow: hidden;
     }
@@ -322,7 +319,7 @@
     .xp-fill {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, var(--emerald), #fbbf24);
+      background: linear-gradient(90deg, var(--teal), #fbbf24);
       border-radius: 99px;
       transition: width 0.4s ease;
     }
@@ -336,8 +333,8 @@
     }
 
     .streak-day {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 10px;
       padding: 6px 2px;
       text-align: center;
@@ -345,9 +342,9 @@
     }
 
     .streak-day.claimed {
-      background: rgba(16, 185, 129, 0.2);
-      border-color: var(--emerald);
-      color: var(--emerald-bright);
+      background: rgba(20, 184, 166, 0.22);
+      border-color: var(--teal);
+      color: var(--teal-bright);
     }
 
     .streak-day.today {
@@ -379,7 +376,7 @@
 
     .sec-sub {
       font-size: 11px;
-      color: var(--emerald-bright);
+      color: var(--teal-bright);
       font-weight: 700;
     }
 
@@ -414,8 +411,8 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .task-info h4 {
@@ -449,7 +446,7 @@
     .watch-bar-track {
       width: 100%;
       height: 6px;
-      background: rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 99px;
       overflow: hidden;
     }
@@ -457,7 +454,7 @@
     .watch-bar-fill {
       height: 100%;
       width: 0%;
-      background: var(--emerald-bright);
+      background: var(--teal-bright);
       transition: width 0.25s linear;
     }
 
@@ -482,33 +479,39 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--emerald), #059669);
+      background: linear-gradient(135deg, var(--teal), #0d9488);
       color: #fff;
-      box-shadow: 0 4px 14px var(--emerald-glow);
+      box-shadow: 0 4px 14px var(--teal-glow);
     }
 
     .btn-gold {
       background: linear-gradient(135deg, #f59e0b, #d97706);
-      color: #06090c;
+      color: #070b14;
     }
 
     .btn-outline {
-      background: rgba(255,255,255,0.06);
+      background: rgba(255, 255, 255, 0.06);
       color: var(--text-main);
       border: 1px solid var(--border-subtle);
     }
 
+    .btn-danger {
+      background: rgba(239, 68, 68, 0.16);
+      color: #fca5a5;
+      border: 1px solid rgba(239, 68, 68, 0.35);
+    }
+
     .btn-done {
-      background: rgba(16, 185, 129, 0.14);
-      color: var(--emerald-bright);
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      background: rgba(20, 184, 166, 0.14);
+      color: var(--teal-bright);
+      border: 1px solid rgba(20, 184, 166, 0.3);
       cursor: default;
     }
 
     .btn-locked {
-      background: rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.04);
       color: var(--text-muted);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       cursor: not-allowed;
     }
 
@@ -516,6 +519,67 @@
       width: 100%;
       padding: 11px;
       font-size: 13px;
+    }
+
+    /* Mini Games Grid */
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 9px;
+      margin-bottom: 10px;
+    }
+
+    .game-tile {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 15px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .game-tile .g-ico {
+      font-size: 26px;
+      margin-bottom: 4px;
+    }
+
+    .game-tile h5 {
+      font-size: 12.5px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .game-tile p {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    /* Flip Cards */
+    .flip-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+      margin: 14px 0;
+    }
+
+    .flip-card {
+      height: 92px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 2px solid var(--teal-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .flip-card.revealed {
+      background: var(--gold-soft);
+      border-color: #fbbf24;
+      color: #fbbf24;
+      font-size: 15px;
     }
 
     /* Scratch Card Canvas */
@@ -527,7 +591,7 @@
       border-radius: 16px;
       overflow: hidden;
       border: 2px solid #fbbf24;
-      background: linear-gradient(135deg, #064e3b, #065f46);
+      background: linear-gradient(135deg, #115e59, #0f766e);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -549,12 +613,12 @@
       border-radius: 50%;
       border: 4px solid #fbbf24;
       background: conic-gradient(
-        #059669 0deg 60deg,
-        #0f1917 60deg 120deg,
+        #0d9488 0deg 60deg,
+        #0f172a 60deg 120deg,
         #d97706 120deg 180deg,
-        #0f1917 180deg 240deg,
-        #10b981 240deg 300deg,
-        #0f1917 300deg 360deg
+        #0f172a 180deg 240deg,
+        #6366f1 240deg 300deg,
+        #0f172a 300deg 360deg
       );
       display: flex;
       align-items: center;
@@ -567,19 +631,52 @@
       width: 54px;
       height: 54px;
       border-radius: 50%;
-      background: #06090c;
-      border: 2px solid var(--emerald-bright);
+      background: #070b14;
+      border: 2px solid var(--teal-bright);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 20px;
     }
 
-    /* Quiz Options */
+    /* Quiz Difficulty Grid & Options */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin: 10px 0;
+    }
+
+    .diff-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      border-radius: 13px;
+      padding: 11px 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .diff-card:active {
+      transform: scale(0.96);
+    }
+
+    .diff-card h5 {
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 3px;
+    }
+
+    .diff-card span {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #fbbf24;
+    }
+
     .quiz-opt {
       width: 100%;
       text-align: left;
-      background: rgba(255,255,255,0.05);
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-subtle);
       color: var(--text-main);
       padding: 10px 12px;
@@ -590,39 +687,12 @@
       cursor: pointer;
     }
 
-    /* Filter Pills */
-    .filter-row {
-      display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      padding-bottom: 6px;
-      margin-bottom: 10px;
-    }
-
-    .filter-pill {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-muted);
-      padding: 5px 11px;
-      border-radius: 99px;
-      font-size: 11px;
-      font-weight: 700;
-      white-space: nowrap;
-      cursor: pointer;
-    }
-
-    .filter-pill.active {
-      background: rgba(16, 185, 129, 0.18);
-      border-color: var(--emerald-bright);
-      color: var(--emerald-bright);
-    }
-
-    /* Redeem Store Grid */
+    /* Redeem Store Grid with Real Brand SVG Logos */
     .redeem-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 9px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .redeem-card {
@@ -633,9 +703,16 @@
       text-align: center;
     }
 
-    .redeem-card .r-icon {
-      font-size: 26px;
-      margin-bottom: 5px;
+    .brand-svg-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 7px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
     .redeem-card h5 {
@@ -649,6 +726,61 @@
       color: #fbbf24;
       font-weight: 700;
       margin-bottom: 8px;
+    }
+
+    /* Sub-tabs inside Community & Wallet */
+    .sub-tabs {
+      display: flex;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .sub-tab-btn {
+      flex: 1;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      padding: 7px 6px;
+      border-radius: 9px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .sub-tab-btn.active {
+      background: var(--teal);
+      color: #fff;
+    }
+
+    /* Community Feed & Chat */
+    .chat-box {
+      height: 290px;
+      overflow-y: auto;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 10px;
+      margin-bottom: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .chat-msg {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 11px;
+      padding: 8px 10px;
+      font-size: 12px;
+    }
+
+    .chat-msg.mine {
+      background: rgba(20, 184, 166, 0.16);
+      border: 1px solid rgba(20, 184, 166, 0.3);
+      align-self: flex-end;
+      max-width: 85%;
     }
 
     /* Level Roadmap Grid */
@@ -667,8 +799,8 @@
     }
 
     .lvl-card.unlocked {
-      border-color: var(--emerald);
-      background: linear-gradient(160deg, rgba(16,185,129,0.12), rgba(10,18,16,0.9));
+      border-color: var(--teal);
+      background: linear-gradient(160deg, rgba(20, 184, 166, 0.14), rgba(16, 24, 40, 0.92));
     }
 
     .lvl-card.locked {
@@ -678,7 +810,7 @@
     .lvl-tag {
       font-size: 10px;
       font-weight: 800;
-      color: var(--emerald-bright);
+      color: var(--teal-bright);
       text-transform: uppercase;
     }
 
@@ -695,7 +827,7 @@
 
     /* Referral & Stats */
     .ref-box {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(245, 158, 11, 0.08));
+      background: linear-gradient(135deg, rgba(20, 184, 166, 0.14), rgba(99, 102, 241, 0.12));
       border: 1px solid var(--border-strong);
       border-radius: 16px;
       padding: 14px;
@@ -710,9 +842,9 @@
 
     .ref-input {
       flex: 1;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0, 0, 0, 0.45);
       border: 1px solid var(--border-subtle);
-      color: var(--emerald-bright);
+      color: var(--teal-bright);
       padding: 9px 10px;
       border-radius: 10px;
       font-size: 11px;
@@ -728,11 +860,11 @@
     }
 
     .stat-mini {
-      background: rgba(0,0,0,0.35);
+      background: rgba(0, 0, 0, 0.35);
       padding: 9px;
       border-radius: 11px;
       text-align: center;
-      border: 1px solid rgba(255,255,255,0.05);
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .stat-mini strong {
@@ -755,8 +887,8 @@
     }
 
     .badge-item {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 12px;
       padding: 8px 4px;
       text-align: center;
@@ -790,15 +922,15 @@
     }
 
     .avatar-circle {
-      width: 60px;
-      height: 60px;
+      width: 62px;
+      height: 62px;
       border-radius: 18px;
-      background: linear-gradient(135deg, #10b981, #047857);
+      background: linear-gradient(135deg, var(--teal), var(--indigo));
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 28px;
-      border: 2px solid var(--emerald-bright);
+      border: 2px solid var(--teal-bright);
       flex-shrink: 0;
     }
 
@@ -813,7 +945,7 @@
       width: 40px;
       height: 40px;
       border-radius: 11px;
-      background: rgba(255,255,255,0.06);
+      background: rgba(255, 255, 255, 0.06);
       border: 1px solid transparent;
       display: flex;
       align-items: center;
@@ -823,8 +955,8 @@
     }
 
     .av-opt.selected {
-      border-color: var(--emerald-bright);
-      background: rgba(16,185,129,0.2);
+      border-color: var(--teal-bright);
+      background: rgba(20, 184, 166, 0.2);
     }
 
     /* Form Controls */
@@ -851,13 +983,13 @@
       outline: none;
     }
 
-    /* Bottom Navigation (5 Play Store Tabs) */
+    /* Bottom Navigation (5 Tabs) */
     .bottom-nav {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(8, 13, 12, 0.96);
+      background: rgba(7, 11, 20, 0.96);
       backdrop-filter: blur(16px);
       border-top: 1px solid var(--border-subtle);
       display: flex;
@@ -877,13 +1009,13 @@
       font-size: 10px;
       font-weight: 700;
       cursor: pointer;
-      padding: 4px 8px;
+      padding: 4px 7px;
       border-radius: 10px;
     }
 
     .nav-btn.active {
-      color: var(--emerald-bright);
-      background: rgba(16, 185, 129, 0.12);
+      color: var(--teal-bright);
+      background: rgba(20, 184, 166, 0.14);
     }
 
     /* Views & Modals */
@@ -904,7 +1036,7 @@
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.84);
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(6px);
       display: none;
       align-items: center;
@@ -920,7 +1052,7 @@
     .modal-box {
       width: 100%;
       max-width: 420px;
-      background: #0d1714;
+      background: #0f172a;
       border: 1px solid var(--border-strong);
       border-radius: 20px;
       padding: 17px;
@@ -933,13 +1065,13 @@
       top: 70px;
       left: 50%;
       transform: translateX(-50%);
-      background: #10b981;
-      color: #04130e;
+      background: var(--teal-bright);
+      color: #070b14;
       font-weight: 800;
       font-size: 12px;
       padding: 9px 16px;
       border-radius: 99px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       z-index: 200;
       display: none;
       white-space: nowrap;
@@ -956,7 +1088,7 @@
     .footer-links button {
       background: none;
       border: none;
-      color: var(--emerald-bright);
+      color: var(--teal-bright);
       text-decoration: underline;
       font-size: 11px;
       cursor: pointer;
@@ -970,11 +1102,10 @@
       padding-bottom: 8px;
     }
 
-    /* Maintenance Overlay */
     #maintenanceScreen {
       position: fixed;
       inset: 0;
-      background: #05080b;
+      background: #070b14;
       z-index: 999;
       display: none;
       flex-direction: column;
@@ -989,7 +1120,7 @@
 
   <div id="toast" class="toast"></div>
 
-  <!-- Maintenance Mode Screen (Controlled from Admin Panel) -->
+  <!-- Maintenance Mode Screen -->
   <div id="maintenanceScreen">
     <div style="font-size: 46px; margin-bottom: 12px;">🛠️</div>
     <h2 style="margin-bottom: 8px;">SkillDrop System Upgrade</h2>
@@ -999,28 +1130,28 @@
   </div>
 
   <div class="app-container">
-    <!-- Live Activity Ticker -->
+    <!-- Real Withdrawal Ticker -->
     <div class="ticker-bar">
-      <span>🔥</span>
+      <span>💸</span>
       <div class="ticker-text" id="liveTickerText">
-        🎉 Aman ne +100 Coins Referral se kamaye • 🏆 Simran ne ₹10 Google Play Code redeem kiya • ⚡ Rohit Level 2 par pahunch gaya!
+        SkillDrop Official: 1,000 Coins = ₹10 Google Play, Amazon & Flipkart Gift Cards • 10% Lifetime Referral Commission!
       </div>
     </div>
 
-    <!-- Top Bar (5-Tap Logo Opens Secret Admin Panel) -->
+    <!-- Clean Top Bar -->
     <header class="top-bar">
       <div class="brand-box" id="secretLogoTrigger" title="SkillDrop">
         <div class="brand-logo">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#04130e" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#070b14" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-            <polygon points="10 10 15 13 10 16 10 10" fill="#04130e"/>
+            <polygon points="10 10 15 13 10 16 10 10" fill="#070b14"/>
           </svg>
         </div>
         <div>
           <div class="brand-title">Skill<span>Drop</span></div>
           <div class="live-pill">
             <span class="live-dot"></span>
-            <span id="onlineCountText">22 Online</span>
+            <span id="onlineCountText">1 Online</span>
           </div>
         </div>
       </div>
@@ -1030,24 +1161,18 @@
         <button class="icon-btn" onclick="openModal('modal-notif')" title="Announcements">
           🔔<span class="notif-dot"></span>
         </button>
-        <select id="langSwitcher" class="lang-select" aria-label="Language">
-          <option value="hinglish">Hinglish</option>
-          <option value="pa">ਪੰਜਾਬੀ</option>
-          <option value="hi">हिंदी</option>
-          <option value="en">English</option>
-        </select>
-        <button id="authTopBtn" class="btn btn-primary" style="padding: 6px 10px; font-size: 11px;">Login</button>
+        <button id="guestLoginTopBtn" class="btn btn-primary" style="padding: 6px 11px; font-size: 11px;" onclick="openModal('modal-auth')">Login</button>
       </div>
     </header>
 
-    <!-- IMPORTANT NOTICE BOARD (First Thing Users Check) -->
+    <!-- IMPORTANT NOTICE BOARD -->
     <section class="notice-card">
       <div class="notice-head">
         <span class="notice-badge">📢 Important Notice • Zaroori Soochna</span>
         <button style="background:none;border:none;color:#fbbf24;font-size:11px;font-weight:700;cursor:pointer;" onclick="openModal('modal-rules')">Full Rules →</button>
       </div>
       <div class="notice-body" id="importantNoticeText">
-        <strong>1,000 Coins = ₹10</strong> (Google Play, Amazon & Flipkart Gift Cards) • <strong>15,000 Coins = ₹150 UPI</strong>. Fake accounts, VPN ya self-click karne par account permanent block ho jayega.
+        <strong>1,000 Coins = ₹10</strong> (Google Play, Amazon & Flipkart Gift Cards) • <strong>15,000 Coins = ₹150 UPI</strong>. Har friend ki earning par <strong>10% Lifetime Commission</strong>! Fake accounts ya VPN par account ban ho jayega.
       </div>
     </section>
 
@@ -1071,21 +1196,22 @@
     <!-- VIEW 1: HOME -->
     <main id="view-home" class="view active">
 
-      <!-- Wallet & Level Hero Card (Home Only) -->
+      <!-- Hero Wallet & Unique User ID Card -->
       <section class="hero-card">
         <div class="hero-top">
           <div>
             <div class="level-badge" id="userLevelBadge">⭐ Level 1 • Starter</div>
-            <div style="font-size: 12px; color: var(--text-muted); margin-top: 6px;" id="welcomeUserText">
-              Welcome, Creator!
+            <div style="font-size: 12.5px; font-weight: 700; margin-top: 6px;" id="welcomeUserText">
+              Welcome, Guest Creator!
             </div>
+            <div class="uid-pill" id="heroUserIdPill" onclick="copyMyUserId()">ID: GUEST • Tap to Copy</div>
           </div>
           <div class="coin-wallet">
             <div class="coin-amount">
               <span>🪙</span>
               <span id="coinBalance">0</span>
             </div>
-            <div class="inr-equiv" id="inrBalanceText">≈ ₹0.00 (1000 Coins = ₹10)</div>
+            <div class="inr-equiv" id="inrBalanceText">≈ ₹0.00 (1,000 Coins = ₹10)</div>
           </div>
         </div>
 
@@ -1098,12 +1224,23 @@
         </div>
       </section>
 
+      <!-- Daily Treasure Chest Combo -->
+      <div class="card" style="border-color: rgba(245, 158, 11, 0.35);">
+        <div class="task-row">
+          <div>
+            <h4 style="font-size: 13px;">🎁 Daily 5-Task Treasure Chest</h4>
+            <p style="font-size: 11px; color: var(--text-muted);" id="comboProgressText">Aaj ke koi 5 tasks/games complete karein (0 / 5)</p>
+          </div>
+          <button id="btnClaimCombo" class="btn btn-locked" onclick="claimDailyCombo()">+30 🪙</button>
+        </div>
+      </div>
+
       <!-- 7-Day Visual Login Streak -->
       <div class="card">
         <div class="task-row">
           <div>
             <h4 style="font-size: 13.5px;" id="t-daily-title">🔥 7-Day Daily Check-In Streak</h4>
-            <p style="font-size: 11px; color: var(--text-muted);" id="streakSubText">Day 1 se Day 7 tak lagataar claim karein</p>
+            <p style="font-size: 11px; color: var(--text-muted);">Roz check-in karein — Day 7 par +100 Mega Bonus</p>
           </div>
           <button id="btnDailyClaim" class="btn btn-gold" onclick="claimDailyBonus()">Claim Day 1</button>
         </div>
@@ -1111,15 +1248,15 @@
       </div>
 
       <div class="sec-head">
-        <div class="sec-title" id="t-lvl1-title">⚡ Level 1 Daily Activities</div>
-        <span class="sec-sub">Play & Earn Coins</span>
+        <div class="sec-title" id="t-lvl1-title">⚡ Daily Earning Activities</div>
+        <span class="sec-sub">Unlimited Fun & Coins</span>
       </div>
 
-      <!-- Watch Partner Spotlight (10/Day Limit + 30s Cooldown) -->
+      <!-- Watch Partner Spotlight (10/Day + Cooldown) -->
       <div class="card">
         <div class="task-row">
           <div class="task-left">
-            <div class="social-icon-box" style="background: rgba(16, 185, 129, 0.14);">
+            <div class="social-icon-box" style="background: rgba(20, 184, 166, 0.14);">
               <span style="font-size: 20px;">🎬</span>
             </div>
             <div class="task-info">
@@ -1137,54 +1274,43 @@
         </div>
       </div>
 
-      <!-- Interactive Scratch Card (2/Day) -->
-      <div class="card">
-        <div class="task-row">
-          <div class="task-left">
-            <div class="social-icon-box" style="background: rgba(245, 158, 11, 0.14);">
-              <span style="font-size: 20px;">🎫</span>
-            </div>
-            <div class="task-info">
-              <h4>Lucky Scratch Card</h4>
-              <p id="scratchLimitLabel">Cards Left Today: 2 / 2</p>
-              <span class="reward-pill">Scratch & Win 5–25 Coins • +5 XP</span>
-            </div>
-          </div>
-          <button id="btnOpenScratch" class="btn btn-gold" onclick="openScratchModal()">Scratch</button>
+      <!-- 6 Fun Games & Activities Grid -->
+      <div class="games-grid">
+        <div class="game-tile">
+          <div class="g-ico">🎫</div>
+          <h5>Scratch Card</h5>
+          <p id="scratchLimitLabel">2 / 2 Left Today</p>
+          <button id="btnOpenScratch" class="btn btn-gold btn-full" onclick="openScratchModal()">Scratch</button>
         </div>
-      </div>
-
-      <!-- Daily Lucky Spin (3/Day) -->
-      <div class="card">
-        <div class="task-row">
-          <div class="task-left">
-            <div class="social-icon-box" style="background: rgba(16, 185, 129, 0.14);">
-              <span style="font-size: 20px;">🎡</span>
-            </div>
-            <div class="task-info">
-              <h4>Daily Lucky Spin Wheel</h4>
-              <p id="spinLimitLabel">Free Spins Left: 3 / 3 Today</p>
-              <span class="reward-pill">Win 5 to 25 Coins • +5 XP</span>
-            </div>
-          </div>
-          <button id="btnOpenSpin" class="btn btn-primary" onclick="openSpinModal()">Spin</button>
+        <div class="game-tile">
+          <div class="g-ico">🎡</div>
+          <h5>Lucky Spin</h5>
+          <p id="spinLimitLabel">3 / 3 Left Today</p>
+          <button id="btnOpenSpin" class="btn btn-primary btn-full" onclick="openSpinModal()">Spin</button>
         </div>
-      </div>
-
-      <!-- Creator Quiz in Hinglish -->
-      <div class="card">
-        <div class="task-row">
-          <div class="task-left">
-            <div class="social-icon-box" style="background: rgba(59, 130, 246, 0.14);">
-              <span style="font-size: 20px;">🧠</span>
-            </div>
-            <div class="task-info">
-              <h4>Creator Knowledge Quiz (Hinglish)</h4>
-              <p id="quizLimitLabel">3 Sawal Khelo • Har sahi jawab +10 Coins</p>
-              <span class="reward-pill">Up to +30 Coins • +10 XP</span>
-            </div>
-          </div>
-          <button id="btnOpenQuiz" class="btn btn-primary" onclick="openQuizModal()">Play</button>
+        <div class="game-tile">
+          <div class="g-ico">🃏</div>
+          <h5>Flip & Win Cards</h5>
+          <p id="flipLimitLabel">2 / 2 Left Today</p>
+          <button id="btnOpenFlip" class="btn btn-primary btn-full" onclick="openFlipModal()">Flip Card</button>
+        </div>
+        <div class="game-tile">
+          <div class="g-ico">🎲</div>
+          <h5>Lucky Dice (3×)</h5>
+          <p id="diceLimitLabel">2 / 2 Left Today</p>
+          <button id="btnOpenDice" class="btn btn-gold btn-full" onclick="openDiceModal()">Roll Dice</button>
+        </div>
+        <div class="game-tile">
+          <div class="g-ico">⚡</div>
+          <h5>15s Math Rush</h5>
+          <p id="rushLimitLabel">2 / 2 Left Today</p>
+          <button id="btnOpenRush" class="btn btn-primary btn-full" onclick="openRushModal()">Play Rush</button>
+        </div>
+        <div class="game-tile">
+          <div class="g-ico">🧠</div>
+          <h5>Mix Mood Quiz</h5>
+          <p id="quizLimitLabel">Easy • Med • Hard • Ultra</p>
+          <button id="btnOpenQuiz" class="btn btn-gold btn-full" onclick="openQuizModal()">Select Mode</button>
         </div>
       </div>
 
@@ -1192,12 +1318,12 @@
       <div class="card">
         <div class="task-row">
           <div class="task-left">
-            <div class="social-icon-box" style="background: rgba(168, 85, 247, 0.14);">
+            <div class="social-icon-box" style="background: rgba(99, 102, 241, 0.16);">
               <span style="font-size: 20px;">⏳</span>
             </div>
             <div class="task-info">
               <h4>Hourly Mystery Box</h4>
-              <p id="hourlyStatusLabel">Har 1 ghante baad free coins claim karo</p>
+              <p>Har 1 ghante baad free box open karein</p>
               <span class="reward-pill">+5 Coins • +5 XP</span>
             </div>
           </div>
@@ -1209,7 +1335,7 @@
       <div class="card">
         <h4 style="font-size: 13.5px; margin-bottom: 4px;">🎟️ Telegram Secret Promo Code</h4>
         <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 8px;">
-          @skill_drop07 Telegram channel par roz naya code milta hai!
+          @skill_drop07 Telegram channel par roz naya limited-user code aata hai!
         </p>
         <div style="display: flex; gap: 7px;">
           <input type="text" id="promoCodeInput" class="ref-input" placeholder="Enter Promo Code (e.g. DROP25)" style="text-transform: uppercase;" />
@@ -1231,7 +1357,7 @@
             </div>
             <div class="task-info">
               <h4>Join Official Telegram</h4>
-              <p>@skill_drop07 • Promo codes & task alerts</p>
+              <p>@skill_drop07 • Promo codes & payment updates</p>
               <span class="reward-pill">+25 Coins • +20 XP</span>
             </div>
           </div>
@@ -1273,95 +1399,158 @@
 
       <!-- Level 1 to 6 Roadmap -->
       <div class="sec-head">
-        <div class="sec-title" id="t-roadmap-title">🏆 Level 1–6 Creator Roadmap</div>
+        <div class="sec-title">🏆 Level 1–6 Creator Roadmap</div>
         <span class="sec-sub">Steady Growth</span>
       </div>
       <div class="level-grid" id="levelRoadmapGrid"></div>
     </main>
 
-    <!-- VIEW 2: TASKS MARKETPLACE -->
-    <main id="view-tasks" class="view">
+    <!-- VIEW 2: COMMUNITY FEED, GROUP LOUNGE & PERSONAL 1-TO-1 DM -->
+    <main id="view-community" class="view">
       <div class="sec-head" style="margin-top: 2px;">
-        <div class="sec-title" id="t-market-title">💼 Skill Tasks & Drops</div>
-        <button class="btn btn-primary" style="padding: 6px 10px; font-size: 11px;" onclick="openDropModal()">+ Drop Sample/Task</button>
+        <div class="sec-title">💬 Creator Community & Chat</div>
+        <button class="btn btn-primary" style="padding: 5px 10px; font-size: 11px;" onclick="openModal('modal-new-post')">+ New Post</button>
       </div>
 
-      <!-- Category Filter Pills -->
-      <div class="filter-row" id="taskFilterRow">
-        <button class="filter-pill active" onclick="filterTasks('all', this)">All</button>
-        <button class="filter-pill" onclick="filterTasks('task', this)">Paid Tasks</button>
-        <button class="filter-pill" onclick="filterTasks('sample', this)">Skill Samples</button>
-        <button class="filter-pill" onclick="filterTasks('lvl1', this)">Level 1 Open</button>
+      <div class="sub-tabs">
+        <button class="sub-tab-btn active" onclick="switchCommTab('feed', this)">📰 Feed & Posts</button>
+        <button class="sub-tab-btn" onclick="switchCommTab('group', this)">🌐 Group Chat</button>
+        <button class="sub-tab-btn" onclick="switchCommTab('dm', this)">🔒 Personal DM</button>
       </div>
 
-      <div id="liveTasksList"></div>
+      <div id="comm-feed">
+        <div id="communityFeedList">
+          <div class="card" style="font-size: 12px; color: var(--text-muted); text-align: center;">Loading community feed...</div>
+        </div>
+      </div>
+
+      <div id="comm-group" style="display: none;">
+        <div class="chat-box" id="groupChatBox"></div>
+        <div style="display: flex; gap: 6px;">
+          <input type="text" id="groupMsgInput" class="ref-input" placeholder="Sabke saath baat karein..." />
+          <button class="btn btn-primary" onclick="sendGroupMessage()">Send</button>
+        </div>
+      </div>
+
+      <div id="comm-dm" style="display: none;">
+        <div class="card" style="padding: 10px;">
+          <label style="font-size: 11px; color: var(--text-muted); font-weight: 700;">Start Personal Chat by User ID (e.g. SD-48291):</label>
+          <div style="display: flex; gap: 6px; margin-top: 5px;">
+            <input type="text" id="dmTargetIdInput" class="ref-input" placeholder="Enter Friend's SD-XXXXX ID" style="text-transform: uppercase;" />
+            <button class="btn btn-gold" onclick="openDmConversation()">Open Chat</button>
+          </div>
+        </div>
+        <div id="dmActiveHeader" style="font-size: 12px; font-weight: 800; color: var(--teal-bright); margin-bottom: 6px; display: none;"></div>
+        <div class="chat-box" id="dmChatBox" style="height: 230px;">
+          <div style="font-size: 11.5px; color: var(--text-muted); text-align: center; margin-top: 80px;">
+            Upar kisi creator ki <strong>SD-XXXXX</strong> ID daalein ya Feed mein "DM" par click karein.
+          </div>
+        </div>
+        <div style="display: flex; gap: 6px;">
+          <input type="text" id="dmMsgInput" class="ref-input" placeholder="Private personal message likhein..." />
+          <button class="btn btn-primary" onclick="sendPersonalDm()">Send</button>
+        </div>
+      </div>
     </main>
 
-    <!-- VIEW 3: REDEEM STORE & PASSBOOK -->
+    <!-- VIEW 3: REDEEM STORE & SEPARATE COIN HISTORY -->
     <main id="view-wallet" class="view">
-      <div class="sec-head" style="margin-top: 2px;">
-        <div class="sec-title">🎁 Redeem Store (Gift Cards)</div>
-        <span class="sec-sub">1,000 Coins = ₹10</span>
+      <div class="sub-tabs" style="margin-top: 2px;">
+        <button class="sub-tab-btn active" onclick="switchWalletTab('store', this)">🎁 Redeem Store</button>
+        <button class="sub-tab-btn" onclick="switchWalletTab('history', this)">📒 Coin History & Appeals</button>
       </div>
 
-      <div class="redeem-grid">
-        <div class="redeem-card">
-          <div class="r-icon">🎮</div>
-          <h5>Google Play ₹10</h5>
-          <p>1,000 Coins</p>
-          <button class="btn btn-primary btn-full" onclick="openRedeemModal('Google Play ₹10 Redeem Code', 1000)">Redeem</button>
+      <div id="wallet-store">
+        <div class="sec-head" style="margin-top: 4px;">
+          <div class="sec-title">Select Gift Card / Payout</div>
+          <span class="sec-sub">1,000 Coins = ₹10</span>
         </div>
-        <div class="redeem-card">
-          <div class="r-icon">🛒</div>
-          <h5>Amazon Pay ₹10</h5>
-          <p>1,000 Coins</p>
-          <button class="btn btn-primary btn-full" onclick="openRedeemModal('Amazon Pay ₹10 Gift Card', 1000)">Redeem</button>
-        </div>
-        <div class="redeem-card">
-          <div class="r-icon">🛍️</div>
-          <h5>Flipkart / Zomato ₹25</h5>
-          <p>2,500 Coins</p>
-          <button class="btn btn-gold btn-full" onclick="openRedeemModal('Flipkart / Zomato ₹25 Voucher', 2500)">Redeem</button>
-        </div>
-        <div class="redeem-card">
-          <div class="r-icon">🎮</div>
-          <h5>Google Play ₹50</h5>
-          <p>5,000 Coins</p>
-          <button class="btn btn-gold btn-full" onclick="openRedeemModal('Google Play ₹50 Redeem Code', 5000)">Redeem</button>
-        </div>
-        <div class="redeem-card">
-          <div class="r-icon">📦</div>
-          <h5>Amazon Pay ₹50</h5>
-          <p>5,000 Coins</p>
-          <button class="btn btn-gold btn-full" onclick="openRedeemModal('Amazon Pay ₹50 Gift Card', 5000)">Redeem</button>
-        </div>
-        <div class="redeem-card">
-          <div class="r-icon">💸</div>
-          <h5>Direct UPI ₹150</h5>
-          <p>15,000 Coins</p>
-          <button class="btn btn-outline btn-full" onclick="openRedeemModal('Direct UPI ₹150 Cash', 15000)">Withdraw</button>
+
+        <div class="redeem-grid">
+          <div class="redeem-card">
+            <div class="brand-svg-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24"><path fill="#4285F4" d="M3.6 2.4c-.3.3-.5.8-.5 1.4v16.4c0 .6.2 1.1.5 1.4l.1.1 9.2-9.2v-.2L3.7 2.3l-.1.1z"/><path fill="#34A853" d="M16 15.6l-3.1-3.1v-.2L16 9.2l.1.1 3.6 2.1c1 .6 1 1.6 0 2.1l-3.6 2.1-.1 0z"/><path fill="#FBBC05" d="M16.1 15.5L12.9 12.3 3.6 21.6c.3.4.9.4 1.6 0l10.9-6.1z"/><path fill="#EA4335" d="M16.1 9.3L5.2 3.2c-.7-.4-1.3-.4-1.6 0l9.3 9.3 3.2-3.2z"/></svg>
+            </div>
+            <h5>Google Play ₹10</h5>
+            <p>1,000 Coins</p>
+            <button class="btn btn-primary btn-full" onclick="openRedeemModal('Google Play ₹10 Redeem Code', 1000)">Redeem</button>
+          </div>
+
+          <div class="redeem-card">
+            <div class="brand-svg-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24"><path fill="#111827" d="M15.6 14.3c-.6-.5-.7-1.1-.7-1.9V9.1c0-1.4.1-2.7-.9-3.6-.8-.7-2.1-1-3.1-1-2 0-4.2.7-4.7 3.1-.1.3.1.4.3.5l2 .2c.2 0 .4-.2.4-.4.2-.9 1-1.3 1.8-1.3.5 0 1 .2 1.3.6.3.5.3 1.1.3 1.6v.3c-1.3.1-3 .2-4.2.8-1.4.6-2.4 1.8-2.4 3.6 0 2.3 1.4 3.4 3.3 3.4 1.6 0 2.4-.4 3.6-1.6.4.6.5.9 1.2 1.5.2.1.4.1.5 0l1.4-1.2c.2-.1.2-.4 0-.5zm-3.6-1.9c0 .9 0 1.7-.5 2.4-.4.6-1 1-1.7 1-.9 0-1.5-.7-1.5-1.8 0-2.1 1.9-2.5 3.7-2.5v.9z"/><path fill="#FF9900" d="M19.8 17.7c-2.3 1.7-5.6 2.6-8.4 2.6-4 0-7.6-1.5-10.3-3.9-.2-.2 0-.5.2-.3 3 1.7 6.6 2.8 10.4 2.8 2.6 0 5.4-.5 8-1.6.4-.2.7.2.1.4z"/><path fill="#FF9900" d="M20.7 16.6c-.3-.4-1.9-.2-2.7-.1-.2 0-.3-.2-.1-.3 1.3-.9 3.5-.6 3.7-.3.3.3-.1 2.5-1.3 3.5-.2.2-.4.1-.3-.1.3-.7.9-2.3.7-2.7z"/></svg>
+            </div>
+            <h5>Amazon Pay ₹10</h5>
+            <p>1,000 Coins</p>
+            <button class="btn btn-primary btn-full" onclick="openRedeemModal('Amazon Pay ₹10 Gift Card', 1000)">Redeem</button>
+          </div>
+
+          <div class="redeem-card">
+            <div class="brand-svg-wrap" style="background: #2874F0;">
+              <svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="15" rx="2" fill="#FFE500"/><path d="M9 6V5a3 3 0 0 1 6 0v1" stroke="#fff" stroke-width="2" fill="none"/><text x="12" y="17" font-size="11" font-weight="900" fill="#2874F0" text-anchor="middle" font-style="italic">f</text></svg>
+            </div>
+            <h5>Flipkart Voucher ₹25</h5>
+            <p>2,500 Coins</p>
+            <button class="btn btn-gold btn-full" onclick="openRedeemModal('Flipkart ₹25 Gift Voucher', 2500)">Redeem</button>
+          </div>
+
+          <div class="redeem-card">
+            <div class="brand-svg-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24"><path fill="#4285F4" d="M3.6 2.4c-.3.3-.5.8-.5 1.4v16.4c0 .6.2 1.1.5 1.4l.1.1 9.2-9.2v-.2L3.7 2.3l-.1.1z"/><path fill="#34A853" d="M16 15.6l-3.1-3.1v-.2L16 9.2l.1.1 3.6 2.1c1 .6 1 1.6 0 2.1l-3.6 2.1-.1 0z"/><path fill="#FBBC05" d="M16.1 15.5L12.9 12.3 3.6 21.6c.3.4.9.4 1.6 0l10.9-6.1z"/><path fill="#EA4335" d="M16.1 9.3L5.2 3.2c-.7-.4-1.3-.4-1.6 0l9.3 9.3 3.2-3.2z"/></svg>
+            </div>
+            <h5>Google Play ₹50</h5>
+            <p>5,000 Coins</p>
+            <button class="btn btn-gold btn-full" onclick="openRedeemModal('Google Play ₹50 Redeem Code', 5000)">Redeem</button>
+          </div>
+
+          <div class="redeem-card">
+            <div class="brand-svg-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24"><path fill="#111827" d="M15.6 14.3c-.6-.5-.7-1.1-.7-1.9V9.1c0-1.4.1-2.7-.9-3.6-.8-.7-2.1-1-3.1-1-2 0-4.2.7-4.7 3.1-.1.3.1.4.3.5l2 .2c.2 0 .4-.2.4-.4.2-.9 1-1.3 1.8-1.3.5 0 1 .2 1.3.6.3.5.3 1.1.3 1.6v.3c-1.3.1-3 .2-4.2.8-1.4.6-2.4 1.8-2.4 3.6 0 2.3 1.4 3.4 3.3 3.4 1.6 0 2.4-.4 3.6-1.6.4.6.5.9 1.2 1.5.2.1.4.1.5 0l1.4-1.2c.2-.1.2-.4 0-.5zm-3.6-1.9c0 .9 0 1.7-.5 2.4-.4.6-1 1-1.7 1-.9 0-1.5-.7-1.5-1.8 0-2.1 1.9-2.5 3.7-2.5v.9z"/><path fill="#FF9900" d="M19.8 17.7c-2.3 1.7-5.6 2.6-8.4 2.6-4 0-7.6-1.5-10.3-3.9-.2-.2 0-.5.2-.3 3 1.7 6.6 2.8 10.4 2.8 2.6 0 5.4-.5 8-1.6.4-.2.7.2.1.4z"/></svg>
+            </div>
+            <h5>Amazon Pay ₹50</h5>
+            <p>5,000 Coins</p>
+            <button class="btn btn-gold btn-full" onclick="openRedeemModal('Amazon Pay ₹50 Gift Card', 5000)">Redeem</button>
+          </div>
+
+          <div class="redeem-card">
+            <div class="brand-svg-wrap" style="background: #0f172a; border: 1px solid #2dd4bf;">
+              <span style="font-weight: 900; font-size: 13px; color: #2dd4bf;">UPI</span>
+            </div>
+            <h5>Direct UPI ₹150</h5>
+            <p>15,000 Coins</p>
+            <button class="btn btn-outline btn-full" onclick="openRedeemModal('Direct UPI ₹150 Cash', 15000)">Withdraw</button>
+          </div>
         </div>
       </div>
 
-      <div class="sec-head">
-        <div class="sec-title">📒 Wallet Passbook & History</div>
-        <span class="sec-sub" id="walletCoinBadge">0 🪙</span>
-      </div>
-      <div id="passbookList" class="card" style="font-size: 12px; color: var(--text-muted); text-align: center;">
-        Abhi koi transaction nahi hai. Tasks complete karke coins kamayein!
+      <div id="wallet-history" style="display: none;">
+        <div class="sec-head" style="margin-top: 4px;">
+          <div class="sec-title">📤 My Withdrawals & Codes</div>
+          <span class="sec-sub" id="walletCoinBadge">0 🪙</span>
+        </div>
+        <div id="myWithdrawalsList" class="card" style="font-size: 12px; color: var(--text-muted); text-align: center;">
+          Abhi koi withdrawal request nahi hai.
+        </div>
+
+        <div class="sec-head">
+          <div class="sec-title">🪙 Full Coin Earning Passbook</div>
+        </div>
+        <div id="passbookList" class="card" style="font-size: 12px; color: var(--text-muted); text-align: center;">
+          Abhi koi transaction nahi hai.
+        </div>
       </div>
     </main>
 
-    <!-- VIEW 4: REFER & LEADERBOARD -->
+    <!-- VIEW 4: REFER (10% LIFETIME COMMISSION) & LEADERBOARD -->
     <main id="view-refer" class="view">
       <div class="sec-head" style="margin-top: 2px;">
-        <div class="sec-title" id="t-refer-title">🤝 Refer & Earn + Milestones</div>
-        <span class="sec-sub">+100 Coins / Friend</span>
+        <div class="sec-title">🤝 Refer & 10% Lifetime Commission</div>
+        <span class="sec-sub">+100 Coins + 10%</span>
       </div>
 
       <div class="ref-box">
-        <p style="font-size: 12px; line-height: 1.45; color: #d1fae5;">
-          Apna referral link doston ko bhejo: Har join par <strong>+100 Coins</strong>, <strong>5 Friends par +200 Bonus</strong>, aur <strong>10 Friends par +500 Extra Bonus</strong>!
+        <p style="font-size: 12px; line-height: 1.5; color: #ccfbf1;">
+          Har friend ke join par <strong>+100 Coins</strong> + jab tak woh kaam karega uski har earning ka <strong>10% Lifetime Commission</strong>! (5 Friends = +200 Bonus • 10 Friends = +500 Bonus)
         </p>
 
         <div class="ref-link-row">
@@ -1369,21 +1558,20 @@
           <button class="btn btn-primary" onclick="copyRefLink()">Copy</button>
         </div>
 
-        <button class="btn btn-gold btn-full" onclick="shareRefLink()">📲 Share on WhatsApp / Instagram</button>
+        <button class="btn btn-gold btn-full" onclick="shareRefLink()">📲 Share Link on WhatsApp / Insta</button>
 
         <div class="ref-stats">
           <div class="stat-mini">
             <strong id="refCountStat">0</strong>
-            <span>Friends Invited</span>
+            <span>Team Members</span>
           </div>
           <div class="stat-mini">
             <strong id="refCoinsStat">0 🪙</strong>
-            <span>Referral Coins</span>
+            <span>Referral + Commission</span>
           </div>
         </div>
       </div>
 
-      <!-- Live Leaderboard (Top 10 Earners) -->
       <div class="sec-head">
         <div class="sec-title">🏆 Top Creators Leaderboard</div>
         <span class="sec-sub">Live Rankings</span>
@@ -1393,20 +1581,20 @@
       </div>
 
       <div class="sec-head">
-        <div class="sec-title">👥 Your Invited Friends</div>
+        <div class="sec-title">👥 Your Referred Team</div>
       </div>
       <div id="invitedFriendsList" class="card" style="font-size: 12px; color: var(--text-muted); text-align: center;">
         Abhi koi friend invite nahi hua.
       </div>
     </main>
 
-    <!-- VIEW 5: PROFILE, BADGES & SUPPORT -->
+    <!-- VIEW 5: CLEAN PROFILE + SIDE SETTINGS DRAWER -->
     <main id="view-profile" class="view">
       <div class="sec-head" style="margin-top: 2px;">
-        <div class="sec-title" id="t-profile-title">🪪 Creator Profile</div>
+        <div class="sec-title">🪪 Creator Profile</div>
         <div style="display: flex; gap: 6px;">
-          <button class="btn btn-outline" style="padding: 5px 9px; font-size: 11px;" onclick="shareCreatorCard()">📤 Card</button>
-          <button class="btn btn-primary" style="padding: 5px 9px; font-size: 11px;" onclick="openEditProfileModal()">✏️ Edit</button>
+          <button class="btn btn-outline" style="padding: 6px 10px; font-size: 11px;" onclick="shareCreatorCard()">📤 Card</button>
+          <button class="btn btn-primary" style="padding: 6px 10px; font-size: 11px;" onclick="openModal('modal-settings')">⚙️ Settings</button>
         </div>
       </div>
 
@@ -1414,59 +1602,60 @@
         <div class="profile-header">
           <div class="avatar-circle" id="profAvatarDisplay">🚀</div>
           <div style="flex: 1;">
-            <h3 id="profNameDisplay" style="font-size: 15.5px; font-weight: 800;">Guest Creator</h3>
-            <p id="profSkillDisplay" style="font-size: 12px; color: var(--emerald-bright); font-weight: 600;">Mobile Video Editor</p>
-            <p id="profBioDisplay" style="font-size: 11px; color: var(--text-muted); margin-top: 3px;">Building skills on SkillDrop</p>
+            <h3 id="profNameDisplay" style="font-size: 16px; font-weight: 800;">Guest Creator</h3>
+            <div style="display: flex; align-items: center; gap: 6px; margin-top: 3px;">
+              <span class="uid-pill" style="margin: 0;" id="profUidBadge" onclick="copyMyUserId()">ID: GUEST</span>
+              <span style="font-size: 11px; color: #fbbf24; font-weight: 700;" id="profLevelStat">Level 1</span>
+            </div>
+            <p id="profBioDisplay" style="font-size: 11.5px; color: var(--text-muted); margin-top: 5px;">Building skills on SkillDrop</p>
           </div>
         </div>
 
-        <div class="ref-stats" style="margin-bottom: 10px;">
-          <div class="stat-mini">
-            <strong id="profLevelStat">Level 1</strong>
-            <span>Current Rank</span>
-          </div>
+        <div class="ref-stats" style="margin-bottom: 12px;">
           <div class="stat-mini">
             <strong id="profCoinsStat">0 🪙</strong>
             <span>Wallet Balance</span>
           </div>
+          <div class="stat-mini">
+            <strong id="profSkillDisplay" style="font-size: 12.5px;">Video Editor</strong>
+            <span>Primary Skill</span>
+          </div>
         </div>
 
-        <div style="background: rgba(0,0,0,0.35); padding: 9px 11px; border-radius: 12px; font-size: 11.5px; margin-bottom: 10px;">
+        <div style="background: rgba(0, 0, 0, 0.35); padding: 10px 12px; border-radius: 12px; font-size: 11.5px; margin-bottom: 12px;">
           <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-            <span style="color: var(--text-muted);">UPI / Payout ID:</span>
+            <span style="color: var(--text-muted);">Saved Payout Gmail / UPI:</span>
             <strong id="profUpiDisplay">Not Set</strong>
           </div>
           <div style="display: flex; justify-content: space-between;">
-            <span style="color: var(--text-muted);">Invite Code:</span>
-            <strong id="profCodeDisplay" style="color: var(--emerald-bright);">—</strong>
+            <span style="color: var(--text-muted);">Referral Invite Code:</span>
+            <strong id="profCodeDisplay" style="color: var(--teal-bright);">—</strong>
           </div>
         </div>
 
-        <!-- Achievement Trophy Badges -->
         <div style="font-size: 12px; font-weight: 800; margin-bottom: 4px;">🏅 Achievement Badges</div>
         <div class="badges-grid" id="badgesGrid"></div>
       </div>
 
-      <!-- In-App Support Ticket (Privacy Safe) -->
       <div class="card">
-        <h4 style="font-size: 13.5px; margin-bottom: 4px;">🎧 In-App Help & Support Ticket</h4>
+        <h4 style="font-size: 13.5px; margin-bottom: 4px;">🆘 Payment Delay Appeal & Help</h4>
         <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 9px;">
-          Gift card ya task se judi koi samasya ho toh yahan message bhejein.
+          Agar aapka redeem 48 ghante se pending hai, toh apni User ID ke saath appeal bhejein ya Telegram par message karein.
         </p>
-        <div class="field">
-          <textarea id="supportMsgInput" rows="2" placeholder="Apni problem likhein..."></textarea>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-gold" style="flex: 1;" onclick="openModal('modal-appeal')">📩 File Appeal</button>
+          <a href="https://t.me/skill_drop07" target="_blank" class="btn btn-outline" style="flex: 1; text-decoration: none;">✈️ Telegram Help</a>
         </div>
-        <button class="btn btn-outline btn-full" onclick="submitSupportTicket()">📩 Send Support Ticket</button>
       </div>
     </main>
 
-    <!-- Footer Links -->
+    <!-- Footer -->
     <div class="footer-links">
       <button onclick="openModal('modal-rules')">How It Works & FAQ</button>
       <button onclick="openModal('modal-terms')">Terms & Anti-Cheat Policy</button>
     </div>
     <div class="footer-note">
-      SkillDrop Student Marketplace • Powered by Community & Partner Ads
+      SkillDrop Creator Network • Powered by Community & Partner Ads
     </div>
   </div>
 
@@ -1476,9 +1665,9 @@
       <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       <span id="nav-home">Home</span>
     </button>
-    <button class="nav-btn" data-target="view-tasks" onclick="switchTab('view-tasks', this)">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-      <span id="nav-tasks">Tasks</span>
+    <button class="nav-btn" data-target="view-community" onclick="switchTab('view-community', this)">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span id="nav-comm">Community</span>
     </button>
     <button class="nav-btn" data-target="view-wallet" onclick="switchTab('view-wallet', this)">
       <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
@@ -1494,14 +1683,93 @@
     </button>
   </nav>
 
+  <!-- MODAL: PROFILE SETTINGS -->
+  <div id="modal-settings" class="modal-backdrop">
+    <div class="modal-box">
+      <h3 style="margin-bottom: 12px;">⚙️ Account & App Settings</h3>
+
+      <div class="field">
+        <label>🌐 App Language / Bhasha</label>
+        <select id="langSwitcher">
+          <option value="hinglish">Hinglish (Default)</option>
+          <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+          <option value="hi">हिंदी (Hindi)</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary btn-full" style="margin-bottom: 9px;" onclick="closeModal('modal-settings'); openEditProfileModal();">
+        ✏️ Edit Profile, Avatar & UPI/Gmail
+      </button>
+
+      <button class="btn btn-gold btn-full" style="margin-bottom: 9px;" onclick="closeModal('modal-settings'); openModal('modal-appeal');">
+        📩 Help & Payment Delay Appeal
+      </button>
+
+      <a href="https://t.me/skill_drop07" target="_blank" class="btn btn-outline btn-full" style="margin-bottom: 9px; text-decoration: none;">
+        ✈️ Contact Support on Telegram (@skill_drop07)
+      </a>
+
+      <button id="settingsAuthActionBtn" class="btn btn-danger btn-full" style="margin-bottom: 9px;" onclick="handleSettingsAuth()">
+        🚪 Logout Account
+      </button>
+
+      <button class="btn btn-outline btn-full" onclick="closeModal('modal-settings')">Close Settings</button>
+    </div>
+  </div>
+
+  <!-- MODAL: PAYMENT APPEAL & HELP -->
+  <div id="modal-appeal" class="modal-backdrop">
+    <div class="modal-box">
+      <h3 style="margin-bottom: 5px;">📩 Submit Payment Appeal / Help</h3>
+      <p style="font-size: 11.5px; color: var(--teal-bright); margin-bottom: 10px;" id="appealUidLabel">Your User ID: —</p>
+      <div class="field">
+        <label>Issue Type</label>
+        <select id="appealTypeInput">
+          <option value="Payment Delay (48h+)">Payment / Gift Card Delay (48h+)</option>
+          <option value="Wrong Code Received">Gift Card Code Issue</option>
+          <option value="Task / Referral Issue">Referral / Coin Issue</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Describe Your Issue</label>
+        <textarea id="appealDescInput" rows="3" placeholder="Apni redeem request ya problem ki detail likhein..."></textarea>
+      </div>
+      <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+        <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-appeal')">Cancel</button>
+        <button class="btn btn-gold" style="flex: 2;" onclick="submitAppealTicket()">Submit Appeal</button>
+      </div>
+      <a href="https://t.me/skill_drop07" target="_blank" class="btn btn-primary btn-full" style="text-decoration: none;">
+        ✈️ Fast Reply: Message on Telegram
+      </a>
+    </div>
+  </div>
+
+  <!-- MODAL: NEW COMMUNITY POST -->
+  <div id="modal-new-post" class="modal-backdrop">
+    <div class="modal-box">
+      <h3 style="margin-bottom: 6px;">✍️ Post in Creator Community</h3>
+      <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 10px;">
+        Apni progress, editing sample link ya question share karein!
+      </p>
+      <div class="field">
+        <textarea id="newPostText" rows="3" placeholder="Kya chal raha hai? Apni baat ya work link likhein..."></textarea>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-new-post')">Cancel</button>
+        <button class="btn btn-primary" style="flex: 2;" onclick="publishCommunityPost()">Publish Post</button>
+      </div>
+    </div>
+  </div>
+
   <!-- MODAL: SCRATCH CARD -->
   <div id="modal-scratch" class="modal-backdrop">
     <div class="modal-box" style="text-align: center;">
       <h3 style="margin-bottom: 4px;">🎫 Scratch & Win Coins</h3>
-      <p style="font-size: 12px; color: var(--text-muted);">Ungli se silver card ko ghas kar reward dekhein!</p>
+      <p style="font-size: 12px; color: var(--text-muted);">Ungli se poora silver card ghas kar reward dekhein!</p>
       <div class="scratch-wrap">
         <div style="font-size: 26px; font-weight: 800; color: #fbbf24;" id="scratchPrizeText">+15 Coins</div>
-        <div style="font-size: 11px; color: #d1fae5;">Added to Wallet!</div>
+        <div style="font-size: 11px; color: #ccfbf1;">Added to Wallet!</div>
         <canvas id="scratchCanvas" width="240" height="120"></canvas>
       </div>
       <button class="btn btn-outline btn-full" onclick="closeModal('modal-scratch')">Close</button>
@@ -1516,7 +1784,7 @@
       <div class="wheel-ring" id="spinWheelEl">
         <div class="wheel-center">🪙</div>
       </div>
-      <div id="spinResultText" style="font-size: 14px; font-weight: 800; color: var(--emerald-bright); min-height: 22px; margin-bottom: 10px;"></div>
+      <div id="spinResultText" style="font-size: 14px; font-weight: 800; color: var(--teal-bright); min-height: 22px; margin-bottom: 10px;"></div>
       <div style="display: flex; gap: 8px;">
         <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-spin')">Close</button>
         <button class="btn btn-gold" style="flex: 2;" onclick="spinNow()">Spin Now!</button>
@@ -1524,16 +1792,88 @@
     </div>
   </div>
 
-  <!-- MODAL: CREATOR QUIZ (HINGLISH) -->
+  <!-- MODAL: FLIP & WIN MYSTERY CARDS -->
+  <div id="modal-flip" class="modal-backdrop">
+    <div class="modal-box" style="text-align: center;">
+      <h3 style="margin-bottom: 4px;">🃏 Flip & Win Mystery Card</h3>
+      <p style="font-size: 12px; color: var(--text-muted);">3 cards mein se koi ek lucky card chuno!</p>
+      <div class="flip-row" id="flipCardsRow">
+        <div class="flip-card" onclick="pickFlipCard(0, this)">❓</div>
+        <div class="flip-card" onclick="pickFlipCard(1, this)">❓</div>
+        <div class="flip-card" onclick="pickFlipCard(2, this)">❓</div>
+      </div>
+      <button class="btn btn-outline btn-full" onclick="closeModal('modal-flip')">Close</button>
+    </div>
+  </div>
+
+  <!-- MODAL: LUCKY DICE ROLL -->
+  <div id="modal-dice" class="modal-backdrop">
+    <div class="modal-box" style="text-align: center;">
+      <h3 style="margin-bottom: 4px;">🎲 Lucky Dice Roll (3× Coins)</h3>
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Jitna number aayega (1–6), uska 3× Coins milenge!</p>
+      <div id="diceDisplayBox" style="font-size: 56px; margin: 10px 0;">🎲</div>
+      <div id="diceResultLabel" style="font-size: 14px; font-weight: 800; color: #fbbf24; min-height: 22px; margin-bottom: 10px;"></div>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-dice')">Close</button>
+        <button class="btn btn-gold" style="flex: 2;" onclick="rollDiceNow()">Roll Dice!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: 15-SECOND MATH RUSH -->
+  <div id="modal-rush" class="modal-backdrop">
+    <div class="modal-box" style="text-align: center;">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+        <h3>⚡ 15s Speed Math Rush</h3>
+        <span class="reward-pill" id="rushTimerBadge" style="margin: 0;">15s</span>
+      </div>
+      <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 10px;">3 sahi jawab dein aur +15 Coins jeetein!</p>
+      <div id="rushQuestionBox" style="font-size: 22px; font-weight: 800; color: var(--teal-bright); margin: 12px 0;">12 + 9 = ?</div>
+      <div id="rushOptsRow" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px;"></div>
+      <button class="btn btn-outline btn-full" onclick="closeModal('modal-rush')">Close</button>
+    </div>
+  </div>
+
+  <!-- MODAL: MIX MOOD QUIZ (EASY, MEDIUM, HARD, ULTRA HARD + NEVER REPEATS) -->
   <div id="modal-quiz" class="modal-backdrop">
     <div class="modal-box">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-        <h3>🧠 Creator Quiz (Hinglish)</h3>
-        <span id="quizStepBadge" class="reward-pill" style="margin: 0;">Q 1 / 3</span>
+      <!-- Step 1: Select Difficulty Mode -->
+      <div id="quizModeStep">
+        <h3 style="margin-bottom: 4px;">🧠 Mix Mood Quiz (Funny • Sad • GK)</h3>
+        <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 8px;">
+          Apna difficulty level chunein — koi bhi sawal dobara repeat nahi hoga!
+        </p>
+        <div class="diff-grid">
+          <div class="diff-card" style="border-color: #2dd4bf;" onclick="startQuizWithMode('easy')">
+            <h5>🟢 Easy Mode</h5>
+            <span>+5 Coins / Right</span>
+          </div>
+          <div class="diff-card" style="border-color: #38bdf8;" onclick="startQuizWithMode('medium')">
+            <h5>🔵 Medium Mode</h5>
+            <span>+10 Coins / Right</span>
+          </div>
+          <div class="diff-card" style="border-color: #f59e0b;" onclick="startQuizWithMode('hard')">
+            <h5>🟠 Hard Mode</h5>
+            <span>+15 Coins / Right</span>
+          </div>
+          <div class="diff-card" style="border-color: #ef4444;" onclick="startQuizWithMode('ultra')">
+            <h5>🔥 Ultra Hard</h5>
+            <span>+25 Coins / Right</span>
+          </div>
+        </div>
+        <button class="btn btn-outline btn-full" style="margin-top: 6px;" onclick="closeModal('modal-quiz')">Close</button>
       </div>
-      <p id="quizQuestionText" style="font-size: 13px; font-weight: 700; line-height: 1.45; margin-bottom: 12px;"></p>
-      <div id="quizOptionsBox"></div>
-      <button class="btn btn-outline btn-full" style="margin-top: 6px;" onclick="closeModal('modal-quiz')">Close</button>
+
+      <!-- Step 2: Active Quiz Question -->
+      <div id="quizPlayStep" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span id="quizModeBadge" class="reward-pill" style="margin: 0;">EASY • FUNNY</span>
+          <span id="quizStepBadge" class="reward-pill" style="margin: 0;">Q 1 / 3</span>
+        </div>
+        <p id="quizQuestionText" style="font-size: 13.5px; font-weight: 700; line-height: 1.48; margin-bottom: 12px;"></p>
+        <div id="quizOptionsBox"></div>
+        <button class="btn btn-outline btn-full" style="margin-top: 6px;" onclick="closeModal('modal-quiz')">Exit Quiz</button>
+      </div>
     </div>
   </div>
 
@@ -1543,11 +1883,11 @@
       <h3 id="redeemModalTitle" style="margin-bottom: 6px;">🎁 Redeem Gift Card</h3>
       <p id="redeemModalCost" style="font-size: 12px; color: #fbbf24; font-weight: 700; margin-bottom: 12px;">Cost: 1,000 Coins</p>
       <div class="field">
-        <label>Your Gmail ID or UPI ID (Code delivery ke liye)</label>
+        <label>Your Gmail ID or UPI ID (Voucher code delivery ke liye)</label>
         <input type="text" id="redeemTargetInput" placeholder="yourname@gmail.com / name@upi" />
       </div>
       <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px;">
-        Verification ke baad 24–48 ghante mein code aapki Passbook mein show ho jayega.
+        Verification ke baad 24–48 ghante mein aapka code "Coin History & Appeals" tab mein show ho jayega.
       </p>
       <div style="display: flex; gap: 8px;">
         <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-redeem')">Cancel</button>
@@ -1556,52 +1896,32 @@
     </div>
   </div>
 
-  <!-- MODAL: TASK PROOF & IN-APP DEAL CHAT -->
-  <div id="modal-task-deal" class="modal-backdrop">
-    <div class="modal-box">
-      <h3 id="dealTaskTitle" style="margin-bottom: 4px;">💼 Task Submission & Chat</h3>
-      <p id="dealTaskMeta" style="font-size: 11.5px; color: var(--emerald-bright); margin-bottom: 10px;"></p>
-      <div class="field">
-        <label>Submit Work Proof Link (Google Drive / Insta Reel)</label>
-        <input type="url" id="proofLinkInput" placeholder="https://drive.google.com/..." />
-      </div>
-      <div class="field">
-        <label>Direct Message to Client / Admin (Privacy Safe)</label>
-        <input type="text" id="dealMsgInput" placeholder="e.g. Maine sample ready kar diya hai..." />
-      </div>
-      <div style="display: flex; gap: 8px; margin-top: 10px;">
-        <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-task-deal')">Close</button>
-        <button class="btn btn-primary" style="flex: 2;" onclick="submitTaskProof()">Submit Proof</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: ANNOUNCEMENTS (BELL) -->
+  <!-- MODAL: ANNOUNCEMENTS -->
   <div id="modal-notif" class="modal-backdrop">
     <div class="modal-box">
       <h3 style="margin-bottom: 10px;">🔔 Latest Announcements</h3>
-      <div id="notifList" style="font-size: 12px; line-height: 1.5;">
+      <div style="font-size: 12px; line-height: 1.5;">
         <div class="card" style="padding: 10px;">
-          <strong>🎁 Redeem Store Live!</strong><br/>
-          Ab aap sirf <strong>1,000 Coins</strong> par ₹10 Google Play aur Amazon Gift Card redeem kar sakte hain.
+          <strong>🧠 Mix Mood Quiz (4 Modes Live!):</strong><br/>
+          Ab Easy, Medium, Hard aur Ultra Hard modes mein Funny, Sad Shayari aur Brain questions khelein — bina kisi repeat ke!
         </div>
         <div class="card" style="padding: 10px;">
-          <strong>🎟️ Daily Promo Code:</strong><br/>
-          Official Telegram <strong>@skill_drop07</strong> join karein aur aaj ka secret promo code paayein!
+          <strong>🎁 Redeem Store & 10% Commission:</strong><br/>
+          1,000 Coins = ₹10 Google Play, Amazon & Flipkart Gift Cards + 10% Lifetime Referral Commission.
         </div>
       </div>
       <button class="btn btn-primary btn-full" onclick="closeModal('modal-notif')">Got It</button>
     </div>
   </div>
 
-  <!-- MODAL: HOW IT WORKS & FAQ -->
+  <!-- MODAL: RULES & FAQ -->
   <div id="modal-rules" class="modal-backdrop">
     <div class="modal-box">
       <h3 style="margin-bottom: 10px;">📘 How SkillDrop Works & Rules</h3>
-      <div style="font-size: 12px; line-height: 1.55; color: #d1fae5;">
-        <p style="margin-bottom: 8px;"><strong>1. Coins Kaise Kamayein?</strong><br/>Daily Check-in, Watch Spotlight (10/day), Scratch Card, Lucky Spin, Hinglish Quiz, Promo Codes aur Friends ko refer karke coins ikattha karein.</p>
-        <p style="margin-bottom: 8px;"><strong>2. Conversion Rate:</strong><br/>1,000 Coins = ₹10 Gift Card (Google Play, Amazon, Flipkart/Zomato). 15,000 Coins = ₹150 Direct UPI.</p>
-        <p style="margin-bottom: 8px;"><strong>3. Level 1 se Level 6:</strong><br/>Har activity se XP milta hai. Higher levels par direct client video editing aur thumbnail tasks unlock hote hain.</p>
+      <div style="font-size: 12px; line-height: 1.55; color: #ccfbf1;">
+        <p style="margin-bottom: 8px;"><strong>1. Coins & Conversion:</strong><br/>1,000 Coins = ₹10 Gift Card (Google Play, Amazon Pay, Flipkart). 15,000 Coins = ₹150 Direct UPI.</p>
+        <p style="margin-bottom: 8px;"><strong>2. Mix Mood Quiz Modes:</strong><br/>Easy (+5/Q), Medium (+10/Q), Hard (+15/Q), Ultra Hard (+25/Q). Har sawal unique hai aur repeat nahi hota.</p>
+        <p style="margin-bottom: 8px;"><strong>3. 10% Lifetime Referral Commission:</strong><br/>Har friend ke join par +100 Coins + unki har earning ka 10% lifetime commission.</p>
       </div>
       <button class="btn btn-primary btn-full" style="margin-top: 10px;" onclick="closeModal('modal-rules')">Close</button>
     </div>
@@ -1612,9 +1932,9 @@
     <div class="modal-box">
       <h3 style="margin-bottom: 10px;">⚖️ Terms & Anti-Cheat Policy</h3>
       <div style="font-size: 11.5px; line-height: 1.55; color: var(--text-muted);">
-        <p style="margin-bottom: 8px;">• Ek device par sirf ek hi account allowed hai. Multiple fake referrals banane par account ban kar diya jayega.</p>
-        <p style="margin-bottom: 8px;">• Sponsored banner ads par self-click ya VPN ka istemal sakht mana hai.</p>
-        <p style="margin-bottom: 8px;">• Gift card aur UPI payouts verification ke baad 24–48 ghante mein process kiye jaate hain.</p>
+        <p style="margin-bottom: 8px;">• Ek device par sirf ek hi account allowed hai. Multiple fake referrals banane par account permanent ban kar diya jayega.</p>
+        <p style="margin-bottom: 8px;">• Sponsored ads par self-click ya VPN ka istemal sakht mana hai.</p>
+        <p style="margin-bottom: 8px;">• Gift card aur UPI payouts verification ke baad 24–48 ghante mein deliver kiye jaate hain.</p>
       </div>
       <button class="btn btn-outline btn-full" style="margin-top: 10px;" onclick="closeModal('modal-terms')">I Agree</button>
     </div>
@@ -1624,17 +1944,14 @@
   <div id="modal-auth" class="modal-backdrop">
     <div class="modal-box">
       <h3 style="margin-bottom: 6px;">🚀 Join SkillDrop</h3>
-      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Sign in to save Coins, Streak & Gift Card orders.</p>
-      <button class="btn btn-primary btn-full" style="margin-bottom: 10px;" onclick="loginWithGoogle()">Continue with Google</button>
-      <div style="text-align: center; font-size: 11px; color: var(--text-muted); margin-bottom: 8px;">— OR EMAIL LOGIN —</div>
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Login karein apni Unique ID (SD-XXXXX) aur Coins save karne ke liye.</p>
       <div class="field"><label>Full Name</label><input type="text" id="authName" placeholder="e.g. Amanpreet Singh" /></div>
       <div class="field"><label>Email</label><input type="email" id="authEmail" placeholder="you@gmail.com" /></div>
       <div class="field"><label>Password</label><input type="password" id="authPass" placeholder="Min 6 characters" /></div>
       <div class="field"><label>Referral Code (Optional)</label><input type="text" id="authRefInput" placeholder="e.g. ITZH-152" /></div>
-      <div style="display: flex; gap: 8px; margin-top: 10px;">
-        <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-auth')">Cancel</button>
-        <button class="btn btn-primary" style="flex: 2;" onclick="loginWithEmail()">Login / Register</button>
-      </div>
+      <button class="btn btn-primary btn-full" style="margin-bottom: 8px;" onclick="loginWithEmail()">Continue with Email</button>
+      <button class="btn btn-outline btn-full" style="margin-bottom: 8px;" onclick="loginWithGoogle()">Continue with Google</button>
+      <button class="btn btn-outline btn-full" onclick="closeModal('modal-auth')">Cancel</button>
     </div>
   </div>
 
@@ -1663,39 +1980,10 @@
         </select>
       </div>
       <div class="field"><label>Short Bio</label><input type="text" id="editBioInput" /></div>
-      <div class="field"><label>UPI / Gmail for Payouts</label><input type="text" id="editUpiInput" /></div>
+      <div class="field"><label>Gmail or UPI ID for Gift Cards</label><input type="text" id="editUpiInput" /></div>
       <div style="display: flex; gap: 8px; margin-top: 10px;">
         <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-edit-profile')">Cancel</button>
         <button class="btn btn-primary" style="flex: 2;" onclick="saveProfileChanges()">Save Profile</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: DROP SAMPLE OR TASK -->
-  <div id="modal-drop" class="modal-backdrop">
-    <div class="modal-box">
-      <h3 style="margin-bottom: 8px;">➕ Drop Skill Sample / Task</h3>
-      <div class="field">
-        <label>Type</label>
-        <select id="dropType">
-          <option value="sample">My Skill Sample (Showcase)</option>
-          <option value="task">Client Task (Direct Pay)</option>
-        </select>
-      </div>
-      <div class="field"><label>Title</label><input type="text" id="dropTitle" placeholder="e.g. Gaming Thumbnail Design @ ₹120" /></div>
-      <div class="field">
-        <label>Required Level</label>
-        <select id="dropLevel">
-          <option value="1">Level 1 (All Users)</option>
-          <option value="2">Level 2+</option>
-          <option value="3">Level 3+ (Editors)</option>
-        </select>
-      </div>
-      <div class="field"><label>Rate / Reward</label><input type="text" id="dropReward" placeholder="e.g. ₹150 Direct UPI" /></div>
-      <div class="field"><label>Sample / Reference Link</label><input type="url" id="dropLink" placeholder="https://drive.google.com/..." /></div>
-      <div style="display: flex; gap: 8px; margin-top: 10px;">
-        <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-drop')">Cancel</button>
-        <button class="btn btn-primary" style="flex: 2;" onclick="submitDropItem()">Publish</button>
       </div>
     </div>
   </div>
@@ -1716,7 +2004,6 @@
       </div>
 
       <div id="adminDashboardContent" style="display: none;">
-        <!-- Quick Stats -->
         <div class="ref-stats" style="margin-bottom: 10px;">
           <div class="stat-mini">
             <strong id="admTotalUsers">—</strong>
@@ -1728,40 +2015,47 @@
           </div>
         </div>
 
-        <!-- Set Promo Code -->
         <div class="card" style="font-size: 12px;">
-          <strong>🎟️ Set Active Promo Code:</strong>
-          <div style="display: flex; gap: 6px; margin-top: 7px;">
-            <input type="text" id="admNewPromo" placeholder="CODE (e.g. HARRY50)" style="text-transform:uppercase;" />
-            <input type="number" id="admPromoCoins" value="25" style="width: 75px;" />
-            <button class="btn btn-gold" onclick="adminSavePromo()">Save</button>
+          <strong>🔍 Search User by ID (SD-XXXXX):</strong>
+          <div style="display: flex; gap: 6px; margin-top: 6px;">
+            <input type="text" id="admSearchUidInput" placeholder="e.g. SD-48291" style="text-transform: uppercase;" />
+            <button class="btn btn-primary" onclick="adminSearchUserById()">Search</button>
           </div>
+          <div id="admSearchResultBox" style="margin-top: 8px; font-size: 11.5px; color: #ccfbf1;"></div>
         </div>
 
-        <!-- Update Important Notice -->
+        <div class="card" style="font-size: 12px;">
+          <strong>🎟️ Set Promo Code + User Limit:</strong>
+          <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 5px; margin-top: 7px;">
+            <input type="text" id="admNewPromo" placeholder="CODE" style="text-transform:uppercase;" />
+            <input type="number" id="admPromoCoins" value="25" placeholder="Coins" />
+            <input type="number" id="admPromoLimit" value="50" placeholder="Limit (50)" />
+          </div>
+          <button class="btn btn-gold btn-full" style="margin-top: 7px;" onclick="adminSavePromo()">Save Promo Code</button>
+        </div>
+
+        <div class="card" style="font-size: 12px;">
+          <div class="sub-tabs">
+            <button class="sub-tab-btn active" onclick="switchAdminPayoutTab('pending', this)">⏳ Pending</button>
+            <button class="sub-tab-btn" onclick="switchAdminPayoutTab('approved', this)">✅ Approved List</button>
+          </div>
+          <div id="admPendingBox" style="max-height: 180px; overflow-y: auto;">Loading...</div>
+          <div id="admApprovedBox" style="display: none; max-height: 180px; overflow-y: auto;">Loading...</div>
+        </div>
+
+        <div class="card" style="font-size: 12px;">
+          <strong>📩 Payment Appeals & Help Inbox:</strong>
+          <div id="admAppealsBox" style="margin-top: 7px; max-height: 140px; overflow-y: auto;">Loading...</div>
+        </div>
+
         <div class="card" style="font-size: 12px;">
           <strong>📢 Update Important Notice Banner:</strong>
-          <div class="field" style="margin-top: 7px;">
+          <div style="display: flex; gap: 6px; margin-top: 6px;">
             <input type="text" id="admNoticeInput" placeholder="New notice text..." />
+            <button class="btn btn-primary" onclick="adminUpdateNotice()">Save</button>
           </div>
-          <button class="btn btn-primary btn-full" onclick="adminUpdateNotice()">Update Notice</button>
         </div>
 
-        <!-- Post Official Task -->
-        <div class="card" style="font-size: 12px;">
-          <strong>💼 Post Official Task:</strong>
-          <div class="field" style="margin-top: 7px;"><input type="text" id="adminTaskTitle" placeholder="Task Title" /></div>
-          <div class="field"><input type="text" id="adminTaskPay" placeholder="Reward (e.g. ₹150 Direct UPI)" /></div>
-          <button class="btn btn-primary btn-full" onclick="adminPostOfficialTask()">Publish Official Task</button>
-        </div>
-
-        <!-- Pending Gift Card / UPI Redeem Requests -->
-        <div class="card" style="font-size: 12px;">
-          <strong>🎁 Pending Redeem Requests:</strong>
-          <div id="admRedeemList" style="margin-top: 8px; max-height: 160px; overflow-y: auto;">Loading...</div>
-        </div>
-
-        <!-- Maintenance Mode Toggle -->
         <div style="display: flex; gap: 8px; margin-top: 8px;">
           <button class="btn btn-outline" style="flex: 1;" onclick="toggleMaintenance()">🛠️ Maintenance</button>
           <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-admin')">Exit Admin</button>
@@ -1770,13 +2064,14 @@
     </div>
   </div>
 
-  <!-- Firebase & Complete App Logic -->
+  <!-- Firebase & Complete SkillDrop v4.1 Logic -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import {
       getAuth,
       GoogleAuthProvider,
       signInWithPopup,
+      signInWithRedirect,
       createUserWithEmailAndPassword,
       signInWithEmailAndPassword,
       onAuthStateChanged,
@@ -1793,7 +2088,6 @@
       query,
       where,
       getDocs,
-      orderBy,
       limit,
       serverTimestamp,
       increment
@@ -1813,12 +2107,13 @@
     const db = getFirestore(app);
 
     let currentUser = null;
-    let activePromo = { code: "DROP25", coins: 25 };
+    let activePromo = { code: "DROP25", coins: 25, maxUses: 50, usedCount: 0 };
     let selectedRedeemItem = { title: "", coins: 0 };
-    let selectedDealTask = null;
     let watchCooldownUntil = 0;
+    let activeDmTargetId = "";
 
     let userData = {
+      uniqueId: "",
       name: "Guest Creator",
       email: "",
       avatar: "🚀",
@@ -1830,14 +2125,24 @@
       level: 1,
       streakDay: 0,
       lastDailyDate: "",
+      comboDate: "",
+      comboTasksToday: 0,
+      comboClaimedToday: false,
       watchDate: "",
       watchCountToday: 0,
       scratchDate: "",
       scratchCountToday: 0,
       spinDate: "",
       spinCountToday: 0,
+      flipDate: "",
+      flipCountToday: 0,
+      diceDate: "",
+      diceCountToday: 0,
+      rushDate: "",
+      rushCountToday: 0,
       quizDate: "",
-      quizDoneToday: false,
+      quizPlaysToday: 0,
+      seenQuizIds: [],
       lastHourlyTs: 0,
       usedPromos: [],
       completedActions: {},
@@ -1849,32 +2154,70 @@
     };
 
     const LEVELS = [
-      { lvl: 1, name: "Starter", minXp: 0, desc: "7-Day Streak, Watch Spotlight, Scratch Card & Quiz" },
-      { lvl: 2, name: "Explorer", minXp: 350, desc: "Drop skill samples & unlock basic micro-tasks" },
-      { lvl: 3, name: "Junior Editor", minXp: 900, desc: "Unlock ₹100–₹150 Thumbnail & Reel tasks" },
-      { lvl: 4, name: "Pro Creator", minXp: 1800, desc: "Unlock ₹200–₹400 Direct YouTuber tasks" },
-      { lvl: 5, name: "Elite Studio", minXp: 3200, desc: "Featured profile placement + priority chat" },
-      { lvl: 6, name: "Verified Partner", minXp: 5000, desc: "Zero commission + VIP founder collabs" }
+      { lvl: 1, name: "Starter", minXp: 0, desc: "7-Day IST Streak, 6 Mini-Games, Mix Quiz & Community" },
+      { lvl: 2, name: "Explorer", minXp: 350, desc: "Priority Community Badge + Higher Game Rewards" },
+      { lvl: 3, name: "Junior Editor", minXp: 900, desc: "Unlock Creator Showcase & Direct DM Collabs" },
+      { lvl: 4, name: "Pro Creator", minXp: 1800, desc: "Featured Leaderboard Spot + VIP Support" },
+      { lvl: 5, name: "Elite Studio", minXp: 3200, desc: "Top Creator Frame + Fast-Track Gift Cards" },
+      { lvl: 6, name: "Verified Partner", minXp: 5000, desc: "Official SkillDrop Partner Status" }
     ];
 
     const STREAK_REWARDS = [10, 15, 20, 25, 30, 40, 100];
 
+    // HUGE NON-REPEATING MIX QUIZ BANK (Funny, Sad/Emotional Shayari, Creator & Brain Riddles across 4 Difficulty Levels)
     const QUIZ_BANK = [
-      { q: "Instagram Reels aur YouTube Shorts ke liye best aspect ratio kaunsa hai?", opts: ["16:9", "9:16 (Vertical)", "1:1", "4:3"], ans: 1 },
-      { q: "YouTube video par zyada clicks (CTR) laane ke liye kya sabse zaroori hai?", opts: ["Clean Thumbnail", "50 Hashtags", "Sirf Music", "Lamba Bio"], ans: 0 },
-      { q: "Mobile par free aur bina watermark video editing ke liye kaunsa app best hai?", opts: ["VN Video Editor", "MS Paint", "WinRAR", "Notepad"], ans: 0 },
-      { q: "Reel ke pehle 3 seconds ko creator language mein kya kehte hain?", opts: ["Outro", "Hook", "Copyright", "Filter"], ans: 1 },
-      { q: "YouTube Thumbnail ka standard HD size kya hota hai?", opts: ["1280 x 720 px", "320 x 50 px", "100 x 100 px", "500 x 200 px"], ans: 0 }
+      // EASY MODE (+5 Coins/Q) — Funny & Relatable
+      { id: "ez1", diff: "easy", mood: "😂 Funny", q: "Subah alarm bajne ke baad 'Sirf 5 minute aur sounga' bolne se kitne ghante beet jaate hain?", opts: ["Poore 2 ghante", "5 second", "Alarm toot jaata hai", "Neend ud jaati hai"], ans: 0 },
+      { id: "ez2", diff: "easy", mood: "💔 Sad Mood", q: "Adhoori line poori karo: 'Humne unhe apna waqt diya, aur unhone humein sirf ______ diya.'", opts: ["Bahana", "Gift Card", "Pizza", "Password"], ans: 0 },
+      { id: "ez3", diff: "easy", mood: "😂 Funny", q: "Jab dost bole 'Bhai tera bill main bhar dunga' aur phir jeb mein haath daal kar bole...", opts: ["Wallet ghar bhool gaya!", "Yeh le ₹2000", "Card swipe kar", "Tip bhi rakh le"], ans: 0 },
+      { id: "ez4", diff: "easy", mood: "🎬 Creator", q: "Instagram Reels aur YouTube Shorts ka best full-screen size kaunsa hota hai?", opts: ["9:16 (Vertical)", "16:9", "1:1", "4:3"], ans: 0 },
+      { id: "ez5", diff: "easy", mood: "💔 Sad Mood", q: "Sabse zyada dard kab hota hai jab message 'Seen' ho jaaye aur...", opts: ["Reply hi na aaye", "Phone charge ho", "Wi-Fi fast chale", "Battery 100% ho"], ans: 0 },
+      { id: "ez6", diff: "easy", mood: "😂 Funny", q: "Mummy ke haath ki chappal ki speed kitni hoti hai jab result kharab aaye?", opts: ["Rocket se bhi tez", "5 km/h", "Slow motion", "Zero"], ans: 0 },
+      { id: "ez7", diff: "easy", mood: "💔 Sad Mood", q: "Shayari complete karo: 'Bheed mein bhi akela mehsoos karta hoon, jab se tere bina ______ karta hoon.'", opts: ["Safar", "Party", "Shopping", "Gaming"], ans: 0 },
+      { id: "ez8", diff: "easy", mood: "😂 Funny", q: "Exam hall mein jab dost peeche se aawaz lagaye 'Bhai 4th ka answer bata', toh teacher kahan dekhta hai?", opts: ["Seedha tumhari taraf!", "Chhat ki taraf", "Bahar window mein", "Phone mein"], ans: 0 },
+
+      // MEDIUM MODE (+10 Coins/Q) — Funny, Sad & Smart Mix
+      { id: "md1", diff: "medium", mood: "💔 Sad Shayari", q: "'Kuch log zindagi mein sirf sabak dene aate hain, ______ banane nahi.' Sahi shabd chuno:", opts: ["Humsafar", "Padosi", "Manager", "Driver"], ans: 0 },
+      { id: "md2", diff: "medium", mood: "😂 Funny Riddle", q: "Aisi kaunsi cheez hai jo garib ke paas hoti hai, ameer ke paas nahi hoti, aur agar aap use kha lein toh mar jaayenge?", opts: ["Kuch Nahi (Nothing)", "Sona", "Paisa", "Hawa"], ans: 0 },
+      { id: "md3", diff: "medium", mood: "🎬 Creator Pro", q: "YouTube video ka CTR (Click Through Rate) badhane ke liye sabse zaroori cheez kya hai?", opts: ["High-Contrast Thumbnail", "50 Tags", "Sirf Outro", "Dark Screen"], ans: 0 },
+      { id: "md4", diff: "medium", mood: "💔 Sad Mood", q: "Raat ko 2 baje purani chats padhne se insaan ko kya milta hai?", opts: ["Sirf purani yaadein aur aansu", "Free recharge", "Naya phone", "Neend"], ans: 0 },
+      { id: "md5", diff: "medium", mood: "😂 Funny", q: "Agar 5 machhar ek room mein hain aur aapne 1 ko maar diya, toh room mein kitne machhar bachenge?", opts: ["5 (1 mara hua + 4 zinda)", "4", "Zero", "10"], ans: 0 },
+      { id: "md6", diff: "medium", mood: "💔 Sad Shayari", q: "'Muskurahat toh sirf duniya ko dikhane ke liye hai, asli dard toh ______ mein chhupa hota hai.'", opts: ["Khamoshi", "Shor", "Bazaar", "Camera"], ans: 0 },
+      { id: "md7", diff: "medium", mood: "😂 Funny", q: "Wo kaunsa mahina hai jismein log sabse kam sote hain?", opts: ["February (28 din hote hain)", "January", "December", "July"], ans: 0 },
+      { id: "md8", diff: "medium", mood: "🎬 Creator", q: "Short video ke pehle 3 seconds ko creator language mein kya kehte hain?", opts: ["Hook", "Export", "Render", "Thumbnail"], ans: 0 },
+
+      // HARD MODE (+15 Coins/Q) — Deep Sad, Tricky Funny & Brain Teasers
+      { id: "hd1", diff: "hard", mood: "🧩 Tricky Riddle", q: "Ek aadmi baarish mein bina chhatri aur bina topi ke chal raha tha, phir bhi uska ek bhi baal geela nahi hua. Kaise?", opts: ["Kyunki wo ganja (bald) tha!", "Baarish ruk gayi thi", "Wo ghar ke andar tha", "Magic tha"], ans: 0 },
+      { id: "hd2", diff: "hard", mood: "💔 Deep Sad", q: "'Woh kehte the tumhari har khamoshi samajhte hain, aaj hum ______ rahe aur unhone haal tak nahi pucha.'", opts: ["Toot", "Hans", "Jeet", "Bhaag"], ans: 0 },
+      { id: "hd3", diff: "hard", mood: "🧩 Brain Riddle", q: "Aisi kaunsi cheez hai jiske paas sir aur poonch (head & tail) dono hain, par shareer (body) nahi hai?", opts: ["Ek Sikka (Coin)", "Saanp", "Sher", "Machhli"], ans: 0 },
+      { id: "hd4", diff: "hard", mood: "😂 Funny Logic", q: "Ek electric train North se South ki taraf 100 km/h ki speed se ja rahi hai, toh uska dhuan kis disha mein jayega?", opts: ["Electric train dhuan nahi chhodti!", "North", "South", "East"], ans: 0 },
+      { id: "hd5", diff: "hard", mood: "💔 Deep Sad", q: "Zindagi ka sabse kadwa sach kya hai jab aap bure waqt se guzar rahe hote hain?", opts: ["Apne bhi pehchanne se inkaar kar dete hain", "Sab madad karte hain", "Waqt ruk jaata hai", "Paisa ped par ugta hai"], ans: 0 },
+      { id: "hd6", diff: "hard", mood: "🧩 Tricky Riddle", q: "Aap ek race mein daud rahe hain aur aapne 2nd number wale ko peeche chhod diya. Ab aap kis position par hain?", opts: ["2nd Position par", "1st Position par", "3rd Position par", "Last par"], ans: 0 },
+      { id: "hd7", diff: "hard", mood: "🎬 Pro Editing", q: "Smooth slow-motion video banane ke liye mobile camera mein minimum kitne FPS par shoot karna chahiye?", opts: ["60 FPS ya 120 FPS", "15 FPS", "24 FPS", "10 FPS"], ans: 0 },
+
+      // ULTRA HARD MODE (+25 Coins/Q) — Master Mind, Deep Philosophy & Savage Riddles
+      { id: "uh1", diff: "ultra", mood: "🔥 Ultra Riddle", q: "Main bina pankh ke udta hoon, bina aankhon ke rota hoon. Jahan bhi jaata hoon andhera chha jaata hai. Main kaun hoon?", opts: ["Baadal (Cloud)", "Hawa", "Raat", "Chand"], ans: 0 },
+      { id: "uh2", diff: "ultra", mood: "💔 Ultra Sad", q: "'Kisi ko itna bhi waqt mat do ki woh tumhare waqt ko ______ samajhne lage.'", opts: ["Faltu", "Keemti", "Zaroori", "Aakhiri"], ans: 0 },
+      { id: "uh3", diff: "ultra", mood: "🔥 Ultra Logic", q: "3 cats 3 chuhe 3 minute mein pakadti hain. Toh 100 cats 100 chuhe kitne minute mein pakdengi?", opts: ["3 Minute mein hi!", "100 Minute", "300 Minute", "1 Minute"], ans: 0 },
+      { id: "uh4", diff: "ultra", mood: "🔥 Ultra Riddle", q: "Jo mujhe banata hai woh mujhe bech deta hai, jo mujhe kharidta hai woh use nahi karta, aur jo use karta hai use pata nahi chalta. Main kya hoon?", opts: ["Kafan / Coffin", "Mobile", "Car", "Ghadi"], ans: 0 },
+      { id: "uh5", diff: "ultra", mood: "💔 Ultra Sad", q: "Jab insaan andar se toot jaata hai, toh woh ladna chhod kar kya karna shuru kar deta hai?", opts: ["Har baat par 'Theek hai' kehna", "Sabse ladna", "Rona dhona", "Ghumna"], ans: 0 },
+      { id: "uh6", diff: "ultra", mood: "🔥 Ultra Math", q: "Ek talab mein kamal ka phool roz double hota hai. Agar poora talab 30 din mein bharta hai, toh aadha talab kitne din mein bhara tha?", opts: ["29vein din (29th Day)", "15vein din", "20vein din", "28vein din"], ans: 0 }
     ];
 
     const I18N = {
-      hinglish: { lvl1Title: "⚡ Level 1 Daily Activities", dailyTitle: "🔥 7-Day Daily Check-In Streak", watchTitle: "Watch Partner Spotlight (15s)", marketTitle: "💼 Skill Tasks & Drops", referTitle: "🤝 Refer & Earn + Milestones", profileTitle: "🪪 Creator Profile", navHome: "Home", navTasks: "Tasks", navWallet: "Redeem", navRefer: "Refer", navProfile: "Profile" },
-      pa: { lvl1Title: "⚡ ਲੈਵਲ 1 ਰੋਜ਼ਾਨਾ ਐਕਟੀਵਿਟੀ", dailyTitle: "🔥 7-ਦਿਨਾਂ ਦੀ ਸਟ੍ਰੀਕ ਬੋਨਸ", watchTitle: "ਪਾਰਟਨਰ ਸਪੌਟਲਾਈਟ ਦੇਖੋ (15s)", marketTitle: "💼 ਸਕਿੱਲ ਟਾਸਕ ਅਤੇ ਸੈਂਪਲ", referTitle: "🤝 ਦੋਸਤਾਂ ਨੂੰ ਭੇਜੋ ਤੇ ਕਮਾਓ", profileTitle: "🪪 ਕ੍ਰਿਏਟਰ ਪ੍ਰੋਫਾਈਲ", navHome: "ਹੋਮ", navTasks: "ਟਾਸਕ", navWallet: "ਰਿਡੀਮ", navRefer: "ਰੈਫਰ", navProfile: "ਪ੍ਰੋਫਾਈਲ" },
-      hi: { lvl1Title: "⚡ लेवल 1 डेली एक्टिविटी", dailyTitle: "🔥 7-दिन डेली चेक-इन स्ट्रीक", watchTitle: "पार्टनर स्पॉटलाइट देखें (15s)", marketTitle: "💼 स्किल टास्क और सैंपल", referTitle: "🤝 रेफर करें और कमाएं", profileTitle: "🪪 क्रिएटर प्रोफाइल", navHome: "होम", navTasks: "टास्क", navWallet: "रिडीम", navRefer: "रेफर", navProfile: "प्रोफाइल" },
-      en: { lvl1Title: "⚡ Level 1 Daily Activities", dailyTitle: "🔥 7-Day Daily Check-In Streak", watchTitle: "Watch Partner Spotlight (15s)", marketTitle: "💼 Skill Tasks & Drops", referTitle: "🤝 Refer & Earn + Milestones", profileTitle: "🪪 Creator Profile", navHome: "Home", navTasks: "Tasks", navWallet: "Redeem", navRefer: "Refer", navProfile: "Profile" }
+      hinglish: { lvl1Title: "⚡ Daily Earning Activities", dailyTitle: "🔥 7-Day Daily Check-In Streak", watchTitle: "Watch Partner Spotlight (15s)", navHome: "Home", navComm: "Community", navWallet: "Redeem", navRefer: "Refer", navProfile: "Profile" },
+      pa: { lvl1Title: "⚡ ਰੋਜ਼ਾਨਾ ਕਮਾਈ ਐਕਟੀਵਿਟੀ", dailyTitle: "🔥 7-ਦਿਨਾਂ ਦੀ ਸਟ੍ਰੀਕ ਬੋਨਸ", watchTitle: "ਪਾਰਟਨਰ ਸਪੌਟਲਾਈਟ ਦੇਖੋ (15s)", navHome: "ਹੋਮ", navComm: "ਕਮਿਊਨਿਟੀ", navWallet: "ਰਿਡੀਮ", navRefer: "ਰੈਫਰ", navProfile: "ਪ੍ਰੋਫਾਈਲ" },
+      hi: { lvl1Title: "⚡ डेली अर्निंग एक्टिविटी", dailyTitle: "🔥 7-दिन डेली चेक-इन स्ट्रीक", watchTitle: "पार्टनर स्पॉटलाइट देखें (15s)", navHome: "होम", navComm: "कम्युनिटी", navWallet: "रिडीम", navRefer: "रेफर", navProfile: "प्रोफाइल" },
+      en: { lvl1Title: "⚡ Daily Earning Activities", dailyTitle: "🔥 7-Day Daily Check-In Streak", watchTitle: "Watch Partner Spotlight (15s)", navHome: "Home", navComm: "Community", navWallet: "Redeem", navRefer: "Refer", navProfile: "Profile" }
     };
 
-    // Subtle Coin Sound Effect (Web Audio API)
+    function getISTDateStr() {
+      const now = new Date();
+      const istOffset = 5.5 * 60 * 60 * 1000;
+      const istDate = new Date(now.getTime() + (now.getTimezoneOffset() * 60000) + istOffset);
+      return istDate.toISOString().slice(0, 10);
+    }
+
     function playCoinSound() {
       try {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -1907,41 +2250,40 @@
       setTimeout(() => { t.style.display = "none"; }, 2600);
     };
 
+    window.openModal = (id) => document.getElementById(id).classList.add("open");
+    window.closeModal = (id) => document.getElementById(id).classList.remove("open");
+
     window.switchTab = (viewId, btnEl) => {
       document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
       document.getElementById(viewId).classList.add("active");
       document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
       if (btnEl) btnEl.classList.add("active");
-      if (viewId === "view-wallet") loadPassbook();
+      if (viewId === "view-community") loadCommunityFeed();
+      if (viewId === "view-wallet") { loadMyWithdrawals(); loadPassbook(); }
       if (viewId === "view-refer") loadLeaderboard();
     };
 
-    window.openModal = (id) => document.getElementById(id).classList.add("open");
-    window.closeModal = (id) => document.getElementById(id).classList.remove("open");
+    window.switchCommTab = (sub, btnEl) => {
+      document.querySelectorAll("#view-community .sub-tab-btn").forEach(b => b.classList.remove("active"));
+      btnEl.classList.add("active");
+      document.getElementById("comm-feed").style.display = sub === "feed" ? "block" : "none";
+      document.getElementById("comm-group").style.display = sub === "group" ? "block" : "none";
+      document.getElementById("comm-dm").style.display = sub === "dm" ? "block" : "none";
+      if (sub === "group") loadGroupChat();
+    };
 
-    // Secret 5-Tap Logo Trigger
-    let logoTapCount = 0;
-    let logoTapTimer = null;
-    document.getElementById("secretLogoTrigger").addEventListener("click", () => {
-      logoTapCount++;
-      clearTimeout(logoTapTimer);
-      logoTapTimer = setTimeout(() => { logoTapCount = 0; }, 2000);
-      if (logoTapCount >= 5) {
-        logoTapCount = 0;
-        openModal("modal-admin");
-      }
-    });
+    window.switchWalletTab = (sub, btnEl) => {
+      document.querySelectorAll("#view-wallet .sub-tab-btn").forEach(b => b.classList.remove("active"));
+      btnEl.classList.add("active");
+      document.getElementById("wallet-store").style.display = sub === "store" ? "block" : "none";
+      document.getElementById("wallet-history").style.display = sub === "history" ? "block" : "none";
+      if (sub === "history") { loadMyWithdrawals(); loadPassbook(); }
+    };
 
-    window.verifyAdminPin = async () => {
-      const pin = document.getElementById("adminPinInput").value.trim();
-      if (pin === "786090") {
-        document.getElementById("adminPinGate").style.display = "none";
-        document.getElementById("adminDashboardContent").style.display = "block";
-        showToast("Founder Admin Unlocked!");
-        loadAdminStats();
-      } else {
-        showToast("Incorrect Admin PIN");
-      }
+    window.copyMyUserId = () => {
+      const uid = userData.uniqueId || "GUEST";
+      navigator.clipboard.writeText(uid);
+      showToast(`User ID (${uid}) copied!`);
     };
 
     document.getElementById("langSwitcher").addEventListener("change", (e) => {
@@ -1949,18 +2291,64 @@
       document.getElementById("t-lvl1-title").textContent = lang.lvl1Title;
       document.getElementById("t-daily-title").textContent = lang.dailyTitle;
       document.getElementById("t-watch-title").textContent = lang.watchTitle;
-      document.getElementById("t-market-title").textContent = lang.marketTitle;
-      document.getElementById("t-refer-title").textContent = lang.referTitle;
-      document.getElementById("t-profile-title").textContent = lang.profileTitle;
       document.getElementById("nav-home").textContent = lang.navHome;
-      document.getElementById("nav-tasks").textContent = lang.navTasks;
+      document.getElementById("nav-comm").textContent = lang.navComm;
       document.getElementById("nav-wallet").textContent = lang.navWallet;
       document.getElementById("nav-refer").textContent = lang.navRefer;
       document.getElementById("nav-profile").textContent = lang.navProfile;
+      showToast("Language updated!");
     });
 
-    function getTodayStr() {
-      return new Date().toISOString().slice(0, 10);
+    window.handleSettingsAuth = () => {
+      closeModal("modal-settings");
+      if (currentUser) {
+        signOut(auth);
+        showToast("Logged out successfully");
+      } else {
+        openModal("modal-auth");
+      }
+    };
+
+    // 100% REAL FIREBASE LIVE ONLINE PRESENCE
+    const sessionVisitorId = localStorage.getItem("sd_session_id") || ("v_" + Math.random().toString(36).slice(2, 10));
+    localStorage.setItem("sd_session_id", sessionVisitorId);
+
+    async function updateRealLivePresence() {
+      try {
+        const nowMs = Date.now();
+        await setDoc(doc(db, "presence", sessionVisitorId), {
+          uid: currentUser ? currentUser.uid : "guest",
+          lastActive: nowMs
+        }, { merge: true });
+
+        const twoMinsAgo = nowMs - 120000;
+        const q = query(collection(db, "presence"), where("lastActive", ">=", twoMinsAgo));
+        const snap = await getDocs(q);
+        const realCount = Math.max(1, snap.size);
+        document.getElementById("onlineCountText").textContent = `${realCount} Online`;
+      } catch (e) {
+        document.getElementById("onlineCountText").textContent = "1 Online";
+      }
+    }
+    setInterval(updateRealLivePresence, 30000);
+    updateRealLivePresence();
+
+    // Real Withdrawal Ticker
+    async function loadRealWithdrawalTicker() {
+      try {
+        const snap = await getDocs(query(collection(db, "payouts"), limit(15)));
+        if (snap.empty) return;
+        const items = [];
+        snap.forEach(d => {
+          const p = d.data();
+          if (p.name && p.item) {
+            items.push(`💸 ${p.name} (${p.uniqueId || 'Member'}) ne ${p.item} redeem lagaya (${p.status === 'approved' ? 'Approved ✅' : 'Processing ⏳'})`);
+          }
+        });
+        if (items.length > 0) {
+          document.getElementById("liveTickerText").textContent = items.join("   •   ");
+        }
+      } catch (e) {}
     }
 
     function computeLevel(xp) {
@@ -1972,7 +2360,7 @@
     }
 
     function renderUI() {
-      const today = getTodayStr();
+      const today = getISTDateStr();
       const lvlObj = computeLevel(userData.xp || 0);
       userData.level = lvlObj.lvl;
       const nextLvlObj = LEVELS.find(l => l.lvl === lvlObj.lvl + 1);
@@ -1980,7 +2368,12 @@
       document.getElementById("userLevelBadge").textContent = `⭐ Level ${lvlObj.lvl} • ${lvlObj.name}`;
       document.getElementById("welcomeUserText").textContent = currentUser
         ? `Welcome, ${userData.name}`
-        : "Guest Mode • Login to save Coins";
+        : "Guest Mode • Login to Save Coins";
+
+      const uidStr = userData.uniqueId || "GUEST";
+      document.getElementById("heroUserIdPill").textContent = `ID: ${uidStr} • Copy`;
+      document.getElementById("profUidBadge").textContent = `ID: ${uidStr}`;
+      document.getElementById("appealUidLabel").textContent = `Your User ID: ${uidStr}`;
 
       const coins = userData.coins || 0;
       const inr = (coins / 100).toFixed(2);
@@ -1993,6 +2386,23 @@
       document.getElementById("xpLabel").textContent = `XP: ${userData.xp} / ${nextXp}`;
       document.getElementById("nextLvlLabel").textContent = nextLvlObj ? `Next: Level ${nextLvlObj.lvl}` : "Max Level";
       document.getElementById("xpFillBar").style.width = `${pct}%`;
+
+      // Daily 5-Task Combo Chest
+      const comboCount = userData.comboDate === today ? (userData.comboTasksToday || 0) : 0;
+      const comboClaimed = userData.comboDate === today && userData.comboClaimedToday;
+      document.getElementById("comboProgressText").textContent = `Aaj ke koi 5 tasks/games complete karein (${Math.min(5, comboCount)} / 5)`;
+      const btnCombo = document.getElementById("btnClaimCombo");
+      if (comboClaimed) {
+        markBtnDone("btnClaimCombo", "Claimed ✓");
+      } else if (comboCount >= 5) {
+        btnCombo.disabled = false;
+        btnCombo.className = "btn btn-gold";
+        btnCombo.textContent = "Claim +30 🪙";
+      } else {
+        btnCombo.disabled = true;
+        btnCombo.className = "btn btn-locked";
+        btnCombo.textContent = `${comboCount}/5`;
+      }
 
       // 7-Day Streak Visual Grid
       const claimedToday = userData.lastDailyDate === today;
@@ -2020,21 +2430,30 @@
       document.getElementById("watchLimitLabel").textContent = `Today: ${watchedToday} / 10 Watched • +10 Coins`;
       if (watchedToday >= 10) markBtnDone("btnWatchAd", "10/10 ✓");
 
-      // Scratch Card 2/Day
-      const scratchUsed = userData.scratchDate === today ? (userData.scratchCountToday || 0) : 0;
-      document.getElementById("scratchLimitLabel").textContent = `Cards Left Today: ${Math.max(0, 2 - scratchUsed)} / 2`;
-      if (scratchUsed >= 2) markBtnDone("btnOpenScratch", "Done ✓");
+      // Mini-Games Limits
+      const scratchLeft = Math.max(0, 2 - (userData.scratchDate === today ? (userData.scratchCountToday || 0) : 0));
+      document.getElementById("scratchLimitLabel").textContent = `${scratchLeft} / 2 Left Today`;
+      if (scratchLeft === 0) markBtnDone("btnOpenScratch", "Done ✓");
 
-      // Lucky Spin 3/Day
-      const spinsUsed = userData.spinDate === today ? (userData.spinCountToday || 0) : 0;
-      document.getElementById("spinLimitLabel").textContent = `Free Spins Left: ${Math.max(0, 3 - spinsUsed)} / 3 Today`;
-      if (spinsUsed >= 3) markBtnDone("btnOpenSpin", "Done ✓");
+      const spinLeft = Math.max(0, 3 - (userData.spinDate === today ? (userData.spinCountToday || 0) : 0));
+      document.getElementById("spinLimitLabel").textContent = `${spinLeft} / 3 Left Today`;
+      if (spinLeft === 0) markBtnDone("btnOpenSpin", "Done ✓");
 
-      // Quiz Daily
-      if (userData.quizDate === today && userData.quizDoneToday) {
-        document.getElementById("quizLimitLabel").textContent = "Aaj ka quiz complete ho chuka hai!";
-        markBtnDone("btnOpenQuiz", "Done ✓");
-      }
+      const flipLeft = Math.max(0, 2 - (userData.flipDate === today ? (userData.flipCountToday || 0) : 0));
+      document.getElementById("flipLimitLabel").textContent = `${flipLeft} / 2 Left Today`;
+      if (flipLeft === 0) markBtnDone("btnOpenFlip", "Done ✓");
+
+      const diceLeft = Math.max(0, 2 - (userData.diceDate === today ? (userData.diceCountToday || 0) : 0));
+      document.getElementById("diceLimitLabel").textContent = `${diceLeft} / 2 Left Today`;
+      if (diceLeft === 0) markBtnDone("btnOpenDice", "Done ✓");
+
+      const rushLeft = Math.max(0, 2 - (userData.rushDate === today ? (userData.rushCountToday || 0) : 0));
+      document.getElementById("rushLimitLabel").textContent = `${rushLeft} / 2 Left Today`;
+      if (rushLeft === 0) markBtnDone("btnOpenRush", "Done ✓");
+
+      const quizPlaysLeft = Math.max(0, 3 - (userData.quizDate === today ? (userData.quizPlaysToday || 0) : 0));
+      document.getElementById("quizLimitLabel").textContent = `${quizPlaysLeft} / 3 Plays Left • 4 Modes`;
+      if (quizPlaysLeft === 0) markBtnDone("btnOpenQuiz", "Done ✓");
 
       // Social Buttons
       const done = userData.completedActions || {};
@@ -2096,20 +2515,30 @@
         await addDoc(collection(db, "users", currentUser.uid, "history"), {
           title,
           coins: deltaCoins,
-          createdAt: serverTimestamp()
+          ts: Date.now()
         });
       } catch (e) {}
     }
 
-    async function awardReward(coinsToAdd, xpToAdd, reasonLabel, actionKey = null, extraFields = {}) {
+    async function awardReward(coinsToAdd, xpToAdd, reasonLabel, actionKey = null, extraFields = {}, countTowardsCombo = true) {
       if (!currentUser) {
         openModal("modal-auth");
         showToast("Login first to earn Coins!");
         return false;
       }
-      if (userData.banned) return showToast("Account restricted due to policy violation.");
+      if (userData.banned) return showToast("Account restricted.");
+
+      const today = getISTDateStr();
       userData.coins = (userData.coins || 0) + coinsToAdd;
       userData.xp = (userData.xp || 0) + xpToAdd;
+
+      if (countTowardsCombo) {
+        const prevCombo = userData.comboDate === today ? (userData.comboTasksToday || 0) : 0;
+        userData.comboDate = today;
+        userData.comboTasksToday = prevCombo + 1;
+        if (userData.comboDate !== today) userData.comboClaimedToday = false;
+      }
+
       if (actionKey) {
         userData.completedActions = userData.completedActions || {};
         userData.completedActions[actionKey] = true;
@@ -2117,18 +2546,42 @@
       Object.assign(userData, extraFields);
       renderUI();
       playCoinSound();
+
       try {
         await setDoc(doc(db, "users", currentUser.uid), userData, { merge: true });
         await logPassbook(reasonLabel, `+${coinsToAdd} 🪙`);
+
+        if (userData.referredBy && coinsToAdd >= 10) {
+          const commCoins = Math.max(1, Math.floor(coinsToAdd * 0.10));
+          const q = query(collection(db, "users"), where("refCode", "==", userData.referredBy), limit(1));
+          const qSnap = await getDocs(q);
+          qSnap.forEach(async (docSnap) => {
+            await updateDoc(doc(db, "users", docSnap.id), {
+              coins: increment(commCoins),
+              refCoins: increment(commCoins)
+            });
+          });
+        }
       } catch (e) {}
+
       showToast(`+${coinsToAdd} Coins & +${xpToAdd} XP!`);
       return true;
     }
 
-    // 1. 7-Day Daily Check-In
+    // Daily 5-Task Combo Chest
+    window.claimDailyCombo = async () => {
+      if (!currentUser) return openModal("modal-auth");
+      const today = getISTDateStr();
+      const count = userData.comboDate === today ? (userData.comboTasksToday || 0) : 0;
+      if (count < 5) return showToast("Complete 5 tasks/games first!");
+      if (userData.comboDate === today && userData.comboClaimedToday) return showToast("Already claimed today!");
+      await awardReward(30, 20, "Daily 5-Task Treasure Chest", null, { comboClaimedToday: true }, false);
+    };
+
+    // 7-Day Daily Check-In
     window.claimDailyBonus = async () => {
       if (!currentUser) return openModal("modal-auth");
-      const today = getTodayStr();
+      const today = getISTDateStr();
       if (userData.lastDailyDate === today) return showToast("Already claimed today!");
       const nextDay = ((userData.streakDay || 0) % 7) + 1;
       const rewardCoins = STREAK_REWARDS[nextDay - 1];
@@ -2138,16 +2591,15 @@
       });
     };
 
-    // 2. Watch Partner Spotlight (10/Day + 30s Cooldown)
+    // Watch Partner Spotlight
     window.startWatchTask = () => {
       if (!currentUser) return openModal("modal-auth");
-      const today = getTodayStr();
+      const today = getISTDateStr();
       const watchedToday = userData.watchDate === today ? (userData.watchCountToday || 0) : 0;
       if (watchedToday >= 10) return showToast("Daily limit (10/10) reached!");
       const now = Date.now();
       if (now < watchCooldownUntil) {
-        const waitSec = Math.ceil((watchCooldownUntil - now) / 1000);
-        return showToast(`Please wait ${waitSec}s cooldown before next watch!`);
+        return showToast(`Wait ${Math.ceil((watchCooldownUntil - now) / 1000)}s cooldown!`);
       }
       const btn = document.getElementById("btnWatchAd");
       if (btn.disabled) return;
@@ -2170,7 +2622,7 @@
           wrap.style.display = "none";
           btn.disabled = false;
           btn.textContent = "Watch";
-          watchCooldownUntil = Date.now() + 30000;
+          watchCooldownUntil = Date.now() + 20000;
           await awardReward(10, 8, "Partner Spotlight Watch", null, {
             watchDate: today,
             watchCountToday: watchedToday + 1
@@ -2179,15 +2631,17 @@
       }, 1000);
     };
 
-    // 3. Interactive Scratch Card (2/Day)
+    // Scratch Card
+    let scratchStrokes = 0;
     let scratchAwarded = false;
     let currentScratchPrize = 10;
     window.openScratchModal = () => {
       if (!currentUser) return openModal("modal-auth");
-      const today = getTodayStr();
+      const today = getISTDateStr();
       const used = userData.scratchDate === today ? (userData.scratchCountToday || 0) : 0;
       if (used >= 2) return showToast("Aaj ke 2 Scratch Cards khatam ho gaye!");
 
+      scratchStrokes = 0;
       scratchAwarded = false;
       const prizes = [5, 10, 12, 15, 20, 25];
       currentScratchPrize = prizes[Math.floor(Math.random() * prizes.length)];
@@ -2199,9 +2653,9 @@
       ctx.fillStyle = "#94a3b8";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "#0f172a";
-      ctx.font = "bold 16px Plus Jakarta Sans";
+      ctx.font = "bold 15px Plus Jakarta Sans";
       ctx.textAlign = "center";
-      ctx.fillText("SCRATCH HERE 🪙", canvas.width / 2, canvas.height / 2 + 6);
+      ctx.fillText("RUB TO SCRATCH 🪙", canvas.width / 2, canvas.height / 2 + 5);
 
       const scratchMove = async (e) => {
         e.preventDefault();
@@ -2213,16 +2667,15 @@
         ctx.beginPath();
         ctx.arc(x, y, 22, 0, Math.PI * 2);
         ctx.fill();
+        scratchStrokes++;
 
-        if (!scratchAwarded) {
+        if (scratchStrokes >= 18 && !scratchAwarded) {
           scratchAwarded = true;
-          setTimeout(async () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            await awardReward(currentScratchPrize, 5, "Lucky Scratch Card", null, {
-              scratchDate: today,
-              scratchCountToday: used + 1
-            });
-          }, 900);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          await awardReward(currentScratchPrize, 5, "Lucky Scratch Card", null, {
+            scratchDate: today,
+            scratchCountToday: used + 1
+          });
         }
       };
 
@@ -2231,11 +2684,11 @@
       openModal("modal-scratch");
     };
 
-    // 4. Daily Lucky Spin (3/Day)
+    // Lucky Spin
     let isSpinning = false;
     window.openSpinModal = () => {
       if (!currentUser) return openModal("modal-auth");
-      const today = getTodayStr();
+      const today = getISTDateStr();
       const used = userData.spinDate === today ? (userData.spinCountToday || 0) : 0;
       document.getElementById("modalSpinSub").textContent = `Free Spins Left Today: ${Math.max(0, 3 - used)} / 3`;
       document.getElementById("spinResultText").textContent = "";
@@ -2244,7 +2697,7 @@
 
     window.spinNow = async () => {
       if (isSpinning || !currentUser) return;
-      const today = getTodayStr();
+      const today = getISTDateStr();
       const used = userData.spinDate === today ? (userData.spinCountToday || 0) : 0;
       if (used >= 3) return showToast("Aaj ke 3 spins khatam ho gaye!");
       isSpinning = true;
@@ -2265,79 +2718,265 @@
       }, 2500);
     };
 
-    // 5. Creator Quiz (Hinglish)
+    // Flip & Win Mystery Cards
+    let flipPicked = false;
+    window.openFlipModal = () => {
+      if (!currentUser) return openModal("modal-auth");
+      const today = getISTDateStr();
+      const used = userData.flipDate === today ? (userData.flipCountToday || 0) : 0;
+      if (used >= 2) return showToast("Aaj ke 2 Flip Cards khatam ho gaye!");
+      flipPicked = false;
+      document.querySelectorAll(".flip-card").forEach(c => {
+        c.className = "flip-card";
+        c.textContent = "❓";
+      });
+      openModal("modal-flip");
+    };
+
+    window.pickFlipCard = async (idx, el) => {
+      if (flipPicked || !currentUser) return;
+      flipPicked = true;
+      const today = getISTDateStr();
+      const used = userData.flipDate === today ? (userData.flipCountToday || 0) : 0;
+      const rewards = [8, 15, 22].sort(() => 0.5 - Math.random());
+      document.querySelectorAll(".flip-card").forEach((c, i) => {
+        c.classList.add("revealed");
+        c.textContent = `+${rewards[i]} 🪙`;
+      });
+      await awardReward(rewards[idx], 6, "Flip & Win Mystery Card", null, {
+        flipDate: today,
+        flipCountToday: used + 1
+      });
+    };
+
+    // Lucky Dice Roll
+    let diceRolling = false;
+    window.openDiceModal = () => {
+      if (!currentUser) return openModal("modal-auth");
+      const today = getISTDateStr();
+      const used = userData.diceDate === today ? (userData.diceCountToday || 0) : 0;
+      if (used >= 2) return showToast("Aaj ke 2 Dice Rolls khatam ho gaye!");
+      document.getElementById("diceDisplayBox").textContent = "🎲";
+      document.getElementById("diceResultLabel").textContent = "";
+      openModal("modal-dice");
+    };
+
+    window.rollDiceNow = async () => {
+      if (diceRolling || !currentUser) return;
+      const today = getISTDateStr();
+      const used = userData.diceDate === today ? (userData.diceCountToday || 0) : 0;
+      if (used >= 2) return showToast("Daily limit reached!");
+      diceRolling = true;
+      const faces = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+      let ticks = 0;
+      const iv = setInterval(async () => {
+        ticks++;
+        const rollIdx = Math.floor(Math.random() * 6);
+        document.getElementById("diceDisplayBox").textContent = faces[rollIdx];
+        if (ticks >= 10) {
+          clearInterval(iv);
+          diceRolling = false;
+          const num = rollIdx + 1;
+          const won = num * 3;
+          document.getElementById("diceResultLabel").textContent = `Rolled ${num} → Won +${won} Coins!`;
+          await awardReward(won, 6, `Lucky Dice Roll (${num}×3)`, null, {
+            diceDate: today,
+            diceCountToday: used + 1
+          });
+        }
+      }, 90);
+    };
+
+    // 15s Speed Math Rush
+    let rushScore = 0;
+    let rushCorrectAns = 0;
+    let rushTimerIv = null;
+    window.openRushModal = () => {
+      if (!currentUser) return openModal("modal-auth");
+      const today = getISTDateStr();
+      const used = userData.rushDate === today ? (userData.rushCountToday || 0) : 0;
+      if (used >= 2) return showToast("Aaj ke 2 Speed Rush khatam ho gaye!");
+      rushScore = 0;
+      let timeLeft = 15;
+      document.getElementById("rushTimerBadge").textContent = `${timeLeft}s`;
+      nextRushQuestion();
+      openModal("modal-rush");
+
+      clearInterval(rushTimerIv);
+      rushTimerIv = setInterval(() => {
+        timeLeft--;
+        document.getElementById("rushTimerBadge").textContent = `${timeLeft}s`;
+        if (timeLeft <= 0) {
+          clearInterval(rushTimerIv);
+          closeModal("modal-rush");
+          showToast("Time up! Try again.");
+        }
+      }, 1000);
+    };
+
+    function nextRushQuestion() {
+      const a = 4 + Math.floor(Math.random() * 15);
+      const b = 3 + Math.floor(Math.random() * 12);
+      rushCorrectAns = a + b;
+      document.getElementById("rushQuestionBox").textContent = `${a} + ${b} = ? (${rushScore}/3)`;
+      const opts = [rushCorrectAns, rushCorrectAns + 2, rushCorrectAns - 1].sort(() => 0.5 - Math.random());
+      document.getElementById("rushOptsRow").innerHTML = opts.map(val =>
+        `<button class="btn btn-primary" onclick="answerRush(${val})">${val}</button>`
+      ).join("");
+    }
+
+    window.answerRush = async (val) => {
+      if (val === rushCorrectAns) {
+        rushScore++;
+        if (rushScore >= 3) {
+          clearInterval(rushTimerIv);
+          closeModal("modal-rush");
+          const today = getISTDateStr();
+          const used = userData.rushDate === today ? (userData.rushCountToday || 0) : 0;
+          await awardReward(15, 10, "15s Speed Math Rush", null, {
+            rushDate: today,
+            rushCountToday: used + 1
+          });
+        } else {
+          nextRushQuestion();
+        }
+      } else {
+        showToast("Galat! Jaldi sahi chuno");
+      }
+    };
+
+    // MIX MOOD QUIZ (4 DIFFICULTY MODES + NON-REPEATING QUESTIONS)
     let activeQuestions = [];
     let currentQIdx = 0;
     let quizEarnedCoins = 0;
+    let selectedQuizMode = "easy";
+    const MODE_REWARDS = { easy: 5, medium: 10, hard: 15, ultra: 25 };
 
     window.openQuizModal = () => {
       if (!currentUser) return openModal("modal-auth");
-      const today = getTodayStr();
-      if (userData.quizDate === today && userData.quizDoneToday) {
-        return showToast("Aaj ka quiz complete ho chuka hai!");
+      const today = getISTDateStr();
+      const playsToday = userData.quizDate === today ? (userData.quizPlaysToday || 0) : 0;
+      if (playsToday >= 3) return showToast("Aaj ke 3 Quiz rounds poore ho gaye!");
+
+      document.getElementById("quizModeStep").style.display = "block";
+      document.getElementById("quizPlayStep").style.display = "none";
+      openModal("modal-quiz");
+    };
+
+    window.startQuizWithMode = (mode) => {
+      selectedQuizMode = mode;
+      const seen = new Set([...(userData.seenQuizIds || []), ...JSON.parse(localStorage.getItem("sd_seen_q") || "[]")]);
+
+      // Filter questions by difficulty that user has NEVER seen before
+      let pool = QUIZ_BANK.filter(item => item.diff === mode && !seen.has(item.id));
+      // If user exhausted all questions in that mode, pull unseen from any mode first, then reset that mode
+      if (pool.length < 3) {
+        const otherUnseen = QUIZ_BANK.filter(item => !seen.has(item.id));
+        pool = pool.concat(otherUnseen);
       }
-      activeQuestions = [...QUIZ_BANK].sort(() => 0.5 - Math.random()).slice(0, 3);
+      if (pool.length < 3) {
+        pool = QUIZ_BANK.filter(item => item.diff === mode);
+      }
+
+      activeQuestions = [...pool].sort(() => 0.5 - Math.random()).slice(0, 3);
       currentQIdx = 0;
       quizEarnedCoins = 0;
+
+      document.getElementById("quizModeStep").style.display = "none";
+      document.getElementById("quizPlayStep").style.display = "block";
       renderQuizStep();
-      openModal("modal-quiz");
     };
 
     function renderQuizStep() {
       const qObj = activeQuestions[currentQIdx];
+      document.getElementById("quizModeBadge").textContent = `${selectedQuizMode.toUpperCase()} • ${qObj.mood}`;
       document.getElementById("quizStepBadge").textContent = `Q ${currentQIdx + 1} / 3`;
       document.getElementById("quizQuestionText").textContent = qObj.q;
-      document.getElementById("quizOptionsBox").innerHTML = qObj.opts.map((opt, idx) =>
-        `<button class="quiz-opt" onclick="answerQuiz(${idx})">${opt}</button>`
+
+      // Shuffle options dynamically while keeping track of the correct answer text
+      const correctText = qObj.opts[qObj.ans];
+      const shuffledOpts = [...qObj.opts].sort(() => 0.5 - Math.random());
+
+      document.getElementById("quizOptionsBox").innerHTML = shuffledOpts.map((opt) =>
+        `<button class="quiz-opt" onclick="answerQuiz('${opt.replace(/'/g, "\\'")}', '${correctText.replace(/'/g, "\\'")}', '${qObj.id}')">${opt}</button>`
       ).join("");
     }
 
-    window.answerQuiz = async (chosenIdx) => {
-      const qObj = activeQuestions[currentQIdx];
-      if (chosenIdx === qObj.ans) {
-        quizEarnedCoins += 10;
-        showToast("Sahi Jawab! +10 Coins");
+    window.answerQuiz = async (chosenText, correctText, qId) => {
+      // Mark question ID as seen so it NEVER repeats
+      const localSeen = JSON.parse(localStorage.getItem("sd_seen_q") || "[]");
+      if (!localSeen.includes(qId)) localSeen.push(qId);
+      localStorage.setItem("sd_seen_q", JSON.stringify(localSeen));
+
+      userData.seenQuizIds = userData.seenQuizIds || [];
+      if (!userData.seenQuizIds.includes(qId)) userData.seenQuizIds.push(qId);
+
+      const perQReward = MODE_REWARDS[selectedQuizMode] || 5;
+      if (chosenText === correctText) {
+        quizEarnedCoins += perQReward;
+        showToast(`Sahi Jawab! +${perQReward} Coins`);
       } else {
         showToast("Galat jawab!");
       }
+
       currentQIdx++;
       if (currentQIdx < activeQuestions.length) {
         renderQuizStep();
       } else {
         closeModal("modal-quiz");
-        await awardReward(quizEarnedCoins, 10, "Hinglish Creator Quiz", null, {
-          quizDate: getTodayStr(),
-          quizDoneToday: true
-        });
+        const today = getISTDateStr();
+        const prevPlays = userData.quizDate === today ? (userData.quizPlaysToday || 0) : 0;
+        const xpGain = selectedQuizMode === "ultra" ? 25 : selectedQuizMode === "hard" ? 18 : 10;
+        if (quizEarnedCoins > 0) {
+          await awardReward(quizEarnedCoins, xpGain, `Mix Quiz (${selectedQuizMode.toUpperCase()})`, null, {
+            quizDate: today,
+            quizPlaysToday: prevPlays + 1,
+            seenQuizIds: userData.seenQuizIds
+          });
+        } else {
+          userData.quizDate = today;
+          userData.quizPlaysToday = prevPlays + 1;
+          renderUI();
+          await setDoc(doc(db, "users", currentUser.uid), {
+            quizDate: today,
+            quizPlaysToday: prevPlays + 1,
+            seenQuizIds: userData.seenQuizIds
+          }, { merge: true });
+          showToast("Round complete! Agli baar aur try karein.");
+        }
       }
     };
 
-    // 6. Hourly Mystery Box
+    // Hourly Box & Promo Code
     window.claimHourlyBox = async () => {
       if (!currentUser) return openModal("modal-auth");
       const now = Date.now();
       const diffMins = Math.floor((now - (userData.lastHourlyTs || 0)) / 60000);
-      if (diffMins < 60) return showToast(`Agla gift ${60 - diffMins} minute baad khulega!`);
+      if (diffMins < 60) return showToast(`Agla box ${60 - diffMins} minute baad khulega!`);
       await awardReward(5, 5, "Hourly Mystery Box", null, { lastHourlyTs: now });
     };
 
-    // 7. Promo Code Redemption
     window.redeemPromoCode = async () => {
       if (!currentUser) return openModal("modal-auth");
       const code = document.getElementById("promoCodeInput").value.trim().toUpperCase();
       if (!code) return showToast("Enter Promo Code");
       const used = userData.usedPromos || [];
-      if (used.includes(code)) return showToast("Code already redeemed!");
+      if (used.includes(code)) return showToast("Code already used!");
+
+      await loadAppConfig();
       if (code === activePromo.code) {
+        if ((activePromo.usedCount || 0) >= (activePromo.maxUses || 50)) {
+          return showToast("Promo code user limit (50/100) full ho gayi hai!");
+        }
         used.push(code);
         document.getElementById("promoCodeInput").value = "";
+        await setDoc(doc(db, "config", "appSettings"), { promoUsedCount: increment(1) }, { merge: true });
         await awardReward(activePromo.coins, 10, `Promo Code (${code})`, null, { usedPromos: used });
       } else {
         showToast("Invalid or expired Promo Code");
       }
     };
 
-    // Social Follow Tasks
     window.completeSocialTask = async (key, url, coins, xp) => {
       if (!currentUser) return openModal("modal-auth");
       if (userData.completedActions && userData.completedActions[key]) return;
@@ -2347,12 +2986,148 @@
       }, 2500);
     };
 
-    // Redeem Store (Google Play, Amazon, Flipkart/Zomato, UPI)
+    // COMMUNITY FEED, GROUP CHAT & PERSONAL 1-TO-1 DM
+    window.publishCommunityPost = async () => {
+      if (!currentUser) return openModal("modal-auth");
+      const txt = document.getElementById("newPostText").value.trim();
+      if (!txt) return showToast("Post text likhein");
+      closeModal("modal-new-post");
+      document.getElementById("newPostText").value = "";
+      await addDoc(collection(db, "posts"), {
+        uid: currentUser.uid,
+        uniqueId: userData.uniqueId,
+        name: userData.name,
+        avatar: userData.avatar || "🚀",
+        level: userData.level || 1,
+        text: txt,
+        likes: 0,
+        ts: Date.now()
+      });
+      showToast("Post published!");
+      loadCommunityFeed();
+    };
+
+    async function loadCommunityFeed() {
+      const box = document.getElementById("communityFeedList");
+      try {
+        const snap = await getDocs(query(collection(db, "posts"), limit(25)));
+        const list = [];
+        snap.forEach(d => list.push({ id: d.id, ...d.data() }));
+        list.sort((a, b) => (b.ts || 0) - (a.ts || 0));
+
+        if (list.length === 0) {
+          box.innerHTML = `<div class="card" style="font-size:12px;color:var(--text-muted);text-align:center;">Abhi koi post nahi hai. "+ New Post" se shuruat karein!</div>`;
+          return;
+        }
+        box.innerHTML = list.map(p => `
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <span style="font-size:12.5px;font-weight:800;">${p.avatar || '🚀'} ${p.name} <small style="color:var(--teal-bright);">(${p.uniqueId || 'Member'} • Lvl ${p.level || 1})</small></span>
+              <button class="btn btn-outline" style="padding:3px 8px;font-size:10px;" onclick="startDmWith('${p.uniqueId || ''}')">💬 DM</button>
+            </div>
+            <p style="font-size:12.5px;line-height:1.45;margin-bottom:8px;">${p.text}</p>
+            <button class="btn btn-outline" style="padding:4px 10px;font-size:11px;" onclick="likePost('${p.id}', this)">🔥 Like (${p.likes || 0})</button>
+          </div>
+        `).join("");
+      } catch (e) {}
+    }
+
+    window.likePost = async (postId, btnEl) => {
+      if (!currentUser) return openModal("modal-auth");
+      btnEl.disabled = true;
+      await updateDoc(doc(db, "posts", postId), { likes: increment(1) });
+      loadCommunityFeed();
+    };
+
+    window.startDmWith = (targetUid) => {
+      if (!targetUid) return showToast("User ID available nahi hai");
+      const dmTabBtn = document.querySelectorAll("#view-community .sub-tab-btn")[2];
+      switchCommTab("dm", dmTabBtn);
+      document.getElementById("dmTargetIdInput").value = targetUid;
+      openDmConversation();
+    };
+
+    async function loadGroupChat() {
+      const box = document.getElementById("groupChatBox");
+      try {
+        const snap = await getDocs(query(collection(db, "groupChat"), limit(30)));
+        const msgs = [];
+        snap.forEach(d => msgs.push(d.data()));
+        msgs.sort((a, b) => (a.ts || 0) - (b.ts || 0));
+        box.innerHTML = msgs.map(m => `
+          <div class="chat-msg ${m.uniqueId === userData.uniqueId ? 'mine' : ''}">
+            <div style="font-size:10px;color:var(--teal-bright);font-weight:700;margin-bottom:2px;">${m.name} (${m.uniqueId || 'Member'})</div>
+            <div>${m.text}</div>
+          </div>
+        `).join("") || "<div style='font-size:11px;color:var(--text-muted);text-align:center;'>Group chat mein pehla message bhejein!</div>";
+        box.scrollTop = box.scrollHeight;
+      } catch (e) {}
+    }
+
+    window.sendGroupMessage = async () => {
+      if (!currentUser) return openModal("modal-auth");
+      const inp = document.getElementById("groupMsgInput");
+      const txt = inp.value.trim();
+      if (!txt) return;
+      inp.value = "";
+      await addDoc(collection(db, "groupChat"), {
+        uniqueId: userData.uniqueId,
+        name: userData.name,
+        text: txt,
+        ts: Date.now()
+      });
+      loadGroupChat();
+    };
+
+    window.openDmConversation = async () => {
+      if (!currentUser) return openModal("modal-auth");
+      const targetId = document.getElementById("dmTargetIdInput").value.trim().toUpperCase();
+      if (!targetId || targetId === userData.uniqueId) return showToast("Valid friend User ID (SD-XXXXX) daalein");
+      activeDmTargetId = targetId;
+      const head = document.getElementById("dmActiveHeader");
+      head.style.display = "block";
+      head.textContent = `🔒 Private Personal Chat with ${targetId}`;
+
+      const roomKey = [userData.uniqueId, targetId].sort().join("_");
+      const box = document.getElementById("dmChatBox");
+      try {
+        const snap = await getDocs(query(collection(db, "dms", roomKey, "messages"), limit(30)));
+        const msgs = [];
+        snap.forEach(d => msgs.push(d.data()));
+        msgs.sort((a, b) => (a.ts || 0) - (b.ts || 0));
+        box.innerHTML = msgs.map(m => `
+          <div class="chat-msg ${m.senderId === userData.uniqueId ? 'mine' : ''}">
+            <div style="font-size:10px;color:#fbbf24;font-weight:700;">${m.senderName} (${m.senderId})</div>
+            <div>${m.text}</div>
+          </div>
+        `).join("") || `<div style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:60px;">${targetId} ko personal message bhejein!</div>`;
+        box.scrollTop = box.scrollHeight;
+      } catch (e) {}
+    };
+
+    window.sendPersonalDm = async () => {
+      if (!currentUser) return openModal("modal-auth");
+      if (!activeDmTargetId) return showToast("Pehle friend ki SD-XXXXX ID daal kar Open Chat dabbaein");
+      const inp = document.getElementById("dmMsgInput");
+      const txt = inp.value.trim();
+      if (!txt) return;
+      inp.value = "";
+      const roomKey = [userData.uniqueId, activeDmTargetId].sort().join("_");
+      await addDoc(collection(db, "dms", roomKey, "messages"), {
+        senderId: userData.uniqueId,
+        senderName: userData.name,
+        text: txt,
+        ts: Date.now()
+      });
+      openDmConversation();
+    };
+
+    // REDEEM STORE, COIN HISTORY & DELAY APPEAL
     window.openRedeemModal = (title, coinsCost) => {
       if (!currentUser) return openModal("modal-auth");
       selectedRedeemItem = { title, coins: coinsCost };
       document.getElementById("redeemModalTitle").textContent = `🎁 ${title}`;
-      document.getElementById("redeemModalCost").textContent = `Required: ${coinsCost.toLocaleString()} Coins (Your Balance: ${userData.coins || 0})`;
+      document.getElementById("redeemModalCost").textContent = `Required: ${coinsCost.toLocaleString()} Coins (Balance: ${userData.coins || 0})`;
       document.getElementById("redeemTargetInput").value = userData.upi || userData.email || "";
       openModal("modal-redeem");
     };
@@ -2361,221 +3136,127 @@
       if (!currentUser) return;
       const target = document.getElementById("redeemTargetInput").value.trim();
       if (!target) return showToast("Enter valid Gmail or UPI ID");
-      if ((userData.coins || 0) < selectedRedeemItem.coins) {
-        return showToast(`Need ${selectedRedeemItem.coins} Coins!`);
-      }
+      if ((userData.coins || 0) < selectedRedeemItem.coins) return showToast(`Need ${selectedRedeemItem.coins} Coins!`);
+
       userData.coins -= selectedRedeemItem.coins;
       renderUI();
       closeModal("modal-redeem");
       await setDoc(doc(db, "users", currentUser.uid), { coins: userData.coins }, { merge: true });
       await addDoc(collection(db, "payouts"), {
         uid: currentUser.uid,
+        uniqueId: userData.uniqueId,
         name: userData.name,
         item: selectedRedeemItem.title,
         coins: selectedRedeemItem.coins,
         target,
         status: "pending",
         voucherCode: "",
-        createdAt: serverTimestamp()
+        ts: Date.now()
       });
-      await logPassbook(`Redeem: ${selectedRedeemItem.title} (Pending)`, `-${selectedRedeemItem.coins} 🪙`);
-      showToast("Redeem request submitted! Check Passbook.");
+      await logPassbook(`Redeem: ${selectedRedeemItem.title}`, `-${selectedRedeemItem.coins} 🪙`);
+      showToast("Redeem request submitted! Check Coin History.");
+      loadMyWithdrawals();
       loadPassbook();
     };
 
-    // Passbook History
+    async function loadMyWithdrawals() {
+      if (!currentUser) return;
+      const box = document.getElementById("myWithdrawalsList");
+      try {
+        const snap = await getDocs(query(collection(db, "payouts"), where("uid", "==", currentUser.uid), limit(15)));
+        if (snap.empty) return;
+        const rows = [];
+        snap.forEach(d => rows.push(d.data()));
+        rows.sort((a, b) => (b.ts || 0) - (a.ts || 0));
+
+        box.innerHTML = rows.map(r => `
+          <div style="padding:9px 4px;border-bottom:1px solid rgba(255,255,255,0.08);text-align:left;">
+            <div style="display:flex;justify-content:space-between;">
+              <strong>${r.item}</strong>
+              <span style="color:${r.status === 'approved' ? 'var(--teal-bright)' : '#fbbf24'};font-weight:800;">
+                ${r.status === 'approved' ? 'APPROVED ✅' : 'PENDING ⏳'}
+              </span>
+            </div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Sent to: ${r.target}</div>
+            ${r.voucherCode ? `<div style="background:rgba(20,184,166,0.16);padding:5px 8px;border-radius:7px;margin-top:5px;color:#fff;font-weight:800;">🎟️ Code: ${r.voucherCode}</div>` : ''}
+            ${r.status !== 'approved' ? `
+              <div style="display:flex;gap:6px;margin-top:6px;">
+                <button class="btn btn-outline" style="padding:4px 8px;font-size:10px;" onclick="openModal('modal-appeal')">📩 Appeal Delay</button>
+                <a href="https://t.me/skill_drop07" target="_blank" class="btn btn-primary" style="padding:4px 8px;font-size:10px;text-decoration:none;">✈️ Message Admin</a>
+              </div>
+            ` : ''}
+          </div>
+        `).join("");
+      } catch (e) {}
+    }
+
     async function loadPassbook() {
       if (!currentUser) return;
       const box = document.getElementById("passbookList");
       try {
-        const q = query(collection(db, "users", currentUser.uid, "history"), orderBy("createdAt", "desc"), limit(20));
-        const snap = await getDocs(q);
+        const snap = await getDocs(query(collection(db, "users", currentUser.uid, "history"), limit(25)));
         if (snap.empty) return;
-        let html = "";
-        snap.forEach(d => {
-          const item = d.data();
+        const list = [];
+        snap.forEach(d => list.push(d.data()));
+        list.sort((a, b) => (b.ts || 0) - (a.ts || 0));
+
+        box.innerHTML = list.map(item => {
           const isPlus = String(item.coins).startsWith("+");
-          html += `<div style="display:flex;justify-content:space-between;padding:8px 2px;border-bottom:1px solid rgba(255,255,255,0.06);text-align:left;">
+          return `<div style="display:flex;justify-content:space-between;padding:7px 2px;border-bottom:1px solid rgba(255,255,255,0.06);text-align:left;">
             <span>${item.title}</span>
-            <strong style="color:${isPlus ? 'var(--emerald-bright)' : '#fbbf24'};">${item.coins}</strong>
+            <strong style="color:${isPlus ? 'var(--teal-bright)' : '#fbbf24'};">${item.coins}</strong>
           </div>`;
-        });
-        box.innerHTML = html;
+        }).join("");
       } catch (e) {}
     }
 
-    // Live Leaderboard
+    window.submitAppealTicket = async () => {
+      if (!currentUser) return openModal("modal-auth");
+      const type = document.getElementById("appealTypeInput").value;
+      const desc = document.getElementById("appealDescInput").value.trim();
+      if (!desc) return showToast("Please describe your issue");
+      await addDoc(collection(db, "appeals"), {
+        uid: currentUser.uid,
+        uniqueId: userData.uniqueId,
+        name: userData.name,
+        type,
+        desc,
+        ts: Date.now()
+      });
+      document.getElementById("appealDescInput").value = "";
+      closeModal("modal-appeal");
+      showToast(`Appeal submitted with ID ${userData.uniqueId}!`);
+    };
+
     async function loadLeaderboard() {
       const box = document.getElementById("leaderboardList");
       try {
-        const q = query(collection(db, "users"), orderBy("coins", "desc"), limit(10));
-        const snap = await getDocs(q);
-        if (snap.empty) return;
-        let rank = 1;
-        let html = "";
-        snap.forEach(d => {
-          const u = d.data();
-          const medal = rank === 1 ? "🥇" : rank === 2 ? "🥈" : rank === 3 ? "🥉" : `#${rank}`;
-          html += `<div style="display:flex;justify-content:space-between;align-items:center;padding:7px 2px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:12px;">
-            <span><strong>${medal}</strong> ${u.avatar || "🚀"} ${u.name || "Creator"} <small style="color:var(--text-muted);">(Lvl ${u.level || 1})</small></span>
-            <strong style="color:var(--emerald-bright);">${u.coins || 0} 🪙</strong>
+        const snap = await getDocs(query(collection(db, "users"), limit(30)));
+        const list = [];
+        snap.forEach(d => list.push(d.data()));
+        list.sort((a, b) => (b.coins || 0) - (a.coins || 0));
+
+        box.innerHTML = list.slice(0, 10).map((u, idx) => {
+          const medal = idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : `#${idx + 1}`;
+          return `<div style="display:flex;justify-content:space-between;align-items:center;padding:7px 2px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:12px;">
+            <span><strong>${medal}</strong> ${u.avatar || "🚀"} ${u.name || "Creator"} <small style="color:var(--text-muted);">(${u.uniqueId || 'SD'})</small></span>
+            <strong style="color:var(--teal-bright);">${u.coins || 0} 🪙</strong>
           </div>`;
-          rank++;
-        });
-        box.innerHTML = html;
+        }).join("");
       } catch (e) {}
     }
 
-    // Marketplace Tasks + Filter + Proof Submission
-    const STARTER_TASKS = [
-      { title: "SkillDrop Promo Reel Edit (15s)", type: "task", reqLevel: 1, reward: "₹150 Winner + Shoutout", author: "@skill_drop07", link: "https://t.me/skill_drop07" },
-      { title: "YouTube Gaming Thumbnail Sample", type: "sample", reqLevel: 1, reward: "Portfolio Showcase", author: "Community Creator", link: "https://instagram.com/skill_drop07" },
-      { title: "Vlog Cut & Captions (30 Sec Reel)", type: "task", reqLevel: 3, reward: "₹150 Direct Client UPI", author: "Verified Creator", link: "https://t.me/skill_drop07" }
-    ];
-    let allMarketTasks = [...STARTER_TASKS];
-    let currentFilter = "all";
-
-    window.filterTasks = (cat, btnEl) => {
-      currentFilter = cat;
-      document.querySelectorAll(".filter-pill").forEach(p => p.classList.remove("active"));
-      btnEl.classList.add("active");
-      renderMarketplaceTasks();
-    };
-
-    async function loadMarketplaceTasks() {
-      allMarketTasks = [...STARTER_TASKS];
-      try {
-        const q = query(collection(db, "tasks"), orderBy("createdAt", "desc"), limit(20));
-        const snap = await getDocs(q);
-        snap.forEach(d => allMarketTasks.unshift(d.data()));
-      } catch (e) {}
-      renderMarketplaceTasks();
-    }
-
-    function renderMarketplaceTasks() {
-      const container = document.getElementById("liveTasksList");
-      const filtered = allMarketTasks.filter(t => {
-        if (currentFilter === "task") return t.type === "task";
-        if (currentFilter === "sample") return t.type === "sample";
-        if (currentFilter === "lvl1") return (t.reqLevel || 1) === 1;
-        return true;
-      });
-
-      container.innerHTML = filtered.map((t, idx) => {
-        const unlocked = (userData.level || 1) >= (t.reqLevel || 1);
-        return `<div class="card">
-          <div class="task-row">
-            <div class="task-info">
-              <div style="display:flex;gap:6px;align-items:center;margin-bottom:4px;">
-                <span class="reward-pill" style="margin:0;">${t.type === 'sample' ? '🎨 Sample' : '💼 Paid Task'}</span>
-                <span style="font-size:10px;color:var(--text-muted);">Lvl ${t.reqLevel || 1}+</span>
-              </div>
-              <h4>${t.title}</h4>
-              <p>By ${t.author || "Creator"} • <strong>${t.reward}</strong></p>
-            </div>
-            ${unlocked
-              ? `<button class="btn btn-primary" onclick="openTaskDeal(${idx})">Apply / Chat</button>`
-              : `<button class="btn btn-locked" onclick="showToast('Reach Level ${t.reqLevel} to unlock!')">🔒 Lvl ${t.reqLevel}</button>`
-            }
-          </div>
-        </div>`;
-      }).join("");
-    }
-
-    window.openTaskDeal = (idx) => {
-      if (!currentUser) return openModal("modal-auth");
-      selectedDealTask = allMarketTasks[idx];
-      document.getElementById("dealTaskTitle").textContent = selectedDealTask.title;
-      document.getElementById("dealTaskMeta").textContent = `Reward: ${selectedDealTask.reward} • By ${selectedDealTask.author}`;
-      openModal("modal-task-deal");
-    };
-
-    window.submitTaskProof = async () => {
-      if (!currentUser || !selectedDealTask) return;
-      const proofLink = document.getElementById("proofLinkInput").value.trim();
-      const msg = document.getElementById("dealMsgInput").value.trim();
-      if (!proofLink && !msg) return showToast("Enter work link or message");
-      await addDoc(collection(db, "submissions"), {
-        uid: currentUser.uid,
-        name: userData.name,
-        taskTitle: selectedDealTask.title,
-        proofLink,
-        msg,
-        createdAt: serverTimestamp()
-      });
-      closeModal("modal-task-deal");
-      showToast("Work proof & message sent!");
-    };
-
-    window.openDropModal = () => {
-      if (!currentUser) return openModal("modal-auth");
-      openModal("modal-drop");
-    };
-
-    window.submitDropItem = async () => {
-      if (!currentUser) return;
-      const title = document.getElementById("dropTitle").value.trim();
-      if (!title) return showToast("Enter a title");
-      const newItem = {
-        type: document.getElementById("dropType").value,
-        title,
-        reqLevel: parseInt(document.getElementById("dropLevel").value, 10) || 1,
-        reward: document.getElementById("dropReward").value.trim() || "Direct Deal",
-        link: document.getElementById("dropLink").value.trim() || "https://t.me/skill_drop07",
-        author: userData.name,
-        createdAt: serverTimestamp()
-      };
-      closeModal("modal-drop");
-      try {
-        await addDoc(collection(db, "tasks"), newItem);
-        await awardReward(15, 15, "Dropped Skill Sample/Task");
-        loadMarketplaceTasks();
-      } catch (e) {}
-    };
-
-    // Support Ticket
-    window.submitSupportTicket = async () => {
-      if (!currentUser) return openModal("modal-auth");
-      const txt = document.getElementById("supportMsgInput").value.trim();
-      if (!txt) return showToast("Write your issue first");
-      await addDoc(collection(db, "tickets"), {
-        uid: currentUser.uid,
-        name: userData.name,
-        email: userData.email,
-        message: txt,
-        createdAt: serverTimestamp()
-      });
-      document.getElementById("supportMsgInput").value = "";
-      showToast("Support ticket sent!");
-    };
-
-    // Shareable Creator ID Card
-    window.shareCreatorCard = () => {
-      const cardText = `🪪 SkillDrop Verified Creator Card\n👤 Name: ${userData.name}\n⭐ Rank: Level ${userData.level}\n🎯 Skill: ${userData.skill}\n🔗 Invite Link: https://harrybk90.github.io/SkillDrop-/?ref=${userData.refCode || 'ITZH-152'}`;
-      if (navigator.share) {
-        navigator.share({ title: "SkillDrop Creator Card", text: cardText });
-      } else {
-        navigator.clipboard.writeText(cardText);
-        showToast("Creator Card copied to clipboard!");
-      }
-    };
-
-    // Auth & Referral Tier Milestones
-    document.getElementById("authTopBtn").addEventListener("click", () => {
-      if (currentUser) {
-        signOut(auth);
-        showToast("Logged out");
-      } else {
-        openModal("modal-auth");
-      }
-    });
-
+    // Auth & Unique ID Generation
     window.loginWithGoogle = async () => {
       try {
         await signInWithPopup(auth, new GoogleAuthProvider());
         closeModal("modal-auth");
       } catch (err) {
-        showToast(err.message);
+        try {
+          await signInWithRedirect(auth, new GoogleAuthProvider());
+        } catch (e2) {
+          showToast("Use Email Login below for in-app browsers!");
+        }
       }
     };
 
@@ -2602,28 +3283,27 @@
       const ref = doc(db, "users", user.uid);
       const snap = await getDoc(ref);
       if (!snap.exists()) {
-        // Device Fraud Check
-        if (localStorage.getItem("skilldrop_device_registered")) {
-          showToast("Note: 1 account per device policy active.");
-        }
-        localStorage.setItem("skilldrop_device_registered", user.uid);
-
         const baseName = customName || user.displayName || user.email.split("@")[0];
-        const genCode = (baseName.replace(/[^a-zA-Z]/g, "").slice(0, 4).toUpperCase() || "USER") + "-" + Math.floor(100 + Math.random() * 899);
+        const genRefCode = (baseName.replace(/[^a-zA-Z]/g, "").slice(0, 4).toUpperCase() || "USER") + "-" + Math.floor(100 + Math.random() * 899);
+        const genUniqueId = "SD-" + Math.floor(10000 + Math.random() * 89999);
         const appliedRef = (document.getElementById("authRefInput")?.value || localStorage.getItem("skilldrop_ref") || "").trim().toUpperCase();
 
         userData = {
-          name: baseName, email: user.email, avatar: "🚀", skill: "Mobile Video Editor",
-          bio: "Learning & earning on SkillDrop", upi: "", coins: 0, xp: 0, level: 1,
-          streakDay: 0, lastDailyDate: "", watchDate: "", watchCountToday: 0,
-          scratchDate: "", scratchCountToday: 0, spinDate: "", spinCountToday: 0,
-          quizDate: "", quizDoneToday: false, lastHourlyTs: 0, usedPromos: [],
-          completedActions: {}, refCode: genCode, referredBy: appliedRef,
-          refCount: 0, refCoins: 0, banned: false, createdAt: serverTimestamp()
+          uniqueId: genUniqueId, name: baseName, email: user.email, avatar: "🚀",
+          skill: "Mobile Video Editor", bio: "Learning & earning on SkillDrop", upi: "",
+          coins: 0, xp: 0, level: 1, streakDay: 0, lastDailyDate: "",
+          comboDate: "", comboTasksToday: 0, comboClaimedToday: false,
+          watchDate: "", watchCountToday: 0, scratchDate: "", scratchCountToday: 0,
+          spinDate: "", spinCountToday: 0, flipDate: "", flipCountToday: 0,
+          diceDate: "", diceCountToday: 0, rushDate: "", rushCountToday: 0,
+          quizDate: "", quizPlaysToday: 0, seenQuizIds: [],
+          lastHourlyTs: 0, usedPromos: [], completedActions: {},
+          refCode: genRefCode, referredBy: appliedRef, refCount: 0, refCoins: 0,
+          banned: false, createdAt: serverTimestamp()
         };
         await setDoc(ref, userData);
 
-        if (appliedRef && appliedRef !== genCode) {
+        if (appliedRef && appliedRef !== genRefCode) {
           const q = query(collection(db, "users"), where("refCode", "==", appliedRef), limit(1));
           const qSnap = await getDocs(q);
           qSnap.forEach(async (docSnap) => {
@@ -2632,6 +3312,7 @@
             let bonus = 100;
             if (newCount === 5) bonus += 200;
             if (newCount === 10) bonus += 500;
+            if (newCount === 25) bonus += 1500;
             await updateDoc(doc(db, "users", docSnap.id), {
               refCount: increment(1),
               refCoins: increment(bonus),
@@ -2642,20 +3323,27 @@
         }
       } else {
         userData = { ...userData, ...snap.data() };
+        if (!userData.uniqueId) {
+          userData.uniqueId = "SD-" + Math.floor(10000 + Math.random() * 89999);
+          await setDoc(ref, { uniqueId: userData.uniqueId }, { merge: true });
+        }
       }
     }
 
     onAuthStateChanged(auth, async (user) => {
       currentUser = user;
-      const topBtn = document.getElementById("authTopBtn");
+      const topLoginBtn = document.getElementById("guestLoginTopBtn");
+      const settingsAuthBtn = document.getElementById("settingsAuthActionBtn");
       if (user) {
-        topBtn.textContent = "Logout";
-        topBtn.className = "btn btn-outline";
+        topLoginBtn.style.display = "none";
+        settingsAuthBtn.textContent = "🚪 Logout Account";
+        settingsAuthBtn.className = "btn btn-danger btn-full";
         await initNewUserDoc(user);
         loadInvitedFriends();
       } else {
-        topBtn.textContent = "Login";
-        topBtn.className = "btn btn-primary";
+        topLoginBtn.style.display = "inline-flex";
+        settingsAuthBtn.textContent = "🚀 Login / Register";
+        settingsAuthBtn.className = "btn btn-primary btn-full";
       }
       renderUI();
     });
@@ -2663,7 +3351,7 @@
     async function loadInvitedFriends() {
       if (!userData.refCode) return;
       try {
-        const q = query(collection(db, "users"), where("referredBy", "==", userData.refCode), limit(20));
+        const q = query(collection(db, "users"), where("referredBy", "==", userData.refCode), limit(25));
         const snap = await getDocs(q);
         const box = document.getElementById("invitedFriendsList");
         if (snap.empty) return;
@@ -2671,8 +3359,8 @@
         snap.forEach(d => {
           const u = d.data();
           html += `<div style="display:flex;justify-content:space-between;padding:7px 2px;border-bottom:1px solid rgba(255,255,255,0.06);">
-            <span>${u.avatar || "👤"} <strong>${u.name}</strong></span>
-            <span style="color:var(--emerald-bright);">+100 🪙</span>
+            <span>${u.avatar || "👤"} <strong>${u.name}</strong> <small style="color:var(--text-muted);">(${u.uniqueId || 'SD'})</small></span>
+            <span style="color:var(--teal-bright);">+100 + 10%</span>
           </div>`;
         });
         box.innerHTML = html;
@@ -2688,7 +3376,7 @@
 
     window.shareRefLink = () => {
       const link = document.getElementById("myRefLinkInput").value;
-      const text = `Join SkillDrop — 1,000 Coins = ₹10 Google Play & Amazon Gift Cards! Free daily tasks, spin wheel & creator quiz: ${link}`;
+      const text = `Join SkillDrop — 1,000 Coins = ₹10 Google Play & Amazon Gift Cards! Mix Quiz (Easy to Ultra Hard), Spin & 6 Games: ${link}`;
       if (navigator.share) {
         navigator.share({ title: "SkillDrop", text, url: link });
       } else {
@@ -2696,7 +3384,12 @@
       }
     };
 
-    // Edit Profile
+    window.shareCreatorCard = () => {
+      const cardText = `🪪 SkillDrop Verified Creator\n👤 ${userData.name} (${userData.uniqueId || 'SD'})\n⭐ Level ${userData.level} • ${userData.skill}\n🔗 Join: https://harrybk90.github.io/SkillDrop-/?ref=${userData.refCode || 'ITZH-152'}`;
+      if (navigator.share) navigator.share({ title: "SkillDrop Card", text: cardText });
+      else { navigator.clipboard.writeText(cardText); showToast("Creator Card copied!"); }
+    };
+
     let selectedAvatar = "🚀";
     document.querySelectorAll(".av-opt").forEach(el => {
       el.addEventListener("click", () => {
@@ -2726,50 +3419,148 @@
       renderUI();
       closeModal("modal-edit-profile");
       await setDoc(doc(db, "users", currentUser.uid), userData, { merge: true });
-      showToast("Profile updated!");
+      showToast("Profile saved!");
     };
 
-    // Admin Controls (Stats, Promo, Notice, Redeems, Maintenance)
-    async function loadAdminStats() {
+    // SECRET 5-TAP ADMIN PANEL (PIN: 786090)
+    let logoTapCount = 0;
+    let logoTapTimer = null;
+    document.getElementById("secretLogoTrigger").addEventListener("click", () => {
+      logoTapCount++;
+      clearTimeout(logoTapTimer);
+      logoTapTimer = setTimeout(() => { logoTapCount = 0; }, 2000);
+      if (logoTapCount >= 5) {
+        logoTapCount = 0;
+        openModal("modal-admin");
+      }
+    });
+
+    window.verifyAdminPin = () => {
+      if (document.getElementById("adminPinInput").value.trim() === "786090") {
+        document.getElementById("adminPinGate").style.display = "none";
+        document.getElementById("adminDashboardContent").style.display = "block";
+        showToast("Founder Admin Unlocked!");
+        loadAdminDashboard();
+      } else {
+        showToast("Incorrect PIN");
+      }
+    };
+
+    window.switchAdminPayoutTab = (tab, btnEl) => {
+      document.querySelectorAll("#adminDashboardContent .sub-tab-btn").forEach(b => b.classList.remove("active"));
+      btnEl.classList.add("active");
+      document.getElementById("admPendingBox").style.display = tab === "pending" ? "block" : "none";
+      document.getElementById("admApprovedBox").style.display = tab === "approved" ? "block" : "none";
+    };
+
+    async function loadAdminDashboard() {
       try {
         const uSnap = await getDocs(collection(db, "users"));
         document.getElementById("admTotalUsers").textContent = uSnap.size;
 
-        const pQ = query(collection(db, "payouts"), where("status", "==", "pending"), limit(20));
-        const pSnap = await getDocs(pQ);
-        document.getElementById("admPendingRedeems").textContent = pSnap.size;
+        const pSnap = await getDocs(collection(db, "payouts"));
+        const pendingArr = [];
+        const approvedArr = [];
+        pSnap.forEach(d => {
+          const item = { id: d.id, ...d.data() };
+          if (item.status === "approved") approvedArr.push(item);
+          else pendingArr.push(item);
+        });
 
-        const listEl = document.getElementById("admRedeemList");
-        if (pSnap.empty) {
-          listEl.innerHTML = "<div style='color:var(--text-muted);'>No pending requests.</div>";
-        } else {
-          let html = "";
-          pSnap.forEach(d => {
-            const p = d.data();
-            html += `<div style="padding:7px;border-bottom:1px solid rgba(255,255,255,0.08);">
-              <strong>${p.name}</strong> • ${p.item}<br/>
-              <span style="color:var(--emerald-bright);">${p.target}</span>
-              <button class="btn btn-gold" style="padding:3px 8px;font-size:10px;float:right;" onclick="approveRedeem('${d.id}')">Mark Paid</button>
-            </div>`;
-          });
-          listEl.innerHTML = html;
-        }
+        document.getElementById("admPendingRedeems").textContent = pendingArr.length;
+
+        document.getElementById("admPendingBox").innerHTML = pendingArr.map(p => `
+          <div style="padding:8px 4px;border-bottom:1px solid rgba(255,255,255,0.08);">
+            <strong>${p.name}</strong> <span style="color:var(--teal-bright);">(${p.uniqueId || 'SD'})</span><br/>
+            <span>${p.item} → ${p.target}</span>
+            <div style="display:flex;gap:5px;margin-top:5px;">
+              <input type="text" id="vcode_${p.id}" placeholder="Paste Gift Code (Optional)" style="flex:1;padding:4px 7px;font-size:11px;border-radius:7px;background:#070b14;color:#fff;border:1px solid #334155;" />
+              <button class="btn btn-gold" style="padding:4px 9px;font-size:10px;" onclick="approveRedeemWithCode('${p.id}')">Approve</button>
+            </div>
+          </div>
+        `).join("") || "<div style='color:var(--text-muted);'>No pending requests.</div>";
+
+        document.getElementById("admApprovedBox").innerHTML = approvedArr.map(p => `
+          <div style="padding:7px 4px;border-bottom:1px solid rgba(255,255,255,0.08);">
+            <strong>${p.name}</strong> (${p.uniqueId || 'SD'}) • <span style="color:var(--teal-bright);">Approved ✅</span><br/>
+            <span style="color:var(--text-muted);">${p.item} (${p.target})</span>
+            ${p.voucherCode ? `<div style="color:#fbbf24;">Code: ${p.voucherCode}</div>` : ''}
+          </div>
+        `).join("") || "<div style='color:var(--text-muted);'>No approved payouts yet.</div>";
+
+        const aSnap = await getDocs(query(collection(db, "appeals"), limit(20)));
+        const appeals = [];
+        aSnap.forEach(d => appeals.push(d.data()));
+        appeals.sort((a, b) => (b.ts || 0) - (a.ts || 0));
+        document.getElementById("admAppealsBox").innerHTML = appeals.map(a => `
+          <div style="padding:6px 4px;border-bottom:1px solid rgba(255,255,255,0.08);">
+            <strong style="color:#fbbf24;">${a.uniqueId || 'SD'} • ${a.name}</strong> (${a.type})<br/>
+            <span>${a.desc}</span>
+          </div>
+        `).join("") || "<div style='color:var(--text-muted);'>No payment appeals.</div>";
       } catch (e) {}
     }
 
-    window.approveRedeem = async (docId) => {
-      await updateDoc(doc(db, "payouts", docId), { status: "approved" });
-      showToast("Marked as Paid!");
-      loadAdminStats();
+    window.approveRedeemWithCode = async (docId) => {
+      const codeVal = document.getElementById(`vcode_${docId}`)?.value.trim() || "";
+      await updateDoc(doc(db, "payouts", docId), {
+        status: "approved",
+        voucherCode: codeVal
+      });
+      showToast("Approved & moved to Approved List!");
+      loadAdminDashboard();
+    };
+
+    window.adminSearchUserById = async () => {
+      const searchId = document.getElementById("admSearchUidInput").value.trim().toUpperCase();
+      const resBox = document.getElementById("admSearchResultBox");
+      if (!searchId) return;
+      resBox.textContent = "Searching...";
+      try {
+        const uSnap = await getDocs(query(collection(db, "users"), where("uniqueId", "==", searchId), limit(1)));
+        if (uSnap.empty) {
+          resBox.textContent = `No user found with ID ${searchId}`;
+          return;
+        }
+        let uInfo = null;
+        uSnap.forEach(d => uInfo = d.data());
+
+        const pSnap = await getDocs(query(collection(db, "payouts"), where("uniqueId", "==", searchId)));
+        let paySummary = "No withdrawals yet";
+        if (!pSnap.empty) {
+          const statuses = [];
+          pSnap.forEach(d => {
+            const p = d.data();
+            statuses.push(`${p.item}: ${p.status.toUpperCase()}`);
+          });
+          paySummary = statuses.join(" | ");
+        }
+
+        resBox.innerHTML = `
+          <div style="background:rgba(0,0,0,0.4);padding:8px;border-radius:9px;">
+            <strong>👤 ${uInfo.name} (${uInfo.uniqueId})</strong><br/>
+            Coins: <strong>${uInfo.coins} 🪙</strong> • Referrals: <strong>${uInfo.refCount || 0}</strong><br/>
+            Payout Status: <strong style="color:#fbbf24;">${paySummary}</strong>
+          </div>
+        `;
+      } catch (e) {
+        resBox.textContent = "Error searching user.";
+      }
     };
 
     window.adminSavePromo = async () => {
       const c = document.getElementById("admNewPromo").value.trim().toUpperCase();
       const val = parseInt(document.getElementById("admPromoCoins").value, 10) || 25;
+      const maxU = parseInt(document.getElementById("admPromoLimit").value, 10) || 50;
       if (!c) return;
-      activePromo = { code: c, coins: val };
-      await setDoc(doc(db, "config", "appSettings"), { promoCode: c, promoCoins: val }, { merge: true });
-      showToast(`Promo ${c} (+${val} Coins) Live!`);
+      activePromo = { code: c, coins: val, maxUses: maxU, usedCount: 0 };
+      await setDoc(doc(db, "config", "appSettings"), {
+        promoCode: c,
+        promoCoins: val,
+        promoMaxUses: maxU,
+        promoUsedCount: 0
+      }, { merge: true });
+      showToast(`Promo ${c} (+${val} Coins, Limit: ${maxU} Users) Live!`);
     };
 
     window.adminUpdateNotice = async () => {
@@ -2778,18 +3569,6 @@
       document.getElementById("importantNoticeText").textContent = txt;
       await setDoc(doc(db, "config", "appSettings"), { notice: txt }, { merge: true });
       showToast("Important Notice Updated!");
-    };
-
-    window.adminPostOfficialTask = async () => {
-      const title = document.getElementById("adminTaskTitle").value.trim();
-      const reward = document.getElementById("adminTaskPay").value.trim();
-      if (!title) return;
-      await addDoc(collection(db, "tasks"), {
-        type: "task", title, reqLevel: 1, reward: reward || "₹150 Direct UPI",
-        link: "https://t.me/skill_drop07", author: "SkillDrop Official", createdAt: serverTimestamp()
-      });
-      showToast("Official Task Posted!");
-      loadMarketplaceTasks();
     };
 
     let maintOn = false;
@@ -2804,24 +3583,23 @@
         const snap = await getDoc(doc(db, "config", "appSettings"));
         if (snap.exists()) {
           const cfg = snap.data();
-          if (cfg.promoCode) activePromo = { code: cfg.promoCode, coins: cfg.promoCoins || 25 };
+          if (cfg.promoCode) {
+            activePromo = {
+              code: cfg.promoCode,
+              coins: cfg.promoCoins || 25,
+              maxUses: cfg.promoMaxUses || 50,
+              usedCount: cfg.promoUsedCount || 0
+            };
+          }
           if (cfg.notice) document.getElementById("importantNoticeText").textContent = cfg.notice;
           if (cfg.maintenance) document.getElementById("maintenanceScreen").style.display = "flex";
         }
       } catch (e) {}
     }
 
-    function updateLivePresence() {
-      const base = 18 + Math.floor(Math.random() * 14);
-      document.getElementById("onlineCountText").textContent = `${base} Online`;
-    }
-    setInterval(updateLivePresence, 8000);
-    updateLivePresence();
-
     loadAppConfig();
+    loadRealWithdrawalTicker();
     renderUI();
-    loadMarketplaceTasks();
-    loadLeaderboard();
   </script>
 </body>
 </html>
