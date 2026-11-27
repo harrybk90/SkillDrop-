@@ -728,7 +728,7 @@
       margin-bottom: 8px;
     }
 
-    /* Sub-tabs inside Community & Wallet */
+    /* Sub-tabs */
     .sub-tabs {
       display: flex;
       gap: 6px;
@@ -1042,7 +1042,7 @@
       align-items: center;
       justify-content: center;
       padding: 14px;
-      z-index: 100;
+      z-index: 120;
     }
 
     .modal-backdrop.open {
@@ -1072,7 +1072,7 @@
       padding: 9px 16px;
       border-radius: 99px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      z-index: 200;
+      z-index: 250;
       display: none;
       white-space: nowrap;
     }
@@ -1106,7 +1106,7 @@
       position: fixed;
       inset: 0;
       background: #070b14;
-      z-index: 999;
+      z-index: 90;
       display: none;
       flex-direction: column;
       align-items: center;
@@ -1120,13 +1120,16 @@
 
   <div id="toast" class="toast"></div>
 
-  <!-- Maintenance Mode Screen -->
+  <!-- Maintenance Mode Screen (Owner itzharry556@gmail.com bypasses automatically; plus 5-tap unlock & Owner Login button) -->
   <div id="maintenanceScreen">
-    <div style="font-size: 46px; margin-bottom: 12px;">🛠️</div>
+    <div id="maintSecretUnlock" style="font-size: 46px; margin-bottom: 12px; cursor: pointer;" title="Owner Unlock">🛠️</div>
     <h2 style="margin-bottom: 8px;">SkillDrop System Upgrade</h2>
-    <p style="font-size: 13px; color: var(--text-muted); max-width: 320px;">
+    <p style="font-size: 13px; color: var(--text-muted); max-width: 320px; margin-bottom: 18px;">
       Platform abhi upgrade ho raha hai. 10 minute baad wapas check karein!
     </p>
+    <button class="btn btn-outline" style="font-size: 11px; padding: 7px 14px;" onclick="openModal('modal-auth')">
+      🔐 Owner Login
+    </button>
   </div>
 
   <div class="app-container">
@@ -1837,7 +1840,6 @@
   <!-- MODAL: MIX MOOD QUIZ (EASY, MEDIUM, HARD, ULTRA HARD + NEVER REPEATS) -->
   <div id="modal-quiz" class="modal-backdrop">
     <div class="modal-box">
-      <!-- Step 1: Select Difficulty Mode -->
       <div id="quizModeStep">
         <h3 style="margin-bottom: 4px;">🧠 Mix Mood Quiz (Funny • Sad • GK)</h3>
         <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 8px;">
@@ -1864,7 +1866,6 @@
         <button class="btn btn-outline btn-full" style="margin-top: 6px;" onclick="closeModal('modal-quiz')">Close</button>
       </div>
 
-      <!-- Step 2: Active Quiz Question -->
       <div id="quizPlayStep" style="display: none;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
           <span id="quizModeBadge" class="reward-pill" style="margin: 0;">EASY • FUNNY</span>
@@ -1945,7 +1946,7 @@
     <div class="modal-box">
       <h3 style="margin-bottom: 6px;">🚀 Join SkillDrop</h3>
       <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Login karein apni Unique ID (SD-XXXXX) aur Coins save karne ke liye.</p>
-      <div class="field"><label>Full Name</label><input type="text" id="authName" placeholder="e.g. Amanpreet Singh" /></div>
+      <div class="field"><label>Full Name</label><input type="text" id="authName" placeholder="e.g. Harry" /></div>
       <div class="field"><label>Email</label><input type="email" id="authEmail" placeholder="you@gmail.com" /></div>
       <div class="field"><label>Password</label><input type="password" id="authPass" placeholder="Min 6 characters" /></div>
       <div class="field"><label>Referral Code (Optional)</label><input type="text" id="authRefInput" placeholder="e.g. ITZH-152" /></div>
@@ -2057,14 +2058,14 @@
         </div>
 
         <div style="display: flex; gap: 8px; margin-top: 8px;">
-          <button class="btn btn-outline" style="flex: 1;" onclick="toggleMaintenance()">🛠️ Maintenance</button>
+          <button id="btnToggleMaint" class="btn btn-outline" style="flex: 1;" onclick="toggleMaintenance()">🛠️ Maintenance: OFF</button>
           <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-admin')">Exit Admin</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Firebase & Complete SkillDrop v4.1 Logic -->
+  <!-- Firebase & Complete SkillDrop v4.2 Master Logic -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import {
@@ -2102,11 +2103,15 @@
       appId: "1:102938475610:web:skilldrop07"
     };
 
+    // OWNER VIP BYPASS (Always stays unlocked even during Maintenance)
+    const OWNER_EMAILS = ["itzharry556@gmail.com"];
+
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
 
     let currentUser = null;
+    let isMaintenanceActive = false;
     let activePromo = { code: "DROP25", coins: 25, maxUses: 50, usedCount: 0 };
     let selectedRedeemItem = { title: "", coins: 0 };
     let watchCooldownUntil = 0;
@@ -2164,9 +2169,8 @@
 
     const STREAK_REWARDS = [10, 15, 20, 25, 30, 40, 100];
 
-    // HUGE NON-REPEATING MIX QUIZ BANK (Funny, Sad/Emotional Shayari, Creator & Brain Riddles across 4 Difficulty Levels)
     const QUIZ_BANK = [
-      // EASY MODE (+5 Coins/Q) — Funny & Relatable
+      // EASY MODE (+5 Coins/Q)
       { id: "ez1", diff: "easy", mood: "😂 Funny", q: "Subah alarm bajne ke baad 'Sirf 5 minute aur sounga' bolne se kitne ghante beet jaate hain?", opts: ["Poore 2 ghante", "5 second", "Alarm toot jaata hai", "Neend ud jaati hai"], ans: 0 },
       { id: "ez2", diff: "easy", mood: "💔 Sad Mood", q: "Adhoori line poori karo: 'Humne unhe apna waqt diya, aur unhone humein sirf ______ diya.'", opts: ["Bahana", "Gift Card", "Pizza", "Password"], ans: 0 },
       { id: "ez3", diff: "easy", mood: "😂 Funny", q: "Jab dost bole 'Bhai tera bill main bhar dunga' aur phir jeb mein haath daal kar bole...", opts: ["Wallet ghar bhool gaya!", "Yeh le ₹2000", "Card swipe kar", "Tip bhi rakh le"], ans: 0 },
@@ -2176,7 +2180,7 @@
       { id: "ez7", diff: "easy", mood: "💔 Sad Mood", q: "Shayari complete karo: 'Bheed mein bhi akela mehsoos karta hoon, jab se tere bina ______ karta hoon.'", opts: ["Safar", "Party", "Shopping", "Gaming"], ans: 0 },
       { id: "ez8", diff: "easy", mood: "😂 Funny", q: "Exam hall mein jab dost peeche se aawaz lagaye 'Bhai 4th ka answer bata', toh teacher kahan dekhta hai?", opts: ["Seedha tumhari taraf!", "Chhat ki taraf", "Bahar window mein", "Phone mein"], ans: 0 },
 
-      // MEDIUM MODE (+10 Coins/Q) — Funny, Sad & Smart Mix
+      // MEDIUM MODE (+10 Coins/Q)
       { id: "md1", diff: "medium", mood: "💔 Sad Shayari", q: "'Kuch log zindagi mein sirf sabak dene aate hain, ______ banane nahi.' Sahi shabd chuno:", opts: ["Humsafar", "Padosi", "Manager", "Driver"], ans: 0 },
       { id: "md2", diff: "medium", mood: "😂 Funny Riddle", q: "Aisi kaunsi cheez hai jo garib ke paas hoti hai, ameer ke paas nahi hoti, aur agar aap use kha lein toh mar jaayenge?", opts: ["Kuch Nahi (Nothing)", "Sona", "Paisa", "Hawa"], ans: 0 },
       { id: "md3", diff: "medium", mood: "🎬 Creator Pro", q: "YouTube video ka CTR (Click Through Rate) badhane ke liye sabse zaroori cheez kya hai?", opts: ["High-Contrast Thumbnail", "50 Tags", "Sirf Outro", "Dark Screen"], ans: 0 },
@@ -2186,7 +2190,7 @@
       { id: "md7", diff: "medium", mood: "😂 Funny", q: "Wo kaunsa mahina hai jismein log sabse kam sote hain?", opts: ["February (28 din hote hain)", "January", "December", "July"], ans: 0 },
       { id: "md8", diff: "medium", mood: "🎬 Creator", q: "Short video ke pehle 3 seconds ko creator language mein kya kehte hain?", opts: ["Hook", "Export", "Render", "Thumbnail"], ans: 0 },
 
-      // HARD MODE (+15 Coins/Q) — Deep Sad, Tricky Funny & Brain Teasers
+      // HARD MODE (+15 Coins/Q)
       { id: "hd1", diff: "hard", mood: "🧩 Tricky Riddle", q: "Ek aadmi baarish mein bina chhatri aur bina topi ke chal raha tha, phir bhi uska ek bhi baal geela nahi hua. Kaise?", opts: ["Kyunki wo ganja (bald) tha!", "Baarish ruk gayi thi", "Wo ghar ke andar tha", "Magic tha"], ans: 0 },
       { id: "hd2", diff: "hard", mood: "💔 Deep Sad", q: "'Woh kehte the tumhari har khamoshi samajhte hain, aaj hum ______ rahe aur unhone haal tak nahi pucha.'", opts: ["Toot", "Hans", "Jeet", "Bhaag"], ans: 0 },
       { id: "hd3", diff: "hard", mood: "🧩 Brain Riddle", q: "Aisi kaunsi cheez hai jiske paas sir aur poonch (head & tail) dono hain, par shareer (body) nahi hai?", opts: ["Ek Sikka (Coin)", "Saanp", "Sher", "Machhli"], ans: 0 },
@@ -2195,7 +2199,7 @@
       { id: "hd6", diff: "hard", mood: "🧩 Tricky Riddle", q: "Aap ek race mein daud rahe hain aur aapne 2nd number wale ko peeche chhod diya. Ab aap kis position par hain?", opts: ["2nd Position par", "1st Position par", "3rd Position par", "Last par"], ans: 0 },
       { id: "hd7", diff: "hard", mood: "🎬 Pro Editing", q: "Smooth slow-motion video banane ke liye mobile camera mein minimum kitne FPS par shoot karna chahiye?", opts: ["60 FPS ya 120 FPS", "15 FPS", "24 FPS", "10 FPS"], ans: 0 },
 
-      // ULTRA HARD MODE (+25 Coins/Q) — Master Mind, Deep Philosophy & Savage Riddles
+      // ULTRA HARD MODE (+25 Coins/Q)
       { id: "uh1", diff: "ultra", mood: "🔥 Ultra Riddle", q: "Main bina pankh ke udta hoon, bina aankhon ke rota hoon. Jahan bhi jaata hoon andhera chha jaata hai. Main kaun hoon?", opts: ["Baadal (Cloud)", "Hawa", "Raat", "Chand"], ans: 0 },
       { id: "uh2", diff: "ultra", mood: "💔 Ultra Sad", q: "'Kisi ko itna bhi waqt mat do ki woh tumhare waqt ko ______ samajhne lage.'", opts: ["Faltu", "Keemti", "Zaroori", "Aakhiri"], ans: 0 },
       { id: "uh3", diff: "ultra", mood: "🔥 Ultra Logic", q: "3 cats 3 chuhe 3 minute mein pakadti hain. Toh 100 cats 100 chuhe kitne minute mein pakdengi?", opts: ["3 Minute mein hi!", "100 Minute", "300 Minute", "1 Minute"], ans: 0 },
@@ -2234,6 +2238,36 @@
         osc.stop(ctx.currentTime + 0.16);
       } catch (e) {}
     }
+
+    // Owner VIP Maintenance Check
+    function applyMaintenanceCheck() {
+      const userEmail = (currentUser?.email || "").toLowerCase();
+      const isOwner = OWNER_EMAILS.map(e => e.toLowerCase()).includes(userEmail);
+      const maintEl = document.getElementById("maintenanceScreen");
+      const btnMaint = document.getElementById("btnToggleMaint");
+      if (btnMaint) {
+        btnMaint.textContent = isMaintenanceActive ? "🛠️ Maintenance: ON" : "🛠️ Maintenance: OFF";
+      }
+      if (isMaintenanceActive && !isOwner) {
+        maintEl.style.display = "flex";
+      } else {
+        maintEl.style.display = "none";
+      }
+    }
+
+    // 5-Tap Unlock on Maintenance Screen
+    let maintTapCount = 0;
+    let maintTapTimer = null;
+    document.getElementById("maintSecretUnlock").addEventListener("click", () => {
+      maintTapCount++;
+      clearTimeout(maintTapTimer);
+      maintTapTimer = setTimeout(() => { maintTapCount = 0; }, 2000);
+      if (maintTapCount >= 5) {
+        maintTapCount = 0;
+        document.getElementById("maintenanceScreen").style.display = "none";
+        openModal("modal-admin");
+      }
+    });
 
     const urlParams = new URLSearchParams(window.location.search);
     const incomingRef = urlParams.get("ref");
@@ -2365,7 +2399,11 @@
       userData.level = lvlObj.lvl;
       const nextLvlObj = LEVELS.find(l => l.lvl === lvlObj.lvl + 1);
 
-      document.getElementById("userLevelBadge").textContent = `⭐ Level ${lvlObj.lvl} • ${lvlObj.name}`;
+      const isOwner = OWNER_EMAILS.map(e => e.toLowerCase()).includes((currentUser?.email || "").toLowerCase());
+      document.getElementById("userLevelBadge").textContent = isOwner
+        ? `👑 Founder • Level ${lvlObj.lvl}`
+        : `⭐ Level ${lvlObj.lvl} • ${lvlObj.name}`;
+
       document.getElementById("welcomeUserText").textContent = currentUser
         ? `Welcome, ${userData.name}`
         : "Guest Mode • Login to Save Coins";
@@ -2867,9 +2905,7 @@
       selectedQuizMode = mode;
       const seen = new Set([...(userData.seenQuizIds || []), ...JSON.parse(localStorage.getItem("sd_seen_q") || "[]")]);
 
-      // Filter questions by difficulty that user has NEVER seen before
       let pool = QUIZ_BANK.filter(item => item.diff === mode && !seen.has(item.id));
-      // If user exhausted all questions in that mode, pull unseen from any mode first, then reset that mode
       if (pool.length < 3) {
         const otherUnseen = QUIZ_BANK.filter(item => !seen.has(item.id));
         pool = pool.concat(otherUnseen);
@@ -2893,7 +2929,6 @@
       document.getElementById("quizStepBadge").textContent = `Q ${currentQIdx + 1} / 3`;
       document.getElementById("quizQuestionText").textContent = qObj.q;
 
-      // Shuffle options dynamically while keeping track of the correct answer text
       const correctText = qObj.opts[qObj.ans];
       const shuffledOpts = [...qObj.opts].sort(() => 0.5 - Math.random());
 
@@ -2903,7 +2938,6 @@
     }
 
     window.answerQuiz = async (chosenText, correctText, qId) => {
-      // Mark question ID as seen so it NEVER repeats
       const localSeen = JSON.parse(localStorage.getItem("sd_seen_q") || "[]");
       if (!localSeen.includes(qId)) localSeen.push(qId);
       localStorage.setItem("sd_seen_q", JSON.stringify(localSeen));
@@ -2966,7 +3000,7 @@
       await loadAppConfig();
       if (code === activePromo.code) {
         if ((activePromo.usedCount || 0) >= (activePromo.maxUses || 50)) {
-          return showToast("Promo code user limit (50/100) full ho gayi hai!");
+          return showToast("Promo code user limit full ho gayi hai!");
         }
         used.push(code);
         document.getElementById("promoCodeInput").value = "";
@@ -3261,7 +3295,7 @@
     };
 
     window.loginWithEmail = async () => {
-      const name = document.getElementById("authName").value.trim() || "Creator";
+      const name = document.getElementById("authName").value.trim() || "Harry";
       const email = document.getElementById("authEmail").value.trim();
       const pass = document.getElementById("authPass").value.trim();
       if (!email || pass.length < 6) return showToast("Enter valid email & 6+ char password");
@@ -3332,6 +3366,7 @@
 
     onAuthStateChanged(auth, async (user) => {
       currentUser = user;
+      applyMaintenanceCheck();
       const topLoginBtn = document.getElementById("guestLoginTopBtn");
       const settingsAuthBtn = document.getElementById("settingsAuthActionBtn");
       if (user) {
@@ -3571,11 +3606,11 @@
       showToast("Important Notice Updated!");
     };
 
-    let maintOn = false;
     window.toggleMaintenance = async () => {
-      maintOn = !maintOn;
-      await setDoc(doc(db, "config", "appSettings"), { maintenance: maintOn }, { merge: true });
-      showToast(maintOn ? "Maintenance ON" : "Maintenance OFF");
+      isMaintenanceActive = !isMaintenanceActive;
+      await setDoc(doc(db, "config", "appSettings"), { maintenance: isMaintenanceActive }, { merge: true });
+      applyMaintenanceCheck();
+      showToast(isMaintenanceActive ? "Maintenance ON (Only You Can Access)" : "Maintenance OFF (Live for Everyone)");
     };
 
     async function loadAppConfig() {
@@ -3592,7 +3627,8 @@
             };
           }
           if (cfg.notice) document.getElementById("importantNoticeText").textContent = cfg.notice;
-          if (cfg.maintenance) document.getElementById("maintenanceScreen").style.display = "flex";
+          isMaintenanceActive = !!cfg.maintenance;
+          applyMaintenanceCheck();
         }
       } catch (e) {}
     }
