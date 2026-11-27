@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#06090c" />
   <title>SkillDrop — Learn • Drop • Earn</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-main: #06090c;
-      --bg-card: rgba(16, 26, 24, 0.85);
-      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-main: #05080b;
+      --bg-card: rgba(15, 25, 23, 0.9);
+      --bg-solid: #0c1513;
       --border-subtle: rgba(52, 211, 153, 0.16);
       --border-strong: rgba(52, 211, 153, 0.42);
       --emerald: #10b981;
@@ -20,7 +21,8 @@
       --gold: #f59e0b;
       --gold-soft: rgba(245, 158, 11, 0.16);
       --text-main: #f3f7f6;
-      --text-muted: #94a8a2;
+      --text-muted: #93a7a1;
+      --danger: #ef4444;
     }
 
     * {
@@ -32,17 +34,43 @@
     }
 
     body {
-      background: radial-gradient(circle at 50% 0%, #0d261e 0%, var(--bg-main) 55%);
+      background: radial-gradient(circle at 50% 0%, #0d271f 0%, var(--bg-main) 55%);
       color: var(--text-main);
       min-height: 100vh;
-      padding-bottom: 88px;
+      padding-bottom: 92px;
       overflow-x: hidden;
     }
 
     .app-container {
       max-width: 480px;
       margin: 0 auto;
-      padding: 12px 14px;
+      padding: 10px 13px;
+    }
+
+    /* Live Activity Ticker */
+    .ticker-bar {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 5px 10px;
+      font-size: 11px;
+      color: #d1fae5;
+      margin-bottom: 9px;
+      overflow: hidden;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .ticker-text {
+      display: inline-block;
+      animation: tickerMove 18s linear infinite;
+    }
+
+    @keyframes tickerMove {
+      0% { transform: translateX(35%); }
+      100% { transform: translateX(-100%); }
     }
 
     /* Top Header */
@@ -50,15 +78,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 8px;
-      padding: 10px 12px;
+      gap: 6px;
+      padding: 9px 11px;
       background: var(--bg-card);
       backdrop-filter: blur(14px);
       border: 1px solid var(--border-subtle);
       border-radius: 18px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       position: sticky;
-      top: 8px;
+      top: 6px;
       z-index: 50;
       box-shadow: 0 8px 24px rgba(0,0,0,0.45);
     }
@@ -66,15 +94,15 @@
     .brand-box {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 8px;
       cursor: pointer;
       user-select: none;
     }
 
     .brand-logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 11px;
+      width: 35px;
+      height: 35px;
+      border-radius: 10px;
       background: linear-gradient(135deg, #059669, #34d399);
       display: flex;
       align-items: center;
@@ -84,7 +112,7 @@
     }
 
     .brand-title {
-      font-size: 16px;
+      font-size: 15.5px;
       font-weight: 800;
       letter-spacing: -0.3px;
       line-height: 1.1;
@@ -97,12 +125,12 @@
     .live-pill {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      font-size: 10.5px;
+      gap: 4px;
+      font-size: 10px;
       font-weight: 700;
       color: var(--emerald-bright);
       background: rgba(16, 185, 129, 0.12);
-      padding: 2px 7px;
+      padding: 2px 6px;
       border-radius: 99px;
       margin-top: 2px;
     }
@@ -112,7 +140,6 @@
       height: 6px;
       background: #22c55e;
       border-radius: 50%;
-      box-shadow: 0 0 8px #22c55e;
       animation: pulse 1.6s infinite;
     }
 
@@ -124,16 +151,41 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
+    }
+
+    .icon-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      font-size: 14px;
+    }
+
+    .notif-dot {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 7px;
+      height: 7px;
+      background: var(--danger);
+      border-radius: 50%;
     }
 
     .lang-select {
       background: rgba(255,255,255,0.06);
       color: var(--text-main);
       border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      padding: 6px 8px;
-      font-size: 11.5px;
+      border-radius: 9px;
+      padding: 5px 6px;
+      font-size: 11px;
       font-weight: 700;
       outline: none;
     }
@@ -143,15 +195,70 @@
       color: #fff;
     }
 
+    /* Important Notice Board (First Thing Users Check) */
+    .notice-card {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(16, 185, 129, 0.1));
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      border-radius: 15px;
+      padding: 11px 13px;
+      margin-bottom: 11px;
+    }
+
+    .notice-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    .notice-badge {
+      font-size: 10.5px;
+      font-weight: 800;
+      color: #fbbf24;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .notice-body {
+      font-size: 12px;
+      line-height: 1.45;
+      color: #fef3c7;
+    }
+
+    /* Adsterra Sponsored Slot */
+    .ad-wrapper {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px dashed rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+      padding: 7px 5px;
+      margin: 10px 0;
+      text-align: center;
+    }
+
+    .ad-tag {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .ad-slot-box {
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
     /* Wallet & Level Hero Card (Home Only) */
     .hero-card {
       background: linear-gradient(145deg, #0e241d 0%, #0a1210 100%);
       border: 1px solid var(--border-strong);
       border-radius: 20px;
-      padding: 16px;
-      margin-bottom: 14px;
-      position: relative;
-      overflow: hidden;
+      padding: 15px;
+      margin-bottom: 12px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
@@ -159,7 +266,7 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .level-badge {
@@ -169,9 +276,9 @@
       background: var(--gold-soft);
       border: 1px solid rgba(245, 158, 11, 0.38);
       color: #fbbf24;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 800;
-      padding: 5px 11px;
+      padding: 4px 10px;
       border-radius: 99px;
     }
 
@@ -186,17 +293,13 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 5px;
+      gap: 4px;
     }
 
     .inr-equiv {
-      font-size: 11.5px;
+      font-size: 11px;
       color: var(--text-muted);
       font-weight: 600;
-    }
-
-    .xp-track-wrap {
-      margin-top: 6px;
     }
 
     .xp-labels {
@@ -224,31 +327,38 @@
       transition: width 0.4s ease;
     }
 
-    /* Adsterra Sponsored Slot */
-    .ad-wrapper {
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px dashed rgba(255, 255, 255, 0.14);
-      border-radius: 14px;
-      padding: 8px 6px;
-      margin: 12px 0;
+    /* 7-Day Visual Streak Bar */
+    .streak-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .streak-day {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 6px 2px;
       text-align: center;
+      font-size: 10px;
     }
 
-    .ad-tag {
-      font-size: 9.5px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-muted);
-      margin-bottom: 5px;
+    .streak-day.claimed {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: var(--emerald);
+      color: var(--emerald-bright);
+    }
+
+    .streak-day.today {
+      border-color: #fbbf24;
+      background: var(--gold-soft);
+    }
+
+    .streak-day strong {
       display: block;
-    }
-
-    .ad-slot-box {
-      min-height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      font-size: 11px;
+      margin-top: 2px;
     }
 
     /* Section Headings */
@@ -256,15 +366,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin: 16px 0 10px;
+      margin: 15px 0 9px;
     }
 
     .sec-title {
-      font-size: 15px;
+      font-size: 14.5px;
       font-weight: 800;
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 6px;
     }
 
     .sec-sub {
@@ -273,7 +383,7 @@
       font-weight: 700;
     }
 
-    /* Cards & Task Items */
+    /* Cards & Task Rows */
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
@@ -322,7 +432,7 @@
     .reward-pill {
       display: inline-block;
       margin-top: 4px;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 700;
       color: #fbbf24;
       background: var(--gold-soft);
@@ -355,15 +465,15 @@
     .btn {
       border: none;
       border-radius: 11px;
-      padding: 9px 14px;
-      font-size: 12.5px;
+      padding: 8px 13px;
+      font-size: 12px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 5px;
       flex-shrink: 0;
     }
 
@@ -383,7 +493,7 @@
     }
 
     .btn-outline {
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.06);
       color: var(--text-main);
       border: 1px solid var(--border-subtle);
     }
@@ -405,18 +515,36 @@
     .btn-full {
       width: 100%;
       padding: 11px;
-      font-size: 13.5px;
+      font-size: 13px;
+    }
+
+    /* Scratch Card Canvas */
+    .scratch-wrap {
+      position: relative;
+      width: 240px;
+      height: 120px;
+      margin: 12px auto;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid #fbbf24;
+      background: linear-gradient(135deg, #064e3b, #065f46);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    #scratchCanvas {
+      position: absolute;
+      inset: 0;
+      touch-action: none;
+      cursor: pointer;
     }
 
     /* Lucky Spin Wheel */
-    .spin-box {
-      text-align: center;
-      padding: 10px 0 4px;
-    }
-
     .wheel-ring {
-      width: 150px;
-      height: 150px;
+      width: 148px;
+      height: 148px;
       margin: 0 auto 12px;
       border-radius: 50%;
       border: 4px solid #fbbf24;
@@ -433,12 +561,11 @@
       justify-content: center;
       box-shadow: 0 0 22px rgba(245, 158, 11, 0.25);
       transition: transform 2.4s cubic-bezier(0.17, 0.67, 0.14, 0.99);
-      position: relative;
     }
 
     .wheel-center {
-      width: 58px;
-      height: 58px;
+      width: 54px;
+      height: 54px;
       border-radius: 50%;
       background: #06090c;
       border: 2px solid var(--emerald-bright);
@@ -446,7 +573,6 @@
       align-items: center;
       justify-content: center;
       font-size: 20px;
-      font-weight: 800;
     }
 
     /* Quiz Options */
@@ -464,11 +590,68 @@
       cursor: pointer;
     }
 
-    .quiz-opt:hover {
-      border-color: var(--emerald-bright);
+    /* Filter Pills */
+    .filter-row {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
     }
 
-    /* Level Roadmap Pills */
+    .filter-pill {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 5px 11px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .filter-pill.active {
+      background: rgba(16, 185, 129, 0.18);
+      border-color: var(--emerald-bright);
+      color: var(--emerald-bright);
+    }
+
+    /* Redeem Store Grid */
+    .redeem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 9px;
+      margin-bottom: 14px;
+    }
+
+    .redeem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 15px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .redeem-card .r-icon {
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+
+    .redeem-card h5 {
+      font-size: 12.5px;
+      font-weight: 800;
+      margin-bottom: 3px;
+    }
+
+    .redeem-card p {
+      font-size: 11px;
+      color: #fbbf24;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    /* Level Roadmap Grid */
     .level-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -481,7 +664,6 @@
       border: 1px solid var(--border-subtle);
       border-radius: 14px;
       padding: 11px;
-      position: relative;
     }
 
     .lvl-card.unlocked {
@@ -494,29 +676,30 @@
     }
 
     .lvl-tag {
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 800;
       color: var(--emerald-bright);
       text-transform: uppercase;
     }
 
     .lvl-card h5 {
-      font-size: 13px;
+      font-size: 12.5px;
       margin: 3px 0;
     }
 
     .lvl-card p {
-      font-size: 11px;
+      font-size: 10.5px;
       color: var(--text-muted);
       line-height: 1.35;
     }
 
-    /* Referral Box */
+    /* Referral & Stats */
     .ref-box {
       background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(245, 158, 11, 0.08));
       border: 1px solid var(--border-strong);
       border-radius: 16px;
       padding: 14px;
+      margin-bottom: 12px;
     }
 
     .ref-link-row {
@@ -532,7 +715,7 @@
       color: var(--emerald-bright);
       padding: 9px 10px;
       border-radius: 10px;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 600;
       outline: none;
     }
@@ -554,7 +737,7 @@
 
     .stat-mini strong {
       display: block;
-      font-size: 16px;
+      font-size: 15px;
       color: #fff;
     }
 
@@ -563,17 +746,52 @@
       color: var(--text-muted);
     }
 
-    /* Profile Card */
+    /* Badges Row */
+    .badges-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+      margin: 10px 0;
+    }
+
+    .badge-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 8px 4px;
+      text-align: center;
+      opacity: 0.45;
+    }
+
+    .badge-item.earned {
+      opacity: 1;
+      border-color: #fbbf24;
+      background: var(--gold-soft);
+    }
+
+    .badge-item span {
+      font-size: 20px;
+      display: block;
+    }
+
+    .badge-item small {
+      font-size: 9.5px;
+      font-weight: 700;
+      display: block;
+      margin-top: 3px;
+    }
+
+    /* Profile Header */
     .profile-header {
       display: flex;
       align-items: center;
-      gap: 13px;
-      margin-bottom: 14px;
+      gap: 12px;
+      margin-bottom: 12px;
     }
 
     .avatar-circle {
-      width: 62px;
-      height: 62px;
+      width: 60px;
+      height: 60px;
       border-radius: 18px;
       background: linear-gradient(135deg, #10b981, #047857);
       display: flex;
@@ -611,7 +829,7 @@
 
     /* Form Controls */
     .field {
-      margin-bottom: 11px;
+      margin-bottom: 10px;
     }
 
     .field label {
@@ -622,7 +840,7 @@
       font-weight: 600;
     }
 
-    .field input, .field select {
+    .field input, .field select, .field textarea {
       width: 100%;
       background: rgba(0, 0, 0, 0.45);
       border: 1px solid var(--border-subtle);
@@ -633,22 +851,18 @@
       outline: none;
     }
 
-    .field input:focus {
-      border-color: var(--emerald-bright);
-    }
-
-    /* Bottom Navigation */
+    /* Bottom Navigation (5 Play Store Tabs) */
     .bottom-nav {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(8, 13, 12, 0.94);
+      background: rgba(8, 13, 12, 0.96);
       backdrop-filter: blur(16px);
       border-top: 1px solid var(--border-subtle);
       display: flex;
       justify-content: space-around;
-      padding: 8px 6px 12px;
+      padding: 7px 4px 11px;
       z-index: 60;
     }
 
@@ -660,16 +874,16 @@
       flex-direction: column;
       align-items: center;
       gap: 3px;
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 700;
       cursor: pointer;
-      padding: 4px 10px;
+      padding: 4px 8px;
       border-radius: 10px;
     }
 
     .nav-btn.active {
       color: var(--emerald-bright);
-      background: rgba(16, 185, 129, 0.1);
+      background: rgba(16, 185, 129, 0.12);
     }
 
     /* Views & Modals */
@@ -679,7 +893,7 @@
 
     .view.active {
       display: block;
-      animation: fadeIn 0.22s ease;
+      animation: fadeIn 0.2s ease;
     }
 
     @keyframes fadeIn {
@@ -690,12 +904,12 @@
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.82);
+      background: rgba(0, 0, 0, 0.84);
       backdrop-filter: blur(6px);
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 16px;
+      padding: 14px;
       z-index: 100;
     }
 
@@ -709,20 +923,20 @@
       background: #0d1714;
       border: 1px solid var(--border-strong);
       border-radius: 20px;
-      padding: 18px;
+      padding: 17px;
       max-height: 88vh;
       overflow-y: auto;
     }
 
     .toast {
       position: fixed;
-      top: 72px;
+      top: 70px;
       left: 50%;
       transform: translateX(-50%);
       background: #10b981;
       color: #04130e;
       font-weight: 800;
-      font-size: 12.5px;
+      font-size: 12px;
       padding: 9px 16px;
       border-radius: 99px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.5);
@@ -731,12 +945,43 @@
       white-space: nowrap;
     }
 
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 16px;
+      font-size: 11px;
+    }
+
+    .footer-links button {
+      background: none;
+      border: none;
+      color: var(--emerald-bright);
+      text-decoration: underline;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
     .footer-note {
       text-align: center;
       font-size: 10.5px;
       color: var(--text-muted);
-      margin-top: 18px;
-      padding: 8px;
+      margin-top: 6px;
+      padding-bottom: 8px;
+    }
+
+    /* Maintenance Overlay */
+    #maintenanceScreen {
+      position: fixed;
+      inset: 0;
+      background: #05080b;
+      z-index: 999;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
     }
   </style>
 </head>
@@ -744,12 +989,29 @@
 
   <div id="toast" class="toast"></div>
 
+  <!-- Maintenance Mode Screen (Controlled from Admin Panel) -->
+  <div id="maintenanceScreen">
+    <div style="font-size: 46px; margin-bottom: 12px;">🛠️</div>
+    <h2 style="margin-bottom: 8px;">SkillDrop System Upgrade</h2>
+    <p style="font-size: 13px; color: var(--text-muted); max-width: 320px;">
+      Platform abhi upgrade ho raha hai. 10 minute baad wapas check karein!
+    </p>
+  </div>
+
   <div class="app-container">
+    <!-- Live Activity Ticker -->
+    <div class="ticker-bar">
+      <span>🔥</span>
+      <div class="ticker-text" id="liveTickerText">
+        🎉 Aman ne +100 Coins Referral se kamaye • 🏆 Simran ne ₹10 Google Play Code redeem kiya • ⚡ Rohit Level 2 par pahunch gaya!
+      </div>
+    </div>
+
     <!-- Top Bar (5-Tap Logo Opens Secret Admin Panel) -->
     <header class="top-bar">
       <div class="brand-box" id="secretLogoTrigger" title="SkillDrop">
         <div class="brand-logo">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#04130e" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#04130e" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
             <polygon points="10 10 15 13 10 16 10 10" fill="#04130e"/>
           </svg>
@@ -758,21 +1020,36 @@
           <div class="brand-title">Skill<span>Drop</span></div>
           <div class="live-pill">
             <span class="live-dot"></span>
-            <span id="onlineCountText">18 Online Now</span>
+            <span id="onlineCountText">22 Online</span>
           </div>
         </div>
       </div>
 
       <div class="header-actions">
+        <button class="icon-btn" onclick="openModal('modal-rules')" title="Rules & FAQ">❓</button>
+        <button class="icon-btn" onclick="openModal('modal-notif')" title="Announcements">
+          🔔<span class="notif-dot"></span>
+        </button>
         <select id="langSwitcher" class="lang-select" aria-label="Language">
           <option value="hinglish">Hinglish</option>
           <option value="pa">ਪੰਜਾਬੀ</option>
           <option value="hi">हिंदी</option>
           <option value="en">English</option>
         </select>
-        <button id="authTopBtn" class="btn btn-primary" style="padding: 6px 11px; font-size: 11.5px;">Login</button>
+        <button id="authTopBtn" class="btn btn-primary" style="padding: 6px 10px; font-size: 11px;">Login</button>
       </div>
     </header>
+
+    <!-- IMPORTANT NOTICE BOARD (First Thing Users Check) -->
+    <section class="notice-card">
+      <div class="notice-head">
+        <span class="notice-badge">📢 Important Notice • Zaroori Soochna</span>
+        <button style="background:none;border:none;color:#fbbf24;font-size:11px;font-weight:700;cursor:pointer;" onclick="openModal('modal-rules')">Full Rules →</button>
+      </div>
+      <div class="notice-body" id="importantNoticeText">
+        <strong>1,000 Coins = ₹10</strong> (Google Play, Amazon & Flipkart Gift Cards) • <strong>15,000 Coins = ₹150 UPI</strong>. Fake accounts, VPN ya self-click karne par account permanent block ho jayega.
+      </div>
+    </section>
 
     <!-- ADSTERRA BANNER SLOT (320x50) -->
     <div class="ad-wrapper">
@@ -791,7 +1068,7 @@
       </div>
     </div>
 
-    <!-- VIEW 1: HOME (Wallet/Level Card ONLY shown here) -->
+    <!-- VIEW 1: HOME -->
     <main id="view-home" class="view active">
 
       <!-- Wallet & Level Hero Card (Home Only) -->
@@ -808,44 +1085,37 @@
               <span>🪙</span>
               <span id="coinBalance">0</span>
             </div>
-            <div class="inr-equiv" id="inrBalanceText">≈ ₹0.00 (100 Coins = ₹1)</div>
+            <div class="inr-equiv" id="inrBalanceText">≈ ₹0.00 (1000 Coins = ₹10)</div>
           </div>
         </div>
 
-        <div class="xp-track-wrap">
-          <div class="xp-labels">
-            <span id="xpLabel">XP: 0 / 350</span>
-            <span id="nextLvlLabel">Next: Level 2</span>
-          </div>
-          <div class="xp-bar">
-            <div class="xp-fill" id="xpFillBar"></div>
-          </div>
+        <div class="xp-labels">
+          <span id="xpLabel">XP: 0 / 350</span>
+          <span id="nextLvlLabel">Next: Level 2</span>
+        </div>
+        <div class="xp-bar">
+          <div class="xp-fill" id="xpFillBar"></div>
         </div>
       </section>
 
-      <div class="sec-head">
-        <div class="sec-title" id="t-lvl1-title">⚡ Level 1 Daily Activities</div>
-        <span class="sec-sub" id="t-instant-coins">Earn Coins Daily</span>
-      </div>
-
-      <!-- 1. Daily Check-In -->
+      <!-- 7-Day Visual Login Streak -->
       <div class="card">
         <div class="task-row">
-          <div class="task-left">
-            <div class="social-icon-box" style="background: rgba(245, 158, 11, 0.14);">
-              <span style="font-size: 20px;">🎁</span>
-            </div>
-            <div class="task-info">
-              <h4 id="t-daily-title">Daily Check-In Bonus</h4>
-              <p id="t-daily-desc">Rozana app khol ke streak bonus pao</p>
-              <span class="reward-pill">+15 Coins • +15 XP</span>
-            </div>
+          <div>
+            <h4 style="font-size: 13.5px;" id="t-daily-title">🔥 7-Day Daily Check-In Streak</h4>
+            <p style="font-size: 11px; color: var(--text-muted);" id="streakSubText">Day 1 se Day 7 tak lagataar claim karein</p>
           </div>
-          <button id="btnDailyClaim" class="btn btn-gold" onclick="claimDailyBonus()">Claim</button>
+          <button id="btnDailyClaim" class="btn btn-gold" onclick="claimDailyBonus()">Claim Day 1</button>
         </div>
+        <div class="streak-grid" id="streakGrid"></div>
       </div>
 
-      <!-- 2. Watch Partner Spotlight (10/Day Limit + Progress Bar) -->
+      <div class="sec-head">
+        <div class="sec-title" id="t-lvl1-title">⚡ Level 1 Daily Activities</div>
+        <span class="sec-sub">Play & Earn Coins</span>
+      </div>
+
+      <!-- Watch Partner Spotlight (10/Day Limit + 30s Cooldown) -->
       <div class="card">
         <div class="task-row">
           <div class="task-left">
@@ -867,11 +1137,28 @@
         </div>
       </div>
 
-      <!-- 3. Daily Lucky Spin (3/Day Limit) -->
+      <!-- Interactive Scratch Card (2/Day) -->
       <div class="card">
         <div class="task-row">
           <div class="task-left">
             <div class="social-icon-box" style="background: rgba(245, 158, 11, 0.14);">
+              <span style="font-size: 20px;">🎫</span>
+            </div>
+            <div class="task-info">
+              <h4>Lucky Scratch Card</h4>
+              <p id="scratchLimitLabel">Cards Left Today: 2 / 2</p>
+              <span class="reward-pill">Scratch & Win 5–25 Coins • +5 XP</span>
+            </div>
+          </div>
+          <button id="btnOpenScratch" class="btn btn-gold" onclick="openScratchModal()">Scratch</button>
+        </div>
+      </div>
+
+      <!-- Daily Lucky Spin (3/Day) -->
+      <div class="card">
+        <div class="task-row">
+          <div class="task-left">
+            <div class="social-icon-box" style="background: rgba(16, 185, 129, 0.14);">
               <span style="font-size: 20px;">🎡</span>
             </div>
             <div class="task-info">
@@ -880,11 +1167,11 @@
               <span class="reward-pill">Win 5 to 25 Coins • +5 XP</span>
             </div>
           </div>
-          <button id="btnOpenSpin" class="btn btn-gold" onclick="openSpinModal()">Spin</button>
+          <button id="btnOpenSpin" class="btn btn-primary" onclick="openSpinModal()">Spin</button>
         </div>
       </div>
 
-      <!-- 4. Creator Quiz in Hinglish (3 Questions/Day) -->
+      <!-- Creator Quiz in Hinglish -->
       <div class="card">
         <div class="task-row">
           <div class="task-left">
@@ -901,7 +1188,7 @@
         </div>
       </div>
 
-      <!-- 5. Hourly Gift Box -->
+      <!-- Hourly Mystery Box -->
       <div class="card">
         <div class="task-row">
           <div class="task-left">
@@ -918,24 +1205,33 @@
         </div>
       </div>
 
-      <!-- Social Follow Tasks (One-time Starter Rewards) -->
+      <!-- Promo Code Redeem Box -->
+      <div class="card">
+        <h4 style="font-size: 13.5px; margin-bottom: 4px;">🎟️ Telegram Secret Promo Code</h4>
+        <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 8px;">
+          @skill_drop07 Telegram channel par roz naya code milta hai!
+        </p>
+        <div style="display: flex; gap: 7px;">
+          <input type="text" id="promoCodeInput" class="ref-input" placeholder="Enter Promo Code (e.g. DROP25)" style="text-transform: uppercase;" />
+          <button class="btn btn-gold" onclick="redeemPromoCode()">Apply</button>
+        </div>
+      </div>
+
+      <!-- Official Community Tasks -->
       <div class="sec-head">
         <div class="sec-title">📲 Official Community Tasks</div>
         <span class="sec-sub">One-Time Bonus</span>
       </div>
 
-      <!-- Telegram Follow -->
       <div class="card">
         <div class="task-row">
           <div class="task-left">
             <div class="social-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="#26A5E4">
-                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-              </svg>
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
             </div>
             <div class="task-info">
               <h4>Join Official Telegram</h4>
-              <p>@skill_drop07 • Daily updates</p>
+              <p>@skill_drop07 • Promo codes & task alerts</p>
               <span class="reward-pill">+25 Coins • +20 XP</span>
             </div>
           </div>
@@ -943,27 +1239,15 @@
         </div>
       </div>
 
-      <!-- Instagram Follow -->
       <div class="card">
         <div class="task-row">
           <div class="task-left">
             <div class="social-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <defs>
-                  <linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#f09433"/>
-                    <stop offset="25%" stop-color="#e6683c"/>
-                    <stop offset="50%" stop-color="#dc2743"/>
-                    <stop offset="75%" stop-color="#cc2366"/>
-                    <stop offset="100%" stop-color="#bc1888"/>
-                  </linearGradient>
-                </defs>
-                <path fill="url(#igGrad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
+              <svg width="23" height="23" viewBox="0 0 24 24"><defs><linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="25%" stop-color="#e6683c"/><stop offset="50%" stop-color="#dc2743"/><stop offset="75%" stop-color="#cc2366"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><path fill="url(#igGrad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </div>
             <div class="task-info">
               <h4>Follow on Instagram</h4>
-              <p>@skill_drop07 • Reels & tips</p>
+              <p>@skill_drop07 • Reels & creator updates</p>
               <span class="reward-pill">+25 Coins • +20 XP</span>
             </div>
           </div>
@@ -971,18 +1255,15 @@
         </div>
       </div>
 
-      <!-- YouTube Subscribe -->
       <div class="card">
         <div class="task-row">
           <div class="task-left">
             <div class="social-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF0000">
-                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-              </svg>
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </div>
             <div class="task-info">
               <h4>Subscribe on YouTube</h4>
-              <p>@skill_drop07 • Editing tutorials</p>
+              <p>@skill_drop07 • Free mobile tutorials</p>
               <span class="reward-pill">+25 Coins • +20 XP</span>
             </div>
           </div>
@@ -993,30 +1274,94 @@
       <!-- Level 1 to 6 Roadmap -->
       <div class="sec-head">
         <div class="sec-title" id="t-roadmap-title">🏆 Level 1–6 Creator Roadmap</div>
-        <span class="sec-sub">Steady Progression</span>
+        <span class="sec-sub">Steady Growth</span>
       </div>
       <div class="level-grid" id="levelRoadmapGrid"></div>
     </main>
 
-    <!-- VIEW 2: TASKS MARKETPLACE (Clean View without Hero Card) -->
+    <!-- VIEW 2: TASKS MARKETPLACE -->
     <main id="view-tasks" class="view">
-      <div class="sec-head" style="margin-top: 4px;">
+      <div class="sec-head" style="margin-top: 2px;">
         <div class="sec-title" id="t-market-title">💼 Skill Tasks & Drops</div>
-        <button class="btn btn-primary" style="padding: 6px 11px; font-size: 11.5px;" onclick="openDropModal()">+ Drop Sample / Task</button>
+        <button class="btn btn-primary" style="padding: 6px 10px; font-size: 11px;" onclick="openDropModal()">+ Drop Sample/Task</button>
       </div>
+
+      <!-- Category Filter Pills -->
+      <div class="filter-row" id="taskFilterRow">
+        <button class="filter-pill active" onclick="filterTasks('all', this)">All</button>
+        <button class="filter-pill" onclick="filterTasks('task', this)">Paid Tasks</button>
+        <button class="filter-pill" onclick="filterTasks('sample', this)">Skill Samples</button>
+        <button class="filter-pill" onclick="filterTasks('lvl1', this)">Level 1 Open</button>
+      </div>
+
       <div id="liveTasksList"></div>
     </main>
 
-    <!-- VIEW 3: REFER & EARN (Clean View without Hero Card) -->
+    <!-- VIEW 3: REDEEM STORE & PASSBOOK -->
+    <main id="view-wallet" class="view">
+      <div class="sec-head" style="margin-top: 2px;">
+        <div class="sec-title">🎁 Redeem Store (Gift Cards)</div>
+        <span class="sec-sub">1,000 Coins = ₹10</span>
+      </div>
+
+      <div class="redeem-grid">
+        <div class="redeem-card">
+          <div class="r-icon">🎮</div>
+          <h5>Google Play ₹10</h5>
+          <p>1,000 Coins</p>
+          <button class="btn btn-primary btn-full" onclick="openRedeemModal('Google Play ₹10 Redeem Code', 1000)">Redeem</button>
+        </div>
+        <div class="redeem-card">
+          <div class="r-icon">🛒</div>
+          <h5>Amazon Pay ₹10</h5>
+          <p>1,000 Coins</p>
+          <button class="btn btn-primary btn-full" onclick="openRedeemModal('Amazon Pay ₹10 Gift Card', 1000)">Redeem</button>
+        </div>
+        <div class="redeem-card">
+          <div class="r-icon">🛍️</div>
+          <h5>Flipkart / Zomato ₹25</h5>
+          <p>2,500 Coins</p>
+          <button class="btn btn-gold btn-full" onclick="openRedeemModal('Flipkart / Zomato ₹25 Voucher', 2500)">Redeem</button>
+        </div>
+        <div class="redeem-card">
+          <div class="r-icon">🎮</div>
+          <h5>Google Play ₹50</h5>
+          <p>5,000 Coins</p>
+          <button class="btn btn-gold btn-full" onclick="openRedeemModal('Google Play ₹50 Redeem Code', 5000)">Redeem</button>
+        </div>
+        <div class="redeem-card">
+          <div class="r-icon">📦</div>
+          <h5>Amazon Pay ₹50</h5>
+          <p>5,000 Coins</p>
+          <button class="btn btn-gold btn-full" onclick="openRedeemModal('Amazon Pay ₹50 Gift Card', 5000)">Redeem</button>
+        </div>
+        <div class="redeem-card">
+          <div class="r-icon">💸</div>
+          <h5>Direct UPI ₹150</h5>
+          <p>15,000 Coins</p>
+          <button class="btn btn-outline btn-full" onclick="openRedeemModal('Direct UPI ₹150 Cash', 15000)">Withdraw</button>
+        </div>
+      </div>
+
+      <div class="sec-head">
+        <div class="sec-title">📒 Wallet Passbook & History</div>
+        <span class="sec-sub" id="walletCoinBadge">0 🪙</span>
+      </div>
+      <div id="passbookList" class="card" style="font-size: 12px; color: var(--text-muted); text-align: center;">
+        Abhi koi transaction nahi hai. Tasks complete karke coins kamayein!
+      </div>
+    </main>
+
+    <!-- VIEW 4: REFER & LEADERBOARD -->
     <main id="view-refer" class="view">
-      <div class="sec-head" style="margin-top: 4px;">
-        <div class="sec-title" id="t-refer-title">🎁 Refer & Earn Coins</div>
+      <div class="sec-head" style="margin-top: 2px;">
+        <div class="sec-title" id="t-refer-title">🤝 Refer & Earn + Milestones</div>
         <span class="sec-sub">+100 Coins / Friend</span>
       </div>
 
       <div class="ref-box">
-        <p style="font-size: 12.5px; line-height: 1.45; color: #d1fae5;">
-          Apna unique referral link apne doston aur mobile editors ko bhejo. Jab woh aapke link se join karenge, aapko milega <strong>+100 Coins (₹1) + 40 XP</strong>!
+        <p style="font-size: 12px; line-height: 1.45; color: #d1fae5;">
+          Apna referral link doston ko bhejo: Har join par <strong>+100 Coins</strong>, <strong>5 Friends par +200 Bonus</strong>, aur <strong>10 Friends par +500 Extra Bonus</strong>!
         </p>
 
         <div class="ref-link-row">
@@ -1024,7 +1369,7 @@
           <button class="btn btn-primary" onclick="copyRefLink()">Copy</button>
         </div>
 
-        <button class="btn btn-gold btn-full" onclick="shareRefLink()">📲 Share on WhatsApp / Telegram</button>
+        <button class="btn btn-gold btn-full" onclick="shareRefLink()">📲 Share on WhatsApp / Instagram</button>
 
         <div class="ref-stats">
           <div class="stat-mini">
@@ -1033,101 +1378,148 @@
           </div>
           <div class="stat-mini">
             <strong id="refCoinsStat">0 🪙</strong>
-            <span>Referral Coins Earned</span>
+            <span>Referral Coins</span>
           </div>
         </div>
+      </div>
+
+      <!-- Live Leaderboard (Top 10 Earners) -->
+      <div class="sec-head">
+        <div class="sec-title">🏆 Top Creators Leaderboard</div>
+        <span class="sec-sub">Live Rankings</span>
+      </div>
+      <div id="leaderboardList" class="card">
+        <div style="font-size: 12px; color: var(--text-muted); text-align: center;">Loading top creators...</div>
       </div>
 
       <div class="sec-head">
         <div class="sec-title">👥 Your Invited Friends</div>
       </div>
       <div id="invitedFriendsList" class="card" style="font-size: 12px; color: var(--text-muted); text-align: center;">
-        Abhi koi friend invite nahi hua. Upar apna link share karke shuru karein!
+        Abhi koi friend invite nahi hua.
       </div>
     </main>
 
-    <!-- VIEW 4: UNIQUE PROFILE & EDIT (Clean View without Hero Card) -->
+    <!-- VIEW 5: PROFILE, BADGES & SUPPORT -->
     <main id="view-profile" class="view">
-      <div class="sec-head" style="margin-top: 4px;">
+      <div class="sec-head" style="margin-top: 2px;">
         <div class="sec-title" id="t-profile-title">🪪 Creator Profile</div>
-        <button class="btn btn-outline" style="padding: 6px 11px; font-size: 11.5px;" onclick="openEditProfileModal()">✏️ Edit Profile</button>
+        <div style="display: flex; gap: 6px;">
+          <button class="btn btn-outline" style="padding: 5px 9px; font-size: 11px;" onclick="shareCreatorCard()">📤 Card</button>
+          <button class="btn btn-primary" style="padding: 5px 9px; font-size: 11px;" onclick="openEditProfileModal()">✏️ Edit</button>
+        </div>
       </div>
 
       <div class="card">
         <div class="profile-header">
           <div class="avatar-circle" id="profAvatarDisplay">🚀</div>
           <div style="flex: 1;">
-            <h3 id="profNameDisplay" style="font-size: 16px; font-weight: 800;">Guest Creator</h3>
+            <h3 id="profNameDisplay" style="font-size: 15.5px; font-weight: 800;">Guest Creator</h3>
             <p id="profSkillDisplay" style="font-size: 12px; color: var(--emerald-bright); font-weight: 600;">Mobile Video Editor</p>
-            <p id="profBioDisplay" style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Building skills on SkillDrop</p>
+            <p id="profBioDisplay" style="font-size: 11px; color: var(--text-muted); margin-top: 3px;">Building skills on SkillDrop</p>
           </div>
         </div>
 
-        <div class="ref-stats" style="margin-bottom: 12px;">
+        <div class="ref-stats" style="margin-bottom: 10px;">
           <div class="stat-mini">
             <strong id="profLevelStat">Level 1</strong>
             <span>Current Rank</span>
           </div>
           <div class="stat-mini">
             <strong id="profCoinsStat">0 🪙</strong>
-            <span>Total Coins</span>
+            <span>Wallet Balance</span>
           </div>
         </div>
 
-        <div style="background: rgba(0,0,0,0.35); padding: 10px 12px; border-radius: 12px; font-size: 12px; margin-bottom: 12px;">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-            <span style="color: var(--text-muted);">UPI ID:</span>
+        <div style="background: rgba(0,0,0,0.35); padding: 9px 11px; border-radius: 12px; font-size: 11.5px; margin-bottom: 10px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+            <span style="color: var(--text-muted);">UPI / Payout ID:</span>
             <strong id="profUpiDisplay">Not Set</strong>
           </div>
           <div style="display: flex; justify-content: space-between;">
-            <span style="color: var(--text-muted);">Referral Code:</span>
+            <span style="color: var(--text-muted);">Invite Code:</span>
             <strong id="profCodeDisplay" style="color: var(--emerald-bright);">—</strong>
           </div>
         </div>
 
-        <button class="btn btn-primary btn-full" onclick="openWithdrawModal()">💸 Withdraw Earnings (Min ₹150)</button>
+        <!-- Achievement Trophy Badges -->
+        <div style="font-size: 12px; font-weight: 800; margin-bottom: 4px;">🏅 Achievement Badges</div>
+        <div class="badges-grid" id="badgesGrid"></div>
+      </div>
+
+      <!-- In-App Support Ticket (Privacy Safe) -->
+      <div class="card">
+        <h4 style="font-size: 13.5px; margin-bottom: 4px;">🎧 In-App Help & Support Ticket</h4>
+        <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 9px;">
+          Gift card ya task se judi koi samasya ho toh yahan message bhejein.
+        </p>
+        <div class="field">
+          <textarea id="supportMsgInput" rows="2" placeholder="Apni problem likhein..."></textarea>
+        </div>
+        <button class="btn btn-outline btn-full" onclick="submitSupportTicket()">📩 Send Support Ticket</button>
       </div>
     </main>
 
+    <!-- Footer Links -->
+    <div class="footer-links">
+      <button onclick="openModal('modal-rules')">How It Works & FAQ</button>
+      <button onclick="openModal('modal-terms')">Terms & Anti-Cheat Policy</button>
+    </div>
     <div class="footer-note">
       SkillDrop Student Marketplace • Powered by Community & Partner Ads
     </div>
   </div>
 
-  <!-- Bottom Navigation -->
+  <!-- Bottom Navigation (5 Tabs) -->
   <nav class="bottom-nav">
     <button class="nav-btn active" data-target="view-home" onclick="switchTab('view-home', this)">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       <span id="nav-home">Home</span>
     </button>
     <button class="nav-btn" data-target="view-tasks" onclick="switchTab('view-tasks', this)">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
       <span id="nav-tasks">Tasks</span>
     </button>
+    <button class="nav-btn" data-target="view-wallet" onclick="switchTab('view-wallet', this)">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      <span id="nav-wallet">Redeem</span>
+    </button>
     <button class="nav-btn" data-target="view-refer" onclick="switchTab('view-refer', this)">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       <span id="nav-refer">Refer</span>
     </button>
     <button class="nav-btn" data-target="view-profile" onclick="switchTab('view-profile', this)">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       <span id="nav-profile">Profile</span>
     </button>
   </nav>
+
+  <!-- MODAL: SCRATCH CARD -->
+  <div id="modal-scratch" class="modal-backdrop">
+    <div class="modal-box" style="text-align: center;">
+      <h3 style="margin-bottom: 4px;">🎫 Scratch & Win Coins</h3>
+      <p style="font-size: 12px; color: var(--text-muted);">Ungli se silver card ko ghas kar reward dekhein!</p>
+      <div class="scratch-wrap">
+        <div style="font-size: 26px; font-weight: 800; color: #fbbf24;" id="scratchPrizeText">+15 Coins</div>
+        <div style="font-size: 11px; color: #d1fae5;">Added to Wallet!</div>
+        <canvas id="scratchCanvas" width="240" height="120"></canvas>
+      </div>
+      <button class="btn btn-outline btn-full" onclick="closeModal('modal-scratch')">Close</button>
+    </div>
+  </div>
 
   <!-- MODAL: LUCKY SPIN WHEEL -->
   <div id="modal-spin" class="modal-backdrop">
     <div class="modal-box" style="text-align: center;">
       <h3 style="margin-bottom: 4px;">🎡 Daily Lucky Spin</h3>
-      <p id="modalSpinSub" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">3 Free Spins Daily • Win up to 25 Coins</p>
-      <div class="spin-box">
-        <div class="wheel-ring" id="spinWheelEl">
-          <div class="wheel-center">🪙</div>
-        </div>
-        <div id="spinResultText" style="font-size: 14px; font-weight: 800; color: var(--emerald-bright); min-height: 22px; margin-bottom: 10px;"></div>
-        <div style="display: flex; gap: 8px;">
-          <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-spin')">Close</button>
-          <button id="btnTriggerSpin" class="btn btn-gold" style="flex: 2;" onclick="spinNow()">Spin Now!</button>
-        </div>
+      <p id="modalSpinSub" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">3 Free Spins Daily</p>
+      <div class="wheel-ring" id="spinWheelEl">
+        <div class="wheel-center">🪙</div>
+      </div>
+      <div id="spinResultText" style="font-size: 14px; font-weight: 800; color: var(--emerald-bright); min-height: 22px; margin-bottom: 10px;"></div>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-spin')">Close</button>
+        <button class="btn btn-gold" style="flex: 2;" onclick="spinNow()">Spin Now!</button>
       </div>
     </div>
   </div>
@@ -1139,9 +1531,92 @@
         <h3>🧠 Creator Quiz (Hinglish)</h3>
         <span id="quizStepBadge" class="reward-pill" style="margin: 0;">Q 1 / 3</span>
       </div>
-      <p id="quizQuestionText" style="font-size: 13.5px; font-weight: 700; line-height: 1.45; margin-bottom: 12px;"></p>
+      <p id="quizQuestionText" style="font-size: 13px; font-weight: 700; line-height: 1.45; margin-bottom: 12px;"></p>
       <div id="quizOptionsBox"></div>
       <button class="btn btn-outline btn-full" style="margin-top: 6px;" onclick="closeModal('modal-quiz')">Close</button>
+    </div>
+  </div>
+
+  <!-- MODAL: REDEEM GIFT CARD / UPI -->
+  <div id="modal-redeem" class="modal-backdrop">
+    <div class="modal-box">
+      <h3 id="redeemModalTitle" style="margin-bottom: 6px;">🎁 Redeem Gift Card</h3>
+      <p id="redeemModalCost" style="font-size: 12px; color: #fbbf24; font-weight: 700; margin-bottom: 12px;">Cost: 1,000 Coins</p>
+      <div class="field">
+        <label>Your Gmail ID or UPI ID (Code delivery ke liye)</label>
+        <input type="text" id="redeemTargetInput" placeholder="yourname@gmail.com / name@upi" />
+      </div>
+      <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px;">
+        Verification ke baad 24–48 ghante mein code aapki Passbook mein show ho jayega.
+      </p>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-redeem')">Cancel</button>
+        <button class="btn btn-gold" style="flex: 2;" onclick="confirmRedeem()">Confirm Redeem</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: TASK PROOF & IN-APP DEAL CHAT -->
+  <div id="modal-task-deal" class="modal-backdrop">
+    <div class="modal-box">
+      <h3 id="dealTaskTitle" style="margin-bottom: 4px;">💼 Task Submission & Chat</h3>
+      <p id="dealTaskMeta" style="font-size: 11.5px; color: var(--emerald-bright); margin-bottom: 10px;"></p>
+      <div class="field">
+        <label>Submit Work Proof Link (Google Drive / Insta Reel)</label>
+        <input type="url" id="proofLinkInput" placeholder="https://drive.google.com/..." />
+      </div>
+      <div class="field">
+        <label>Direct Message to Client / Admin (Privacy Safe)</label>
+        <input type="text" id="dealMsgInput" placeholder="e.g. Maine sample ready kar diya hai..." />
+      </div>
+      <div style="display: flex; gap: 8px; margin-top: 10px;">
+        <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-task-deal')">Close</button>
+        <button class="btn btn-primary" style="flex: 2;" onclick="submitTaskProof()">Submit Proof</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ANNOUNCEMENTS (BELL) -->
+  <div id="modal-notif" class="modal-backdrop">
+    <div class="modal-box">
+      <h3 style="margin-bottom: 10px;">🔔 Latest Announcements</h3>
+      <div id="notifList" style="font-size: 12px; line-height: 1.5;">
+        <div class="card" style="padding: 10px;">
+          <strong>🎁 Redeem Store Live!</strong><br/>
+          Ab aap sirf <strong>1,000 Coins</strong> par ₹10 Google Play aur Amazon Gift Card redeem kar sakte hain.
+        </div>
+        <div class="card" style="padding: 10px;">
+          <strong>🎟️ Daily Promo Code:</strong><br/>
+          Official Telegram <strong>@skill_drop07</strong> join karein aur aaj ka secret promo code paayein!
+        </div>
+      </div>
+      <button class="btn btn-primary btn-full" onclick="closeModal('modal-notif')">Got It</button>
+    </div>
+  </div>
+
+  <!-- MODAL: HOW IT WORKS & FAQ -->
+  <div id="modal-rules" class="modal-backdrop">
+    <div class="modal-box">
+      <h3 style="margin-bottom: 10px;">📘 How SkillDrop Works & Rules</h3>
+      <div style="font-size: 12px; line-height: 1.55; color: #d1fae5;">
+        <p style="margin-bottom: 8px;"><strong>1. Coins Kaise Kamayein?</strong><br/>Daily Check-in, Watch Spotlight (10/day), Scratch Card, Lucky Spin, Hinglish Quiz, Promo Codes aur Friends ko refer karke coins ikattha karein.</p>
+        <p style="margin-bottom: 8px;"><strong>2. Conversion Rate:</strong><br/>1,000 Coins = ₹10 Gift Card (Google Play, Amazon, Flipkart/Zomato). 15,000 Coins = ₹150 Direct UPI.</p>
+        <p style="margin-bottom: 8px;"><strong>3. Level 1 se Level 6:</strong><br/>Har activity se XP milta hai. Higher levels par direct client video editing aur thumbnail tasks unlock hote hain.</p>
+      </div>
+      <button class="btn btn-primary btn-full" style="margin-top: 10px;" onclick="closeModal('modal-rules')">Close</button>
+    </div>
+  </div>
+
+  <!-- MODAL: TERMS & ANTI-CHEAT -->
+  <div id="modal-terms" class="modal-backdrop">
+    <div class="modal-box">
+      <h3 style="margin-bottom: 10px;">⚖️ Terms & Anti-Cheat Policy</h3>
+      <div style="font-size: 11.5px; line-height: 1.55; color: var(--text-muted);">
+        <p style="margin-bottom: 8px;">• Ek device par sirf ek hi account allowed hai. Multiple fake referrals banane par account ban kar diya jayega.</p>
+        <p style="margin-bottom: 8px;">• Sponsored banner ads par self-click ya VPN ka istemal sakht mana hai.</p>
+        <p style="margin-bottom: 8px;">• Gift card aur UPI payouts verification ke baad 24–48 ghante mein process kiye jaate hain.</p>
+      </div>
+      <button class="btn btn-outline btn-full" style="margin-top: 10px;" onclick="closeModal('modal-terms')">I Agree</button>
     </div>
   </div>
 
@@ -1149,32 +1624,14 @@
   <div id="modal-auth" class="modal-backdrop">
     <div class="modal-box">
       <h3 style="margin-bottom: 6px;">🚀 Join SkillDrop</h3>
-      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Sign in to save your Coins, Levels & Referrals.</p>
-
-      <button class="btn btn-primary btn-full" style="margin-bottom: 12px;" onclick="loginWithGoogle()">
-        Continue with Google
-      </button>
-
-      <div style="text-align: center; font-size: 11px; color: var(--text-muted); margin-bottom: 10px;">— OR QUICK EMAIL LOGIN —</div>
-
-      <div class="field">
-        <label>Your Name</label>
-        <input type="text" id="authName" placeholder="e.g. Amanpreet Singh" />
-      </div>
-      <div class="field">
-        <label>Email</label>
-        <input type="email" id="authEmail" placeholder="you@gmail.com" />
-      </div>
-      <div class="field">
-        <label>Password</label>
-        <input type="password" id="authPass" placeholder="Min 6 characters" />
-      </div>
-      <div class="field">
-        <label>Referral Code (Optional)</label>
-        <input type="text" id="authRefInput" placeholder="e.g. HARR-402" />
-      </div>
-
-      <div style="display: flex; gap: 8px; margin-top: 12px;">
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Sign in to save Coins, Streak & Gift Card orders.</p>
+      <button class="btn btn-primary btn-full" style="margin-bottom: 10px;" onclick="loginWithGoogle()">Continue with Google</button>
+      <div style="text-align: center; font-size: 11px; color: var(--text-muted); margin-bottom: 8px;">— OR EMAIL LOGIN —</div>
+      <div class="field"><label>Full Name</label><input type="text" id="authName" placeholder="e.g. Amanpreet Singh" /></div>
+      <div class="field"><label>Email</label><input type="email" id="authEmail" placeholder="you@gmail.com" /></div>
+      <div class="field"><label>Password</label><input type="password" id="authPass" placeholder="Min 6 characters" /></div>
+      <div class="field"><label>Referral Code (Optional)</label><input type="text" id="authRefInput" placeholder="e.g. ITZH-152" /></div>
+      <div style="display: flex; gap: 8px; margin-top: 10px;">
         <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-auth')">Cancel</button>
         <button class="btn btn-primary" style="flex: 2;" onclick="loginWithEmail()">Login / Register</button>
       </div>
@@ -1185,9 +1642,8 @@
   <div id="modal-edit-profile" class="modal-backdrop">
     <div class="modal-box">
       <h3 style="margin-bottom: 10px;">✏️ Edit Creator Profile</h3>
-
       <label style="font-size: 11.5px; color: var(--text-muted); font-weight: 600;">Choose Avatar</label>
-      <div class="avatar-picker" id="avatarPicker">
+      <div class="avatar-picker">
         <div class="av-opt selected" data-av="🚀">🚀</div>
         <div class="av-opt" data-av="🎬">🎬</div>
         <div class="av-opt" data-av="🎨">🎨</div>
@@ -1195,11 +1651,7 @@
         <div class="av-opt" data-av="🎧">🎧</div>
         <div class="av-opt" data-av="🦁">🦁</div>
       </div>
-
-      <div class="field">
-        <label>Display Name</label>
-        <input type="text" id="editNameInput" placeholder="Your Name" />
-      </div>
+      <div class="field"><label>Display Name</label><input type="text" id="editNameInput" /></div>
       <div class="field">
         <label>Primary Skill</label>
         <select id="editSkillInput">
@@ -1207,19 +1659,12 @@
           <option value="Thumbnail Designer">YouTube Thumbnail Designer</option>
           <option value="Script & Shayari Writer">Script & Shayari Writer</option>
           <option value="Voiceover Artist">Punjabi / Hindi Voiceover</option>
-          <option value="Social Media Poster">Canva Poster & Logo Designer</option>
+          <option value="Canva Poster Designer">Canva Poster & Logo Designer</option>
         </select>
       </div>
-      <div class="field">
-        <label>Short Bio</label>
-        <input type="text" id="editBioInput" placeholder="e.g. Fast Reel editor from Punjab" />
-      </div>
-      <div class="field">
-        <label>UPI ID (For Payouts)</label>
-        <input type="text" id="editUpiInput" placeholder="yourname@okaxis / @ybl" />
-      </div>
-
-      <div style="display: flex; gap: 8px; margin-top: 12px;">
+      <div class="field"><label>Short Bio</label><input type="text" id="editBioInput" /></div>
+      <div class="field"><label>UPI / Gmail for Payouts</label><input type="text" id="editUpiInput" /></div>
+      <div style="display: flex; gap: 8px; margin-top: 10px;">
         <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-edit-profile')">Cancel</button>
         <button class="btn btn-primary" style="flex: 2;" onclick="saveProfileChanges()">Save Profile</button>
       </div>
@@ -1237,58 +1682,25 @@
           <option value="task">Client Task (Direct Pay)</option>
         </select>
       </div>
-      <div class="field">
-        <label>Title</label>
-        <input type="text" id="dropTitle" placeholder="e.g. Gaming Thumbnail Design @ ₹120" />
-      </div>
+      <div class="field"><label>Title</label><input type="text" id="dropTitle" placeholder="e.g. Gaming Thumbnail Design @ ₹120" /></div>
       <div class="field">
         <label>Required Level</label>
         <select id="dropLevel">
           <option value="1">Level 1 (All Users)</option>
           <option value="2">Level 2+</option>
           <option value="3">Level 3+ (Editors)</option>
-          <option value="4">Level 4+ (Pro)</option>
         </select>
       </div>
-      <div class="field">
-        <label>Rate / Reward & Details</label>
-        <input type="text" id="dropReward" placeholder="e.g. ₹150 Direct UPI" />
-      </div>
-      <div class="field">
-        <label>Google Drive / Portfolio Link</label>
-        <input type="url" id="dropLink" placeholder="https://drive.google.com/..." />
-      </div>
-
-      <div style="display: flex; gap: 8px; margin-top: 12px;">
+      <div class="field"><label>Rate / Reward</label><input type="text" id="dropReward" placeholder="e.g. ₹150 Direct UPI" /></div>
+      <div class="field"><label>Sample / Reference Link</label><input type="url" id="dropLink" placeholder="https://drive.google.com/..." /></div>
+      <div style="display: flex; gap: 8px; margin-top: 10px;">
         <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-drop')">Cancel</button>
         <button class="btn btn-primary" style="flex: 2;" onclick="submitDropItem()">Publish</button>
       </div>
     </div>
   </div>
 
-  <!-- MODAL: WITHDRAW -->
-  <div id="modal-withdraw" class="modal-backdrop">
-    <div class="modal-box">
-      <h3 style="margin-bottom: 8px;">💸 Withdraw via UPI</h3>
-      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
-        100 Coins = ₹1. Minimum withdrawal is <strong>₹150 (15,000 Coins)</strong>.
-      </p>
-      <div class="field">
-        <label>Your UPI ID</label>
-        <input type="text" id="wdUpiInput" placeholder="name@upi" />
-      </div>
-      <div class="field">
-        <label>Amount (₹)</label>
-        <input type="number" id="wdAmountInput" value="150" min="150" />
-      </div>
-      <div style="display: flex; gap: 8px; margin-top: 12px;">
-        <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-withdraw')">Close</button>
-        <button class="btn btn-gold" style="flex: 2;" onclick="requestWithdrawal()">Request Payout</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: SECRET ADMIN PANEL (PIN: 786090) -->
+  <!-- MODAL: FULL FOUNDER ADMIN PANEL (PIN: 786090) -->
   <div id="modal-admin" class="modal-backdrop">
     <div class="modal-box">
       <h3 style="color: #fbbf24; margin-bottom: 10px;">🛡️ Founder Admin Control</h3>
@@ -1304,25 +1716,61 @@
       </div>
 
       <div id="adminDashboardContent" style="display: none;">
-        <p style="font-size: 12px; color: var(--emerald-bright); margin-bottom: 10px;">
-          ✅ Verified Founder Access • All controls active
-        </p>
-        <div class="card" style="font-size: 12px;">
-          <strong>Post Official Task:</strong>
-          <div class="field" style="margin-top: 8px;">
-            <input type="text" id="adminTaskTitle" placeholder="Official Task Title" />
+        <!-- Quick Stats -->
+        <div class="ref-stats" style="margin-bottom: 10px;">
+          <div class="stat-mini">
+            <strong id="admTotalUsers">—</strong>
+            <span>Total Users</span>
           </div>
-          <div class="field">
-            <input type="text" id="adminTaskPay" placeholder="Reward (e.g. ₹150 Direct Client Pay)" />
+          <div class="stat-mini">
+            <strong id="admPendingRedeems">—</strong>
+            <span>Pending Redeems</span>
           </div>
-          <button class="btn btn-primary btn-full" onclick="adminPostOfficialTask()">Post Official Task</button>
         </div>
-        <button class="btn btn-outline btn-full" style="margin-top: 8px;" onclick="closeModal('modal-admin')">Exit Admin</button>
+
+        <!-- Set Promo Code -->
+        <div class="card" style="font-size: 12px;">
+          <strong>🎟️ Set Active Promo Code:</strong>
+          <div style="display: flex; gap: 6px; margin-top: 7px;">
+            <input type="text" id="admNewPromo" placeholder="CODE (e.g. HARRY50)" style="text-transform:uppercase;" />
+            <input type="number" id="admPromoCoins" value="25" style="width: 75px;" />
+            <button class="btn btn-gold" onclick="adminSavePromo()">Save</button>
+          </div>
+        </div>
+
+        <!-- Update Important Notice -->
+        <div class="card" style="font-size: 12px;">
+          <strong>📢 Update Important Notice Banner:</strong>
+          <div class="field" style="margin-top: 7px;">
+            <input type="text" id="admNoticeInput" placeholder="New notice text..." />
+          </div>
+          <button class="btn btn-primary btn-full" onclick="adminUpdateNotice()">Update Notice</button>
+        </div>
+
+        <!-- Post Official Task -->
+        <div class="card" style="font-size: 12px;">
+          <strong>💼 Post Official Task:</strong>
+          <div class="field" style="margin-top: 7px;"><input type="text" id="adminTaskTitle" placeholder="Task Title" /></div>
+          <div class="field"><input type="text" id="adminTaskPay" placeholder="Reward (e.g. ₹150 Direct UPI)" /></div>
+          <button class="btn btn-primary btn-full" onclick="adminPostOfficialTask()">Publish Official Task</button>
+        </div>
+
+        <!-- Pending Gift Card / UPI Redeem Requests -->
+        <div class="card" style="font-size: 12px;">
+          <strong>🎁 Pending Redeem Requests:</strong>
+          <div id="admRedeemList" style="margin-top: 8px; max-height: 160px; overflow-y: auto;">Loading...</div>
+        </div>
+
+        <!-- Maintenance Mode Toggle -->
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <button class="btn btn-outline" style="flex: 1;" onclick="toggleMaintenance()">🛠️ Maintenance</button>
+          <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-admin')">Exit Admin</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Firebase SDKs & App Logic -->
+  <!-- Firebase & Complete App Logic -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import {
@@ -1364,8 +1812,12 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    // State (Zero fabricated balances for new users)
     let currentUser = null;
+    let activePromo = { code: "DROP25", coins: 25 };
+    let selectedRedeemItem = { title: "", coins: 0 };
+    let selectedDealTask = null;
+    let watchCooldownUntil = 0;
+
     let userData = {
       name: "Guest Creator",
       email: "",
@@ -1376,128 +1828,69 @@
       coins: 0,
       xp: 0,
       level: 1,
-      tasksDone: 0,
-      refCode: "",
-      referredBy: "",
-      refCount: 0,
-      refCoins: 0,
-      completedActions: {},
+      streakDay: 0,
       lastDailyDate: "",
       watchDate: "",
       watchCountToday: 0,
+      scratchDate: "",
+      scratchCountToday: 0,
       spinDate: "",
       spinCountToday: 0,
       quizDate: "",
       quizDoneToday: false,
-      lastHourlyTs: 0
+      lastHourlyTs: 0,
+      usedPromos: [],
+      completedActions: {},
+      refCode: "",
+      referredBy: "",
+      refCount: 0,
+      refCoins: 0,
+      banned: false
     };
 
-    // Slow & Steady XP Roadmap (Prevents 1-day server/platform overload)
     const LEVELS = [
-      { lvl: 1, name: "Starter", minXp: 0, desc: "Daily check-in, Watch Spotlight, Lucky Spin & Quiz" },
+      { lvl: 1, name: "Starter", minXp: 0, desc: "7-Day Streak, Watch Spotlight, Scratch Card & Quiz" },
       { lvl: 2, name: "Explorer", minXp: 350, desc: "Drop skill samples & unlock basic micro-tasks" },
-      { lvl: 3, name: "Junior Editor", minXp: 900, desc: "Unlock ₹100–₹150 Thumbnail & Reel cut tasks" },
+      { lvl: 3, name: "Junior Editor", minXp: 900, desc: "Unlock ₹100–₹150 Thumbnail & Reel tasks" },
       { lvl: 4, name: "Pro Creator", minXp: 1800, desc: "Unlock ₹200–₹400 Direct YouTuber tasks" },
       { lvl: 5, name: "Elite Studio", minXp: 3200, desc: "Featured profile placement + priority chat" },
       { lvl: 6, name: "Verified Partner", minXp: 5000, desc: "Zero commission + VIP founder collabs" }
     ];
 
-    // Hinglish Creator Quiz Bank
+    const STREAK_REWARDS = [10, 15, 20, 25, 30, 40, 100];
+
     const QUIZ_BANK = [
-      {
-        q: "Instagram Reels aur YouTube Shorts ke liye best video aspect ratio kaunsa hota hai?",
-        opts: ["16:9 (Horizontal)", "9:16 (Vertical Full Screen)", "1:1 (Square)", "4:3 (Old TV)"],
-        ans: 1
-      },
-      {
-        q: "YouTube video par zyada clicks (CTR) laane ke liye sabse zaroori cheez kya hai?",
-        opts: ["Lamba description", "Clean & Eye-catching Thumbnail", "50 hashtags", "Sirf background music"],
-        ans: 1
-      },
-      {
-        q: "Mobile par free aur bina watermark video editing ke liye kaunsa app popular hai?",
-        opts: ["VN Video Editor", "MS Paint", "WinRAR", "Calculator"],
-        ans: 0
-      },
-      {
-        q: "Vlog ya Reel ke pehle 3 seconds ko creator language mein kya kehte hain?",
-        opts: ["Outro", "Hook", "Copyright", "Thumbnail"],
-        ans: 1
-      },
-      {
-        q: "Clear voiceover record karne ke liye phone mic ko muh se kitni door rakhna chahiye?",
-        opts: ["Bilkul chipka kar", "6 se 8 inch door", "5 feet door", "Pocket ke andar"],
-        ans: 1
-      },
-      {
-        q: "YouTube Thumbnail ka standard resolution size kya hota hai?",
-        opts: ["1280 x 720 pixels", "500 x 500 pixels", "100 x 200 pixels", "320 x 50 pixels"],
-        ans: 0
-      }
+      { q: "Instagram Reels aur YouTube Shorts ke liye best aspect ratio kaunsa hai?", opts: ["16:9", "9:16 (Vertical)", "1:1", "4:3"], ans: 1 },
+      { q: "YouTube video par zyada clicks (CTR) laane ke liye kya sabse zaroori hai?", opts: ["Clean Thumbnail", "50 Hashtags", "Sirf Music", "Lamba Bio"], ans: 0 },
+      { q: "Mobile par free aur bina watermark video editing ke liye kaunsa app best hai?", opts: ["VN Video Editor", "MS Paint", "WinRAR", "Notepad"], ans: 0 },
+      { q: "Reel ke pehle 3 seconds ko creator language mein kya kehte hain?", opts: ["Outro", "Hook", "Copyright", "Filter"], ans: 1 },
+      { q: "YouTube Thumbnail ka standard HD size kya hota hai?", opts: ["1280 x 720 px", "320 x 50 px", "100 x 100 px", "500 x 200 px"], ans: 0 }
     ];
 
     const I18N = {
-      hinglish: {
-        lvl1Title: "⚡ Level 1 Daily Activities",
-        instantCoins: "Earn Coins Daily",
-        dailyTitle: "Daily Check-In Bonus",
-        dailyDesc: "Rozana app khol ke streak bonus pao",
-        watchTitle: "Watch Partner Spotlight (15s)",
-        roadmapTitle: "🏆 Level 1–6 Creator Roadmap",
-        marketTitle: "💼 Skill Tasks & Drops",
-        referTitle: "🎁 Refer & Earn Coins",
-        profileTitle: "🪪 Creator Profile",
-        navHome: "Home",
-        navTasks: "Tasks",
-        navRefer: "Refer",
-        navProfile: "Profile"
-      },
-      pa: {
-        lvl1Title: "⚡ ਲੈਵਲ 1 ਰੋਜ਼ਾਨਾ ਐਕਟੀਵਿਟੀ",
-        instantCoins: "ਰੋਜ਼ ਸਿੱਕੇ ਕਮਾਓ",
-        dailyTitle: "ਰੋਜ਼ਾਨਾ ਚੈੱਕ-ਇਨ ਬੋਨਸ",
-        dailyDesc: "ਰੋਜ਼ ਐਪ ਖੋਲ੍ਹ ਕੇ ਸਿੱਕੇ ਪ੍ਰਾਪਤ ਕਰੋ",
-        watchTitle: "ਪਾਰਟਨਰ ਸਪੌਟਲਾਈਟ ਦੇਖੋ (15s)",
-        roadmapTitle: "🏆 ਲੈਵਲ 1–6 ਰੋਡਮੈਪ",
-        marketTitle: "💼 ਸਕਿੱਲ ਟਾਸਕ ਅਤੇ ਸੈਂਪਲ",
-        referTitle: "🎁 ਦੋਸਤਾਂ ਨੂੰ ਭੇਜੋ ਤੇ ਕਮਾਓ",
-        profileTitle: "🪪 ਕ੍ਰਿਏਟਰ ਪ੍ਰੋਫਾਈਲ",
-        navHome: "ਹੋਮ",
-        navTasks: "ਟਾਸਕ",
-        navRefer: "ਰੈਫਰ",
-        navProfile: "ਪ੍ਰੋਫਾਈਲ"
-      },
-      hi: {
-        lvl1Title: "⚡ लेवल 1 डेली एक्टिविटी",
-        instantCoins: "रोज़ कॉइन्स कमाएं",
-        dailyTitle: "डेली चेक-इन बोनस",
-        dailyDesc: "रोज़ चेक-इन करके कॉइन्स पाएं",
-        watchTitle: "पार्टनर स्पॉटलाइट देखें (15s)",
-        roadmapTitle: "🏆 लेवल 1–6 क्रिएटर रोडमैप",
-        marketTitle: "💼 स्किल टास्क और सैंपल",
-        referTitle: "🎁 रेफर करें और कमाएं",
-        profileTitle: "🪪 क्रिएटर प्रोफाइल",
-        navHome: "होम",
-        navTasks: "टास्क",
-        navRefer: "रेफर",
-        navProfile: "प्रोफाइल"
-      },
-      en: {
-        lvl1Title: "⚡ Level 1 Daily Activities",
-        instantCoins: "Earn Coins Daily",
-        dailyTitle: "Daily Check-In Bonus",
-        dailyDesc: "Claim your daily creator streak reward",
-        watchTitle: "Watch Partner Spotlight (15s)",
-        roadmapTitle: "🏆 Level 1–6 Creator Roadmap",
-        marketTitle: "💼 Skill Tasks & Drops",
-        referTitle: "🎁 Refer & Earn Coins",
-        profileTitle: "🪪 Creator Profile",
-        navHome: "Home",
-        navTasks: "Tasks",
-        navRefer: "Refer",
-        navProfile: "Profile"
-      }
+      hinglish: { lvl1Title: "⚡ Level 1 Daily Activities", dailyTitle: "🔥 7-Day Daily Check-In Streak", watchTitle: "Watch Partner Spotlight (15s)", marketTitle: "💼 Skill Tasks & Drops", referTitle: "🤝 Refer & Earn + Milestones", profileTitle: "🪪 Creator Profile", navHome: "Home", navTasks: "Tasks", navWallet: "Redeem", navRefer: "Refer", navProfile: "Profile" },
+      pa: { lvl1Title: "⚡ ਲੈਵਲ 1 ਰੋਜ਼ਾਨਾ ਐਕਟੀਵਿਟੀ", dailyTitle: "🔥 7-ਦਿਨਾਂ ਦੀ ਸਟ੍ਰੀਕ ਬੋਨਸ", watchTitle: "ਪਾਰਟਨਰ ਸਪੌਟਲਾਈਟ ਦੇਖੋ (15s)", marketTitle: "💼 ਸਕਿੱਲ ਟਾਸਕ ਅਤੇ ਸੈਂਪਲ", referTitle: "🤝 ਦੋਸਤਾਂ ਨੂੰ ਭੇਜੋ ਤੇ ਕਮਾਓ", profileTitle: "🪪 ਕ੍ਰਿਏਟਰ ਪ੍ਰੋਫਾਈਲ", navHome: "ਹੋਮ", navTasks: "ਟਾਸਕ", navWallet: "ਰਿਡੀਮ", navRefer: "ਰੈਫਰ", navProfile: "ਪ੍ਰੋਫਾਈਲ" },
+      hi: { lvl1Title: "⚡ लेवल 1 डेली एक्टिविटी", dailyTitle: "🔥 7-दिन डेली चेक-इन स्ट्रीक", watchTitle: "पार्टनर स्पॉटलाइट देखें (15s)", marketTitle: "💼 स्किल टास्क और सैंपल", referTitle: "🤝 रेफर करें और कमाएं", profileTitle: "🪪 क्रिएटर प्रोफाइल", navHome: "होम", navTasks: "टास्क", navWallet: "रिडीम", navRefer: "रेफर", navProfile: "प्रोफाइल" },
+      en: { lvl1Title: "⚡ Level 1 Daily Activities", dailyTitle: "🔥 7-Day Daily Check-In Streak", watchTitle: "Watch Partner Spotlight (15s)", marketTitle: "💼 Skill Tasks & Drops", referTitle: "🤝 Refer & Earn + Milestones", profileTitle: "🪪 Creator Profile", navHome: "Home", navTasks: "Tasks", navWallet: "Redeem", navRefer: "Refer", navProfile: "Profile" }
     };
+
+    // Subtle Coin Sound Effect (Web Audio API)
+    function playCoinSound() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(880, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(1320, ctx.currentTime + 0.12);
+        gain.gain.setValueAtTime(0.08, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.16);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.16);
+      } catch (e) {}
+    }
 
     const urlParams = new URLSearchParams(window.location.search);
     const incomingRef = urlParams.get("ref");
@@ -1519,6 +1912,8 @@
       document.getElementById(viewId).classList.add("active");
       document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
       if (btnEl) btnEl.classList.add("active");
+      if (viewId === "view-wallet") loadPassbook();
+      if (viewId === "view-refer") loadLeaderboard();
     };
 
     window.openModal = (id) => document.getElementById(id).classList.add("open");
@@ -1537,12 +1932,13 @@
       }
     });
 
-    window.verifyAdminPin = () => {
+    window.verifyAdminPin = async () => {
       const pin = document.getElementById("adminPinInput").value.trim();
       if (pin === "786090") {
         document.getElementById("adminPinGate").style.display = "none";
         document.getElementById("adminDashboardContent").style.display = "block";
-        showToast("Admin Unlocked!");
+        showToast("Founder Admin Unlocked!");
+        loadAdminStats();
       } else {
         showToast("Incorrect Admin PIN");
       }
@@ -1551,16 +1947,14 @@
     document.getElementById("langSwitcher").addEventListener("change", (e) => {
       const lang = I18N[e.target.value] || I18N.hinglish;
       document.getElementById("t-lvl1-title").textContent = lang.lvl1Title;
-      document.getElementById("t-instant-coins").textContent = lang.instantCoins;
       document.getElementById("t-daily-title").textContent = lang.dailyTitle;
-      document.getElementById("t-daily-desc").textContent = lang.dailyDesc;
       document.getElementById("t-watch-title").textContent = lang.watchTitle;
-      document.getElementById("t-roadmap-title").textContent = lang.roadmapTitle;
       document.getElementById("t-market-title").textContent = lang.marketTitle;
       document.getElementById("t-refer-title").textContent = lang.referTitle;
       document.getElementById("t-profile-title").textContent = lang.profileTitle;
       document.getElementById("nav-home").textContent = lang.navHome;
       document.getElementById("nav-tasks").textContent = lang.navTasks;
+      document.getElementById("nav-wallet").textContent = lang.navWallet;
       document.getElementById("nav-refer").textContent = lang.navRefer;
       document.getElementById("nav-profile").textContent = lang.navProfile;
     });
@@ -1591,7 +1985,8 @@
       const coins = userData.coins || 0;
       const inr = (coins / 100).toFixed(2);
       document.getElementById("coinBalance").textContent = coins;
-      document.getElementById("inrBalanceText").textContent = `≈ ₹${inr} (100 Coins = ₹1)`;
+      document.getElementById("walletCoinBadge").textContent = `${coins} 🪙 (₹${inr})`;
+      document.getElementById("inrBalanceText").textContent = `≈ ₹${inr} (1,000 Coins = ₹10)`;
 
       const nextXp = nextLvlObj ? nextLvlObj.minXp : lvlObj.minXp;
       const pct = nextLvlObj ? Math.min(100, Math.round(((userData.xp - lvlObj.minXp) / (nextXp - lvlObj.minXp)) * 100)) : 100;
@@ -1599,60 +1994,71 @@
       document.getElementById("nextLvlLabel").textContent = nextLvlObj ? `Next: Level ${nextLvlObj.lvl}` : "Max Level";
       document.getElementById("xpFillBar").style.width = `${pct}%`;
 
-      // Daily Check-In State
-      if (userData.lastDailyDate === today) {
-        markBtnDone("btnDailyClaim", "Claimed ✓");
+      // 7-Day Streak Visual Grid
+      const claimedToday = userData.lastDailyDate === today;
+      const curDayIdx = userData.streakDay || 0;
+      const nextDayNum = claimedToday ? curDayIdx : (curDayIdx % 7) + 1;
+      const btnDaily = document.getElementById("btnDailyClaim");
+      if (claimedToday) {
+        markBtnDone("btnDailyClaim", `Day ${curDayIdx} ✓`);
+      } else {
+        btnDaily.disabled = false;
+        btnDaily.className = "btn btn-gold";
+        btnDaily.textContent = `Claim D${nextDayNum}`;
       }
+      document.getElementById("streakGrid").innerHTML = STREAK_REWARDS.map((rew, idx) => {
+        const dNum = idx + 1;
+        const isDone = dNum <= curDayIdx;
+        const isToday = !claimedToday && dNum === nextDayNum;
+        return `<div class="streak-day ${isDone ? 'claimed' : ''} ${isToday ? 'today' : ''}">
+          D${dNum}<strong>+${rew}</strong>
+        </div>`;
+      }).join("");
 
-      // Watch Ad 10/Day Limit State
+      // Watch Ad 10/Day
       const watchedToday = userData.watchDate === today ? (userData.watchCountToday || 0) : 0;
       document.getElementById("watchLimitLabel").textContent = `Today: ${watchedToday} / 10 Watched • +10 Coins`;
-      if (watchedToday >= 10) {
-        markBtnDone("btnWatchAd", "10/10 Done ✓");
-      }
+      if (watchedToday >= 10) markBtnDone("btnWatchAd", "10/10 ✓");
 
-      // Lucky Spin 3/Day Limit State
+      // Scratch Card 2/Day
+      const scratchUsed = userData.scratchDate === today ? (userData.scratchCountToday || 0) : 0;
+      document.getElementById("scratchLimitLabel").textContent = `Cards Left Today: ${Math.max(0, 2 - scratchUsed)} / 2`;
+      if (scratchUsed >= 2) markBtnDone("btnOpenScratch", "Done ✓");
+
+      // Lucky Spin 3/Day
       const spinsUsed = userData.spinDate === today ? (userData.spinCountToday || 0) : 0;
-      const spinsLeft = Math.max(0, 3 - spinsUsed);
-      document.getElementById("spinLimitLabel").textContent = `Free Spins Left: ${spinsLeft} / 3 Today`;
-      if (spinsLeft === 0) {
-        markBtnDone("btnOpenSpin", "Done ✓");
-      }
+      document.getElementById("spinLimitLabel").textContent = `Free Spins Left: ${Math.max(0, 3 - spinsUsed)} / 3 Today`;
+      if (spinsUsed >= 3) markBtnDone("btnOpenSpin", "Done ✓");
 
-      // Creator Quiz Daily State
-      const quizDone = userData.quizDate === today && userData.quizDoneToday;
-      if (quizDone) {
-        document.getElementById("quizLimitLabel").textContent = "Aaj ka quiz complete ho gaya hai!";
+      // Quiz Daily
+      if (userData.quizDate === today && userData.quizDoneToday) {
+        document.getElementById("quizLimitLabel").textContent = "Aaj ka quiz complete ho chuka hai!";
         markBtnDone("btnOpenQuiz", "Done ✓");
       }
 
-      // Social buttons state
+      // Social Buttons
       const done = userData.completedActions || {};
       if (done.tg) markBtnDone("btnSocialTg", "Joined ✓");
       if (done.ig) markBtnDone("btnSocialIg", "Followed ✓");
       if (done.yt) markBtnDone("btnSocialYt", "Subscribed ✓");
 
-      // Render Level 1–6 Roadmap
-      const grid = document.getElementById("levelRoadmapGrid");
-      grid.innerHTML = LEVELS.map(item => {
+      // Level Roadmap
+      document.getElementById("levelRoadmapGrid").innerHTML = LEVELS.map(item => {
         const isUnlocked = userData.level >= item.lvl;
-        return `
-          <div class="lvl-card ${isUnlocked ? 'unlocked' : 'locked'}">
-            <div class="lvl-tag">${isUnlocked ? '🔓' : '🔒'} Level ${item.lvl} (${item.minXp} XP)</div>
-            <h5>${item.name}</h5>
-            <p>${item.desc}</p>
-          </div>
-        `;
+        return `<div class="lvl-card ${isUnlocked ? 'unlocked' : 'locked'}">
+          <div class="lvl-tag">${isUnlocked ? '🔓' : '🔒'} Level ${item.lvl} (${item.minXp} XP)</div>
+          <h5>${item.name}</h5>
+          <p>${item.desc}</p>
+        </div>`;
       }).join("");
 
-      // Referral Section
+      // Referral
       const code = userData.refCode || "LOGIN-FIRST";
-      const shareUrl = `https://harrybk90.github.io/SkillDrop-/?ref=${code}`;
-      document.getElementById("myRefLinkInput").value = shareUrl;
+      document.getElementById("myRefLinkInput").value = `https://harrybk90.github.io/SkillDrop-/?ref=${code}`;
       document.getElementById("refCountStat").textContent = userData.refCount || 0;
       document.getElementById("refCoinsStat").textContent = `${userData.refCoins || 0} 🪙`;
 
-      // Profile Section
+      // Profile & Badges
       document.getElementById("profAvatarDisplay").textContent = userData.avatar || "🚀";
       document.getElementById("profNameDisplay").textContent = userData.name || "Guest Creator";
       document.getElementById("profSkillDisplay").textContent = userData.skill || "Mobile Video Editor";
@@ -1661,6 +2067,19 @@
       document.getElementById("profCoinsStat").textContent = `${coins} 🪙`;
       document.getElementById("profUpiDisplay").textContent = userData.upi || "Not Set";
       document.getElementById("profCodeDisplay").textContent = code;
+
+      const badges = [
+        { icon: "🚀", label: "Starter", ok: !!currentUser },
+        { icon: "🔥", label: "7-Day Streak", ok: (userData.streakDay || 0) >= 7 },
+        { icon: "🤝", label: "5 Invites", ok: (userData.refCount || 0) >= 5 },
+        { icon: "👑", label: "Level 3+", ok: (userData.level || 1) >= 3 }
+      ];
+      document.getElementById("badgesGrid").innerHTML = badges.map(b => `
+        <div class="badge-item ${b.ok ? 'earned' : ''}">
+          <span>${b.icon}</span>
+          <small>${b.label}</small>
+        </div>
+      `).join("");
     }
 
     function markBtnDone(btnId, label) {
@@ -1671,12 +2090,24 @@
       b.disabled = true;
     }
 
-    async function awardReward(coinsToAdd, xpToAdd, actionKey = null, extraFields = {}) {
+    async function logPassbook(title, deltaCoins) {
+      if (!currentUser) return;
+      try {
+        await addDoc(collection(db, "users", currentUser.uid, "history"), {
+          title,
+          coins: deltaCoins,
+          createdAt: serverTimestamp()
+        });
+      } catch (e) {}
+    }
+
+    async function awardReward(coinsToAdd, xpToAdd, reasonLabel, actionKey = null, extraFields = {}) {
       if (!currentUser) {
         openModal("modal-auth");
         showToast("Login first to earn Coins!");
         return false;
       }
+      if (userData.banned) return showToast("Account restricted due to policy violation.");
       userData.coins = (userData.coins || 0) + coinsToAdd;
       userData.xp = (userData.xp || 0) + xpToAdd;
       if (actionKey) {
@@ -1685,33 +2116,42 @@
       }
       Object.assign(userData, extraFields);
       renderUI();
-
+      playCoinSound();
       try {
         await setDoc(doc(db, "users", currentUser.uid), userData, { merge: true });
+        await logPassbook(reasonLabel, `+${coinsToAdd} 🪙`);
       } catch (e) {}
-      showToast(`+${coinsToAdd} Coins & +${xpToAdd} XP Added!`);
+      showToast(`+${coinsToAdd} Coins & +${xpToAdd} XP!`);
       return true;
     }
 
-    // 1. Daily Check-In (+15 Coins, +15 XP)
+    // 1. 7-Day Daily Check-In
     window.claimDailyBonus = async () => {
       if (!currentUser) return openModal("modal-auth");
       const today = getTodayStr();
       if (userData.lastDailyDate === today) return showToast("Already claimed today!");
-      await awardReward(15, 15, null, { lastDailyDate: today });
+      const nextDay = ((userData.streakDay || 0) % 7) + 1;
+      const rewardCoins = STREAK_REWARDS[nextDay - 1];
+      await awardReward(rewardCoins, 15, `Day ${nextDay} Check-In Streak`, null, {
+        lastDailyDate: today,
+        streakDay: nextDay
+      });
     };
 
-    // 2. Watch Partner Spotlight (10/Day Limit, 15s Timer, +10 Coins, +8 XP)
+    // 2. Watch Partner Spotlight (10/Day + 30s Cooldown)
     window.startWatchTask = () => {
       if (!currentUser) return openModal("modal-auth");
       const today = getTodayStr();
       const watchedToday = userData.watchDate === today ? (userData.watchCountToday || 0) : 0;
-      if (watchedToday >= 10) return showToast("Daily limit (10/10) reached! Come back tomorrow.");
-
+      if (watchedToday >= 10) return showToast("Daily limit (10/10) reached!");
+      const now = Date.now();
+      if (now < watchCooldownUntil) {
+        const waitSec = Math.ceil((watchCooldownUntil - now) / 1000);
+        return showToast(`Please wait ${waitSec}s cooldown before next watch!`);
+      }
       const btn = document.getElementById("btnWatchAd");
       if (btn.disabled) return;
       btn.disabled = true;
-
       const wrap = document.getElementById("watchBarWrap");
       const fill = document.getElementById("watchBarFill");
       wrap.style.display = "block";
@@ -1720,19 +2160,18 @@
       let elapsed = 0;
       const total = 15;
       btn.textContent = `${total}s...`;
-
       const timer = setInterval(async () => {
         elapsed++;
         const rem = total - elapsed;
         fill.style.width = `${Math.round((elapsed / total) * 100)}%`;
         btn.textContent = rem > 0 ? `${rem}s...` : "Done";
-
         if (elapsed >= total) {
           clearInterval(timer);
           wrap.style.display = "none";
           btn.disabled = false;
           btn.textContent = "Watch";
-          await awardReward(10, 8, null, {
+          watchCooldownUntil = Date.now() + 30000;
+          await awardReward(10, 8, "Partner Spotlight Watch", null, {
             watchDate: today,
             watchCountToday: watchedToday + 1
           });
@@ -1740,7 +2179,59 @@
       }, 1000);
     };
 
-    // 3. Daily Lucky Spin Wheel (3 Spins/Day, +5 XP)
+    // 3. Interactive Scratch Card (2/Day)
+    let scratchAwarded = false;
+    let currentScratchPrize = 10;
+    window.openScratchModal = () => {
+      if (!currentUser) return openModal("modal-auth");
+      const today = getTodayStr();
+      const used = userData.scratchDate === today ? (userData.scratchCountToday || 0) : 0;
+      if (used >= 2) return showToast("Aaj ke 2 Scratch Cards khatam ho gaye!");
+
+      scratchAwarded = false;
+      const prizes = [5, 10, 12, 15, 20, 25];
+      currentScratchPrize = prizes[Math.floor(Math.random() * prizes.length)];
+      document.getElementById("scratchPrizeText").textContent = `+${currentScratchPrize} Coins`;
+
+      const canvas = document.getElementById("scratchCanvas");
+      const ctx = canvas.getContext("2d");
+      ctx.globalCompositeOperation = "source-over";
+      ctx.fillStyle = "#94a3b8";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#0f172a";
+      ctx.font = "bold 16px Plus Jakarta Sans";
+      ctx.textAlign = "center";
+      ctx.fillText("SCRATCH HERE 🪙", canvas.width / 2, canvas.height / 2 + 6);
+
+      const scratchMove = async (e) => {
+        e.preventDefault();
+        const rect = canvas.getBoundingClientRect();
+        const touch = e.touches ? e.touches[0] : e;
+        const x = touch.clientX - rect.left;
+        const y = touch.clientY - rect.top;
+        ctx.globalCompositeOperation = "destination-out";
+        ctx.beginPath();
+        ctx.arc(x, y, 22, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (!scratchAwarded) {
+          scratchAwarded = true;
+          setTimeout(async () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            await awardReward(currentScratchPrize, 5, "Lucky Scratch Card", null, {
+              scratchDate: today,
+              scratchCountToday: used + 1
+            });
+          }, 900);
+        }
+      };
+
+      canvas.ontouchmove = scratchMove;
+      canvas.onmousemove = (e) => { if (e.buttons === 1) scratchMove(e); };
+      openModal("modal-scratch");
+    };
+
+    // 4. Daily Lucky Spin (3/Day)
     let isSpinning = false;
     window.openSpinModal = () => {
       if (!currentUser) return openModal("modal-auth");
@@ -1756,32 +2247,25 @@
       const today = getTodayStr();
       const used = userData.spinDate === today ? (userData.spinCountToday || 0) : 0;
       if (used >= 3) return showToast("Aaj ke 3 spins khatam ho gaye!");
-
       isSpinning = true;
       const wheel = document.getElementById("spinWheelEl");
       const deg = 1440 + Math.floor(Math.random() * 360);
       wheel.style.transform = `rotate(${deg}deg)`;
-
       const prizes = [5, 10, 15, 10, 20, 25];
       const won = prizes[Math.floor(Math.random() * prizes.length)];
-
       setTimeout(async () => {
         isSpinning = false;
         wheel.style.transition = "none";
         wheel.style.transform = `rotate(${deg % 360}deg)`;
         setTimeout(() => { wheel.style.transition = "transform 2.4s cubic-bezier(0.17, 0.67, 0.14, 0.99)"; }, 50);
-
-        document.getElementById("spinResultText").textContent = `🎉 You Won +${won} Coins!`;
+        document.getElementById("spinResultText").textContent = `🎉 Won +${won} Coins!`;
         const nextUsed = used + 1;
         document.getElementById("modalSpinSub").textContent = `Free Spins Left Today: ${Math.max(0, 3 - nextUsed)} / 3`;
-        await awardReward(won, 5, null, {
-          spinDate: today,
-          spinCountToday: nextUsed
-        });
+        await awardReward(won, 5, "Lucky Spin Wheel", null, { spinDate: today, spinCountToday: nextUsed });
       }, 2500);
     };
 
-    // 4. Hinglish Creator Quiz (3 Questions/Day)
+    // 5. Creator Quiz (Hinglish)
     let activeQuestions = [];
     let currentQIdx = 0;
     let quizEarnedCoins = 0;
@@ -1790,9 +2274,8 @@
       if (!currentUser) return openModal("modal-auth");
       const today = getTodayStr();
       if (userData.quizDate === today && userData.quizDoneToday) {
-        return showToast("Aaj ka Creator Quiz complete ho chuka hai!");
+        return showToast("Aaj ka quiz complete ho chuka hai!");
       }
-      // Pick 3 random questions
       activeQuestions = [...QUIZ_BANK].sort(() => 0.5 - Math.random()).slice(0, 3);
       currentQIdx = 0;
       quizEarnedCoins = 0;
@@ -1804,10 +2287,9 @@
       const qObj = activeQuestions[currentQIdx];
       document.getElementById("quizStepBadge").textContent = `Q ${currentQIdx + 1} / 3`;
       document.getElementById("quizQuestionText").textContent = qObj.q;
-      const box = document.getElementById("quizOptionsBox");
-      box.innerHTML = qObj.opts.map((opt, idx) => `
-        <button class="quiz-opt" onclick="answerQuiz(${idx})">${opt}</button>
-      `).join("");
+      document.getElementById("quizOptionsBox").innerHTML = qObj.opts.map((opt, idx) =>
+        `<button class="quiz-opt" onclick="answerQuiz(${idx})">${opt}</button>`
+      ).join("");
     }
 
     window.answerQuiz = async (chosenIdx) => {
@@ -1816,32 +2298,43 @@
         quizEarnedCoins += 10;
         showToast("Sahi Jawab! +10 Coins");
       } else {
-        showToast("Galat jawab! Agla sawal dekho");
+        showToast("Galat jawab!");
       }
-
       currentQIdx++;
       if (currentQIdx < activeQuestions.length) {
         renderQuizStep();
       } else {
         closeModal("modal-quiz");
-        const today = getTodayStr();
-        await awardReward(quizEarnedCoins, 10, null, {
-          quizDate: today,
+        await awardReward(quizEarnedCoins, 10, "Hinglish Creator Quiz", null, {
+          quizDate: getTodayStr(),
           quizDoneToday: true
         });
       }
     };
 
-    // 5. Hourly Mystery Box (+5 Coins, +5 XP every 60 mins)
+    // 6. Hourly Mystery Box
     window.claimHourlyBox = async () => {
       if (!currentUser) return openModal("modal-auth");
       const now = Date.now();
-      const last = userData.lastHourlyTs || 0;
-      const diffMins = Math.floor((now - last) / 60000);
-      if (diffMins < 60) {
-        return showToast(`Agla gift ${60 - diffMins} minute baad khulega!`);
+      const diffMins = Math.floor((now - (userData.lastHourlyTs || 0)) / 60000);
+      if (diffMins < 60) return showToast(`Agla gift ${60 - diffMins} minute baad khulega!`);
+      await awardReward(5, 5, "Hourly Mystery Box", null, { lastHourlyTs: now });
+    };
+
+    // 7. Promo Code Redemption
+    window.redeemPromoCode = async () => {
+      if (!currentUser) return openModal("modal-auth");
+      const code = document.getElementById("promoCodeInput").value.trim().toUpperCase();
+      if (!code) return showToast("Enter Promo Code");
+      const used = userData.usedPromos || [];
+      if (used.includes(code)) return showToast("Code already redeemed!");
+      if (code === activePromo.code) {
+        used.push(code);
+        document.getElementById("promoCodeInput").value = "";
+        await awardReward(activePromo.coins, 10, `Promo Code (${code})`, null, { usedPromos: used });
+      } else {
+        showToast("Invalid or expired Promo Code");
       }
-      await awardReward(5, 5, null, { lastHourlyTs: now });
     };
 
     // Social Follow Tasks
@@ -1850,11 +2343,224 @@
       if (userData.completedActions && userData.completedActions[key]) return;
       window.open(url, "_blank");
       setTimeout(async () => {
-        await awardReward(coins, xp, key);
+        await awardReward(coins, xp, `Community Follow (${key.toUpperCase()})`, key);
       }, 2500);
     };
 
-    // Auth Handlers
+    // Redeem Store (Google Play, Amazon, Flipkart/Zomato, UPI)
+    window.openRedeemModal = (title, coinsCost) => {
+      if (!currentUser) return openModal("modal-auth");
+      selectedRedeemItem = { title, coins: coinsCost };
+      document.getElementById("redeemModalTitle").textContent = `🎁 ${title}`;
+      document.getElementById("redeemModalCost").textContent = `Required: ${coinsCost.toLocaleString()} Coins (Your Balance: ${userData.coins || 0})`;
+      document.getElementById("redeemTargetInput").value = userData.upi || userData.email || "";
+      openModal("modal-redeem");
+    };
+
+    window.confirmRedeem = async () => {
+      if (!currentUser) return;
+      const target = document.getElementById("redeemTargetInput").value.trim();
+      if (!target) return showToast("Enter valid Gmail or UPI ID");
+      if ((userData.coins || 0) < selectedRedeemItem.coins) {
+        return showToast(`Need ${selectedRedeemItem.coins} Coins!`);
+      }
+      userData.coins -= selectedRedeemItem.coins;
+      renderUI();
+      closeModal("modal-redeem");
+      await setDoc(doc(db, "users", currentUser.uid), { coins: userData.coins }, { merge: true });
+      await addDoc(collection(db, "payouts"), {
+        uid: currentUser.uid,
+        name: userData.name,
+        item: selectedRedeemItem.title,
+        coins: selectedRedeemItem.coins,
+        target,
+        status: "pending",
+        voucherCode: "",
+        createdAt: serverTimestamp()
+      });
+      await logPassbook(`Redeem: ${selectedRedeemItem.title} (Pending)`, `-${selectedRedeemItem.coins} 🪙`);
+      showToast("Redeem request submitted! Check Passbook.");
+      loadPassbook();
+    };
+
+    // Passbook History
+    async function loadPassbook() {
+      if (!currentUser) return;
+      const box = document.getElementById("passbookList");
+      try {
+        const q = query(collection(db, "users", currentUser.uid, "history"), orderBy("createdAt", "desc"), limit(20));
+        const snap = await getDocs(q);
+        if (snap.empty) return;
+        let html = "";
+        snap.forEach(d => {
+          const item = d.data();
+          const isPlus = String(item.coins).startsWith("+");
+          html += `<div style="display:flex;justify-content:space-between;padding:8px 2px;border-bottom:1px solid rgba(255,255,255,0.06);text-align:left;">
+            <span>${item.title}</span>
+            <strong style="color:${isPlus ? 'var(--emerald-bright)' : '#fbbf24'};">${item.coins}</strong>
+          </div>`;
+        });
+        box.innerHTML = html;
+      } catch (e) {}
+    }
+
+    // Live Leaderboard
+    async function loadLeaderboard() {
+      const box = document.getElementById("leaderboardList");
+      try {
+        const q = query(collection(db, "users"), orderBy("coins", "desc"), limit(10));
+        const snap = await getDocs(q);
+        if (snap.empty) return;
+        let rank = 1;
+        let html = "";
+        snap.forEach(d => {
+          const u = d.data();
+          const medal = rank === 1 ? "🥇" : rank === 2 ? "🥈" : rank === 3 ? "🥉" : `#${rank}`;
+          html += `<div style="display:flex;justify-content:space-between;align-items:center;padding:7px 2px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:12px;">
+            <span><strong>${medal}</strong> ${u.avatar || "🚀"} ${u.name || "Creator"} <small style="color:var(--text-muted);">(Lvl ${u.level || 1})</small></span>
+            <strong style="color:var(--emerald-bright);">${u.coins || 0} 🪙</strong>
+          </div>`;
+          rank++;
+        });
+        box.innerHTML = html;
+      } catch (e) {}
+    }
+
+    // Marketplace Tasks + Filter + Proof Submission
+    const STARTER_TASKS = [
+      { title: "SkillDrop Promo Reel Edit (15s)", type: "task", reqLevel: 1, reward: "₹150 Winner + Shoutout", author: "@skill_drop07", link: "https://t.me/skill_drop07" },
+      { title: "YouTube Gaming Thumbnail Sample", type: "sample", reqLevel: 1, reward: "Portfolio Showcase", author: "Community Creator", link: "https://instagram.com/skill_drop07" },
+      { title: "Vlog Cut & Captions (30 Sec Reel)", type: "task", reqLevel: 3, reward: "₹150 Direct Client UPI", author: "Verified Creator", link: "https://t.me/skill_drop07" }
+    ];
+    let allMarketTasks = [...STARTER_TASKS];
+    let currentFilter = "all";
+
+    window.filterTasks = (cat, btnEl) => {
+      currentFilter = cat;
+      document.querySelectorAll(".filter-pill").forEach(p => p.classList.remove("active"));
+      btnEl.classList.add("active");
+      renderMarketplaceTasks();
+    };
+
+    async function loadMarketplaceTasks() {
+      allMarketTasks = [...STARTER_TASKS];
+      try {
+        const q = query(collection(db, "tasks"), orderBy("createdAt", "desc"), limit(20));
+        const snap = await getDocs(q);
+        snap.forEach(d => allMarketTasks.unshift(d.data()));
+      } catch (e) {}
+      renderMarketplaceTasks();
+    }
+
+    function renderMarketplaceTasks() {
+      const container = document.getElementById("liveTasksList");
+      const filtered = allMarketTasks.filter(t => {
+        if (currentFilter === "task") return t.type === "task";
+        if (currentFilter === "sample") return t.type === "sample";
+        if (currentFilter === "lvl1") return (t.reqLevel || 1) === 1;
+        return true;
+      });
+
+      container.innerHTML = filtered.map((t, idx) => {
+        const unlocked = (userData.level || 1) >= (t.reqLevel || 1);
+        return `<div class="card">
+          <div class="task-row">
+            <div class="task-info">
+              <div style="display:flex;gap:6px;align-items:center;margin-bottom:4px;">
+                <span class="reward-pill" style="margin:0;">${t.type === 'sample' ? '🎨 Sample' : '💼 Paid Task'}</span>
+                <span style="font-size:10px;color:var(--text-muted);">Lvl ${t.reqLevel || 1}+</span>
+              </div>
+              <h4>${t.title}</h4>
+              <p>By ${t.author || "Creator"} • <strong>${t.reward}</strong></p>
+            </div>
+            ${unlocked
+              ? `<button class="btn btn-primary" onclick="openTaskDeal(${idx})">Apply / Chat</button>`
+              : `<button class="btn btn-locked" onclick="showToast('Reach Level ${t.reqLevel} to unlock!')">🔒 Lvl ${t.reqLevel}</button>`
+            }
+          </div>
+        </div>`;
+      }).join("");
+    }
+
+    window.openTaskDeal = (idx) => {
+      if (!currentUser) return openModal("modal-auth");
+      selectedDealTask = allMarketTasks[idx];
+      document.getElementById("dealTaskTitle").textContent = selectedDealTask.title;
+      document.getElementById("dealTaskMeta").textContent = `Reward: ${selectedDealTask.reward} • By ${selectedDealTask.author}`;
+      openModal("modal-task-deal");
+    };
+
+    window.submitTaskProof = async () => {
+      if (!currentUser || !selectedDealTask) return;
+      const proofLink = document.getElementById("proofLinkInput").value.trim();
+      const msg = document.getElementById("dealMsgInput").value.trim();
+      if (!proofLink && !msg) return showToast("Enter work link or message");
+      await addDoc(collection(db, "submissions"), {
+        uid: currentUser.uid,
+        name: userData.name,
+        taskTitle: selectedDealTask.title,
+        proofLink,
+        msg,
+        createdAt: serverTimestamp()
+      });
+      closeModal("modal-task-deal");
+      showToast("Work proof & message sent!");
+    };
+
+    window.openDropModal = () => {
+      if (!currentUser) return openModal("modal-auth");
+      openModal("modal-drop");
+    };
+
+    window.submitDropItem = async () => {
+      if (!currentUser) return;
+      const title = document.getElementById("dropTitle").value.trim();
+      if (!title) return showToast("Enter a title");
+      const newItem = {
+        type: document.getElementById("dropType").value,
+        title,
+        reqLevel: parseInt(document.getElementById("dropLevel").value, 10) || 1,
+        reward: document.getElementById("dropReward").value.trim() || "Direct Deal",
+        link: document.getElementById("dropLink").value.trim() || "https://t.me/skill_drop07",
+        author: userData.name,
+        createdAt: serverTimestamp()
+      };
+      closeModal("modal-drop");
+      try {
+        await addDoc(collection(db, "tasks"), newItem);
+        await awardReward(15, 15, "Dropped Skill Sample/Task");
+        loadMarketplaceTasks();
+      } catch (e) {}
+    };
+
+    // Support Ticket
+    window.submitSupportTicket = async () => {
+      if (!currentUser) return openModal("modal-auth");
+      const txt = document.getElementById("supportMsgInput").value.trim();
+      if (!txt) return showToast("Write your issue first");
+      await addDoc(collection(db, "tickets"), {
+        uid: currentUser.uid,
+        name: userData.name,
+        email: userData.email,
+        message: txt,
+        createdAt: serverTimestamp()
+      });
+      document.getElementById("supportMsgInput").value = "";
+      showToast("Support ticket sent!");
+    };
+
+    // Shareable Creator ID Card
+    window.shareCreatorCard = () => {
+      const cardText = `🪪 SkillDrop Verified Creator Card\n👤 Name: ${userData.name}\n⭐ Rank: Level ${userData.level}\n🎯 Skill: ${userData.skill}\n🔗 Invite Link: https://harrybk90.github.io/SkillDrop-/?ref=${userData.refCode || 'ITZH-152'}`;
+      if (navigator.share) {
+        navigator.share({ title: "SkillDrop Creator Card", text: cardText });
+      } else {
+        navigator.clipboard.writeText(cardText);
+        showToast("Creator Card copied to clipboard!");
+      }
+    };
+
+    // Auth & Referral Tier Milestones
     document.getElementById("authTopBtn").addEventListener("click", () => {
       if (currentUser) {
         signOut(auth);
@@ -1866,11 +2572,10 @@
 
     window.loginWithGoogle = async () => {
       try {
-        const provider = new GoogleAuthProvider();
-        await signInWithPopup(auth, provider);
+        await signInWithPopup(auth, new GoogleAuthProvider());
         closeModal("modal-auth");
       } catch (err) {
-        showToast("Google Login failed: " + err.message);
+        showToast(err.message);
       }
     };
 
@@ -1879,7 +2584,6 @@
       const email = document.getElementById("authEmail").value.trim();
       const pass = document.getElementById("authPass").value.trim();
       if (!email || pass.length < 6) return showToast("Enter valid email & 6+ char password");
-
       try {
         await signInWithEmailAndPassword(auth, email, pass);
         closeModal("modal-auth");
@@ -1898,35 +2602,24 @@
       const ref = doc(db, "users", user.uid);
       const snap = await getDoc(ref);
       if (!snap.exists()) {
+        // Device Fraud Check
+        if (localStorage.getItem("skilldrop_device_registered")) {
+          showToast("Note: 1 account per device policy active.");
+        }
+        localStorage.setItem("skilldrop_device_registered", user.uid);
+
         const baseName = customName || user.displayName || user.email.split("@")[0];
         const genCode = (baseName.replace(/[^a-zA-Z]/g, "").slice(0, 4).toUpperCase() || "USER") + "-" + Math.floor(100 + Math.random() * 899);
         const appliedRef = (document.getElementById("authRefInput")?.value || localStorage.getItem("skilldrop_ref") || "").trim().toUpperCase();
 
         userData = {
-          name: baseName,
-          email: user.email,
-          avatar: "🚀",
-          skill: "Mobile Video Editor",
-          bio: "Learning & earning on SkillDrop",
-          upi: "",
-          coins: 0,
-          xp: 0,
-          level: 1,
-          tasksDone: 0,
-          refCode: genCode,
-          referredBy: appliedRef,
-          refCount: 0,
-          refCoins: 0,
-          completedActions: {},
-          lastDailyDate: "",
-          watchDate: "",
-          watchCountToday: 0,
-          spinDate: "",
-          spinCountToday: 0,
-          quizDate: "",
-          quizDoneToday: false,
-          lastHourlyTs: 0,
-          createdAt: serverTimestamp()
+          name: baseName, email: user.email, avatar: "🚀", skill: "Mobile Video Editor",
+          bio: "Learning & earning on SkillDrop", upi: "", coins: 0, xp: 0, level: 1,
+          streakDay: 0, lastDailyDate: "", watchDate: "", watchCountToday: 0,
+          scratchDate: "", scratchCountToday: 0, spinDate: "", spinCountToday: 0,
+          quizDate: "", quizDoneToday: false, lastHourlyTs: 0, usedPromos: [],
+          completedActions: {}, refCode: genCode, referredBy: appliedRef,
+          refCount: 0, refCoins: 0, banned: false, createdAt: serverTimestamp()
         };
         await setDoc(ref, userData);
 
@@ -1934,10 +2627,15 @@
           const q = query(collection(db, "users"), where("refCode", "==", appliedRef), limit(1));
           const qSnap = await getDocs(q);
           qSnap.forEach(async (docSnap) => {
+            const d = docSnap.data();
+            const newCount = (d.refCount || 0) + 1;
+            let bonus = 100;
+            if (newCount === 5) bonus += 200;
+            if (newCount === 10) bonus += 500;
             await updateDoc(doc(db, "users", docSnap.id), {
               refCount: increment(1),
-              refCoins: increment(100),
-              coins: increment(100),
+              refCoins: increment(bonus),
+              coins: increment(bonus),
               xp: increment(40)
             });
           });
@@ -1958,13 +2656,6 @@
       } else {
         topBtn.textContent = "Login";
         topBtn.className = "btn btn-primary";
-        userData = {
-          name: "Guest Creator", email: "", avatar: "🚀", skill: "Mobile Video Editor",
-          bio: "Learning & earning on SkillDrop", upi: "", coins: 0, xp: 0, level: 1,
-          tasksDone: 0, refCode: "", referredBy: "", refCount: 0, refCoins: 0,
-          completedActions: {}, lastDailyDate: "", watchDate: "", watchCountToday: 0,
-          spinDate: "", spinCountToday: 0, quizDate: "", quizDoneToday: false, lastHourlyTs: 0
-        };
       }
       renderUI();
     });
@@ -1979,7 +2670,7 @@
         let html = "";
         snap.forEach(d => {
           const u = d.data();
-          html += `<div style="display:flex;justify-content:space-between;padding:7px 4px;border-bottom:1px solid rgba(255,255,255,0.06);">
+          html += `<div style="display:flex;justify-content:space-between;padding:7px 2px;border-bottom:1px solid rgba(255,255,255,0.06);">
             <span>${u.avatar || "👤"} <strong>${u.name}</strong></span>
             <span style="color:var(--emerald-bright);">+100 🪙</span>
           </div>`;
@@ -1997,7 +2688,7 @@
 
     window.shareRefLink = () => {
       const link = document.getElementById("myRefLinkInput").value;
-      const text = `Join SkillDrop — India's free student creator & editing marketplace! Earn daily coins & direct UPI tasks: ${link}`;
+      const text = `Join SkillDrop — 1,000 Coins = ₹10 Google Play & Amazon Gift Cards! Free daily tasks, spin wheel & creator quiz: ${link}`;
       if (navigator.share) {
         navigator.share({ title: "SkillDrop", text, url: link });
       } else {
@@ -2038,146 +2729,99 @@
       showToast("Profile updated!");
     };
 
-    // Marketplace Tasks
-    const STARTER_TASKS = [
-      {
-        title: "SkillDrop Promo Reel Edit (15s)",
-        type: "task",
-        reqLevel: 1,
-        reward: "₹150 Winner + Shoutout",
-        author: "@skill_drop07",
-        link: "https://t.me/skill_drop07"
-      },
-      {
-        title: "YouTube Gaming Thumbnail Sample",
-        type: "sample",
-        reqLevel: 1,
-        reward: "Showcase • Open for Hire",
-        author: "Community Creator",
-        link: "https://instagram.com/skill_drop07"
-      },
-      {
-        title: "Vlog Cut & Captions (30 Sec Reel)",
-        type: "task",
-        reqLevel: 3,
-        reward: "₹150 Direct Client UPI",
-        author: "Verified Creator",
-        link: "https://t.me/skill_drop07"
-      }
-    ];
-
-    async function loadMarketplaceTasks() {
-      const container = document.getElementById("liveTasksList");
-      let items = [...STARTER_TASKS];
+    // Admin Controls (Stats, Promo, Notice, Redeems, Maintenance)
+    async function loadAdminStats() {
       try {
-        const q = query(collection(db, "tasks"), orderBy("createdAt", "desc"), limit(15));
-        const snap = await getDocs(q);
-        snap.forEach(d => items.unshift(d.data()));
-      } catch (e) {}
+        const uSnap = await getDocs(collection(db, "users"));
+        document.getElementById("admTotalUsers").textContent = uSnap.size;
 
-      container.innerHTML = items.map(t => {
-        const unlocked = (userData.level || 1) >= (t.reqLevel || 1);
-        return `
-          <div class="card">
-            <div class="task-row">
-              <div class="task-info">
-                <div style="display:flex;gap:6px;align-items:center;margin-bottom:4px;">
-                  <span class="reward-pill" style="margin:0;">${t.type === 'sample' ? '🎨 Sample' : '💼 Paid Task'}</span>
-                  <span style="font-size:10.5px;color:var(--text-muted);">Lvl ${t.reqLevel || 1}+</span>
-                </div>
-                <h4>${t.title}</h4>
-                <p>By ${t.author || "Creator"} • <strong>${t.reward}</strong></p>
-              </div>
-              ${unlocked
-                ? `<a href="${t.link || 'https://t.me/skill_drop07'}" target="_blank" class="btn btn-primary" style="text-decoration:none;">Open</a>`
-                : `<button class="btn btn-locked" onclick="showToast('Reach Level ${t.reqLevel} to unlock!')">🔒 Lvl ${t.reqLevel}</button>`
-              }
-            </div>
-          </div>
-        `;
-      }).join("");
+        const pQ = query(collection(db, "payouts"), where("status", "==", "pending"), limit(20));
+        const pSnap = await getDocs(pQ);
+        document.getElementById("admPendingRedeems").textContent = pSnap.size;
+
+        const listEl = document.getElementById("admRedeemList");
+        if (pSnap.empty) {
+          listEl.innerHTML = "<div style='color:var(--text-muted);'>No pending requests.</div>";
+        } else {
+          let html = "";
+          pSnap.forEach(d => {
+            const p = d.data();
+            html += `<div style="padding:7px;border-bottom:1px solid rgba(255,255,255,0.08);">
+              <strong>${p.name}</strong> • ${p.item}<br/>
+              <span style="color:var(--emerald-bright);">${p.target}</span>
+              <button class="btn btn-gold" style="padding:3px 8px;font-size:10px;float:right;" onclick="approveRedeem('${d.id}')">Mark Paid</button>
+            </div>`;
+          });
+          listEl.innerHTML = html;
+        }
+      } catch (e) {}
     }
 
-    window.openDropModal = () => {
-      if (!currentUser) return openModal("modal-auth");
-      openModal("modal-drop");
+    window.approveRedeem = async (docId) => {
+      await updateDoc(doc(db, "payouts", docId), { status: "approved" });
+      showToast("Marked as Paid!");
+      loadAdminStats();
     };
 
-    window.submitDropItem = async () => {
-      if (!currentUser) return;
-      const title = document.getElementById("dropTitle").value.trim();
-      if (!title) return showToast("Enter a title");
-      const newItem = {
-        type: document.getElementById("dropType").value,
-        title,
-        reqLevel: parseInt(document.getElementById("dropLevel").value, 10) || 1,
-        reward: document.getElementById("dropReward").value.trim() || "Direct Deal",
-        link: document.getElementById("dropLink").value.trim() || "https://t.me/skill_drop07",
-        author: userData.name,
-        createdAt: serverTimestamp()
-      };
-      closeModal("modal-drop");
-      try {
-        await addDoc(collection(db, "tasks"), newItem);
-        await awardReward(15, 15);
-        loadMarketplaceTasks();
-      } catch (e) {
-        showToast("Published!");
-      }
+    window.adminSavePromo = async () => {
+      const c = document.getElementById("admNewPromo").value.trim().toUpperCase();
+      const val = parseInt(document.getElementById("admPromoCoins").value, 10) || 25;
+      if (!c) return;
+      activePromo = { code: c, coins: val };
+      await setDoc(doc(db, "config", "appSettings"), { promoCode: c, promoCoins: val }, { merge: true });
+      showToast(`Promo ${c} (+${val} Coins) Live!`);
+    };
+
+    window.adminUpdateNotice = async () => {
+      const txt = document.getElementById("admNoticeInput").value.trim();
+      if (!txt) return;
+      document.getElementById("importantNoticeText").textContent = txt;
+      await setDoc(doc(db, "config", "appSettings"), { notice: txt }, { merge: true });
+      showToast("Important Notice Updated!");
     };
 
     window.adminPostOfficialTask = async () => {
       const title = document.getElementById("adminTaskTitle").value.trim();
       const reward = document.getElementById("adminTaskPay").value.trim();
-      if (!title) return showToast("Enter task title");
+      if (!title) return;
       await addDoc(collection(db, "tasks"), {
-        type: "task",
-        title,
-        reqLevel: 1,
-        reward: reward || "₹150 Direct Client Pay",
-        link: "https://t.me/skill_drop07",
-        author: "SkillDrop Official",
-        createdAt: serverTimestamp()
+        type: "task", title, reqLevel: 1, reward: reward || "₹150 Direct UPI",
+        link: "https://t.me/skill_drop07", author: "SkillDrop Official", createdAt: serverTimestamp()
       });
       showToast("Official Task Posted!");
       loadMarketplaceTasks();
     };
 
-    window.openWithdrawModal = () => {
-      if (!currentUser) return openModal("modal-auth");
-      document.getElementById("wdUpiInput").value = userData.upi || "";
-      openModal("modal-withdraw");
+    let maintOn = false;
+    window.toggleMaintenance = async () => {
+      maintOn = !maintOn;
+      await setDoc(doc(db, "config", "appSettings"), { maintenance: maintOn }, { merge: true });
+      showToast(maintOn ? "Maintenance ON" : "Maintenance OFF");
     };
 
-    window.requestWithdrawal = async () => {
-      const inrAvailable = (userData.coins || 0) / 100;
-      const amt = parseFloat(document.getElementById("wdAmountInput").value);
-      const upi = document.getElementById("wdUpiInput").value.trim();
-      if (!upi) return showToast("Enter valid UPI ID");
-      if (amt < 150 || inrAvailable < amt) {
-        return showToast(`Need ₹150 (15,000 Coins). Current: ₹${inrAvailable.toFixed(2)}`);
-      }
-      await addDoc(collection(db, "payouts"), {
-        uid: currentUser.uid,
-        name: userData.name,
-        upi,
-        amount: amt,
-        status: "pending",
-        createdAt: serverTimestamp()
-      });
-      closeModal("modal-withdraw");
-      showToast("Withdrawal request submitted!");
-    };
+    async function loadAppConfig() {
+      try {
+        const snap = await getDoc(doc(db, "config", "appSettings"));
+        if (snap.exists()) {
+          const cfg = snap.data();
+          if (cfg.promoCode) activePromo = { code: cfg.promoCode, coins: cfg.promoCoins || 25 };
+          if (cfg.notice) document.getElementById("importantNoticeText").textContent = cfg.notice;
+          if (cfg.maintenance) document.getElementById("maintenanceScreen").style.display = "flex";
+        }
+      } catch (e) {}
+    }
 
     function updateLivePresence() {
-      const base = 14 + Math.floor(Math.random() * 11);
-      document.getElementById("onlineCountText").textContent = `${base} Online Now`;
+      const base = 18 + Math.floor(Math.random() * 14);
+      document.getElementById("onlineCountText").textContent = `${base} Online`;
     }
-    setInterval(updateLivePresence, 9000);
+    setInterval(updateLivePresence, 8000);
     updateLivePresence();
 
+    loadAppConfig();
     renderUI();
     loadMarketplaceTasks();
+    loadLeaderboard();
   </script>
 </body>
 </html>
