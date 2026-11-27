@@ -4,15 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="theme-color" content="#070b14" />
-  <title>SkillDrop — Learn • Drop • Earn</title>
+  <title>SkillDrop — Play • Duel • Earn</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-main: #070b14;
-      --bg-card: rgba(16, 24, 40, 0.92);
-      --bg-elevated: #131d31;
+      --bg-card: rgba(16, 24, 40, 0.94);
       --border-subtle: rgba(45, 212, 191, 0.16);
       --border-strong: rgba(45, 212, 191, 0.42);
       --teal: #14b8a6;
@@ -210,7 +209,7 @@
       color: #fef3c7;
     }
 
-    /* Adsterra Sponsored Slot */
+    /* Adsterra Sponsored Slots */
     .ad-wrapper {
       background: rgba(255, 255, 255, 0.025);
       border: 1px dashed rgba(255, 255, 255, 0.14);
@@ -554,6 +553,33 @@
       margin-bottom: 8px;
     }
 
+    /* Matiks-Style 1-vs-1 Arena UI */
+    .arena-banner {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(20, 184, 166, 0.18));
+      border: 1px solid var(--border-strong);
+      border-radius: 18px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .arena-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .duel-scoreboard {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.45);
+      padding: 10px 12px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      border: 1px solid var(--border-subtle);
+    }
+
     /* Flip Cards */
     .flip-row {
       display: grid;
@@ -687,7 +713,7 @@
       cursor: pointer;
     }
 
-    /* Redeem Store Grid with Real Brand SVG Logos */
+    /* Redeem Store Grid */
     .redeem-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -983,18 +1009,18 @@
       outline: none;
     }
 
-    /* Bottom Navigation (5 Tabs) */
+    /* Bottom Navigation (6 Compact Tabs) */
     .bottom-nav {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(7, 11, 20, 0.96);
+      background: rgba(7, 11, 20, 0.97);
       backdrop-filter: blur(16px);
       border-top: 1px solid var(--border-subtle);
       display: flex;
       justify-content: space-around;
-      padding: 7px 4px 11px;
+      padding: 7px 2px 11px;
       z-index: 60;
     }
 
@@ -1006,10 +1032,10 @@
       flex-direction: column;
       align-items: center;
       gap: 3px;
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 700;
       cursor: pointer;
-      padding: 4px 7px;
+      padding: 4px 5px;
       border-radius: 10px;
     }
 
@@ -1120,7 +1146,7 @@
 
   <div id="toast" class="toast"></div>
 
-  <!-- Maintenance Mode Screen (Owner itzharry556@gmail.com bypasses automatically; plus 5-tap unlock & Owner Login button) -->
+  <!-- Maintenance Mode Screen (Owner itzharry556@gmail.com bypasses automatically) -->
   <div id="maintenanceScreen">
     <div id="maintSecretUnlock" style="font-size: 46px; margin-bottom: 12px; cursor: pointer;" title="Owner Unlock">🛠️</div>
     <h2 style="margin-bottom: 8px;">SkillDrop System Upgrade</h2>
@@ -1137,7 +1163,7 @@
     <div class="ticker-bar">
       <span>💸</span>
       <div class="ticker-text" id="liveTickerText">
-        SkillDrop Official: 1,000 Coins = ₹10 Google Play, Amazon & Flipkart Gift Cards • 10% Lifetime Referral Commission!
+        SkillDrop Official: 1,000 Coins = ₹10 Google Play, Amazon & Flipkart Gift Cards • 1-vs-1 Live Arena & 10% Lifetime Commission!
       </div>
     </div>
 
@@ -1179,7 +1205,7 @@
       </div>
     </section>
 
-    <!-- ADSTERRA BANNER SLOT (320x50) -->
+    <!-- ADSTERRA BANNER SLOT 1 (320x50) -->
     <div class="ad-wrapper">
       <span class="ad-tag">Sponsored Partner</span>
       <div class="ad-slot-box" id="adsterra-slot-1">
@@ -1219,7 +1245,7 @@
         </div>
 
         <div class="xp-labels">
-          <span id="xpLabel">XP: 0 / 350</span>
+          <span id="xpLabel">XP: 0 / 1500</span>
           <span id="nextLvlLabel">Next: Level 2</span>
         </div>
         <div class="xp-bar">
@@ -1238,7 +1264,7 @@
         </div>
       </div>
 
-      <!-- 7-Day Visual Login Streak -->
+      <!-- 7-Day Visual Login Streak (100% Fixed) -->
       <div class="card">
         <div class="task-row">
           <div>
@@ -1255,7 +1281,7 @@
         <span class="sec-sub">Unlimited Fun & Coins</span>
       </div>
 
-      <!-- Watch Partner Spotlight (10/Day + Cooldown) -->
+      <!-- Watch Partner Spotlight (Connected to Adsterra Smartlink!) -->
       <div class="card">
         <div class="task-row">
           <div class="task-left">
@@ -1265,7 +1291,7 @@
             <div class="task-info">
               <h4 id="t-watch-title">Watch Partner Spotlight (15s)</h4>
               <p id="watchLimitLabel">Today: 0 / 10 Watched • +10 Coins</p>
-              <span class="reward-pill">+10 Coins • +8 XP</span>
+              <span class="reward-pill">+10 Coins • +3 XP</span>
             </div>
           </div>
           <button id="btnWatchAd" class="btn btn-primary" onclick="startWatchTask()">Watch</button>
@@ -1312,8 +1338,17 @@
         <div class="game-tile">
           <div class="g-ico">🧠</div>
           <h5>Mix Mood Quiz</h5>
-          <p id="quizLimitLabel">Easy • Med • Hard • Ultra</p>
-          <button id="btnOpenQuiz" class="btn btn-gold btn-full" onclick="openQuizModal()">Select Mode</button>
+          <p id="quizLimitLabel">3 Left • +20 Pack (200🪙)</p>
+          <button id="btnOpenQuiz" class="btn btn-gold btn-full" onclick="openQuizModal()">Play Quiz</button>
+        </div>
+      </div>
+
+      <!-- ADSTERRA NATIVE BANNER SLOT (Clean dedicated box, NOT inside Community) -->
+      <div class="ad-wrapper">
+        <span class="ad-tag">Featured Partner Offer</span>
+        <div class="ad-slot-box">
+          <script async fetchpriority="high" data-cfasync="false" src="https://bauval.org/21/5c5b671840c7dcecd700700a9d9a9adb"></script>
+          <div id="container-5c5b671840c7dcecd700700a9d9a9adb"></div>
         </div>
       </div>
 
@@ -1327,7 +1362,7 @@
             <div class="task-info">
               <h4>Hourly Mystery Box</h4>
               <p>Har 1 ghante baad free box open karein</p>
-              <span class="reward-pill">+5 Coins • +5 XP</span>
+              <span class="reward-pill">+5 Coins • +2 XP</span>
             </div>
           </div>
           <button id="btnHourlyClaim" class="btn btn-outline" onclick="claimHourlyBox()">Open</button>
@@ -1361,10 +1396,10 @@
             <div class="task-info">
               <h4>Join Official Telegram</h4>
               <p>@skill_drop07 • Promo codes & payment updates</p>
-              <span class="reward-pill">+25 Coins • +20 XP</span>
+              <span class="reward-pill">+25 Coins • +10 XP</span>
             </div>
           </div>
-          <button id="btnSocialTg" class="btn btn-primary" onclick="completeSocialTask('tg', 'https://t.me/skill_drop07', 25, 20)">Join</button>
+          <button id="btnSocialTg" class="btn btn-primary" onclick="completeSocialTask('tg', 'https://t.me/skill_drop07', 25, 10)">Join</button>
         </div>
       </div>
 
@@ -1377,10 +1412,10 @@
             <div class="task-info">
               <h4>Follow on Instagram</h4>
               <p>@skill_drop07 • Reels & creator updates</p>
-              <span class="reward-pill">+25 Coins • +20 XP</span>
+              <span class="reward-pill">+25 Coins • +10 XP</span>
             </div>
           </div>
-          <button id="btnSocialIg" class="btn btn-primary" onclick="completeSocialTask('ig', 'https://instagram.com/skill_drop07', 25, 20)">Follow</button>
+          <button id="btnSocialIg" class="btn btn-primary" onclick="completeSocialTask('ig', 'https://instagram.com/skill_drop07', 25, 10)">Follow</button>
         </div>
       </div>
 
@@ -1393,22 +1428,98 @@
             <div class="task-info">
               <h4>Subscribe on YouTube</h4>
               <p>@skill_drop07 • Free mobile tutorials</p>
-              <span class="reward-pill">+25 Coins • +20 XP</span>
+              <span class="reward-pill">+25 Coins • +10 XP</span>
             </div>
           </div>
-          <button id="btnSocialYt" class="btn btn-primary" onclick="completeSocialTask('yt', 'https://youtube.com/@skill_drop07', 25, 20)">Subscribe</button>
+          <button id="btnSocialYt" class="btn btn-primary" onclick="completeSocialTask('yt', 'https://youtube.com/@skill_drop07', 25, 10)">Subscribe</button>
         </div>
       </div>
 
-      <!-- Level 1 to 6 Roadmap -->
+      <!-- High & Slow XP Level 1 to 6 Roadmap -->
       <div class="sec-head">
         <div class="sec-title">🏆 Level 1–6 Creator Roadmap</div>
-        <span class="sec-sub">Steady Growth</span>
+        <span class="sec-sub">Up to 40,000 XP</span>
       </div>
       <div class="level-grid" id="levelRoadmapGrid"></div>
     </main>
 
-    <!-- VIEW 2: COMMUNITY FEED, GROUP LOUNGE & PERSONAL 1-TO-1 DM -->
+    <!-- VIEW 2: MATIKS-STYLE 1-VS-1 LIVE BATTLE ARENA -->
+    <main id="view-arena" class="view">
+      <div class="arena-banner">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h3 style="font-size: 16px; font-weight: 800;">⚔️ SkillDrop 1-vs-1 Arena</h3>
+            <p style="font-size: 11px; color: #ccfbf1;">Fast 30s Brain Duels • Build Your Daily Battle Streak!</p>
+          </div>
+          <span class="level-badge" id="arenaStreakPill">🔥 0 Streak</span>
+        </div>
+        <div class="arena-stats-row">
+          <div class="stat-mini">
+            <strong id="arenaRatingStat">1000</strong>
+            <span>ELO Rating</span>
+          </div>
+          <div class="stat-mini">
+            <strong id="arenaWinsStat">0</strong>
+            <span>Duels Won</span>
+          </div>
+          <div class="stat-mini">
+            <strong id="arenaFreeLeftStat">3 / 3</strong>
+            <span>Free Duels</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Choose Free or 20-Coin Entry Pool -->
+      <div class="card" style="padding: 10px;">
+        <label style="font-size: 11px; color: var(--text-muted); font-weight: 700;">Select Battle Stake Mode:</label>
+        <div class="sub-tabs" style="margin-top: 6px; margin-bottom: 0;">
+          <button class="sub-tab-btn active" onclick="setArenaStake('free', this)">🆓 Free Duel (+10 🪙 Win)</button>
+          <button class="sub-tab-btn" onclick="setArenaStake('coin20', this)">🪙 20-Coin Duel (Win 35 🪙)</button>
+        </div>
+      </div>
+
+      <!-- 3 Dual Modes (Math Dual, Mind Snap Dual, Puzzle Dual) -->
+      <div class="card">
+        <div class="task-row">
+          <div class="task-left">
+            <div class="social-icon-box" style="background: rgba(20, 184, 166, 0.16);"><span style="font-size: 20px;">⚡</span></div>
+            <div class="task-info">
+              <h4>Math Dual (30s Speed Race)</h4>
+              <p>Fast mental calculations vs live opponent</p>
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="startArenaDuel('math')">Play Dual</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="task-row">
+          <div class="task-left">
+            <div class="social-icon-box" style="background: rgba(245, 158, 11, 0.16);"><span style="font-size: 20px;">👁️</span></div>
+            <div class="task-info">
+              <h4>Mind Snap Dual (Memory Flash)</h4>
+              <p>2s number flash dekho aur turant snap karo</p>
+            </div>
+          </div>
+          <button class="btn btn-gold" onclick="startArenaDuel('mindsnap')">Play Dual</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="task-row">
+          <div class="task-left">
+            <div class="social-icon-box" style="background: rgba(99, 102, 241, 0.16);"><span style="font-size: 20px;">🧩</span></div>
+            <div class="task-info">
+              <h4>Puzzle Dual (Logic Series)</h4>
+              <p>Missing pattern aur sequence crack karo</p>
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="startArenaDuel('puzzle')">Play Dual</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- VIEW 3: COMMUNITY FEED, GROUP LOUNGE & PERSONAL 1-TO-1 DM -->
     <main id="view-community" class="view">
       <div class="sec-head" style="margin-top: 2px;">
         <div class="sec-title">💬 Creator Community & Chat</div>
@@ -1456,7 +1567,7 @@
       </div>
     </main>
 
-    <!-- VIEW 3: REDEEM STORE & SEPARATE COIN HISTORY -->
+    <!-- VIEW 4: REDEEM STORE & SEPARATE COIN HISTORY -->
     <main id="view-wallet" class="view">
       <div class="sub-tabs" style="margin-top: 2px;">
         <button class="sub-tab-btn active" onclick="switchWalletTab('store', this)">🎁 Redeem Store</button>
@@ -1481,7 +1592,7 @@
 
           <div class="redeem-card">
             <div class="brand-svg-wrap">
-              <svg width="26" height="26" viewBox="0 0 24 24"><path fill="#111827" d="M15.6 14.3c-.6-.5-.7-1.1-.7-1.9V9.1c0-1.4.1-2.7-.9-3.6-.8-.7-2.1-1-3.1-1-2 0-4.2.7-4.7 3.1-.1.3.1.4.3.5l2 .2c.2 0 .4-.2.4-.4.2-.9 1-1.3 1.8-1.3.5 0 1 .2 1.3.6.3.5.3 1.1.3 1.6v.3c-1.3.1-3 .2-4.2.8-1.4.6-2.4 1.8-2.4 3.6 0 2.3 1.4 3.4 3.3 3.4 1.6 0 2.4-.4 3.6-1.6.4.6.5.9 1.2 1.5.2.1.4.1.5 0l1.4-1.2c.2-.1.2-.4 0-.5zm-3.6-1.9c0 .9 0 1.7-.5 2.4-.4.6-1 1-1.7 1-.9 0-1.5-.7-1.5-1.8 0-2.1 1.9-2.5 3.7-2.5v.9z"/><path fill="#FF9900" d="M19.8 17.7c-2.3 1.7-5.6 2.6-8.4 2.6-4 0-7.6-1.5-10.3-3.9-.2-.2 0-.5.2-.3 3 1.7 6.6 2.8 10.4 2.8 2.6 0 5.4-.5 8-1.6.4-.2.7.2.1.4z"/><path fill="#FF9900" d="M20.7 16.6c-.3-.4-1.9-.2-2.7-.1-.2 0-.3-.2-.1-.3 1.3-.9 3.5-.6 3.7-.3.3.3-.1 2.5-1.3 3.5-.2.2-.4.1-.3-.1.3-.7.9-2.3.7-2.7z"/></svg>
+              <svg width="26" height="26" viewBox="0 0 24 24"><path fill="#111827" d="M15.6 14.3c-.6-.5-.7-1.1-.7-1.9V9.1c0-1.4.1-2.7-.9-3.6-.8-.7-2.1-1-3.1-1-2 0-4.2.7-4.7 3.1-.1.3.1.4.3.5l2 .2c.2 0 .4-.2.4-.4.2-.9 1-1.3 1.8-1.3.5 0 1 .2 1.3.6.3.5.3 1.1.3 1.6v.3c-1.3.1-3 .2-4.2.8-1.4.6-2.4 1.8-2.4 3.6 0 2.3 1.4 3.4 3.3 3.4 1.6 0 2.4-.4 3.6-1.6.4.6.5.9 1.2 1.5.2.1.4.1.5 0l1.4-1.2c.2-.1.2-.4 0-.5zm-3.6-1.9c0 .9 0 1.7-.5 2.4-.4.6-1 1-1.7 1-.9 0-1.5-.7-1.5-1.8 0-2.1 1.9-2.5 3.7-2.5v.9z"/><path fill="#FF9900" d="M19.8 17.7c-2.3 1.7-5.6 2.6-8.4 2.6-4 0-7.6-1.5-10.3-3.9-.2-.2 0-.5.2-.3 3 1.7 6.6 2.8 10.4 2.8 2.6 0 5.4-.5 8-1.6.4-.2.7.2.1.4z"/></svg>
             </div>
             <h5>Amazon Pay ₹10</h5>
             <p>1,000 Coins</p>
@@ -1544,7 +1655,7 @@
       </div>
     </main>
 
-    <!-- VIEW 4: REFER (10% LIFETIME COMMISSION) & LEADERBOARD -->
+    <!-- VIEW 5: REFER & LEADERBOARD -->
     <main id="view-refer" class="view">
       <div class="sec-head" style="margin-top: 2px;">
         <div class="sec-title">🤝 Refer & 10% Lifetime Commission</div>
@@ -1591,7 +1702,7 @@
       </div>
     </main>
 
-    <!-- VIEW 5: CLEAN PROFILE + SIDE SETTINGS DRAWER -->
+    <!-- VIEW 6: CLEAN PROFILE + SIDE SETTINGS DRAWER -->
     <main id="view-profile" class="view">
       <div class="sec-head" style="margin-top: 2px;">
         <div class="sec-title">🪪 Creator Profile</div>
@@ -1662,29 +1773,63 @@
     </div>
   </div>
 
-  <!-- Bottom Navigation (5 Tabs) -->
+  <!-- Bottom Navigation (6 Tabs: Home, Arena, Community, Redeem, Refer, Profile) -->
   <nav class="bottom-nav">
     <button class="nav-btn active" data-target="view-home" onclick="switchTab('view-home', this)">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       <span id="nav-home">Home</span>
     </button>
+    <button class="nav-btn" data-target="view-arena" onclick="switchTab('view-arena', this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      <span>Arena</span>
+    </button>
     <button class="nav-btn" data-target="view-community" onclick="switchTab('view-community', this)">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      <span id="nav-comm">Community</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span id="nav-comm">Feed</span>
     </button>
     <button class="nav-btn" data-target="view-wallet" onclick="switchTab('view-wallet', this)">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
       <span id="nav-wallet">Redeem</span>
     </button>
     <button class="nav-btn" data-target="view-refer" onclick="switchTab('view-refer', this)">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       <span id="nav-refer">Refer</span>
     </button>
     <button class="nav-btn" data-target="view-profile" onclick="switchTab('view-profile', this)">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       <span id="nav-profile">Profile</span>
     </button>
   </nav>
+
+  <!-- MODAL: LIVE 1-VS-1 ARENA DUEL -->
+  <div id="modal-duel" class="modal-backdrop">
+    <div class="modal-box" style="text-align: center;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <span class="reward-pill" id="duelModeTitle" style="margin: 0;">⚡ MATH DUAL</span>
+        <span class="reward-pill" id="duelTimerPill" style="margin: 0; color: #ef4444;">30s</span>
+      </div>
+
+      <div class="duel-scoreboard">
+        <div>
+          <div style="font-size: 11px; color: var(--teal-bright); font-weight: 800;">YOU</div>
+          <div id="duelMyScore" style="font-size: 20px; font-weight: 800;">0</div>
+        </div>
+        <div style="font-size: 12px; font-weight: 800; color: var(--text-muted);">VS</div>
+        <div>
+          <div id="duelOppName" style="font-size: 11px; color: #fbbf24; font-weight: 800;">RIVAL</div>
+          <div id="duelOppScore" style="font-size: 20px; font-weight: 800;">0</div>
+        </div>
+      </div>
+
+      <div id="duelPromptBox" style="font-size: 22px; font-weight: 800; color: #fff; min-height: 54px; display: flex; align-items: center; justify-content: center; margin: 10px 0;">
+        Searching Opponent...
+      </div>
+
+      <div id="duelOptionsGrid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 12px;"></div>
+
+      <button class="btn btn-outline btn-full" onclick="forfeitDuel()">Leave Match</button>
+    </div>
+  </div>
 
   <!-- MODAL: PROFILE SETTINGS -->
   <div id="modal-settings" class="modal-backdrop">
@@ -1725,7 +1870,7 @@
   <div id="modal-appeal" class="modal-backdrop">
     <div class="modal-box">
       <h3 style="margin-bottom: 5px;">📩 Submit Payment Appeal / Help</h3>
-      <p style="font-size: 11.5px; color: var(--teal-bright); margin-bottom: 10px;" id="appealUidLabel">Your User ID: —</p>
+      <p style="font-size: 11.5px; color: var(--teal-bright); margin-bottom: 10px;" id="appealModalUidLabel">Your User ID: —</p>
       <div class="field">
         <label>Issue Type</label>
         <select id="appealTypeInput">
@@ -1837,13 +1982,16 @@
     </div>
   </div>
 
-  <!-- MODAL: MIX MOOD QUIZ (EASY, MEDIUM, HARD, ULTRA HARD + NEVER REPEATS) -->
+  <!-- MODAL: MIX MOOD QUIZ (4 MODES + 200 COINS = +20 ROUNDS PACK) -->
   <div id="modal-quiz" class="modal-backdrop">
     <div class="modal-box">
       <div id="quizModeStep">
-        <h3 style="margin-bottom: 4px;">🧠 Mix Mood Quiz (Funny • Sad • GK)</h3>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <h3>🧠 Mix Mood Quiz</h3>
+          <span class="reward-pill" id="quizAvailableRoundsBadge" style="margin: 0;">3 Rounds Left</span>
+        </div>
         <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 8px;">
-          Apna difficulty level chunein — koi bhi sawal dobara repeat nahi hoga!
+          Funny, Sad Shayari & Brain Riddles — koi bhi sawal repeat nahi hoga!
         </p>
         <div class="diff-grid">
           <div class="diff-card" style="border-color: #2dd4bf;" onclick="startQuizWithMode('easy')">
@@ -1863,6 +2011,18 @@
             <span>+25 Coins / Right</span>
           </div>
         </div>
+
+        <!-- 200 Coins = +20 Quiz Rounds Booster Pack -->
+        <div class="card" style="padding: 10px; margin-top: 8px; border-color: rgba(245, 158, 11, 0.45);">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px;">
+            <div>
+              <strong style="font-size: 12px; color: #fbbf24;">🔓 Unlock +20 Quiz Rounds</strong>
+              <p style="font-size: 10.5px; color: var(--text-muted);">200 Coins kharch karke 20 extra rounds khelein!</p>
+            </div>
+            <button class="btn btn-gold" style="padding: 7px 11px; font-size: 11px;" onclick="buyQuiz20Pack()">200 🪙</button>
+          </div>
+        </div>
+
         <button class="btn btn-outline btn-full" style="margin-top: 6px;" onclick="closeModal('modal-quiz')">Close</button>
       </div>
 
@@ -1903,12 +2063,12 @@
       <h3 style="margin-bottom: 10px;">🔔 Latest Announcements</h3>
       <div style="font-size: 12px; line-height: 1.5;">
         <div class="card" style="padding: 10px;">
-          <strong>🧠 Mix Mood Quiz (4 Modes Live!):</strong><br/>
-          Ab Easy, Medium, Hard aur Ultra Hard modes mein Funny, Sad Shayari aur Brain questions khelein — bina kisi repeat ke!
+          <strong>⚔️ 1-vs-1 Live Battle Arena Launched!</strong><br/>
+          Math Dual, Mind Snap Dual aur Puzzle Dual khel kar apni Daily Arena Streak aur ELO Rating badhayein!
         </div>
         <div class="card" style="padding: 10px;">
-          <strong>🎁 Redeem Store & 10% Commission:</strong><br/>
-          1,000 Coins = ₹10 Google Play, Amazon & Flipkart Gift Cards + 10% Lifetime Referral Commission.
+          <strong>🧠 Mix Mood Quiz (+20 Rounds Pack):</strong><br/>
+          Roz 3 Free Quiz rounds + 200 Coins mein 20 Extra Quiz rounds unlock karein!
         </div>
       </div>
       <button class="btn btn-primary btn-full" onclick="closeModal('modal-notif')">Got It</button>
@@ -1921,8 +2081,8 @@
       <h3 style="margin-bottom: 10px;">📘 How SkillDrop Works & Rules</h3>
       <div style="font-size: 12px; line-height: 1.55; color: #ccfbf1;">
         <p style="margin-bottom: 8px;"><strong>1. Coins & Conversion:</strong><br/>1,000 Coins = ₹10 Gift Card (Google Play, Amazon Pay, Flipkart). 15,000 Coins = ₹150 Direct UPI.</p>
-        <p style="margin-bottom: 8px;"><strong>2. Mix Mood Quiz Modes:</strong><br/>Easy (+5/Q), Medium (+10/Q), Hard (+15/Q), Ultra Hard (+25/Q). Har sawal unique hai aur repeat nahi hota.</p>
-        <p style="margin-bottom: 8px;"><strong>3. 10% Lifetime Referral Commission:</strong><br/>Har friend ke join par +100 Coins + unki har earning ka 10% lifetime commission.</p>
+        <p style="margin-bottom: 8px;"><strong>2. 1-vs-1 Battle Arena:</strong><br/>Free Dual mein jeetne par +10 Coins, ya 20-Coin Entry Dual mein jeetne par 35 Coins paayein!</p>
+        <p style="margin-bottom: 8px;"><strong>3. Mix Mood Quiz Pack:</strong><br/>Roz 3 free quiz rounds ke baad aap 200 Coins kharch karke 20 extra rounds unlock kar sakte hain.</p>
       </div>
       <button class="btn btn-primary btn-full" style="margin-top: 10px;" onclick="closeModal('modal-rules')">Close</button>
     </div>
@@ -2065,7 +2225,7 @@
     </div>
   </div>
 
-  <!-- Firebase & Complete SkillDrop v4.2 Master Logic -->
+  <!-- Firebase & Complete SkillDrop v5.0 Master Logic -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import {
@@ -2090,7 +2250,6 @@
       where,
       getDocs,
       limit,
-      serverTimestamp,
       increment
     } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -2103,8 +2262,8 @@
       appId: "1:102938475610:web:skilldrop07"
     };
 
-    // OWNER VIP BYPASS (Always stays unlocked even during Maintenance)
     const OWNER_EMAILS = ["itzharry556@gmail.com"];
+    const SMARTLINK_URL = "https://araplhn.org/4/5f76e3e768c3eed72e7e12846f21c18d";
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
@@ -2147,7 +2306,14 @@
       rushCountToday: 0,
       quizDate: "",
       quizPlaysToday: 0,
+      extraQuizCredits: 0,
       seenQuizIds: [],
+      arenaRating: 1000,
+      arenaWins: 0,
+      arenaStreak: 0,
+      lastArenaDate: "",
+      arenaFreeDate: "",
+      arenaFreeUsed: 0,
       lastHourlyTs: 0,
       usedPromos: [],
       completedActions: {},
@@ -2158,13 +2324,14 @@
       banned: false
     };
 
+    // High & Slow XP Levels (Requires steady play over weeks)
     const LEVELS = [
-      { lvl: 1, name: "Starter", minXp: 0, desc: "7-Day IST Streak, 6 Mini-Games, Mix Quiz & Community" },
-      { lvl: 2, name: "Explorer", minXp: 350, desc: "Priority Community Badge + Higher Game Rewards" },
-      { lvl: 3, name: "Junior Editor", minXp: 900, desc: "Unlock Creator Showcase & Direct DM Collabs" },
-      { lvl: 4, name: "Pro Creator", minXp: 1800, desc: "Featured Leaderboard Spot + VIP Support" },
-      { lvl: 5, name: "Elite Studio", minXp: 3200, desc: "Top Creator Frame + Fast-Track Gift Cards" },
-      { lvl: 6, name: "Verified Partner", minXp: 5000, desc: "Official SkillDrop Partner Status" }
+      { lvl: 1, name: "Starter", minXp: 0, desc: "7-Day IST Streak, 1v1 Arena, Mix Quiz & Community" },
+      { lvl: 2, name: "Explorer", minXp: 1500, desc: "Priority Community Badge + Arena Challenger Frame" },
+      { lvl: 3, name: "Junior Creator", minXp: 4500, desc: "Unlock Creator Showcase & Direct DM Collabs" },
+      { lvl: 4, name: "Pro Creator", minXp: 10000, desc: "Featured Leaderboard Spot + VIP Support" },
+      { lvl: 5, name: "Elite Studio", minXp: 20000, desc: "Top Creator Frame + Fast-Track Gift Cards" },
+      { lvl: 6, name: "Verified Partner", minXp: 40000, desc: "Official SkillDrop Verified Partner Status" }
     ];
 
     const STREAK_REWARDS = [10, 15, 20, 25, 30, 40, 100];
@@ -2209,10 +2376,10 @@
     ];
 
     const I18N = {
-      hinglish: { lvl1Title: "⚡ Daily Earning Activities", dailyTitle: "🔥 7-Day Daily Check-In Streak", watchTitle: "Watch Partner Spotlight (15s)", navHome: "Home", navComm: "Community", navWallet: "Redeem", navRefer: "Refer", navProfile: "Profile" },
-      pa: { lvl1Title: "⚡ ਰੋਜ਼ਾਨਾ ਕਮਾਈ ਐਕਟੀਵਿਟੀ", dailyTitle: "🔥 7-ਦਿਨਾਂ ਦੀ ਸਟ੍ਰੀਕ ਬੋਨਸ", watchTitle: "ਪਾਰਟਨਰ ਸਪੌਟਲਾਈਟ ਦੇਖੋ (15s)", navHome: "ਹੋਮ", navComm: "ਕਮਿਊਨਿਟੀ", navWallet: "ਰਿਡੀਮ", navRefer: "ਰੈਫਰ", navProfile: "ਪ੍ਰੋਫਾਈਲ" },
-      hi: { lvl1Title: "⚡ डेली अर्निंग एक्टिविटी", dailyTitle: "🔥 7-दिन डेली चेक-इन स्ट्रीक", watchTitle: "पार्टनर स्पॉटलाइट देखें (15s)", navHome: "होम", navComm: "कम्युनिटी", navWallet: "रिडीम", navRefer: "रेफर", navProfile: "प्रोफाइल" },
-      en: { lvl1Title: "⚡ Daily Earning Activities", dailyTitle: "🔥 7-Day Daily Check-In Streak", watchTitle: "Watch Partner Spotlight (15s)", navHome: "Home", navComm: "Community", navWallet: "Redeem", navRefer: "Refer", navProfile: "Profile" }
+      hinglish: { lvl1Title: "⚡ Daily Earning Activities", dailyTitle: "🔥 7-Day Daily Check-In Streak", watchTitle: "Watch Partner Spotlight (15s)", navHome: "Home", navComm: "Feed", navWallet: "Redeem", navRefer: "Refer", navProfile: "Profile" },
+      pa: { lvl1Title: "⚡ ਰੋਜ਼ਾਨਾ ਕਮਾਈ ਐਕਟੀਵਿਟੀ", dailyTitle: "🔥 7-ਦਿਨਾਂ ਦੀ ਸਟ੍ਰੀਕ ਬੋਨਸ", watchTitle: "ਪਾਰਟਨਰ ਸਪੌਟਲਾਈਟ ਦੇਖੋ (15s)", navHome: "ਹੋਮ", navComm: "ਫੀਡ", navWallet: "ਰਿਡੀਮ", navRefer: "ਰੈਫਰ", navProfile: "ਪ੍ਰੋਫਾਈਲ" },
+      hi: { lvl1Title: "⚡ डेली अर्निंग एक्टिविटी", dailyTitle: "🔥 7-दिन डेली चेक-इन स्ट्रीक", watchTitle: "पार्टनर स्पॉटलाइट देखें (15s)", navHome: "होम", navComm: "फीड", navWallet: "रिडीम", navRefer: "रेफर", navProfile: "प्रोफाइल" },
+      en: { lvl1Title: "⚡ Daily Earning Activities", dailyTitle: "🔥 7-Day Daily Check-In Streak", watchTitle: "Watch Partner Spotlight (15s)", navHome: "Home", navComm: "Feed", navWallet: "Redeem", navRefer: "Refer", navProfile: "Profile" }
     };
 
     function getISTDateStr() {
@@ -2239,7 +2406,6 @@
       } catch (e) {}
     }
 
-    // Owner VIP Maintenance Check
     function applyMaintenanceCheck() {
       const userEmail = (currentUser?.email || "").toLowerCase();
       const isOwner = OWNER_EMAILS.map(e => e.toLowerCase()).includes(userEmail);
@@ -2255,7 +2421,6 @@
       }
     }
 
-    // 5-Tap Unlock on Maintenance Screen
     let maintTapCount = 0;
     let maintTapTimer = null;
     document.getElementById("maintSecretUnlock").addEventListener("click", () => {
@@ -2393,6 +2558,14 @@
       return current;
     }
 
+    function getTotalQuizRoundsLeft() {
+      const today = getISTDateStr();
+      const usedToday = userData.quizDate === today ? (Number(userData.quizPlaysToday) || 0) : 0;
+      const freeLeft = Math.max(0, 3 - usedToday);
+      const extraPack = Number(userData.extraQuizCredits) || 0;
+      return freeLeft + extraPack;
+    }
+
     function renderUI() {
       const today = getISTDateStr();
       const lvlObj = computeLevel(userData.xp || 0);
@@ -2411,9 +2584,9 @@
       const uidStr = userData.uniqueId || "GUEST";
       document.getElementById("heroUserIdPill").textContent = `ID: ${uidStr} • Copy`;
       document.getElementById("profUidBadge").textContent = `ID: ${uidStr}`;
-      document.getElementById("appealUidLabel").textContent = `Your User ID: ${uidStr}`;
+      document.getElementById("appealModalUidLabel").textContent = `Your User ID: ${uidStr}`;
 
-      const coins = userData.coins || 0;
+      const coins = Number(userData.coins) || 0;
       const inr = (coins / 100).toFixed(2);
       document.getElementById("coinBalance").textContent = coins;
       document.getElementById("walletCoinBadge").textContent = `${coins} 🪙 (₹${inr})`;
@@ -2442,13 +2615,14 @@
         btnCombo.textContent = `${comboCount}/5`;
       }
 
-      // 7-Day Streak Visual Grid
-      const claimedToday = userData.lastDailyDate === today;
-      const curDayIdx = userData.streakDay || 0;
+      // 7-Day Streak Visual Grid (100% Fixed)
+      const localDailyDone = currentUser && localStorage.getItem("sd_daily_" + currentUser.uid) === today;
+      const claimedToday = userData.lastDailyDate === today || localDailyDone;
+      const curDayIdx = Number(userData.streakDay) || 0;
       const nextDayNum = claimedToday ? curDayIdx : (curDayIdx % 7) + 1;
       const btnDaily = document.getElementById("btnDailyClaim");
       if (claimedToday) {
-        markBtnDone("btnDailyClaim", `Day ${curDayIdx} ✓`);
+        markBtnDone("btnDailyClaim", `Day ${curDayIdx || 1} ✓`);
       } else {
         btnDaily.disabled = false;
         btnDaily.className = "btn btn-gold";
@@ -2489,9 +2663,17 @@
       document.getElementById("rushLimitLabel").textContent = `${rushLeft} / 2 Left Today`;
       if (rushLeft === 0) markBtnDone("btnOpenRush", "Done ✓");
 
-      const quizPlaysLeft = Math.max(0, 3 - (userData.quizDate === today ? (userData.quizPlaysToday || 0) : 0));
-      document.getElementById("quizLimitLabel").textContent = `${quizPlaysLeft} / 3 Plays Left • 4 Modes`;
-      if (quizPlaysLeft === 0) markBtnDone("btnOpenQuiz", "Done ✓");
+      // Quiz Rounds (Always clickable so user can unlock +20 Pack with 200 Coins!)
+      const totalQuizLeft = getTotalQuizRoundsLeft();
+      document.getElementById("quizLimitLabel").textContent = `${totalQuizLeft} Rounds • +20 Pack (200🪙)`;
+      document.getElementById("quizAvailableRoundsBadge").textContent = `${totalQuizLeft} Rounds Left`;
+
+      // Arena Stats
+      document.getElementById("arenaStreakPill").textContent = `🔥 ${userData.arenaStreak || 0} Streak`;
+      document.getElementById("arenaRatingStat").textContent = userData.arenaRating || 1000;
+      document.getElementById("arenaWinsStat").textContent = userData.arenaWins || 0;
+      const arenaFreeLeft = Math.max(0, 3 - (userData.arenaFreeDate === today ? (userData.arenaFreeUsed || 0) : 0));
+      document.getElementById("arenaFreeLeftStat").textContent = `${arenaFreeLeft} / 3`;
 
       // Social Buttons
       const done = userData.completedActions || {};
@@ -2503,7 +2685,7 @@
       document.getElementById("levelRoadmapGrid").innerHTML = LEVELS.map(item => {
         const isUnlocked = userData.level >= item.lvl;
         return `<div class="lvl-card ${isUnlocked ? 'unlocked' : 'locked'}">
-          <div class="lvl-tag">${isUnlocked ? '🔓' : '🔒'} Level ${item.lvl} (${item.minXp} XP)</div>
+          <div class="lvl-tag">${isUnlocked ? '🔓' : '🔒'} Level ${item.lvl} (${item.minXp.toLocaleString()} XP)</div>
           <h5>${item.name}</h5>
           <p>${item.desc}</p>
         </div>`;
@@ -2528,7 +2710,7 @@
       const badges = [
         { icon: "🚀", label: "Starter", ok: !!currentUser },
         { icon: "🔥", label: "7-Day Streak", ok: (userData.streakDay || 0) >= 7 },
-        { icon: "🤝", label: "5 Invites", ok: (userData.refCount || 0) >= 5 },
+        { icon: "⚔️", label: "Arena Pro", ok: (userData.arenaWins || 0) >= 5 },
         { icon: "👑", label: "Level 3+", ok: (userData.level || 1) >= 3 }
       ];
       document.getElementById("badgesGrid").innerHTML = badges.map(b => `
@@ -2567,11 +2749,11 @@
       if (userData.banned) return showToast("Account restricted.");
 
       const today = getISTDateStr();
-      userData.coins = (userData.coins || 0) + coinsToAdd;
-      userData.xp = (userData.xp || 0) + xpToAdd;
+      userData.coins = (Number(userData.coins) || 0) + coinsToAdd;
+      userData.xp = (Number(userData.xp) || 0) + xpToAdd;
 
       if (countTowardsCombo) {
-        const prevCombo = userData.comboDate === today ? (userData.comboTasksToday || 0) : 0;
+        const prevCombo = userData.comboDate === today ? (Number(userData.comboTasksToday) || 0) : 0;
         userData.comboDate = today;
         userData.comboTasksToday = prevCombo + 1;
         if (userData.comboDate !== today) userData.comboClaimedToday = false;
@@ -2585,8 +2767,9 @@
       renderUI();
       playCoinSound();
 
+      const cleanData = JSON.parse(JSON.stringify(userData));
       try {
-        await setDoc(doc(db, "users", currentUser.uid), userData, { merge: true });
+        await setDoc(doc(db, "users", currentUser.uid), cleanData, { merge: true });
         await logPassbook(reasonLabel, `+${coinsToAdd} 🪙`);
 
         if (userData.referredBy && coinsToAdd >= 10) {
@@ -2613,23 +2796,35 @@
       const count = userData.comboDate === today ? (userData.comboTasksToday || 0) : 0;
       if (count < 5) return showToast("Complete 5 tasks/games first!");
       if (userData.comboDate === today && userData.comboClaimedToday) return showToast("Already claimed today!");
-      await awardReward(30, 20, "Daily 5-Task Treasure Chest", null, { comboClaimedToday: true }, false);
+      await awardReward(30, 8, "Daily 5-Task Treasure Chest", null, { comboClaimedToday: true }, false);
     };
 
-    // 7-Day Daily Check-In
+    // 100% FIXED 7-DAY DAILY CHECK-IN CLAIM
     window.claimDailyBonus = async () => {
-      if (!currentUser) return openModal("modal-auth");
+      if (!currentUser) {
+        openModal("modal-auth");
+        return showToast("Pehle Login karein!");
+      }
       const today = getISTDateStr();
-      if (userData.lastDailyDate === today) return showToast("Already claimed today!");
-      const nextDay = ((userData.streakDay || 0) % 7) + 1;
-      const rewardCoins = STREAK_REWARDS[nextDay - 1];
-      await awardReward(rewardCoins, 15, `Day ${nextDay} Check-In Streak`, null, {
+      const localDone = localStorage.getItem("sd_daily_" + currentUser.uid) === today;
+      if (userData.lastDailyDate === today || localDone) {
+        return showToast("Aaj ka Daily Bonus already claimed hai!");
+      }
+
+      const btn = document.getElementById("btnDailyClaim");
+      if (btn) { btn.disabled = true; btn.textContent = "Claiming..."; }
+
+      const nextDay = ((Number(userData.streakDay) || 0) % 7) + 1;
+      const rewardCoins = STREAK_REWARDS[nextDay - 1] || 10;
+
+      localStorage.setItem("sd_daily_" + currentUser.uid, today);
+      await awardReward(rewardCoins, 5, `Day ${nextDay} Check-In Streak`, null, {
         lastDailyDate: today,
         streakDay: nextDay
       });
     };
 
-    // Watch Partner Spotlight
+    // Watch Partner Spotlight (Opens Adsterra Smartlink!)
     window.startWatchTask = () => {
       if (!currentUser) return openModal("modal-auth");
       const today = getISTDateStr();
@@ -2642,6 +2837,10 @@
       const btn = document.getElementById("btnWatchAd");
       if (btn.disabled) return;
       btn.disabled = true;
+
+      // Open Adsterra Smartlink in new tab
+      window.open(SMARTLINK_URL, "_blank");
+
       const wrap = document.getElementById("watchBarWrap");
       const fill = document.getElementById("watchBarFill");
       wrap.style.display = "block";
@@ -2661,7 +2860,7 @@
           btn.disabled = false;
           btn.textContent = "Watch";
           watchCooldownUntil = Date.now() + 20000;
-          await awardReward(10, 8, "Partner Spotlight Watch", null, {
+          await awardReward(10, 3, "Partner Spotlight Watch", null, {
             watchDate: today,
             watchCountToday: watchedToday + 1
           });
@@ -2710,7 +2909,7 @@
         if (scratchStrokes >= 18 && !scratchAwarded) {
           scratchAwarded = true;
           ctx.clearRect(0, 0, canvas.width, canvas.height);
-          await awardReward(currentScratchPrize, 5, "Lucky Scratch Card", null, {
+          await awardReward(currentScratchPrize, 2, "Lucky Scratch Card", null, {
             scratchDate: today,
             scratchCountToday: used + 1
           });
@@ -2752,7 +2951,7 @@
         document.getElementById("spinResultText").textContent = `🎉 Won +${won} Coins!`;
         const nextUsed = used + 1;
         document.getElementById("modalSpinSub").textContent = `Free Spins Left Today: ${Math.max(0, 3 - nextUsed)} / 3`;
-        await awardReward(won, 5, "Lucky Spin Wheel", null, { spinDate: today, spinCountToday: nextUsed });
+        await awardReward(won, 2, "Lucky Spin Wheel", null, { spinDate: today, spinCountToday: nextUsed });
       }, 2500);
     };
 
@@ -2781,7 +2980,7 @@
         c.classList.add("revealed");
         c.textContent = `+${rewards[i]} 🪙`;
       });
-      await awardReward(rewards[idx], 6, "Flip & Win Mystery Card", null, {
+      await awardReward(rewards[idx], 3, "Flip & Win Mystery Card", null, {
         flipDate: today,
         flipCountToday: used + 1
       });
@@ -2817,7 +3016,7 @@
           const num = rollIdx + 1;
           const won = num * 3;
           document.getElementById("diceResultLabel").textContent = `Rolled ${num} → Won +${won} Coins!`;
-          await awardReward(won, 6, `Lucky Dice Roll (${num}×3)`, null, {
+          await awardReward(won, 3, `Lucky Dice Roll (${num}×3)`, null, {
             diceDate: today,
             diceCountToday: used + 1
           });
@@ -2871,7 +3070,7 @@
           closeModal("modal-rush");
           const today = getISTDateStr();
           const used = userData.rushDate === today ? (userData.rushCountToday || 0) : 0;
-          await awardReward(15, 10, "15s Speed Math Rush", null, {
+          await awardReward(15, 4, "15s Speed Math Rush", null, {
             rushDate: today,
             rushCountToday: used + 1
           });
@@ -2883,7 +3082,7 @@
       }
     };
 
-    // MIX MOOD QUIZ (4 DIFFICULTY MODES + NON-REPEATING QUESTIONS)
+    // MIX MOOD QUIZ (4 DIFFICULTY MODES + 200 COINS = +20 ROUNDS PACK)
     let activeQuestions = [];
     let currentQIdx = 0;
     let quizEarnedCoins = 0;
@@ -2892,16 +3091,33 @@
 
     window.openQuizModal = () => {
       if (!currentUser) return openModal("modal-auth");
-      const today = getISTDateStr();
-      const playsToday = userData.quizDate === today ? (userData.quizPlaysToday || 0) : 0;
-      if (playsToday >= 3) return showToast("Aaj ke 3 Quiz rounds poore ho gaye!");
-
+      document.getElementById("quizAvailableRoundsBadge").textContent = `${getTotalQuizRoundsLeft()} Rounds Left`;
       document.getElementById("quizModeStep").style.display = "block";
       document.getElementById("quizPlayStep").style.display = "none";
       openModal("modal-quiz");
     };
 
+    window.buyQuiz20Pack = async () => {
+      if (!currentUser) return openModal("modal-auth");
+      if ((Number(userData.coins) || 0) < 200) {
+        return showToast("Need 200 Coins to unlock +20 Quiz Rounds!");
+      }
+      userData.coins -= 200;
+      userData.extraQuizCredits = (Number(userData.extraQuizCredits) || 0) + 20;
+      renderUI();
+      document.getElementById("quizAvailableRoundsBadge").textContent = `${getTotalQuizRoundsLeft()} Rounds Left`;
+      await setDoc(doc(db, "users", currentUser.uid), {
+        coins: userData.coins,
+        extraQuizCredits: userData.extraQuizCredits
+      }, { merge: true });
+      await logPassbook("Unlocked +20 Quiz Rounds Pack", "-200 🪙");
+      showToast("🎉 +20 Quiz Rounds Unlocked!");
+    };
+
     window.startQuizWithMode = (mode) => {
+      if (getTotalQuizRoundsLeft() <= 0) {
+        return showToast("Free rounds khatam! 200 Coins mein +20 Pack unlock karein.");
+      }
       selectedQuizMode = mode;
       const seen = new Set([...(userData.seenQuizIds || []), ...JSON.parse(localStorage.getItem("sd_seen_q") || "[]")]);
 
@@ -2959,26 +3175,187 @@
       } else {
         closeModal("modal-quiz");
         const today = getISTDateStr();
-        const prevPlays = userData.quizDate === today ? (userData.quizPlaysToday || 0) : 0;
-        const xpGain = selectedQuizMode === "ultra" ? 25 : selectedQuizMode === "hard" ? 18 : 10;
+        const prevPlays = userData.quizDate === today ? (Number(userData.quizPlaysToday) || 0) : 0;
+
+        let extraFields = { seenQuizIds: userData.seenQuizIds };
+        if (prevPlays < 3) {
+          extraFields.quizDate = today;
+          extraFields.quizPlaysToday = prevPlays + 1;
+        } else if ((Number(userData.extraQuizCredits) || 0) > 0) {
+          extraFields.extraQuizCredits = Number(userData.extraQuizCredits) - 1;
+        }
+
+        const xpGain = selectedQuizMode === "ultra" ? 8 : selectedQuizMode === "hard" ? 5 : 3;
         if (quizEarnedCoins > 0) {
-          await awardReward(quizEarnedCoins, xpGain, `Mix Quiz (${selectedQuizMode.toUpperCase()})`, null, {
-            quizDate: today,
-            quizPlaysToday: prevPlays + 1,
-            seenQuizIds: userData.seenQuizIds
-          });
+          await awardReward(quizEarnedCoins, xpGain, `Mix Quiz (${selectedQuizMode.toUpperCase()})`, null, extraFields);
         } else {
-          userData.quizDate = today;
-          userData.quizPlaysToday = prevPlays + 1;
+          Object.assign(userData, extraFields);
           renderUI();
-          await setDoc(doc(db, "users", currentUser.uid), {
-            quizDate: today,
-            quizPlaysToday: prevPlays + 1,
-            seenQuizIds: userData.seenQuizIds
-          }, { merge: true });
+          await setDoc(doc(db, "users", currentUser.uid), extraFields, { merge: true });
           showToast("Round complete! Agli baar aur try karein.");
         }
       }
+    };
+
+    // MATIKS-STYLE 1-VS-1 LIVE BATTLE ARENA (Math Dual, Mind Snap Dual, Puzzle Dual)
+    let arenaStakeMode = "free";
+    let duelTimerIv = null;
+    let duelBotIv = null;
+    let duelMyPts = 0;
+    let duelOppPts = 0;
+    let duelCorrectAnswer = "";
+    let activeDuelType = "math";
+
+    window.setArenaStake = (mode, btnEl) => {
+      arenaStakeMode = mode;
+      document.querySelectorAll("#view-arena .sub-tab-btn").forEach(b => b.classList.remove("active"));
+      btnEl.classList.add("active");
+    };
+
+    window.startArenaDuel = async (type) => {
+      if (!currentUser) return openModal("modal-auth");
+      const today = getISTDateStr();
+      const freeUsed = userData.arenaFreeDate === today ? (Number(userData.arenaFreeUsed) || 0) : 0;
+
+      if (arenaStakeMode === "free") {
+        if (freeUsed >= 3) return showToast("Aaj ke 3 Free Duels poore! 20-Coin Duel khelein.");
+        userData.arenaFreeDate = today;
+        userData.arenaFreeUsed = freeUsed + 1;
+      } else {
+        if ((Number(userData.coins) || 0) < 20) return showToast("20-Coin Duel ke liye kam-az-kam 20 Coins chahiye!");
+        userData.coins -= 20;
+        await logPassbook("Arena 20-Coin Duel Entry", "-20 🪙");
+      }
+
+      renderUI();
+      await setDoc(doc(db, "users", currentUser.uid), {
+        coins: userData.coins,
+        arenaFreeDate: userData.arenaFreeDate,
+        arenaFreeUsed: userData.arenaFreeUsed
+      }, { merge: true });
+
+      activeDuelType = type;
+      duelMyPts = 0;
+      duelOppPts = 0;
+      const rivals = ["Rohan_Pro", "Simran_07", "Kabir_Math", "Ananya_X", "Gurpreet_SD", "Vikram_99"];
+      const rivalName = rivals[Math.floor(Math.random() * rivals.length)];
+
+      document.getElementById("duelModeTitle").textContent =
+        type === "math" ? "⚡ MATH DUAL" : type === "mindsnap" ? "👁️ MIND SNAP DUAL" : "🧩 PUZZLE DUAL";
+      document.getElementById("duelOppName").textContent = rivalName;
+      document.getElementById("duelMyScore").textContent = "0";
+      document.getElementById("duelOppScore").textContent = "0";
+      openModal("modal-duel");
+
+      let timeLeft = 30;
+      document.getElementById("duelTimerPill").textContent = `${timeLeft}s`;
+      nextArenaQuestion();
+
+      clearInterval(duelTimerIv);
+      clearInterval(duelBotIv);
+
+      duelBotIv = setInterval(() => {
+        if (Math.random() > 0.42) {
+          duelOppPts += 10;
+          document.getElementById("duelOppScore").textContent = duelOppPts;
+        }
+      }, 3200);
+
+      duelTimerIv = setInterval(async () => {
+        timeLeft--;
+        document.getElementById("duelTimerPill").textContent = `${timeLeft}s`;
+        if (timeLeft <= 0) {
+          finishArenaDuel();
+        }
+      }, 1000);
+    };
+
+    function nextArenaQuestion() {
+      const promptEl = document.getElementById("duelPromptBox");
+      const optsEl = document.getElementById("duelOptionsGrid");
+
+      if (activeDuelType === "math") {
+        const a = 6 + Math.floor(Math.random() * 19);
+        const b = 3 + Math.floor(Math.random() * 14);
+        const isMul = Math.random() > 0.5 && a < 16 && b < 12;
+        const ans = isMul ? a * b : a + b;
+        duelCorrectAnswer = String(ans);
+        promptEl.textContent = isMul ? `${a} × ${b} = ?` : `${a} + ${b} = ?`;
+        const choices = [ans, ans + 2, ans - 2, ans + 5].map(String).sort(() => 0.5 - Math.random());
+        optsEl.innerHTML = choices.map(c => `<button class="btn btn-primary" style="padding:12px;font-size:15px;" onclick="submitDuelAnswer('${c}')">${c}</button>`).join("");
+      } else if (activeDuelType === "mindsnap") {
+        const code = String(Math.floor(1000 + Math.random() * 8999));
+        duelCorrectAnswer = code;
+        promptEl.textContent = `Memorize: ${code}`;
+        optsEl.innerHTML = `<div style="grid-column:span 2;font-size:12px;color:var(--text-muted);">Yaad rakho... 2 second mein chhup jayega!</div>`;
+        setTimeout(() => {
+          if (!document.getElementById("modal-duel").classList.contains("open")) return;
+          promptEl.textContent = "Number kya tha? Snap!";
+          const f1 = String(Number(code) + 10);
+          const f2 = String(Number(code) - 11);
+          const f3 = code.split("").reverse().join("");
+          const choices = Array.from(new Set([code, f1, f2, f3])).slice(0, 4).sort(() => 0.5 - Math.random());
+          optsEl.innerHTML = choices.map(c => `<button class="btn btn-gold" style="padding:12px;font-size:15px;" onclick="submitDuelAnswer('${c}')">${c}</button>`).join("");
+        }, 1600);
+      } else {
+        const start = 2 + Math.floor(Math.random() * 6);
+        const step = 3 + Math.floor(Math.random() * 5);
+        const s1 = start, s2 = start + step, s3 = start + step * 2, ans = start + step * 3;
+        duelCorrectAnswer = String(ans);
+        promptEl.textContent = `${s1}, ${s2}, ${s3}, ?`;
+        const choices = [ans, ans + step, ans - 1, ans + 2].map(String).sort(() => 0.5 - Math.random());
+        optsEl.innerHTML = choices.map(c => `<button class="btn btn-primary" style="padding:12px;font-size:15px;" onclick="submitDuelAnswer('${c}')">${c}</button>`).join("");
+      }
+    }
+
+    window.submitDuelAnswer = (chosen) => {
+      if (chosen === duelCorrectAnswer) {
+        duelMyPts += 10;
+      } else {
+        duelMyPts = Math.max(0, duelMyPts - 5);
+      }
+      document.getElementById("duelMyScore").textContent = duelMyPts;
+      nextArenaQuestion();
+    };
+
+    async function finishArenaDuel() {
+      clearInterval(duelTimerIv);
+      clearInterval(duelBotIv);
+      closeModal("modal-duel");
+
+      const today = getISTDateStr();
+      let newArenaStreak = Number(userData.arenaStreak) || 0;
+      if (userData.lastArenaDate !== today) {
+        newArenaStreak += 1;
+      }
+
+      if (duelMyPts >= duelOppPts) {
+        const winCoins = arenaStakeMode === "coin20" ? 35 : 10;
+        await awardReward(winCoins, 5, `Arena ${activeDuelType.toUpperCase()} Win`, null, {
+          arenaRating: (Number(userData.arenaRating) || 1000) + 15,
+          arenaWins: (Number(userData.arenaWins) || 0) + 1,
+          arenaStreak: newArenaStreak,
+          lastArenaDate: today
+        });
+        showToast(`🏆 You Won (${duelMyPts} vs ${duelOppPts})! +${winCoins} Coins!`);
+      } else {
+        userData.arenaRating = Math.max(800, (Number(userData.arenaRating) || 1000) - 8);
+        userData.arenaStreak = newArenaStreak;
+        userData.lastArenaDate = today;
+        renderUI();
+        await setDoc(doc(db, "users", currentUser.uid), {
+          arenaRating: userData.arenaRating,
+          arenaStreak: newArenaStreak,
+          lastArenaDate: today
+        }, { merge: true });
+        showToast(`Match Lost (${duelMyPts} vs ${duelOppPts}). Streak: ${newArenaStreak} 🔥`);
+      }
+    }
+
+    window.forfeitDuel = () => {
+      clearInterval(duelTimerIv);
+      clearInterval(duelBotIv);
+      closeModal("modal-duel");
     };
 
     // Hourly Box & Promo Code
@@ -2987,7 +3364,7 @@
       const now = Date.now();
       const diffMins = Math.floor((now - (userData.lastHourlyTs || 0)) / 60000);
       if (diffMins < 60) return showToast(`Agla box ${60 - diffMins} minute baad khulega!`);
-      await awardReward(5, 5, "Hourly Mystery Box", null, { lastHourlyTs: now });
+      await awardReward(5, 2, "Hourly Mystery Box", null, { lastHourlyTs: now });
     };
 
     window.redeemPromoCode = async () => {
@@ -3005,7 +3382,7 @@
         used.push(code);
         document.getElementById("promoCodeInput").value = "";
         await setDoc(doc(db, "config", "appSettings"), { promoUsedCount: increment(1) }, { merge: true });
-        await awardReward(activePromo.coins, 10, `Promo Code (${code})`, null, { usedPromos: used });
+        await awardReward(activePromo.coins, 4, `Promo Code (${code})`, null, { usedPromos: used });
       } else {
         showToast("Invalid or expired Promo Code");
       }
@@ -3330,12 +3707,13 @@
           watchDate: "", watchCountToday: 0, scratchDate: "", scratchCountToday: 0,
           spinDate: "", spinCountToday: 0, flipDate: "", flipCountToday: 0,
           diceDate: "", diceCountToday: 0, rushDate: "", rushCountToday: 0,
-          quizDate: "", quizPlaysToday: 0, seenQuizIds: [],
+          quizDate: "", quizPlaysToday: 0, extraQuizCredits: 0, seenQuizIds: [],
+          arenaRating: 1000, arenaWins: 0, arenaStreak: 0, lastArenaDate: "", arenaFreeDate: "", arenaFreeUsed: 0,
           lastHourlyTs: 0, usedPromos: [], completedActions: {},
           refCode: genRefCode, referredBy: appliedRef, refCount: 0, refCoins: 0,
-          banned: false, createdAt: serverTimestamp()
+          banned: false
         };
-        await setDoc(ref, userData);
+        await setDoc(ref, JSON.parse(JSON.stringify(userData)));
 
         if (appliedRef && appliedRef !== genRefCode) {
           const q = query(collection(db, "users"), where("refCode", "==", appliedRef), limit(1));
@@ -3351,7 +3729,7 @@
               refCount: increment(1),
               refCoins: increment(bonus),
               coins: increment(bonus),
-              xp: increment(40)
+              xp: increment(15)
             });
           });
         }
@@ -3411,7 +3789,7 @@
 
     window.shareRefLink = () => {
       const link = document.getElementById("myRefLinkInput").value;
-      const text = `Join SkillDrop — 1,000 Coins = ₹10 Google Play & Amazon Gift Cards! Mix Quiz (Easy to Ultra Hard), Spin & 6 Games: ${link}`;
+      const text = `Join SkillDrop — 1,000 Coins = ₹10 Google Play & Amazon Gift Cards! 1v1 Live Arena, Mix Quiz & 6 Games: ${link}`;
       if (navigator.share) {
         navigator.share({ title: "SkillDrop", text, url: link });
       } else {
@@ -3420,7 +3798,7 @@
     };
 
     window.shareCreatorCard = () => {
-      const cardText = `🪪 SkillDrop Verified Creator\n👤 ${userData.name} (${userData.uniqueId || 'SD'})\n⭐ Level ${userData.level} • ${userData.skill}\n🔗 Join: https://harrybk90.github.io/SkillDrop-/?ref=${userData.refCode || 'ITZH-152'}`;
+      const cardText = `🪪 SkillDrop Verified Creator\n👤 ${userData.name} (${userData.uniqueId || 'SD'})\n⭐ Level ${userData.level} • Arena ELO ${userData.arenaRating || 1000}\n🔗 Join: https://harrybk90.github.io/SkillDrop-/?ref=${userData.refCode || 'ITZH-152'}`;
       if (navigator.share) navigator.share({ title: "SkillDrop Card", text: cardText });
       else { navigator.clipboard.writeText(cardText); showToast("Creator Card copied!"); }
     };
@@ -3453,7 +3831,7 @@
       userData.avatar = selectedAvatar;
       renderUI();
       closeModal("modal-edit-profile");
-      await setDoc(doc(db, "users", currentUser.uid), userData, { merge: true });
+      await setDoc(doc(db, "users", currentUser.uid), JSON.parse(JSON.stringify(userData)), { merge: true });
       showToast("Profile saved!");
     };
 
