@@ -3,26 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" content="#070b14" />
+  <meta name="theme-color" content="#135E3D" />
   <title>SkillDrop — Play • Duel • Earn</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-main: #070b14;
-      --bg-card: rgba(16, 24, 40, 0.94);
-      --border-subtle: rgba(45, 212, 191, 0.16);
-      --border-strong: rgba(45, 212, 191, 0.42);
-      --teal: #14b8a6;
-      --teal-bright: #2dd4bf;
-      --teal-glow: rgba(20, 184, 166, 0.28);
-      --gold: #f59e0b;
-      --gold-soft: rgba(245, 158, 11, 0.16);
-      --indigo: #6366f1;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --danger: #ef4444;
+      --bg-main: #F3F7F5;
+      --bg-card: #FFFFFF;
+      --bg-soft: #EBF3EF;
+      --border-subtle: #E2ECE7;
+      --border-strong: #B7D5C7;
+      --emerald: #135E3D;
+      --emerald-mid: #1B7A50;
+      --emerald-light: #E6F4ED;
+      --blue-tile: #3B82F6;
+      --gold: #F59E0B;
+      --gold-soft: #FEF3C7;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --danger: #DC2626;
+      --shadow-sm: 0 2px 10px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 8px 24px rgba(19, 94, 61, 0.12);
     }
 
     * {
@@ -34,28 +37,29 @@
     }
 
     body {
-      background: radial-gradient(circle at 50% 0%, #132240 0%, var(--bg-main) 58%);
+      background: var(--bg-main);
       color: var(--text-main);
       min-height: 100vh;
-      padding-bottom: 92px;
+      padding-bottom: 88px;
       overflow-x: hidden;
     }
 
     .app-container {
       max-width: 480px;
       margin: 0 auto;
-      padding: 10px 13px;
+      padding: 10px 14px;
     }
 
-    /* Real Withdrawal Ticker */
+    /* Live Withdrawal Ticker */
     .ticker-bar {
-      background: rgba(20, 184, 166, 0.1);
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      padding: 5px 10px;
+      background: var(--emerald-light);
+      border: 1px solid var(--border-strong);
+      border-radius: 12px;
+      padding: 6px 10px;
       font-size: 11px;
-      color: #ccfbf1;
-      margin-bottom: 9px;
+      font-weight: 600;
+      color: var(--emerald);
+      margin-bottom: 10px;
       overflow: hidden;
       white-space: nowrap;
       display: flex;
@@ -65,61 +69,61 @@
 
     .ticker-text {
       display: inline-block;
-      animation: tickerMove 20s linear infinite;
+      animation: tickerMove 22s linear infinite;
     }
 
     @keyframes tickerMove {
-      0% { transform: translateX(35%); }
+      0% { transform: translateX(30%); }
       100% { transform: translateX(-100%); }
     }
 
-    /* Clean Top Header */
+    /* Top Header */
     .top-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 6px;
-      padding: 9px 12px;
+      gap: 8px;
+      padding: 10px 14px;
       background: var(--bg-card);
-      backdrop-filter: blur(16px);
       border: 1px solid var(--border-subtle);
       border-radius: 18px;
-      margin-bottom: 10px;
+      margin-bottom: 11px;
       position: sticky;
       top: 6px;
       z-index: 50;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      box-shadow: var(--shadow-sm);
     }
 
     .brand-box {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 10px;
       cursor: pointer;
       user-select: none;
     }
 
     .brand-logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 11px;
-      background: linear-gradient(135deg, #0d9488, #2dd4bf);
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--emerald), #22A06B);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 15px var(--teal-glow);
+      box-shadow: 0 4px 12px rgba(19, 94, 61, 0.25);
       flex-shrink: 0;
     }
 
     .brand-title {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 800;
       letter-spacing: -0.3px;
+      color: var(--text-main);
       line-height: 1.1;
     }
 
     .brand-title span {
-      color: var(--teal-bright);
+      color: var(--emerald);
     }
 
     .live-pill {
@@ -128,9 +132,9 @@
       gap: 5px;
       font-size: 10px;
       font-weight: 700;
-      color: var(--teal-bright);
-      background: rgba(20, 184, 166, 0.14);
-      padding: 2px 7px;
+      color: var(--emerald);
+      background: var(--emerald-light);
+      padding: 2px 8px;
       border-radius: 99px;
       margin-top: 2px;
     }
@@ -138,7 +142,7 @@
     .live-dot {
       width: 6px;
       height: 6px;
-      background: #22c55e;
+      background: #16A34A;
       border-radius: 50%;
       animation: pulse 1.6s infinite;
     }
@@ -151,14 +155,14 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
     }
 
     .icon-btn {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.06);
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      background: var(--bg-soft);
       border: 1px solid var(--border-subtle);
       color: var(--text-main);
       display: flex;
@@ -166,25 +170,25 @@
       justify-content: center;
       cursor: pointer;
       position: relative;
-      font-size: 14px;
+      font-size: 15px;
     }
 
     .notif-dot {
       position: absolute;
-      top: 5px;
-      right: 5px;
+      top: 6px;
+      right: 6px;
       width: 7px;
       height: 7px;
       background: var(--danger);
       border-radius: 50%;
     }
 
-    /* Important Notice Board */
+    /* Notice Banner */
     .notice-card {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.14), rgba(99, 102, 241, 0.12));
-      border: 1px solid rgba(245, 158, 11, 0.42);
-      border-radius: 15px;
-      padding: 11px 13px;
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-radius: 16px;
+      padding: 11px 14px;
       margin-bottom: 11px;
     }
 
@@ -198,23 +202,23 @@
     .notice-badge {
       font-size: 10.5px;
       font-weight: 800;
-      color: #fbbf24;
+      color: #B45309;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
     }
 
     .notice-body {
       font-size: 12px;
       line-height: 1.45;
-      color: #fef3c7;
+      color: #78350F;
     }
 
-    /* Adsterra Sponsored Slots */
+    /* Adsterra Sponsored Box */
     .ad-wrapper {
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px dashed rgba(255, 255, 255, 0.14);
+      background: var(--bg-card);
+      border: 1px dashed var(--border-strong);
       border-radius: 14px;
-      padding: 7px 5px;
+      padding: 6px;
       margin: 10px 0;
       text-align: center;
     }
@@ -222,59 +226,73 @@
     .ad-tag {
       font-size: 9px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
       color: var(--text-muted);
       margin-bottom: 4px;
       display: block;
+      font-weight: 700;
     }
 
     .ad-slot-box {
-      min-height: 52px;
+      min-height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
     }
 
-    /* Hero Wallet Card */
+    /* Hero Emerald Wallet Card (Play Store Fintech Look) */
     .hero-card {
-      background: linear-gradient(145deg, #12213c 0%, #0b1222 100%);
-      border: 1px solid var(--border-strong);
-      border-radius: 20px;
-      padding: 15px;
-      margin-bottom: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      background: linear-gradient(135deg, #135E3D 0%, #0D442B 100%);
+      color: #FFFFFF;
+      border-radius: 22px;
+      padding: 18px;
+      margin-bottom: 13px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -30px;
+      top: -30px;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      pointer-events: none;
     }
 
     .hero-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .level-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: var(--gold-soft);
-      border: 1px solid rgba(245, 158, 11, 0.38);
-      color: #fbbf24;
+      gap: 5px;
+      background: rgba(255, 255, 255, 0.16);
+      color: #FEF3C7;
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 700;
       padding: 4px 10px;
       border-radius: 99px;
     }
 
     .uid-pill {
       display: inline-block;
-      margin-top: 5px;
+      margin-top: 6px;
       font-size: 11px;
       font-weight: 700;
-      color: var(--teal-bright);
-      background: rgba(20, 184, 166, 0.12);
-      padding: 2px 8px;
-      border-radius: 6px;
+      color: #D1FAE5;
+      background: rgba(0, 0, 0, 0.22);
+      padding: 3px 9px;
+      border-radius: 7px;
       cursor: pointer;
     }
 
@@ -283,18 +301,18 @@
     }
 
     .coin-amount {
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 800;
-      color: var(--teal-bright);
+      color: #FFFFFF;
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 4px;
+      gap: 5px;
     }
 
     .inr-equiv {
-      font-size: 11px;
-      color: var(--text-muted);
+      font-size: 11.5px;
+      color: #A7F3D0;
       font-weight: 600;
     }
 
@@ -302,15 +320,15 @@
       display: flex;
       justify-content: space-between;
       font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 5px;
+      color: #D1FAE5;
+      margin-bottom: 6px;
       font-weight: 600;
     }
 
     .xp-bar {
       width: 100%;
       height: 8px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.18);
       border-radius: 99px;
       overflow: hidden;
     }
@@ -318,37 +336,39 @@
     .xp-fill {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, var(--teal), #fbbf24);
+      background: linear-gradient(90deg, #FBBF24, #34D399);
       border-radius: 99px;
       transition: width 0.4s ease;
     }
 
-    /* 7-Day Visual Streak Bar */
+    /* 7-Day Streak Grid */
     .streak-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 5px;
-      margin-top: 10px;
+      margin-top: 11px;
     }
 
     .streak-day {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--bg-soft);
+      border: 1px solid var(--border-subtle);
       border-radius: 10px;
       padding: 6px 2px;
       text-align: center;
       font-size: 10px;
+      color: var(--text-muted);
     }
 
     .streak-day.claimed {
-      background: rgba(20, 184, 166, 0.22);
-      border-color: var(--teal);
-      color: var(--teal-bright);
+      background: var(--emerald-light);
+      border-color: var(--emerald);
+      color: var(--emerald);
     }
 
     .streak-day.today {
-      border-color: #fbbf24;
+      border-color: var(--gold);
       background: var(--gold-soft);
+      color: #B45309;
     }
 
     .streak-day strong {
@@ -357,7 +377,7 @@
       margin-top: 2px;
     }
 
-    /* Section Headings */
+    /* Section Headers */
     .sec-head {
       display: flex;
       align-items: center;
@@ -366,26 +386,28 @@
     }
 
     .sec-title {
-      font-size: 14.5px;
+      font-size: 15px;
       font-weight: 800;
+      color: var(--text-main);
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
     .sec-sub {
-      font-size: 11px;
-      color: var(--teal-bright);
+      font-size: 11.5px;
+      color: var(--emerald);
       font-weight: 700;
     }
 
-    /* Cards & Task Rows */
+    /* Clean White Cards */
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
-      padding: 13px;
+      padding: 14px;
       margin-bottom: 10px;
+      box-shadow: var(--shadow-sm);
     }
 
     .task-row {
@@ -403,20 +425,21 @@
     }
 
     .social-icon-box {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
+      width: 44px;
+      height: 44px;
+      border-radius: 13px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--emerald-light);
+      color: var(--emerald);
     }
 
     .task-info h4 {
       font-size: 13.5px;
       font-weight: 700;
+      color: var(--text-main);
       margin-bottom: 2px;
     }
 
@@ -430,13 +453,13 @@
       margin-top: 4px;
       font-size: 10.5px;
       font-weight: 700;
-      color: #fbbf24;
+      color: #B45309;
       background: var(--gold-soft);
       padding: 2px 8px;
       border-radius: 6px;
     }
 
-    /* Watch Progress Strip */
+    /* Watch Bar */
     .watch-bar-wrap {
       margin-top: 9px;
       display: none;
@@ -445,7 +468,7 @@
     .watch-bar-track {
       width: 100%;
       height: 6px;
-      background: rgba(255, 255, 255, 0.08);
+      background: var(--bg-soft);
       border-radius: 99px;
       overflow: hidden;
     }
@@ -453,19 +476,19 @@
     .watch-bar-fill {
       height: 100%;
       width: 0%;
-      background: var(--teal-bright);
+      background: var(--emerald);
       transition: width 0.25s linear;
     }
 
     /* Buttons */
     .btn {
       border: none;
-      border-radius: 11px;
-      padding: 8px 13px;
+      border-radius: 12px;
+      padding: 9px 14px;
       font-size: 12px;
       font-weight: 700;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.18s;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -478,39 +501,45 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--teal), #0d9488);
-      color: #fff;
-      box-shadow: 0 4px 14px var(--teal-glow);
+      background: var(--emerald);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(19, 94, 61, 0.2);
     }
 
     .btn-gold {
-      background: linear-gradient(135deg, #f59e0b, #d97706);
-      color: #070b14;
+      background: #F59E0B;
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.22);
+    }
+
+    .btn-blue {
+      background: #2563EB;
+      color: #FFFFFF;
     }
 
     .btn-outline {
-      background: rgba(255, 255, 255, 0.06);
+      background: var(--bg-soft);
       color: var(--text-main);
       border: 1px solid var(--border-subtle);
     }
 
     .btn-danger {
-      background: rgba(239, 68, 68, 0.16);
-      color: #fca5a5;
-      border: 1px solid rgba(239, 68, 68, 0.35);
+      background: #FEE2E2;
+      color: var(--danger);
+      border: 1px solid #FECACA;
     }
 
     .btn-done {
-      background: rgba(20, 184, 166, 0.14);
-      color: var(--teal-bright);
-      border: 1px solid rgba(20, 184, 166, 0.3);
+      background: var(--emerald-light);
+      color: var(--emerald);
+      border: 1px solid var(--border-strong);
       cursor: default;
     }
 
     .btn-locked {
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text-muted);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #F1F5F9;
+      color: #94A3B8;
+      border: 1px solid #E2E8F0;
       cursor: not-allowed;
     }
 
@@ -520,29 +549,37 @@
       font-size: 13px;
     }
 
-    /* Mini Games Grid */
+    /* Skill Games Grid */
     .games-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 9px;
+      gap: 10px;
       margin-bottom: 10px;
     }
 
     .game-tile {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 15px;
-      padding: 12px;
+      border-radius: 16px;
+      padding: 13px;
       text-align: center;
+      box-shadow: var(--shadow-sm);
     }
 
     .game-tile .g-ico {
-      font-size: 26px;
-      margin-bottom: 4px;
+      width: 44px;
+      height: 44px;
+      border-radius: 13px;
+      background: var(--emerald-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin: 0 auto 7px;
     }
 
     .game-tile h5 {
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 800;
       margin-bottom: 2px;
     }
@@ -550,62 +587,134 @@
     .game-tile p {
       font-size: 10.5px;
       color: var(--text-muted);
-      margin-bottom: 8px;
+      margin-bottom: 9px;
     }
 
-    /* Matiks-Style 1-vs-1 Arena UI */
+    /* Matiks-Style Arena UI (Clean Bright Theme) */
     .arena-banner {
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(20, 184, 166, 0.18));
-      border: 1px solid var(--border-strong);
-      border-radius: 18px;
-      padding: 14px;
+      background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+      color: #FFFFFF;
+      border-radius: 20px;
+      padding: 16px;
       margin-bottom: 12px;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
     }
 
     .arena-stats-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 7px;
-      margin-top: 10px;
+      gap: 8px;
+      margin-top: 12px;
     }
 
+    .arena-stat-pill {
+      background: rgba(255, 255, 255, 0.14);
+      padding: 8px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .arena-stat-pill strong {
+      display: block;
+      font-size: 15px;
+      color: #fff;
+    }
+
+    .arena-stat-pill span {
+      font-size: 10px;
+      color: #DBEAFE;
+    }
+
+    /* Matiks Custom Numpad & Memory Tiles */
     .duel-scoreboard {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(0, 0, 0, 0.45);
-      padding: 10px 12px;
-      border-radius: 12px;
+      background: var(--bg-soft);
+      padding: 10px 14px;
+      border-radius: 14px;
       margin-bottom: 10px;
       border: 1px solid var(--border-subtle);
     }
 
-    /* Flip Cards */
-    .flip-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 9px;
-      margin: 14px 0;
-    }
-
-    .flip-card {
-      height: 92px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      border: 2px solid var(--teal-bright);
+    .matiks-ans-box {
+      width: 200px;
+      height: 50px;
+      margin: 8px auto 12px;
+      background: #F8FAFC;
+      border: 2px solid #2563EB;
+      border-radius: 13px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .matiks-ans-box.correct {
+      border-color: #16A34A;
+      background: #DCFCE7;
+    }
+
+    .matiks-ans-box.wrong {
+      border-color: #DC2626;
+      background: #FEE2E2;
+      animation: shake 0.25s;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+
+    .matiks-numpad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+      margin-bottom: 10px;
+    }
+
+    .m-key {
+      background: var(--bg-soft);
+      border: 1px solid var(--border-subtle);
+      border-radius: 11px;
+      height: 48px;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-main);
       cursor: pointer;
     }
 
-    .flip-card.revealed {
-      background: var(--gold-soft);
-      border-color: #fbbf24;
-      color: #fbbf24;
-      font-size: 15px;
+    .m-key:active {
+      background: #CBD5E1;
+      transform: scale(0.96);
+    }
+
+    .mem-grid-board {
+      display: grid;
+      grid-template-columns: repeat(3, 76px);
+      grid-template-rows: repeat(3, 76px);
+      gap: 9px;
+      justify-content: center;
+      margin: 14px auto;
+    }
+
+    .mem-tile {
+      background: #E2E8F0;
+      border-radius: 13px;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .mem-tile.glow {
+      background: var(--blue-tile);
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.45);
+    }
+
+    .mem-tile.wrong-tile {
+      background: var(--danger);
     }
 
     /* Scratch Card Canvas */
@@ -616,12 +725,13 @@
       margin: 12px auto;
       border-radius: 16px;
       overflow: hidden;
-      border: 2px solid #fbbf24;
-      background: linear-gradient(135deg, #115e59, #0f766e);
+      border: 2px solid var(--gold);
+      background: linear-gradient(135deg, var(--emerald), #1B7A50);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      color: #fff;
     }
 
     #scratchCanvas {
@@ -637,35 +747,34 @@
       height: 148px;
       margin: 0 auto 12px;
       border-radius: 50%;
-      border: 4px solid #fbbf24;
+      border: 4px solid var(--gold);
       background: conic-gradient(
-        #0d9488 0deg 60deg,
-        #0f172a 60deg 120deg,
-        #d97706 120deg 180deg,
-        #0f172a 180deg 240deg,
-        #6366f1 240deg 300deg,
-        #0f172a 300deg 360deg
+        #135E3D 0deg 60deg,
+        #E2ECE7 60deg 120deg,
+        #F59E0B 120deg 180deg,
+        #E2ECE7 180deg 240deg,
+        #2563EB 240deg 300deg,
+        #E2ECE7 300deg 360deg
       );
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 22px rgba(245, 158, 11, 0.25);
       transition: transform 2.4s cubic-bezier(0.17, 0.67, 0.14, 0.99);
     }
 
     .wheel-center {
-      width: 54px;
-      height: 54px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
-      background: #070b14;
-      border: 2px solid var(--teal-bright);
+      background: #FFFFFF;
+      border: 2px solid var(--emerald);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 20px;
     }
 
-    /* Quiz Difficulty Grid & Options */
+    /* Quiz Grid */
     .diff-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -674,17 +783,12 @@
     }
 
     .diff-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
+      background: var(--bg-soft);
+      border: 1.5px solid var(--border-subtle);
       border-radius: 13px;
       padding: 11px 8px;
       text-align: center;
       cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .diff-card:active {
-      transform: scale(0.96);
     }
 
     .diff-card h5 {
@@ -696,13 +800,13 @@
     .diff-card span {
       font-size: 10.5px;
       font-weight: 700;
-      color: #fbbf24;
+      color: #B45309;
     }
 
     .quiz-opt {
       width: 100%;
       text-align: left;
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--bg-soft);
       border: 1px solid var(--border-subtle);
       color: var(--text-main);
       padding: 10px 12px;
@@ -717,50 +821,50 @@
     .redeem-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 9px;
+      gap: 10px;
       margin-bottom: 12px;
     }
 
     .redeem-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 15px;
-      padding: 12px;
+      border-radius: 16px;
+      padding: 13px;
       text-align: center;
+      box-shadow: var(--shadow-sm);
     }
 
     .brand-svg-wrap {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: #ffffff;
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
+      background: var(--bg-soft);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 7px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      margin: 0 auto 8px;
     }
 
     .redeem-card h5 {
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 800;
       margin-bottom: 3px;
     }
 
     .redeem-card p {
-      font-size: 11px;
-      color: #fbbf24;
+      font-size: 11.5px;
+      color: var(--emerald);
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 9px;
     }
 
     /* Sub-tabs */
     .sub-tabs {
       display: flex;
       gap: 6px;
-      background: rgba(255, 255, 255, 0.04);
+      background: var(--bg-soft);
       padding: 4px;
-      border-radius: 12px;
+      border-radius: 13px;
       margin-bottom: 10px;
     }
 
@@ -769,23 +873,24 @@
       border: none;
       background: transparent;
       color: var(--text-muted);
-      padding: 7px 6px;
-      border-radius: 9px;
+      padding: 8px 6px;
+      border-radius: 10px;
       font-size: 11.5px;
       font-weight: 700;
       cursor: pointer;
     }
 
     .sub-tab-btn.active {
-      background: var(--teal);
-      color: #fff;
+      background: var(--bg-card);
+      color: var(--emerald);
+      box-shadow: var(--shadow-sm);
     }
 
     /* Community Feed & Chat */
     .chat-box {
-      height: 290px;
+      height: 280px;
       overflow-y: auto;
-      background: rgba(0, 0, 0, 0.35);
+      background: var(--bg-soft);
       border: 1px solid var(--border-subtle);
       border-radius: 14px;
       padding: 10px;
@@ -796,68 +901,28 @@
     }
 
     .chat-msg {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 11px;
-      padding: 8px 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 8px 11px;
       font-size: 12px;
     }
 
     .chat-msg.mine {
-      background: rgba(20, 184, 166, 0.16);
-      border: 1px solid rgba(20, 184, 166, 0.3);
+      background: var(--emerald-light);
+      border-color: var(--border-strong);
       align-self: flex-end;
       max-width: 85%;
     }
 
-    /* Level Roadmap Grid */
-    .level-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 9px;
-      margin-top: 8px;
-    }
-
-    .lvl-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 11px;
-    }
-
-    .lvl-card.unlocked {
-      border-color: var(--teal);
-      background: linear-gradient(160deg, rgba(20, 184, 166, 0.14), rgba(16, 24, 40, 0.92));
-    }
-
-    .lvl-card.locked {
-      opacity: 0.65;
-    }
-
-    .lvl-tag {
-      font-size: 10px;
-      font-weight: 800;
-      color: var(--teal-bright);
-      text-transform: uppercase;
-    }
-
-    .lvl-card h5 {
-      font-size: 12.5px;
-      margin: 3px 0;
-    }
-
-    .lvl-card p {
-      font-size: 10.5px;
-      color: var(--text-muted);
-      line-height: 1.35;
-    }
-
     /* Referral & Stats */
     .ref-box {
-      background: linear-gradient(135deg, rgba(20, 184, 166, 0.14), rgba(99, 102, 241, 0.12));
+      background: var(--bg-card);
       border: 1px solid var(--border-strong);
-      border-radius: 16px;
-      padding: 14px;
+      border-radius: 18px;
+      padding: 15px;
       margin-bottom: 12px;
+      box-shadow: var(--shadow-sm);
     }
 
     .ref-link-row {
@@ -868,12 +933,12 @@
 
     .ref-input {
       flex: 1;
-      background: rgba(0, 0, 0, 0.45);
+      background: var(--bg-soft);
       border: 1px solid var(--border-subtle);
-      color: var(--teal-bright);
-      padding: 9px 10px;
-      border-radius: 10px;
-      font-size: 11px;
+      color: var(--text-main);
+      padding: 9px 11px;
+      border-radius: 11px;
+      font-size: 11.5px;
       font-weight: 600;
       outline: none;
     }
@@ -886,104 +951,93 @@
     }
 
     .stat-mini {
-      background: rgba(0, 0, 0, 0.35);
-      padding: 9px;
-      border-radius: 11px;
+      background: var(--bg-soft);
+      padding: 10px;
+      border-radius: 12px;
       text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .stat-mini strong {
       display: block;
-      font-size: 15px;
-      color: #fff;
+      font-size: 16px;
+      color: var(--emerald);
     }
 
     .stat-mini span {
       font-size: 10.5px;
       color: var(--text-muted);
+      font-weight: 600;
     }
 
-    /* Badges Row */
-    .badges-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 7px;
-      margin: 10px 0;
+    /* Clean Profile & Settings List (Matches Play Store Reference) */
+    .settings-list-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 12px 14px;
+      margin-bottom: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
     }
 
-    .badge-item {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 8px 4px;
-      text-align: center;
-      opacity: 0.45;
-    }
-
-    .badge-item.earned {
-      opacity: 1;
-      border-color: #fbbf24;
-      background: var(--gold-soft);
-    }
-
-    .badge-item span {
-      font-size: 20px;
-      display: block;
-    }
-
-    .badge-item small {
-      font-size: 9.5px;
-      font-weight: 700;
-      display: block;
-      margin-top: 3px;
-    }
-
-    /* Profile Header */
-    .profile-header {
+    .settings-left {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 12px;
     }
 
-    .avatar-circle {
-      width: 62px;
-      height: 62px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, var(--teal), var(--indigo));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      border: 2px solid var(--teal-bright);
-      flex-shrink: 0;
-    }
-
-    .avatar-picker {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin: 8px 0 12px;
-    }
-
-    .av-opt {
-      width: 40px;
-      height: 40px;
+    .set-ico {
+      width: 38px;
+      height: 38px;
       border-radius: 11px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid transparent;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
-      cursor: pointer;
+      font-size: 17px;
     }
 
-    .av-opt.selected {
-      border-color: var(--teal-bright);
-      background: rgba(20, 184, 166, 0.2);
+    .settings-text h5 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-main);
     }
+
+    .settings-text p {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .bonus-tag {
+      background: #DCFCE7;
+      color: #15803D;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 7px;
+    }
+
+    /* Toggle Switch */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute; cursor: pointer; inset: 0;
+      background-color: #CBD5E1; transition: .3s; border-radius: 24px;
+    }
+    .slider:before {
+      position: absolute; content: ""; height: 18px; width: 18px;
+      left: 3px; bottom: 3px; background-color: white;
+      transition: .3s; border-radius: 50%;
+    }
+    input:checked + .slider { background-color: var(--emerald); }
+    input:checked + .slider:before { transform: translateX(20px); }
 
     /* Form Controls */
     .field {
@@ -995,33 +1049,33 @@
       font-size: 11.5px;
       color: var(--text-muted);
       margin-bottom: 4px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .field input, .field select, .field textarea {
       width: 100%;
-      background: rgba(0, 0, 0, 0.45);
+      background: var(--bg-soft);
       border: 1px solid var(--border-subtle);
       border-radius: 11px;
       padding: 10px 12px;
-      color: #fff;
+      color: var(--text-main);
       font-size: 13px;
       outline: none;
     }
 
-    /* Bottom Navigation (6 Compact Tabs) */
+    /* Bottom Navigation */
     .bottom-nav {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(7, 11, 20, 0.97);
-      backdrop-filter: blur(16px);
+      background: #FFFFFF;
       border-top: 1px solid var(--border-subtle);
       display: flex;
       justify-content: space-around;
-      padding: 7px 2px 11px;
+      padding: 7px 4px 11px;
       z-index: 60;
+      box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.04);
     }
 
     .nav-btn {
@@ -1032,16 +1086,16 @@
       flex-direction: column;
       align-items: center;
       gap: 3px;
-      font-size: 9.5px;
+      font-size: 10px;
       font-weight: 700;
       cursor: pointer;
-      padding: 4px 5px;
-      border-radius: 10px;
+      padding: 5px 9px;
+      border-radius: 12px;
     }
 
     .nav-btn.active {
-      color: var(--teal-bright);
-      background: rgba(20, 184, 166, 0.14);
+      color: var(--emerald);
+      background: var(--emerald-light);
     }
 
     /* Views & Modals */
@@ -1062,8 +1116,8 @@
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(6px);
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
       display: none;
       align-items: center;
       justify-content: center;
@@ -1078,26 +1132,27 @@
     .modal-box {
       width: 100%;
       max-width: 420px;
-      background: #0f172a;
-      border: 1px solid var(--border-strong);
-      border-radius: 20px;
-      padding: 17px;
-      max-height: 88vh;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 22px;
+      padding: 18px;
+      max-height: 90vh;
       overflow-y: auto;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     }
 
     .toast {
       position: fixed;
-      top: 70px;
+      top: 72px;
       left: 50%;
       transform: translateX(-50%);
-      background: var(--teal-bright);
-      color: #070b14;
-      font-weight: 800;
+      background: var(--emerald);
+      color: #FFFFFF;
+      font-weight: 700;
       font-size: 12px;
-      padding: 9px 16px;
+      padding: 9px 18px;
       border-radius: 99px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 8px 20px rgba(19, 94, 61, 0.35);
       z-index: 250;
       display: none;
       white-space: nowrap;
@@ -1114,9 +1169,10 @@
     .footer-links button {
       background: none;
       border: none;
-      color: var(--teal-bright);
+      color: var(--emerald);
       text-decoration: underline;
       font-size: 11px;
+      font-weight: 600;
       cursor: pointer;
     }
 
@@ -1124,14 +1180,14 @@
       text-align: center;
       font-size: 10.5px;
       color: var(--text-muted);
-      margin-top: 6px;
+      margin-top: 5px;
       padding-bottom: 8px;
     }
 
     #maintenanceScreen {
       position: fixed;
       inset: 0;
-      background: #070b14;
+      background: var(--bg-main);
       z-index: 90;
       display: none;
       flex-direction: column;
@@ -1153,27 +1209,25 @@
     <p style="font-size: 13px; color: var(--text-muted); max-width: 320px; margin-bottom: 18px;">
       Platform abhi upgrade ho raha hai. 10 minute baad wapas check karein!
     </p>
-    <button class="btn btn-outline" style="font-size: 11px; padding: 7px 14px;" onclick="openModal('modal-auth')">
-      🔐 Owner Login
-    </button>
+    <button class="btn btn-primary" onclick="openModal('modal-auth')">🔐 Owner Login</button>
   </div>
 
   <div class="app-container">
-    <!-- Real Withdrawal Ticker -->
+    <!-- Live Withdrawal Ticker -->
     <div class="ticker-bar">
       <span>💸</span>
       <div class="ticker-text" id="liveTickerText">
-        SkillDrop Official: 1,000 Coins = ₹10 Google Play, Amazon & Flipkart Gift Cards • 1-vs-1 Live Arena & 10% Lifetime Commission!
+        SkillDrop Official: 1,000 Coins = ₹10 Google Play & Amazon • 2,500 Coins = ₹25 UPI • 5,000 Coins = ₹50 UPI • 10% Lifetime Commission!
       </div>
     </div>
 
-    <!-- Clean Top Bar -->
+    <!-- Clean Top Header -->
     <header class="top-bar">
       <div class="brand-box" id="secretLogoTrigger" title="SkillDrop">
         <div class="brand-logo">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#070b14" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-            <polygon points="10 10 15 13 10 16 10 10" fill="#070b14"/>
+            <polygon points="10 10 15 13 10 16 10 10" fill="#FFFFFF"/>
           </svg>
         </div>
         <div>
@@ -1190,18 +1244,18 @@
         <button class="icon-btn" onclick="openModal('modal-notif')" title="Announcements">
           🔔<span class="notif-dot"></span>
         </button>
-        <button id="guestLoginTopBtn" class="btn btn-primary" style="padding: 6px 11px; font-size: 11px;" onclick="openModal('modal-auth')">Login</button>
+        <button id="guestLoginTopBtn" class="btn btn-primary" style="padding: 7px 12px; font-size: 11.5px;" onclick="openModal('modal-auth')">Login</button>
       </div>
     </header>
 
-    <!-- IMPORTANT NOTICE BOARD -->
+    <!-- Important Notice Board -->
     <section class="notice-card">
       <div class="notice-head">
         <span class="notice-badge">📢 Important Notice • Zaroori Soochna</span>
-        <button style="background:none;border:none;color:#fbbf24;font-size:11px;font-weight:700;cursor:pointer;" onclick="openModal('modal-rules')">Full Rules →</button>
+        <button style="background:none;border:none;color:#B45309;font-size:11px;font-weight:700;cursor:pointer;" onclick="openModal('modal-rules')">Full Rules →</button>
       </div>
       <div class="notice-body" id="importantNoticeText">
-        <strong>1,000 Coins = ₹10</strong> (Google Play, Amazon & Flipkart Gift Cards) • <strong>15,000 Coins = ₹150 UPI</strong>. Har friend ki earning par <strong>10% Lifetime Commission</strong>! Fake accounts ya VPN par account ban ho jayega.
+        <strong>1,000 Coins = ₹10</strong> (Google Play & Amazon) • <strong>2,500 Coins = ₹25 UPI</strong> • <strong>5,000 Coins = ₹50 UPI</strong>. Har friend ki earning par <strong>10% Lifetime Commission</strong>!
       </div>
     </section>
 
@@ -1225,12 +1279,12 @@
     <!-- VIEW 1: HOME -->
     <main id="view-home" class="view active">
 
-      <!-- Hero Wallet & Unique User ID Card -->
+      <!-- Emerald Hero Wallet Card -->
       <section class="hero-card">
         <div class="hero-top">
           <div>
             <div class="level-badge" id="userLevelBadge">⭐ Level 1 • Starter</div>
-            <div style="font-size: 12.5px; font-weight: 700; margin-top: 6px;" id="welcomeUserText">
+            <div style="font-size: 13px; font-weight: 700; margin-top: 7px;" id="welcomeUserText">
               Welcome, Guest Creator!
             </div>
             <div class="uid-pill" id="heroUserIdPill" onclick="copyMyUserId()">ID: GUEST • Tap to Copy</div>
@@ -1253,8 +1307,8 @@
         </div>
       </section>
 
-      <!-- Daily Treasure Chest Combo -->
-      <div class="card" style="border-color: rgba(245, 158, 11, 0.35);">
+      <!-- Daily 5-Task Combo Chest -->
+      <div class="card" style="border-color: #FDE68A;">
         <div class="task-row">
           <div>
             <h4 style="font-size: 13px;">🎁 Daily 5-Task Treasure Chest</h4>
@@ -1264,7 +1318,7 @@
         </div>
       </div>
 
-      <!-- 7-Day Visual Login Streak (100% Fixed) -->
+      <!-- 7-Day Visual Login Streak -->
       <div class="card">
         <div class="task-row">
           <div>
@@ -1277,15 +1331,15 @@
       </div>
 
       <div class="sec-head">
-        <div class="sec-title" id="t-lvl1-title">⚡ Daily Earning Activities</div>
-        <span class="sec-sub">Unlimited Fun & Coins</span>
+        <div class="sec-title" id="t-lvl1-title">⚡ Skill Games & Daily Tasks</div>
+        <span class="sec-sub">Play & Earn Coins</span>
       </div>
 
-      <!-- Watch Partner Spotlight (Connected to Adsterra Smartlink!) -->
+      <!-- Watch Partner Spotlight (Connected to Adsterra Smartlink) -->
       <div class="card">
         <div class="task-row">
           <div class="task-left">
-            <div class="social-icon-box" style="background: rgba(20, 184, 166, 0.14);">
+            <div class="social-icon-box">
               <span style="font-size: 20px;">🎬</span>
             </div>
             <div class="task-info">
@@ -1303,8 +1357,20 @@
         </div>
       </div>
 
-      <!-- 6 Fun Games & Activities Grid -->
+      <!-- 6 Skill-Based Games & Challenges (Roll Dice & Flip Win Removed!) -->
       <div class="games-grid">
+        <div class="game-tile">
+          <div class="g-ico" style="background: #DBEAFE;">⚡</div>
+          <h5>1v1 Math Dual</h5>
+          <p>Matiks Numpad Speed Race</p>
+          <button class="btn btn-blue btn-full" onclick="openMatiksMathModal()">Play Dual</button>
+        </div>
+        <div class="game-tile">
+          <div class="g-ico" style="background: #DBEAFE;">🟦</div>
+          <h5>Memory Pattern</h5>
+          <p>Glow Tiles Brain Grid</p>
+          <button class="btn btn-blue btn-full" onclick="openMemoryGridModal()">Play Grid</button>
+        </div>
         <div class="game-tile">
           <div class="g-ico">🎫</div>
           <h5>Scratch Card</h5>
@@ -1318,20 +1384,8 @@
           <button id="btnOpenSpin" class="btn btn-primary btn-full" onclick="openSpinModal()">Spin</button>
         </div>
         <div class="game-tile">
-          <div class="g-ico">🃏</div>
-          <h5>Flip & Win Cards</h5>
-          <p id="flipLimitLabel">2 / 2 Left Today</p>
-          <button id="btnOpenFlip" class="btn btn-primary btn-full" onclick="openFlipModal()">Flip Card</button>
-        </div>
-        <div class="game-tile">
-          <div class="g-ico">🎲</div>
-          <h5>Lucky Dice (3×)</h5>
-          <p id="diceLimitLabel">2 / 2 Left Today</p>
-          <button id="btnOpenDice" class="btn btn-gold btn-full" onclick="openDiceModal()">Roll Dice</button>
-        </div>
-        <div class="game-tile">
-          <div class="g-ico">⚡</div>
-          <h5>15s Math Rush</h5>
+          <div class="g-ico">⏱️</div>
+          <h5>15s Speed Rush</h5>
           <p id="rushLimitLabel">2 / 2 Left Today</p>
           <button id="btnOpenRush" class="btn btn-primary btn-full" onclick="openRushModal()">Play Rush</button>
         </div>
@@ -1343,7 +1397,7 @@
         </div>
       </div>
 
-      <!-- ADSTERRA NATIVE BANNER SLOT (Clean dedicated box, NOT inside Community) -->
+      <!-- ADSTERRA NATIVE BANNER SLOT -->
       <div class="ad-wrapper">
         <span class="ad-tag">Featured Partner Offer</span>
         <div class="ad-slot-box">
@@ -1356,7 +1410,7 @@
       <div class="card">
         <div class="task-row">
           <div class="task-left">
-            <div class="social-icon-box" style="background: rgba(99, 102, 241, 0.16);">
+            <div class="social-icon-box" style="background: #EEF2FF;">
               <span style="font-size: 20px;">⏳</span>
             </div>
             <div class="task-info">
@@ -1371,9 +1425,9 @@
 
       <!-- Promo Code Redeem Box -->
       <div class="card">
-        <h4 style="font-size: 13.5px; margin-bottom: 4px;">🎟️ Telegram Secret Promo Code</h4>
+        <h4 style="font-size: 13.5px; margin-bottom: 4px;">🎟️ Secret Promo Code</h4>
         <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 8px;">
-          @skill_drop07 Telegram channel par roz naya limited-user code aata hai!
+          @skill_drop07 channel par roz naya limited-user code aata hai!
         </p>
         <div style="display: flex; gap: 7px;">
           <input type="text" id="promoCodeInput" class="ref-input" placeholder="Enter Promo Code (e.g. DROP25)" style="text-transform: uppercase;" />
@@ -1390,8 +1444,8 @@
       <div class="card">
         <div class="task-row">
           <div class="task-left">
-            <div class="social-icon-box">
-              <svg width="23" height="23" viewBox="0 0 24 24" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            <div class="social-icon-box" style="background: #E0F2FE;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#0284C7"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
             </div>
             <div class="task-info">
               <h4>Join Official Telegram</h4>
@@ -1406,8 +1460,8 @@
       <div class="card">
         <div class="task-row">
           <div class="task-left">
-            <div class="social-icon-box">
-              <svg width="23" height="23" viewBox="0 0 24 24"><defs><linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="25%" stop-color="#e6683c"/><stop offset="50%" stop-color="#dc2743"/><stop offset="75%" stop-color="#cc2366"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><path fill="url(#igGrad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <div class="social-icon-box" style="background: #FCE7F3;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#DB2777"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </div>
             <div class="task-info">
               <h4>Follow on Instagram</h4>
@@ -1422,8 +1476,8 @@
       <div class="card">
         <div class="task-row">
           <div class="task-left">
-            <div class="social-icon-box">
-              <svg width="23" height="23" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <div class="social-icon-box" style="background: #FEE2E2;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#DC2626"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </div>
             <div class="task-info">
               <h4>Subscribe on YouTube</h4>
@@ -1434,13 +1488,6 @@
           <button id="btnSocialYt" class="btn btn-primary" onclick="completeSocialTask('yt', 'https://youtube.com/@skill_drop07', 25, 10)">Subscribe</button>
         </div>
       </div>
-
-      <!-- High & Slow XP Level 1 to 6 Roadmap -->
-      <div class="sec-head">
-        <div class="sec-title">🏆 Level 1–6 Creator Roadmap</div>
-        <span class="sec-sub">Up to 40,000 XP</span>
-      </div>
-      <div class="level-grid" id="levelRoadmapGrid"></div>
     </main>
 
     <!-- VIEW 2: MATIKS-STYLE 1-VS-1 LIVE BATTLE ARENA -->
@@ -1448,21 +1495,21 @@
       <div class="arena-banner">
         <div style="display: flex; justify-content: space-between; align-items: center;">
           <div>
-            <h3 style="font-size: 16px; font-weight: 800;">⚔️ SkillDrop 1-vs-1 Arena</h3>
-            <p style="font-size: 11px; color: #ccfbf1;">Fast 30s Brain Duels • Build Your Daily Battle Streak!</p>
+            <h3 style="font-size: 16px; font-weight: 800;">⚔️ Matiks-Style Brain Arena</h3>
+            <p style="font-size: 11px; color: #DBEAFE;">Custom Numpad Math Dual & Glow Memory Grid</p>
           </div>
-          <span class="level-badge" id="arenaStreakPill">🔥 0 Streak</span>
+          <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 99px; font-size: 11px; font-weight: 800;" id="arenaStreakPill">🔥 0 Streak</span>
         </div>
         <div class="arena-stats-row">
-          <div class="stat-mini">
+          <div class="arena-stat-pill">
             <strong id="arenaRatingStat">1000</strong>
             <span>ELO Rating</span>
           </div>
-          <div class="stat-mini">
+          <div class="arena-stat-pill">
             <strong id="arenaWinsStat">0</strong>
             <span>Duels Won</span>
           </div>
-          <div class="stat-mini">
+          <div class="arena-stat-pill">
             <strong id="arenaFreeLeftStat">3 / 3</strong>
             <span>Free Duels</span>
           </div>
@@ -1470,7 +1517,7 @@
       </div>
 
       <!-- Choose Free or 20-Coin Entry Pool -->
-      <div class="card" style="padding: 10px;">
+      <div class="card" style="padding: 11px;">
         <label style="font-size: 11px; color: var(--text-muted); font-weight: 700;">Select Battle Stake Mode:</label>
         <div class="sub-tabs" style="margin-top: 6px; margin-bottom: 0;">
           <button class="sub-tab-btn active" onclick="setArenaStake('free', this)">🆓 Free Duel (+10 🪙 Win)</button>
@@ -1478,52 +1525,54 @@
         </div>
       </div>
 
-      <!-- 3 Dual Modes (Math Dual, Mind Snap Dual, Puzzle Dual) -->
+      <!-- Mode 1: Matiks 1v1 Speed Math Dual -->
       <div class="card">
         <div class="task-row">
           <div class="task-left">
-            <div class="social-icon-box" style="background: rgba(20, 184, 166, 0.16);"><span style="font-size: 20px;">⚡</span></div>
+            <div class="social-icon-box" style="background: #DBEAFE; color: #2563EB;"><span style="font-size: 20px;">⚡</span></div>
             <div class="task-info">
-              <h4>Math Dual (30s Speed Race)</h4>
-              <p>Fast mental calculations vs live opponent</p>
+              <h4>1v1 Speed Math Dual (Numpad)</h4>
+              <p>Custom on-screen numpad • Instant auto-submit</p>
             </div>
           </div>
-          <button class="btn btn-primary" onclick="startArenaDuel('math')">Play Dual</button>
+          <button class="btn btn-blue" onclick="openMatiksMathModal()">Play Dual</button>
         </div>
       </div>
 
+      <!-- Mode 2: Matiks Memory Pattern Grid -->
       <div class="card">
         <div class="task-row">
           <div class="task-left">
-            <div class="social-icon-box" style="background: rgba(245, 158, 11, 0.16);"><span style="font-size: 20px;">👁️</span></div>
+            <div class="social-icon-box" style="background: #DBEAFE; color: #2563EB;"><span style="font-size: 20px;">🟦</span></div>
             <div class="task-info">
-              <h4>Mind Snap Dual (Memory Flash)</h4>
-              <p>2s number flash dekho aur turant snap karo</p>
+              <h4>Memory Pattern Grid (3×3)</h4>
+              <p>Glowing blue tiles yaad karke tap karein</p>
             </div>
           </div>
-          <button class="btn btn-gold" onclick="startArenaDuel('mindsnap')">Play Dual</button>
+          <button class="btn btn-blue" onclick="openMemoryGridModal()">Play Grid</button>
         </div>
       </div>
 
+      <!-- Mode 3: Logic Sequence Dual -->
       <div class="card">
         <div class="task-row">
           <div class="task-left">
-            <div class="social-icon-box" style="background: rgba(99, 102, 241, 0.16);"><span style="font-size: 20px;">🧩</span></div>
+            <div class="social-icon-box"><span style="font-size: 20px;">🧩</span></div>
             <div class="task-info">
-              <h4>Puzzle Dual (Logic Series)</h4>
-              <p>Missing pattern aur sequence crack karo</p>
+              <h4>Puzzle Sequence Dual</h4>
+              <p>Missing number pattern crack karein</p>
             </div>
           </div>
-          <button class="btn btn-primary" onclick="startArenaDuel('puzzle')">Play Dual</button>
+          <button class="btn btn-primary" onclick="startPuzzleDuel()">Play Dual</button>
         </div>
       </div>
     </main>
 
-    <!-- VIEW 3: COMMUNITY FEED, GROUP LOUNGE & PERSONAL 1-TO-1 DM -->
+    <!-- VIEW 3: COMMUNITY FEED (1 USER = 1 LIKE BUG FIXED!), GROUP CHAT & DM -->
     <main id="view-community" class="view">
       <div class="sec-head" style="margin-top: 2px;">
-        <div class="sec-title">💬 Creator Community & Chat</div>
-        <button class="btn btn-primary" style="padding: 5px 10px; font-size: 11px;" onclick="openModal('modal-new-post')">+ New Post</button>
+        <div class="sec-title">💬 Creator Community</div>
+        <button class="btn btn-primary" style="padding: 6px 11px; font-size: 11px;" onclick="openModal('modal-new-post')">+ New Post</button>
       </div>
 
       <div class="sub-tabs">
@@ -1554,7 +1603,7 @@
             <button class="btn btn-gold" onclick="openDmConversation()">Open Chat</button>
           </div>
         </div>
-        <div id="dmActiveHeader" style="font-size: 12px; font-weight: 800; color: var(--teal-bright); margin-bottom: 6px; display: none;"></div>
+        <div id="dmActiveHeader" style="font-size: 12px; font-weight: 800; color: var(--emerald); margin-bottom: 6px; display: none;"></div>
         <div class="chat-box" id="dmChatBox" style="height: 230px;">
           <div style="font-size: 11.5px; color: var(--text-muted); text-align: center; margin-top: 80px;">
             Upar kisi creator ki <strong>SD-XXXXX</strong> ID daalein ya Feed mein "DM" par click karein.
@@ -1567,16 +1616,16 @@
       </div>
     </main>
 
-    <!-- VIEW 4: REDEEM STORE & SEPARATE COIN HISTORY -->
+    <!-- VIEW 4: REDEEM STORE & WALLET (WITH ₹25 & ₹50 UPI OPTIONS) -->
     <main id="view-wallet" class="view">
       <div class="sub-tabs" style="margin-top: 2px;">
         <button class="sub-tab-btn active" onclick="switchWalletTab('store', this)">🎁 Redeem Store</button>
-        <button class="sub-tab-btn" onclick="switchWalletTab('history', this)">📒 Coin History & Appeals</button>
+        <button class="sub-tab-btn" onclick="switchWalletTab('history', this)">📒 Coin Passbook</button>
       </div>
 
       <div id="wallet-store">
         <div class="sec-head" style="margin-top: 4px;">
-          <div class="sec-title">Select Gift Card / Payout</div>
+          <div class="sec-title">Select Gift Card / UPI Cash</div>
           <span class="sec-sub">1,000 Coins = ₹10</span>
         </div>
 
@@ -1600,12 +1649,30 @@
           </div>
 
           <div class="redeem-card">
-            <div class="brand-svg-wrap" style="background: #2874F0;">
-              <svg width="24" height="24" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="15" rx="2" fill="#FFE500"/><path d="M9 6V5a3 3 0 0 1 6 0v1" stroke="#fff" stroke-width="2" fill="none"/><text x="12" y="17" font-size="11" font-weight="900" fill="#2874F0" text-anchor="middle" font-style="italic">f</text></svg>
+            <div class="brand-svg-wrap" style="background: var(--emerald-light);">
+              <span style="font-weight: 900; font-size: 13px; color: var(--emerald);">UPI</span>
+            </div>
+            <h5>Instant UPI ₹25</h5>
+            <p>2,500 Coins</p>
+            <button class="btn btn-gold btn-full" onclick="openRedeemModal('Instant UPI ₹25 Cash', 2500)">Withdraw</button>
+          </div>
+
+          <div class="redeem-card">
+            <div class="brand-svg-wrap" style="background: var(--emerald-light);">
+              <span style="font-weight: 900; font-size: 13px; color: var(--emerald);">UPI</span>
+            </div>
+            <h5>Instant UPI ₹50</h5>
+            <p>5,000 Coins</p>
+            <button class="btn btn-gold btn-full" onclick="openRedeemModal('Instant UPI ₹50 Cash', 5000)">Withdraw</button>
+          </div>
+
+          <div class="redeem-card">
+            <div class="brand-svg-wrap" style="background: #EFF6FF;">
+              <span style="font-weight: 900; font-size: 16px; color: #2563EB; font-style: italic;">f</span>
             </div>
             <h5>Flipkart Voucher ₹25</h5>
             <p>2,500 Coins</p>
-            <button class="btn btn-gold btn-full" onclick="openRedeemModal('Flipkart ₹25 Gift Voucher', 2500)">Redeem</button>
+            <button class="btn btn-primary btn-full" onclick="openRedeemModal('Flipkart ₹25 Gift Voucher', 2500)">Redeem</button>
           </div>
 
           <div class="redeem-card">
@@ -1614,25 +1681,7 @@
             </div>
             <h5>Google Play ₹50</h5>
             <p>5,000 Coins</p>
-            <button class="btn btn-gold btn-full" onclick="openRedeemModal('Google Play ₹50 Redeem Code', 5000)">Redeem</button>
-          </div>
-
-          <div class="redeem-card">
-            <div class="brand-svg-wrap">
-              <svg width="26" height="26" viewBox="0 0 24 24"><path fill="#111827" d="M15.6 14.3c-.6-.5-.7-1.1-.7-1.9V9.1c0-1.4.1-2.7-.9-3.6-.8-.7-2.1-1-3.1-1-2 0-4.2.7-4.7 3.1-.1.3.1.4.3.5l2 .2c.2 0 .4-.2.4-.4.2-.9 1-1.3 1.8-1.3.5 0 1 .2 1.3.6.3.5.3 1.1.3 1.6v.3c-1.3.1-3 .2-4.2.8-1.4.6-2.4 1.8-2.4 3.6 0 2.3 1.4 3.4 3.3 3.4 1.6 0 2.4-.4 3.6-1.6.4.6.5.9 1.2 1.5.2.1.4.1.5 0l1.4-1.2c.2-.1.2-.4 0-.5zm-3.6-1.9c0 .9 0 1.7-.5 2.4-.4.6-1 1-1.7 1-.9 0-1.5-.7-1.5-1.8 0-2.1 1.9-2.5 3.7-2.5v.9z"/><path fill="#FF9900" d="M19.8 17.7c-2.3 1.7-5.6 2.6-8.4 2.6-4 0-7.6-1.5-10.3-3.9-.2-.2 0-.5.2-.3 3 1.7 6.6 2.8 10.4 2.8 2.6 0 5.4-.5 8-1.6.4-.2.7.2.1.4z"/></svg>
-            </div>
-            <h5>Amazon Pay ₹50</h5>
-            <p>5,000 Coins</p>
-            <button class="btn btn-gold btn-full" onclick="openRedeemModal('Amazon Pay ₹50 Gift Card', 5000)">Redeem</button>
-          </div>
-
-          <div class="redeem-card">
-            <div class="brand-svg-wrap" style="background: #0f172a; border: 1px solid #2dd4bf;">
-              <span style="font-weight: 900; font-size: 13px; color: #2dd4bf;">UPI</span>
-            </div>
-            <h5>Direct UPI ₹150</h5>
-            <p>15,000 Coins</p>
-            <button class="btn btn-outline btn-full" onclick="openRedeemModal('Direct UPI ₹150 Cash', 15000)">Withdraw</button>
+            <button class="btn btn-primary btn-full" onclick="openRedeemModal('Google Play ₹50 Redeem Code', 5000)">Redeem</button>
           </div>
         </div>
       </div>
@@ -1663,7 +1712,7 @@
       </div>
 
       <div class="ref-box">
-        <p style="font-size: 12px; line-height: 1.5; color: #ccfbf1;">
+        <p style="font-size: 12px; line-height: 1.5; color: var(--text-main);">
           Har friend ke join par <strong>+100 Coins</strong> + jab tak woh kaam karega uski har earning ka <strong>10% Lifetime Commission</strong>! (5 Friends = +200 Bonus • 10 Friends = +500 Bonus)
         </p>
 
@@ -1702,64 +1751,119 @@
       </div>
     </main>
 
-    <!-- VIEW 6: CLEAN PROFILE + SIDE SETTINGS DRAWER -->
+    <!-- VIEW 6: CLEAN PROFILE & SEPARATE SETTINGS LIST -->
     <main id="view-profile" class="view">
-      <div class="sec-head" style="margin-top: 2px;">
-        <div class="sec-title">🪪 Creator Profile</div>
-        <div style="display: flex; gap: 6px;">
-          <button class="btn btn-outline" style="padding: 6px 10px; font-size: 11px;" onclick="shareCreatorCard()">📤 Card</button>
-          <button class="btn btn-primary" style="padding: 6px 10px; font-size: 11px;" onclick="openModal('modal-settings')">⚙️ Settings</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="profile-header">
-          <div class="avatar-circle" id="profAvatarDisplay">🚀</div>
-          <div style="flex: 1;">
+      <!-- Top User Card (Matches Play Store Reference) -->
+      <div class="card" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 54px; height: 54px; border-radius: 50%; background: var(--emerald-light); display: flex; align-items: center; justify-content: center; font-size: 26px; border: 2px solid var(--emerald);" id="profAvatarDisplay">🚀</div>
+          <div>
             <h3 id="profNameDisplay" style="font-size: 16px; font-weight: 800;">Guest Creator</h3>
-            <div style="display: flex; align-items: center; gap: 6px; margin-top: 3px;">
-              <span class="uid-pill" style="margin: 0;" id="profUidBadge" onclick="copyMyUserId()">ID: GUEST</span>
-              <span style="font-size: 11px; color: #fbbf24; font-weight: 700;" id="profLevelStat">Level 1</span>
-            </div>
-            <p id="profBioDisplay" style="font-size: 11.5px; color: var(--text-muted); margin-top: 5px;">Building skills on SkillDrop</p>
+            <p id="profEmailDisplay" style="font-size: 11.5px; color: var(--text-muted);">Login to sync account</p>
+            <span style="font-size: 10.5px; font-weight: 700; color: var(--emerald);" id="profUidBadge" onclick="copyMyUserId()">ID: GUEST</span>
           </div>
         </div>
-
-        <div class="ref-stats" style="margin-bottom: 12px;">
-          <div class="stat-mini">
-            <strong id="profCoinsStat">0 🪙</strong>
-            <span>Wallet Balance</span>
-          </div>
-          <div class="stat-mini">
-            <strong id="profSkillDisplay" style="font-size: 12.5px;">Video Editor</strong>
-            <span>Primary Skill</span>
-          </div>
-        </div>
-
-        <div style="background: rgba(0, 0, 0, 0.35); padding: 10px 12px; border-radius: 12px; font-size: 11.5px; margin-bottom: 12px;">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-            <span style="color: var(--text-muted);">Saved Payout Gmail / UPI:</span>
-            <strong id="profUpiDisplay">Not Set</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between;">
-            <span style="color: var(--text-muted);">Referral Invite Code:</span>
-            <strong id="profCodeDisplay" style="color: var(--teal-bright);">—</strong>
-          </div>
-        </div>
-
-        <div style="font-size: 12px; font-weight: 800; margin-bottom: 4px;">🏅 Achievement Badges</div>
-        <div class="badges-grid" id="badgesGrid"></div>
+        <button class="btn btn-outline" style="padding: 7px 13px;" onclick="openEditProfileModal()">Edit</button>
       </div>
 
-      <div class="card">
-        <h4 style="font-size: 13.5px; margin-bottom: 4px;">🆘 Payment Delay Appeal & Help</h4>
-        <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 9px;">
-          Agar aapka redeem 48 ghante se pending hai, toh apni User ID ke saath appeal bhejein ya Telegram par message karein.
-        </p>
-        <div style="display: flex; gap: 8px;">
-          <button class="btn btn-gold" style="flex: 1;" onclick="openModal('modal-appeal')">📩 File Appeal</button>
-          <a href="https://t.me/skill_drop07" target="_blank" class="btn btn-outline" style="flex: 1; text-decoration: none;">✈️ Telegram Help</a>
+      <!-- Clean Settings Option Cards -->
+      <div class="settings-list-card" onclick="switchTab('view-refer', document.querySelectorAll('.nav-btn')[4])">
+        <div class="settings-left">
+          <div class="set-ico" style="background: #DCFCE7; color: #15803D;">👥</div>
+          <div class="settings-text">
+            <h5>Refer & Earn</h5>
+            <p>Invite friends & earn 10% lifetime rewards</p>
+          </div>
         </div>
+        <span class="bonus-tag">BONUS</span>
+      </div>
+
+      <div class="settings-list-card" onclick="openModal('modal-performance')">
+        <div class="settings-left">
+          <div class="set-ico" style="background: #E0F2FE; color: #0284C7;">📊</div>
+          <div class="settings-text">
+            <h5>My Performance</h5>
+            <p>Level, ELO Rating & Arena Wins</p>
+          </div>
+        </div>
+        <span style="color: var(--text-muted); font-weight: 800;">›</span>
+      </div>
+
+      <div class="settings-list-card" onclick="switchTab('view-wallet', document.querySelectorAll('.nav-btn')[3]); switchWalletTab('history', document.querySelectorAll('#view-wallet .sub-tab-btn')[1]);">
+        <div class="settings-left">
+          <div class="set-ico" style="background: #FEF3C7; color: #B45309;">🎁</div>
+          <div class="settings-text">
+            <h5>My Gift Cards & Payouts</h5>
+            <p>Check redeem codes & status</p>
+          </div>
+        </div>
+        <span style="color: var(--text-muted); font-weight: 800;">›</span>
+      </div>
+
+      <div class="settings-list-card" onclick="switchTab('view-home', document.querySelectorAll('.nav-btn')[0]); document.getElementById('promoCodeInput').focus();">
+        <div class="settings-left">
+          <div class="set-ico" style="background: #F3E8FF; color: #7E22CE;">🎟️</div>
+          <div class="settings-text">
+            <h5>Redeem Promo Code</h5>
+            <p>Enter secret code to claim bonus coins</p>
+          </div>
+        </div>
+        <span style="background: #F3E8FF; color: #7E22CE; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 8px;">Claim ›</span>
+      </div>
+
+      <div class="settings-list-card" onclick="openModal('modal-lang')">
+        <div class="settings-left">
+          <div class="set-ico" style="background: #E0F2FE; color: #0369A1;">🌐</div>
+          <div class="settings-text">
+            <h5>App Language</h5>
+            <p id="currentLangLabel">Hinglish (Default)</p>
+          </div>
+        </div>
+        <span style="color: var(--text-muted); font-weight: 800;">›</span>
+      </div>
+
+      <div class="settings-list-card" onclick="openModal('modal-appeal')">
+        <div class="settings-left">
+          <div class="set-ico" style="background: #FEF3C7; color: #B45309;">🐞</div>
+          <div class="settings-text">
+            <h5>Report a Problem / Payment Appeal</h5>
+            <p>Submit delay ticket or bug report</p>
+          </div>
+        </div>
+        <span style="color: var(--text-muted); font-weight: 800;">›</span>
+      </div>
+
+      <div class="settings-list-card" onclick="openModal('modal-terms')">
+        <div class="settings-left">
+          <div class="set-ico" style="background: #F1F5F9; color: #475569;">🛡️</div>
+          <div class="settings-text">
+            <h5>Privacy Policy & Terms</h5>
+            <p>Anti-cheat rules & fair play guidelines</p>
+          </div>
+        </div>
+        <span style="color: var(--text-muted); font-weight: 800;">›</span>
+      </div>
+
+      <!-- Coin Credit Sound Toggle -->
+      <div class="settings-list-card" style="cursor: default;">
+        <div class="settings-left">
+          <div class="set-ico" style="background: var(--emerald-light); color: var(--emerald);">🔔</div>
+          <div class="settings-text">
+            <h5>Coin credit sound</h5>
+            <p>Plays a short chime when coins are added</p>
+          </div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="soundToggleCheckbox" checked onchange="toggleSoundSetting(this.checked)">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- Sign Out / Login Button -->
+      <div style="text-align: center; margin-top: 14px;">
+        <button id="settingsAuthActionBtn" class="btn btn-danger btn-full" onclick="handleSettingsAuth()">
+          🚪 Sign Out
+        </button>
       </div>
     </main>
 
@@ -1773,7 +1877,7 @@
     </div>
   </div>
 
-  <!-- Bottom Navigation (6 Tabs: Home, Arena, Community, Redeem, Refer, Profile) -->
+  <!-- Bottom Navigation (6 Clean Tabs) -->
   <nav class="bottom-nav">
     <button class="nav-btn active" data-target="view-home" onclick="switchTab('view-home', this)">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -1789,7 +1893,7 @@
     </button>
     <button class="nav-btn" data-target="view-wallet" onclick="switchTab('view-wallet', this)">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-      <span id="nav-wallet">Redeem</span>
+      <span id="nav-wallet">Wallet</span>
     </button>
     <button class="nav-btn" data-target="view-refer" onclick="switchTab('view-refer', this)">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -1801,68 +1905,129 @@
     </button>
   </nav>
 
-  <!-- MODAL: LIVE 1-VS-1 ARENA DUEL -->
-  <div id="modal-duel" class="modal-backdrop">
+  <!-- MODAL 1: MATIKS-STYLE 1v1 SPEED MATH DUAL (CUSTOM NUMPAD) -->
+  <div id="modal-matiks-math" class="modal-backdrop">
     <div class="modal-box" style="text-align: center;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-        <span class="reward-pill" id="duelModeTitle" style="margin: 0;">⚡ MATH DUAL</span>
-        <span class="reward-pill" id="duelTimerPill" style="margin: 0; color: #ef4444;">30s</span>
-      </div>
-
       <div class="duel-scoreboard">
         <div>
-          <div style="font-size: 11px; color: var(--teal-bright); font-weight: 800;">YOU</div>
-          <div id="duelMyScore" style="font-size: 20px; font-weight: 800;">0</div>
+          <div style="font-size: 11px; color: var(--emerald); font-weight: 800;">YOU</div>
+          <div id="mYouScore" style="font-size: 20px; font-weight: 800;">0</div>
         </div>
-        <div style="font-size: 12px; font-weight: 800; color: var(--text-muted);">VS</div>
+        <div style="background: #DBEAFE; color: #1D4ED8; padding: 5px 12px; border-radius: 99px; font-weight: 800; font-size: 13px;" id="mTimerPill">⏱ 00:45</div>
         <div>
-          <div id="duelOppName" style="font-size: 11px; color: #fbbf24; font-weight: 800;">RIVAL</div>
-          <div id="duelOppScore" style="font-size: 20px; font-weight: 800;">0</div>
+          <div style="font-size: 11px; color: #B45309; font-weight: 800;" id="mBotName">Sero</div>
+          <div id="mBotScore" style="font-size: 20px; font-weight: 800;">0</div>
         </div>
       </div>
 
-      <div id="duelPromptBox" style="font-size: 22px; font-weight: 800; color: #fff; min-height: 54px; display: flex; align-items: center; justify-content: center; margin: 10px 0;">
-        Searching Opponent...
+      <div id="mHintBadge" style="display: inline-block; background: var(--gold-soft); color: #B45309; padding: 4px 12px; border-radius: 8px; font-size: 11.5px; font-weight: 700; margin-bottom: 6px;">
+        Solve fast to beat Sero!
       </div>
 
-      <div id="duelOptionsGrid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 12px;"></div>
+      <div id="mEqDisplay" style="font-size: 36px; font-weight: 800; line-height: 1.15; margin: 6px 0; color: var(--text-main);">
+        21<br>+ 7
+      </div>
 
-      <button class="btn btn-outline btn-full" onclick="forfeitDuel()">Leave Match</button>
+      <div style="font-size: 10px; color: var(--text-muted); font-weight: 700; letter-spacing: 1px;">TYPE OUT YOUR ANSWER</div>
+      <div class="matiks-ans-box" id="mAnsBox"><span style="color: #2563EB;">|</span></div>
+
+      <div class="matiks-numpad">
+        <button class="m-key" onclick="mPressNum('1')">1</button>
+        <button class="m-key" onclick="mPressNum('2')">2</button>
+        <button class="m-key" onclick="mPressNum('3')">3</button>
+        <button class="m-key" onclick="mPressNum('4')">4</button>
+        <button class="m-key" onclick="mPressNum('5')">5</button>
+        <button class="m-key" onclick="mPressNum('6')">6</button>
+        <button class="m-key" onclick="mPressNum('7')">7</button>
+        <button class="m-key" onclick="mPressNum('8')">8</button>
+        <button class="m-key" onclick="mPressNum('9')">9</button>
+        <button class="m-key" style="color: var(--danger);" onclick="mClearInput()">C</button>
+        <button class="m-key" onclick="mPressNum('0')">0</button>
+        <button class="m-key" onclick="mBackspace()">⌫</button>
+      </div>
+
+      <button class="btn btn-outline btn-full" onclick="closeMatiksMath()">Exit Match</button>
     </div>
   </div>
 
-  <!-- MODAL: PROFILE SETTINGS -->
-  <div id="modal-settings" class="modal-backdrop">
-    <div class="modal-box">
-      <h3 style="margin-bottom: 12px;">⚙️ Account & App Settings</h3>
+  <!-- MODAL 2: MATIKS-STYLE MEMORY PATTERN GRID -->
+  <div id="modal-memory-grid" class="modal-backdrop">
+    <div class="modal-box" style="text-align: center;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <span class="reward-pill" style="margin: 0;">Level <span id="memLvlDisplay">1</span></span>
+        <span class="reward-pill" style="margin: 0; background: #DBEAFE; color: #1D4ED8;">Points: <span id="memPtsDisplay">0</span></span>
+      </div>
 
+      <div id="memPromptPill" style="background: #EFF6FF; color: #1D4ED8; padding: 7px 14px; border-radius: 10px; font-size: 13px; font-weight: 700; margin-bottom: 6px;">
+        Remember the glowing tiles...
+      </div>
+      <div id="memTapsCounter" style="font-size: 13px; font-weight: 700; color: var(--text-muted);">0 / 4 taps</div>
+
+      <div class="mem-grid-board" id="memGridBoard"></div>
+
+      <button class="btn btn-outline btn-full" onclick="closeModal('modal-memory-grid')">Close Grid</button>
+    </div>
+  </div>
+
+  <!-- MODAL 3: PUZZLE SEQUENCE DUAL -->
+  <div id="modal-puzzle-duel" class="modal-backdrop">
+    <div class="modal-box" style="text-align: center;">
+      <div class="duel-scoreboard">
+        <div>
+          <div style="font-size: 11px; color: var(--emerald); font-weight: 800;">YOU</div>
+          <div id="pzMyScore" style="font-size: 20px; font-weight: 800;">0</div>
+        </div>
+        <div class="reward-pill" id="pzTimerPill" style="margin: 0;">30s</div>
+        <div>
+          <div style="font-size: 11px; color: #B45309; font-weight: 800;">RIVAL</div>
+          <div id="pzOppScore" style="font-size: 20px; font-weight: 800;">0</div>
+        </div>
+      </div>
+      <div id="pzPromptBox" style="font-size: 22px; font-weight: 800; margin: 14px 0;">2, 5, 8, ?</div>
+      <div id="pzOptionsGrid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 12px;"></div>
+      <button class="btn btn-outline btn-full" onclick="closePuzzleDuel()">Leave Match</button>
+    </div>
+  </div>
+
+  <!-- MODAL: MY PERFORMANCE -->
+  <div id="modal-performance" class="modal-backdrop">
+    <div class="modal-box">
+      <h3 style="margin-bottom: 10px;">📊 My Creator Performance</h3>
+      <div class="ref-stats" style="margin-bottom: 12px;">
+        <div class="stat-mini">
+          <strong id="perfLevelVal">Level 1</strong>
+          <span>Current Rank</span>
+        </div>
+        <div class="stat-mini">
+          <strong id="perfEloVal">1000</strong>
+          <span>Arena ELO Rating</span>
+        </div>
+        <div class="stat-mini">
+          <strong id="perfWinsVal">0</strong>
+          <span>Arena Duels Won</span>
+        </div>
+        <div class="stat-mini">
+          <strong id="perfStreakVal">0 Days</strong>
+          <span>Login Streak</span>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-full" onclick="closeModal('modal-performance')">Close</button>
+    </div>
+  </div>
+
+  <!-- MODAL: LANGUAGE PICKER -->
+  <div id="modal-lang" class="modal-backdrop">
+    <div class="modal-box">
+      <h3 style="margin-bottom: 10px;">🌐 Choose App Language</h3>
       <div class="field">
-        <label>🌐 App Language / Bhasha</label>
-        <select id="langSwitcher">
+        <select id="langSwitcher" onchange="applyLangChange(this.value)">
           <option value="hinglish">Hinglish (Default)</option>
           <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
           <option value="hi">हिंदी (Hindi)</option>
           <option value="en">English</option>
         </select>
       </div>
-
-      <button class="btn btn-primary btn-full" style="margin-bottom: 9px;" onclick="closeModal('modal-settings'); openEditProfileModal();">
-        ✏️ Edit Profile, Avatar & UPI/Gmail
-      </button>
-
-      <button class="btn btn-gold btn-full" style="margin-bottom: 9px;" onclick="closeModal('modal-settings'); openModal('modal-appeal');">
-        📩 Help & Payment Delay Appeal
-      </button>
-
-      <a href="https://t.me/skill_drop07" target="_blank" class="btn btn-outline btn-full" style="margin-bottom: 9px; text-decoration: none;">
-        ✈️ Contact Support on Telegram (@skill_drop07)
-      </a>
-
-      <button id="settingsAuthActionBtn" class="btn btn-danger btn-full" style="margin-bottom: 9px;" onclick="handleSettingsAuth()">
-        🚪 Logout Account
-      </button>
-
-      <button class="btn btn-outline btn-full" onclick="closeModal('modal-settings')">Close Settings</button>
+      <button class="btn btn-primary btn-full" onclick="closeModal('modal-lang')">Done</button>
     </div>
   </div>
 
@@ -1870,7 +2035,7 @@
   <div id="modal-appeal" class="modal-backdrop">
     <div class="modal-box">
       <h3 style="margin-bottom: 5px;">📩 Submit Payment Appeal / Help</h3>
-      <p style="font-size: 11.5px; color: var(--teal-bright); margin-bottom: 10px;" id="appealModalUidLabel">Your User ID: —</p>
+      <p style="font-size: 11.5px; color: var(--emerald); font-weight: 700; margin-bottom: 10px;" id="appealModalUidLabel">Your User ID: —</p>
       <div class="field">
         <label>Issue Type</label>
         <select id="appealTypeInput">
@@ -1901,7 +2066,7 @@
         Apni progress, editing sample link ya question share karein!
       </p>
       <div class="field">
-        <textarea id="newPostText" rows="3" placeholder="Kya chal raha hai? Apni baat ya work link likhein..."></textarea>
+        <textarea id="newPostText" rows="3" placeholder="Kya chal raha hai? Apni baat likhein..."></textarea>
       </div>
       <div style="display: flex; gap: 8px;">
         <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-new-post')">Cancel</button>
@@ -1916,8 +2081,8 @@
       <h3 style="margin-bottom: 4px;">🎫 Scratch & Win Coins</h3>
       <p style="font-size: 12px; color: var(--text-muted);">Ungli se poora silver card ghas kar reward dekhein!</p>
       <div class="scratch-wrap">
-        <div style="font-size: 26px; font-weight: 800; color: #fbbf24;" id="scratchPrizeText">+15 Coins</div>
-        <div style="font-size: 11px; color: #ccfbf1;">Added to Wallet!</div>
+        <div style="font-size: 26px; font-weight: 800; color: #FDE68A;" id="scratchPrizeText">+15 Coins</div>
+        <div style="font-size: 11px; color: #D1FAE5;">Added to Wallet!</div>
         <canvas id="scratchCanvas" width="240" height="120"></canvas>
       </div>
       <button class="btn btn-outline btn-full" onclick="closeModal('modal-scratch')">Close</button>
@@ -1932,38 +2097,10 @@
       <div class="wheel-ring" id="spinWheelEl">
         <div class="wheel-center">🪙</div>
       </div>
-      <div id="spinResultText" style="font-size: 14px; font-weight: 800; color: var(--teal-bright); min-height: 22px; margin-bottom: 10px;"></div>
+      <div id="spinResultText" style="font-size: 14px; font-weight: 800; color: var(--emerald); min-height: 22px; margin-bottom: 10px;"></div>
       <div style="display: flex; gap: 8px;">
         <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-spin')">Close</button>
         <button class="btn btn-gold" style="flex: 2;" onclick="spinNow()">Spin Now!</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: FLIP & WIN MYSTERY CARDS -->
-  <div id="modal-flip" class="modal-backdrop">
-    <div class="modal-box" style="text-align: center;">
-      <h3 style="margin-bottom: 4px;">🃏 Flip & Win Mystery Card</h3>
-      <p style="font-size: 12px; color: var(--text-muted);">3 cards mein se koi ek lucky card chuno!</p>
-      <div class="flip-row" id="flipCardsRow">
-        <div class="flip-card" onclick="pickFlipCard(0, this)">❓</div>
-        <div class="flip-card" onclick="pickFlipCard(1, this)">❓</div>
-        <div class="flip-card" onclick="pickFlipCard(2, this)">❓</div>
-      </div>
-      <button class="btn btn-outline btn-full" onclick="closeModal('modal-flip')">Close</button>
-    </div>
-  </div>
-
-  <!-- MODAL: LUCKY DICE ROLL -->
-  <div id="modal-dice" class="modal-backdrop">
-    <div class="modal-box" style="text-align: center;">
-      <h3 style="margin-bottom: 4px;">🎲 Lucky Dice Roll (3× Coins)</h3>
-      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Jitna number aayega (1–6), uska 3× Coins milenge!</p>
-      <div id="diceDisplayBox" style="font-size: 56px; margin: 10px 0;">🎲</div>
-      <div id="diceResultLabel" style="font-size: 14px; font-weight: 800; color: #fbbf24; min-height: 22px; margin-bottom: 10px;"></div>
-      <div style="display: flex; gap: 8px;">
-        <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-dice')">Close</button>
-        <button class="btn btn-gold" style="flex: 2;" onclick="rollDiceNow()">Roll Dice!</button>
       </div>
     </div>
   </div>
@@ -1972,17 +2109,17 @@
   <div id="modal-rush" class="modal-backdrop">
     <div class="modal-box" style="text-align: center;">
       <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-        <h3>⚡ 15s Speed Math Rush</h3>
+        <h3>⏱️ 15s Speed Math Rush</h3>
         <span class="reward-pill" id="rushTimerBadge" style="margin: 0;">15s</span>
       </div>
       <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 10px;">3 sahi jawab dein aur +15 Coins jeetein!</p>
-      <div id="rushQuestionBox" style="font-size: 22px; font-weight: 800; color: var(--teal-bright); margin: 12px 0;">12 + 9 = ?</div>
+      <div id="rushQuestionBox" style="font-size: 22px; font-weight: 800; color: var(--emerald); margin: 12px 0;">12 + 9 = ?</div>
       <div id="rushOptsRow" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px;"></div>
       <button class="btn btn-outline btn-full" onclick="closeModal('modal-rush')">Close</button>
     </div>
   </div>
 
-  <!-- MODAL: MIX MOOD QUIZ (4 MODES + 200 COINS = +20 ROUNDS PACK) -->
+  <!-- MODAL: MIX MOOD QUIZ -->
   <div id="modal-quiz" class="modal-backdrop">
     <div class="modal-box">
       <div id="quizModeStep">
@@ -1994,29 +2131,28 @@
           Funny, Sad Shayari & Brain Riddles — koi bhi sawal repeat nahi hoga!
         </p>
         <div class="diff-grid">
-          <div class="diff-card" style="border-color: #2dd4bf;" onclick="startQuizWithMode('easy')">
+          <div class="diff-card" style="border-color: #10B981;" onclick="startQuizWithMode('easy')">
             <h5>🟢 Easy Mode</h5>
             <span>+5 Coins / Right</span>
           </div>
-          <div class="diff-card" style="border-color: #38bdf8;" onclick="startQuizWithMode('medium')">
+          <div class="diff-card" style="border-color: #3B82F6;" onclick="startQuizWithMode('medium')">
             <h5>🔵 Medium Mode</h5>
             <span>+10 Coins / Right</span>
           </div>
-          <div class="diff-card" style="border-color: #f59e0b;" onclick="startQuizWithMode('hard')">
+          <div class="diff-card" style="border-color: #F59E0B;" onclick="startQuizWithMode('hard')">
             <h5>🟠 Hard Mode</h5>
             <span>+15 Coins / Right</span>
           </div>
-          <div class="diff-card" style="border-color: #ef4444;" onclick="startQuizWithMode('ultra')">
+          <div class="diff-card" style="border-color: #EF4444;" onclick="startQuizWithMode('ultra')">
             <h5>🔥 Ultra Hard</h5>
             <span>+25 Coins / Right</span>
           </div>
         </div>
 
-        <!-- 200 Coins = +20 Quiz Rounds Booster Pack -->
-        <div class="card" style="padding: 10px; margin-top: 8px; border-color: rgba(245, 158, 11, 0.45);">
+        <div class="card" style="padding: 10px; margin-top: 8px; border-color: #FDE68A;">
           <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px;">
             <div>
-              <strong style="font-size: 12px; color: #fbbf24;">🔓 Unlock +20 Quiz Rounds</strong>
+              <strong style="font-size: 12px; color: #B45309;">🔓 Unlock +20 Quiz Rounds</strong>
               <p style="font-size: 10.5px; color: var(--text-muted);">200 Coins kharch karke 20 extra rounds khelein!</p>
             </div>
             <button class="btn btn-gold" style="padding: 7px 11px; font-size: 11px;" onclick="buyQuiz20Pack()">200 🪙</button>
@@ -2042,13 +2178,13 @@
   <div id="modal-redeem" class="modal-backdrop">
     <div class="modal-box">
       <h3 id="redeemModalTitle" style="margin-bottom: 6px;">🎁 Redeem Gift Card</h3>
-      <p id="redeemModalCost" style="font-size: 12px; color: #fbbf24; font-weight: 700; margin-bottom: 12px;">Cost: 1,000 Coins</p>
+      <p id="redeemModalCost" style="font-size: 12px; color: var(--emerald); font-weight: 700; margin-bottom: 12px;">Cost: 1,000 Coins</p>
       <div class="field">
-        <label>Your Gmail ID or UPI ID (Voucher code delivery ke liye)</label>
+        <label>Your Gmail ID or UPI ID (Voucher / UPI delivery ke liye)</label>
         <input type="text" id="redeemTargetInput" placeholder="yourname@gmail.com / name@upi" />
       </div>
       <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px;">
-        Verification ke baad 24–48 ghante mein aapka code "Coin History & Appeals" tab mein show ho jayega.
+        Verification ke baad 24–48 ghante mein aapka payout "Coin Passbook" tab mein update ho jayega.
       </p>
       <div style="display: flex; gap: 8px;">
         <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-redeem')">Cancel</button>
@@ -2063,12 +2199,12 @@
       <h3 style="margin-bottom: 10px;">🔔 Latest Announcements</h3>
       <div style="font-size: 12px; line-height: 1.5;">
         <div class="card" style="padding: 10px;">
-          <strong>⚔️ 1-vs-1 Live Battle Arena Launched!</strong><br/>
-          Math Dual, Mind Snap Dual aur Puzzle Dual khel kar apni Daily Arena Streak aur ELO Rating badhayein!
+          <strong>⚡ Matiks-Style 1v1 Math & Memory Grid Live!</strong><br/>
+          Custom on-screen numpad aur glowing memory grid khel kar real skill se coins jeetein!
         </div>
         <div class="card" style="padding: 10px;">
-          <strong>🧠 Mix Mood Quiz (+20 Rounds Pack):</strong><br/>
-          Roz 3 Free Quiz rounds + 200 Coins mein 20 Extra Quiz rounds unlock karein!
+          <strong>💸 New Short UPI Options:</strong><br/>
+          Ab aap 2,500 Coins mein ₹25 UPI aur 5,000 Coins mein ₹50 UPI direct withdraw kar sakte hain!
         </div>
       </div>
       <button class="btn btn-primary btn-full" onclick="closeModal('modal-notif')">Got It</button>
@@ -2079,10 +2215,10 @@
   <div id="modal-rules" class="modal-backdrop">
     <div class="modal-box">
       <h3 style="margin-bottom: 10px;">📘 How SkillDrop Works & Rules</h3>
-      <div style="font-size: 12px; line-height: 1.55; color: #ccfbf1;">
-        <p style="margin-bottom: 8px;"><strong>1. Coins & Conversion:</strong><br/>1,000 Coins = ₹10 Gift Card (Google Play, Amazon Pay, Flipkart). 15,000 Coins = ₹150 Direct UPI.</p>
-        <p style="margin-bottom: 8px;"><strong>2. 1-vs-1 Battle Arena:</strong><br/>Free Dual mein jeetne par +10 Coins, ya 20-Coin Entry Dual mein jeetne par 35 Coins paayein!</p>
-        <p style="margin-bottom: 8px;"><strong>3. Mix Mood Quiz Pack:</strong><br/>Roz 3 free quiz rounds ke baad aap 200 Coins kharch karke 20 extra rounds unlock kar sakte hain.</p>
+      <div style="font-size: 12px; line-height: 1.55; color: var(--text-main);">
+        <p style="margin-bottom: 8px;"><strong>1. Coins & Conversion:</strong><br/>1,000 Coins = ₹10 Gift Card (Google Play, Amazon Pay). 2,500 Coins = ₹25 UPI • 5,000 Coins = ₹50 UPI.</p>
+        <p style="margin-bottom: 8px;"><strong>2. Skill Games & Arena:</strong><br/>1v1 Speed Math Dual (Numpad), Memory Pattern Grid aur Puzzle Dual mein jeetne par +10 se +35 Coins milte hain.</p>
+        <p style="margin-bottom: 8px;"><strong>3. Referral Bonus:</strong><br/>Har friend par +100 Coins + 10% Lifetime Commission!</p>
       </div>
       <button class="btn btn-primary btn-full" style="margin-top: 10px;" onclick="closeModal('modal-rules')">Close</button>
     </div>
@@ -2120,28 +2256,18 @@
   <div id="modal-edit-profile" class="modal-backdrop">
     <div class="modal-box">
       <h3 style="margin-bottom: 10px;">✏️ Edit Creator Profile</h3>
-      <label style="font-size: 11.5px; color: var(--text-muted); font-weight: 600;">Choose Avatar</label>
-      <div class="avatar-picker">
-        <div class="av-opt selected" data-av="🚀">🚀</div>
-        <div class="av-opt" data-av="🎬">🎬</div>
-        <div class="av-opt" data-av="🎨">🎨</div>
-        <div class="av-opt" data-av="✍️">✍️</div>
-        <div class="av-opt" data-av="🎧">🎧</div>
-        <div class="av-opt" data-av="🦁">🦁</div>
+      <label style="font-size: 11.5px; color: var(--text-muted); font-weight: 700;">Choose Avatar</label>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 12px;">
+        <button class="btn btn-outline av-opt" data-av="🚀">🚀</button>
+        <button class="btn btn-outline av-opt" data-av="🎬">🎬</button>
+        <button class="btn btn-outline av-opt" data-av="🎨">🎨</button>
+        <button class="btn btn-outline av-opt" data-av="✍️">✍️</button>
+        <button class="btn btn-outline av-opt" data-av="🎧">🎧</button>
+        <button class="btn btn-outline av-opt" data-av="🦁">🦁</button>
       </div>
       <div class="field"><label>Display Name</label><input type="text" id="editNameInput" /></div>
-      <div class="field">
-        <label>Primary Skill</label>
-        <select id="editSkillInput">
-          <option value="Mobile Video Editor">Mobile Video Editor (VN/CapCut)</option>
-          <option value="Thumbnail Designer">YouTube Thumbnail Designer</option>
-          <option value="Script & Shayari Writer">Script & Shayari Writer</option>
-          <option value="Voiceover Artist">Punjabi / Hindi Voiceover</option>
-          <option value="Canva Poster Designer">Canva Poster & Logo Designer</option>
-        </select>
-      </div>
       <div class="field"><label>Short Bio</label><input type="text" id="editBioInput" /></div>
-      <div class="field"><label>Gmail or UPI ID for Gift Cards</label><input type="text" id="editUpiInput" /></div>
+      <div class="field"><label>Saved UPI ID or Gmail for Payouts</label><input type="text" id="editUpiInput" /></div>
       <div style="display: flex; gap: 8px; margin-top: 10px;">
         <button class="btn btn-outline" style="flex: 1;" onclick="closeModal('modal-edit-profile')">Cancel</button>
         <button class="btn btn-primary" style="flex: 2;" onclick="saveProfileChanges()">Save Profile</button>
@@ -2149,10 +2275,10 @@
     </div>
   </div>
 
-  <!-- MODAL: FULL FOUNDER ADMIN PANEL (PIN: 786090) -->
+  <!-- MODAL: FOUNDER ADMIN PANEL (5-Tap Logo • PIN: 786090) -->
   <div id="modal-admin" class="modal-backdrop">
     <div class="modal-box">
-      <h3 style="color: #fbbf24; margin-bottom: 10px;">🛡️ Founder Admin Control</h3>
+      <h3 style="color: var(--emerald); margin-bottom: 10px;">🛡️ Founder Admin Control</h3>
       <div id="adminPinGate">
         <div class="field">
           <label>Enter 6-Digit Secret PIN</label>
@@ -2179,18 +2305,18 @@
         <div class="card" style="font-size: 12px;">
           <strong>🔍 Search User by ID (SD-XXXXX):</strong>
           <div style="display: flex; gap: 6px; margin-top: 6px;">
-            <input type="text" id="admSearchUidInput" placeholder="e.g. SD-48291" style="text-transform: uppercase;" />
+            <input type="text" id="admSearchUidInput" class="ref-input" placeholder="e.g. SD-48291" style="text-transform: uppercase;" />
             <button class="btn btn-primary" onclick="adminSearchUserById()">Search</button>
           </div>
-          <div id="admSearchResultBox" style="margin-top: 8px; font-size: 11.5px; color: #ccfbf1;"></div>
+          <div id="admSearchResultBox" style="margin-top: 8px; font-size: 11.5px;"></div>
         </div>
 
         <div class="card" style="font-size: 12px;">
           <strong>🎟️ Set Promo Code + User Limit:</strong>
           <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 5px; margin-top: 7px;">
-            <input type="text" id="admNewPromo" placeholder="CODE" style="text-transform:uppercase;" />
-            <input type="number" id="admPromoCoins" value="25" placeholder="Coins" />
-            <input type="number" id="admPromoLimit" value="50" placeholder="Limit (50)" />
+            <input type="text" id="admNewPromo" class="ref-input" placeholder="CODE" style="text-transform:uppercase;" />
+            <input type="number" id="admPromoCoins" class="ref-input" value="25" placeholder="Coins" />
+            <input type="number" id="admPromoLimit" class="ref-input" value="50" placeholder="Limit" />
           </div>
           <button class="btn btn-gold btn-full" style="margin-top: 7px;" onclick="adminSavePromo()">Save Promo Code</button>
         </div>
@@ -2212,7 +2338,7 @@
         <div class="card" style="font-size: 12px;">
           <strong>📢 Update Important Notice Banner:</strong>
           <div style="display: flex; gap: 6px; margin-top: 6px;">
-            <input type="text" id="admNoticeInput" placeholder="New notice text..." />
+            <input type="text" id="admNoticeInput" class="ref-input" placeholder="New notice text..." />
             <button class="btn btn-primary" onclick="adminUpdateNotice()">Save</button>
           </div>
         </div>
@@ -2225,7 +2351,7 @@
     </div>
   </div>
 
-  <!-- Firebase & Complete SkillDrop v5.0 Master Logic -->
+  <!-- Firebase & Complete SkillDrop v6.0 Master Logic -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import {
@@ -2250,7 +2376,9 @@
       where,
       getDocs,
       limit,
-      increment
+      increment,
+      arrayUnion,
+      arrayRemove
     } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
     const firebaseConfig = {
@@ -2275,13 +2403,13 @@
     let selectedRedeemItem = { title: "", coins: 0 };
     let watchCooldownUntil = 0;
     let activeDmTargetId = "";
+    let soundEnabled = localStorage.getItem("sd_sound") !== "off";
 
     let userData = {
       uniqueId: "",
       name: "Guest Creator",
       email: "",
       avatar: "🚀",
-      skill: "Mobile Video Editor",
       bio: "Learning & earning on SkillDrop",
       upi: "",
       coins: 0,
@@ -2298,10 +2426,6 @@
       scratchCountToday: 0,
       spinDate: "",
       spinCountToday: 0,
-      flipDate: "",
-      flipCountToday: 0,
-      diceDate: "",
-      diceCountToday: 0,
       rushDate: "",
       rushCountToday: 0,
       quizDate: "",
@@ -2324,62 +2448,37 @@
       banned: false
     };
 
-    // High & Slow XP Levels (Requires steady play over weeks)
     const LEVELS = [
-      { lvl: 1, name: "Starter", minXp: 0, desc: "7-Day IST Streak, 1v1 Arena, Mix Quiz & Community" },
-      { lvl: 2, name: "Explorer", minXp: 1500, desc: "Priority Community Badge + Arena Challenger Frame" },
-      { lvl: 3, name: "Junior Creator", minXp: 4500, desc: "Unlock Creator Showcase & Direct DM Collabs" },
-      { lvl: 4, name: "Pro Creator", minXp: 10000, desc: "Featured Leaderboard Spot + VIP Support" },
-      { lvl: 5, name: "Elite Studio", minXp: 20000, desc: "Top Creator Frame + Fast-Track Gift Cards" },
-      { lvl: 6, name: "Verified Partner", minXp: 40000, desc: "Official SkillDrop Verified Partner Status" }
+      { lvl: 1, name: "Starter", minXp: 0 },
+      { lvl: 2, name: "Explorer", minXp: 1500 },
+      { lvl: 3, name: "Junior Creator", minXp: 4500 },
+      { lvl: 4, name: "Pro Creator", minXp: 10000 },
+      { lvl: 5, name: "Elite Studio", minXp: 20000 },
+      { lvl: 6, name: "Verified Partner", minXp: 40000 }
     ];
 
     const STREAK_REWARDS = [10, 15, 20, 25, 30, 40, 100];
 
     const QUIZ_BANK = [
-      // EASY MODE (+5 Coins/Q)
       { id: "ez1", diff: "easy", mood: "😂 Funny", q: "Subah alarm bajne ke baad 'Sirf 5 minute aur sounga' bolne se kitne ghante beet jaate hain?", opts: ["Poore 2 ghante", "5 second", "Alarm toot jaata hai", "Neend ud jaati hai"], ans: 0 },
       { id: "ez2", diff: "easy", mood: "💔 Sad Mood", q: "Adhoori line poori karo: 'Humne unhe apna waqt diya, aur unhone humein sirf ______ diya.'", opts: ["Bahana", "Gift Card", "Pizza", "Password"], ans: 0 },
       { id: "ez3", diff: "easy", mood: "😂 Funny", q: "Jab dost bole 'Bhai tera bill main bhar dunga' aur phir jeb mein haath daal kar bole...", opts: ["Wallet ghar bhool gaya!", "Yeh le ₹2000", "Card swipe kar", "Tip bhi rakh le"], ans: 0 },
       { id: "ez4", diff: "easy", mood: "🎬 Creator", q: "Instagram Reels aur YouTube Shorts ka best full-screen size kaunsa hota hai?", opts: ["9:16 (Vertical)", "16:9", "1:1", "4:3"], ans: 0 },
-      { id: "ez5", diff: "easy", mood: "💔 Sad Mood", q: "Sabse zyada dard kab hota hai jab message 'Seen' ho jaaye aur...", opts: ["Reply hi na aaye", "Phone charge ho", "Wi-Fi fast chale", "Battery 100% ho"], ans: 0 },
-      { id: "ez6", diff: "easy", mood: "😂 Funny", q: "Mummy ke haath ki chappal ki speed kitni hoti hai jab result kharab aaye?", opts: ["Rocket se bhi tez", "5 km/h", "Slow motion", "Zero"], ans: 0 },
-      { id: "ez7", diff: "easy", mood: "💔 Sad Mood", q: "Shayari complete karo: 'Bheed mein bhi akela mehsoos karta hoon, jab se tere bina ______ karta hoon.'", opts: ["Safar", "Party", "Shopping", "Gaming"], ans: 0 },
-      { id: "ez8", diff: "easy", mood: "😂 Funny", q: "Exam hall mein jab dost peeche se aawaz lagaye 'Bhai 4th ka answer bata', toh teacher kahan dekhta hai?", opts: ["Seedha tumhari taraf!", "Chhat ki taraf", "Bahar window mein", "Phone mein"], ans: 0 },
-
-      // MEDIUM MODE (+10 Coins/Q)
       { id: "md1", diff: "medium", mood: "💔 Sad Shayari", q: "'Kuch log zindagi mein sirf sabak dene aate hain, ______ banane nahi.' Sahi shabd chuno:", opts: ["Humsafar", "Padosi", "Manager", "Driver"], ans: 0 },
       { id: "md2", diff: "medium", mood: "😂 Funny Riddle", q: "Aisi kaunsi cheez hai jo garib ke paas hoti hai, ameer ke paas nahi hoti, aur agar aap use kha lein toh mar jaayenge?", opts: ["Kuch Nahi (Nothing)", "Sona", "Paisa", "Hawa"], ans: 0 },
       { id: "md3", diff: "medium", mood: "🎬 Creator Pro", q: "YouTube video ka CTR (Click Through Rate) badhane ke liye sabse zaroori cheez kya hai?", opts: ["High-Contrast Thumbnail", "50 Tags", "Sirf Outro", "Dark Screen"], ans: 0 },
-      { id: "md4", diff: "medium", mood: "💔 Sad Mood", q: "Raat ko 2 baje purani chats padhne se insaan ko kya milta hai?", opts: ["Sirf purani yaadein aur aansu", "Free recharge", "Naya phone", "Neend"], ans: 0 },
-      { id: "md5", diff: "medium", mood: "😂 Funny", q: "Agar 5 machhar ek room mein hain aur aapne 1 ko maar diya, toh room mein kitne machhar bachenge?", opts: ["5 (1 mara hua + 4 zinda)", "4", "Zero", "10"], ans: 0 },
-      { id: "md6", diff: "medium", mood: "💔 Sad Shayari", q: "'Muskurahat toh sirf duniya ko dikhane ke liye hai, asli dard toh ______ mein chhupa hota hai.'", opts: ["Khamoshi", "Shor", "Bazaar", "Camera"], ans: 0 },
-      { id: "md7", diff: "medium", mood: "😂 Funny", q: "Wo kaunsa mahina hai jismein log sabse kam sote hain?", opts: ["February (28 din hote hain)", "January", "December", "July"], ans: 0 },
-      { id: "md8", diff: "medium", mood: "🎬 Creator", q: "Short video ke pehle 3 seconds ko creator language mein kya kehte hain?", opts: ["Hook", "Export", "Render", "Thumbnail"], ans: 0 },
-
-      // HARD MODE (+15 Coins/Q)
       { id: "hd1", diff: "hard", mood: "🧩 Tricky Riddle", q: "Ek aadmi baarish mein bina chhatri aur bina topi ke chal raha tha, phir bhi uska ek bhi baal geela nahi hua. Kaise?", opts: ["Kyunki wo ganja (bald) tha!", "Baarish ruk gayi thi", "Wo ghar ke andar tha", "Magic tha"], ans: 0 },
-      { id: "hd2", diff: "hard", mood: "💔 Deep Sad", q: "'Woh kehte the tumhari har khamoshi samajhte hain, aaj hum ______ rahe aur unhone haal tak nahi pucha.'", opts: ["Toot", "Hans", "Jeet", "Bhaag"], ans: 0 },
-      { id: "hd3", diff: "hard", mood: "🧩 Brain Riddle", q: "Aisi kaunsi cheez hai jiske paas sir aur poonch (head & tail) dono hain, par shareer (body) nahi hai?", opts: ["Ek Sikka (Coin)", "Saanp", "Sher", "Machhli"], ans: 0 },
-      { id: "hd4", diff: "hard", mood: "😂 Funny Logic", q: "Ek electric train North se South ki taraf 100 km/h ki speed se ja rahi hai, toh uska dhuan kis disha mein jayega?", opts: ["Electric train dhuan nahi chhodti!", "North", "South", "East"], ans: 0 },
-      { id: "hd5", diff: "hard", mood: "💔 Deep Sad", q: "Zindagi ka sabse kadwa sach kya hai jab aap bure waqt se guzar rahe hote hain?", opts: ["Apne bhi pehchanne se inkaar kar dete hain", "Sab madad karte hain", "Waqt ruk jaata hai", "Paisa ped par ugta hai"], ans: 0 },
-      { id: "hd6", diff: "hard", mood: "🧩 Tricky Riddle", q: "Aap ek race mein daud rahe hain aur aapne 2nd number wale ko peeche chhod diya. Ab aap kis position par hain?", opts: ["2nd Position par", "1st Position par", "3rd Position par", "Last par"], ans: 0 },
-      { id: "hd7", diff: "hard", mood: "🎬 Pro Editing", q: "Smooth slow-motion video banane ke liye mobile camera mein minimum kitne FPS par shoot karna chahiye?", opts: ["60 FPS ya 120 FPS", "15 FPS", "24 FPS", "10 FPS"], ans: 0 },
-
-      // ULTRA HARD MODE (+25 Coins/Q)
-      { id: "uh1", diff: "ultra", mood: "🔥 Ultra Riddle", q: "Main bina pankh ke udta hoon, bina aankhon ke rota hoon. Jahan bhi jaata hoon andhera chha jaata hai. Main kaun hoon?", opts: ["Baadal (Cloud)", "Hawa", "Raat", "Chand"], ans: 0 },
-      { id: "uh2", diff: "ultra", mood: "💔 Ultra Sad", q: "'Kisi ko itna bhi waqt mat do ki woh tumhare waqt ko ______ samajhne lage.'", opts: ["Faltu", "Keemti", "Zaroori", "Aakhiri"], ans: 0 },
-      { id: "uh3", diff: "ultra", mood: "🔥 Ultra Logic", q: "3 cats 3 chuhe 3 minute mein pakadti hain. Toh 100 cats 100 chuhe kitne minute mein pakdengi?", opts: ["3 Minute mein hi!", "100 Minute", "300 Minute", "1 Minute"], ans: 0 },
-      { id: "uh4", diff: "ultra", mood: "🔥 Ultra Riddle", q: "Jo mujhe banata hai woh mujhe bech deta hai, jo mujhe kharidta hai woh use nahi karta, aur jo use karta hai use pata nahi chalta. Main kya hoon?", opts: ["Kafan / Coffin", "Mobile", "Car", "Ghadi"], ans: 0 },
-      { id: "uh5", diff: "ultra", mood: "💔 Ultra Sad", q: "Jab insaan andar se toot jaata hai, toh woh ladna chhod kar kya karna shuru kar deta hai?", opts: ["Har baat par 'Theek hai' kehna", "Sabse ladna", "Rona dhona", "Ghumna"], ans: 0 },
-      { id: "uh6", diff: "ultra", mood: "🔥 Ultra Math", q: "Ek talab mein kamal ka phool roz double hota hai. Agar poora talab 30 din mein bharta hai, toh aadha talab kitne din mein bhara tha?", opts: ["29vein din (29th Day)", "15vein din", "20vein din", "28vein din"], ans: 0 }
+      { id: "hd2", diff: "hard", mood: "🧩 Brain Riddle", q: "Aisi kaunsi cheez hai jiske paas sir aur poonch (head & tail) dono hain, par shareer (body) nahi hai?", opts: ["Ek Sikka (Coin)", "Saanp", "Sher", "Machhli"], ans: 0 },
+      { id: "hd3", diff: "hard", mood: "😂 Funny Logic", q: "Ek electric train North se South ki taraf 100 km/h ki speed se ja rahi hai, toh uska dhuan kis disha mein jayega?", opts: ["Electric train dhuan nahi chhodti!", "North", "South", "East"], ans: 0 },
+      { id: "uh1", diff: "ultra", mood: "🔥 Ultra Logic", q: "3 cats 3 chuhe 3 minute mein pakadti hain. Toh 100 cats 100 chuhe kitne minute mein pakdengi?", opts: ["3 Minute mein hi!", "100 Minute", "300 Minute", "1 Minute"], ans: 0 },
+      { id: "uh2", diff: "ultra", mood: "🔥 Ultra Math", q: "Ek talab mein kamal ka phool roz double hota hai. Agar poora talab 30 din mein bharta hai, toh aadha talab kitne din mein bhara tha?", opts: ["29vein din (29th Day)", "15vein din", "20vein din", "28vein din"], ans: 0 }
     ];
 
     const I18N = {
-      hinglish: { lvl1Title: "⚡ Daily Earning Activities", dailyTitle: "🔥 7-Day Daily Check-In Streak", watchTitle: "Watch Partner Spotlight (15s)", navHome: "Home", navComm: "Feed", navWallet: "Redeem", navRefer: "Refer", navProfile: "Profile" },
-      pa: { lvl1Title: "⚡ ਰੋਜ਼ਾਨਾ ਕਮਾਈ ਐਕਟੀਵਿਟੀ", dailyTitle: "🔥 7-ਦਿਨਾਂ ਦੀ ਸਟ੍ਰੀਕ ਬੋਨਸ", watchTitle: "ਪਾਰਟਨਰ ਸਪੌਟਲਾਈਟ ਦੇਖੋ (15s)", navHome: "ਹੋਮ", navComm: "ਫੀਡ", navWallet: "ਰਿਡੀਮ", navRefer: "ਰੈਫਰ", navProfile: "ਪ੍ਰੋਫਾਈਲ" },
-      hi: { lvl1Title: "⚡ डेली अर्निंग एक्टिविटी", dailyTitle: "🔥 7-दिन डेली चेक-इन स्ट्रीक", watchTitle: "पार्टनर स्पॉटलाइट देखें (15s)", navHome: "होम", navComm: "फीड", navWallet: "रिडीम", navRefer: "रेफर", navProfile: "प्रोफाइल" },
-      en: { lvl1Title: "⚡ Daily Earning Activities", dailyTitle: "🔥 7-Day Daily Check-In Streak", watchTitle: "Watch Partner Spotlight (15s)", navHome: "Home", navComm: "Feed", navWallet: "Redeem", navRefer: "Refer", navProfile: "Profile" }
+      hinglish: { label: "Hinglish (Default)", lvl1Title: "⚡ Skill Games & Daily Tasks", dailyTitle: "🔥 7-Day Daily Check-In Streak", watchTitle: "Watch Partner Spotlight (15s)", navHome: "Home", navComm: "Feed", navWallet: "Wallet", navRefer: "Refer", navProfile: "Profile" },
+      pa: { label: "ਪੰਜਾਬੀ (Punjabi)", lvl1Title: "⚡ ਸਕਿੱਲ ਗੇਮਜ਼ ਤੇ ਰੋਜ਼ਾਨਾ ਟਾਸਕ", dailyTitle: "🔥 7-ਦਿਨਾਂ ਦੀ ਸਟ੍ਰੀਕ ਬੋਨਸ", watchTitle: "ਪਾਰਟਨਰ ਸਪੌਟਲਾਈਟ ਦੇਖੋ (15s)", navHome: "ਹੋਮ", navComm: "ਫੀਡ", navWallet: "ਵਾਲਿਟ", navRefer: "ਰੈਫਰ", navProfile: "ਪ੍ਰੋਫਾਈਲ" },
+      hi: { label: "हिंदी (Hindi)", lvl1Title: "⚡ स्किल गेम्स और डेली टास्क", dailyTitle: "🔥 7-दिन डेली चेक-इन स्ट्रीक", watchTitle: "पार्टनर स्पॉटलाइट देखें (15s)", navHome: "होम", navComm: "फीड", navWallet: "वॉलेट", navRefer: "रेफर", navProfile: "प्रोफाइल" },
+      en: { label: "English", lvl1Title: "⚡ Skill Games & Daily Tasks", dailyTitle: "🔥 7-Day Daily Check-In Streak", watchTitle: "Watch Partner Spotlight (15s)", navHome: "Home", navComm: "Feed", navWallet: "Wallet", navRefer: "Refer", navProfile: "Profile" }
     };
 
     function getISTDateStr() {
@@ -2390,6 +2489,7 @@
     }
 
     function playCoinSound() {
+      if (!soundEnabled) return;
       try {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
         const osc = ctx.createOscillator();
@@ -2406,23 +2506,23 @@
       } catch (e) {}
     }
 
+    window.toggleSoundSetting = (isOn) => {
+      soundEnabled = isOn;
+      localStorage.setItem("sd_sound", isOn ? "on" : "off");
+      if (isOn) playCoinSound();
+      showToast(isOn ? "Coin sound ON" : "Coin sound OFF");
+    };
+
     function applyMaintenanceCheck() {
       const userEmail = (currentUser?.email || "").toLowerCase();
       const isOwner = OWNER_EMAILS.map(e => e.toLowerCase()).includes(userEmail);
       const maintEl = document.getElementById("maintenanceScreen");
       const btnMaint = document.getElementById("btnToggleMaint");
-      if (btnMaint) {
-        btnMaint.textContent = isMaintenanceActive ? "🛠️ Maintenance: ON" : "🛠️ Maintenance: OFF";
-      }
-      if (isMaintenanceActive && !isOwner) {
-        maintEl.style.display = "flex";
-      } else {
-        maintEl.style.display = "none";
-      }
+      if (btnMaint) btnMaint.textContent = isMaintenanceActive ? "🛠️ Maintenance: ON" : "🛠️ Maintenance: OFF";
+      maintEl.style.display = (isMaintenanceActive && !isOwner) ? "flex" : "none";
     }
 
-    let maintTapCount = 0;
-    let maintTapTimer = null;
+    let maintTapCount = 0, maintTapTimer = null;
     document.getElementById("maintSecretUnlock").addEventListener("click", () => {
       maintTapCount++;
       clearTimeout(maintTapTimer);
@@ -2485,8 +2585,9 @@
       showToast(`User ID (${uid}) copied!`);
     };
 
-    document.getElementById("langSwitcher").addEventListener("change", (e) => {
-      const lang = I18N[e.target.value] || I18N.hinglish;
+    window.applyLangChange = (val) => {
+      const lang = I18N[val] || I18N.hinglish;
+      document.getElementById("currentLangLabel").textContent = lang.label;
       document.getElementById("t-lvl1-title").textContent = lang.lvl1Title;
       document.getElementById("t-daily-title").textContent = lang.dailyTitle;
       document.getElementById("t-watch-title").textContent = lang.watchTitle;
@@ -2496,19 +2597,18 @@
       document.getElementById("nav-refer").textContent = lang.navRefer;
       document.getElementById("nav-profile").textContent = lang.navProfile;
       showToast("Language updated!");
-    });
+    };
 
     window.handleSettingsAuth = () => {
-      closeModal("modal-settings");
       if (currentUser) {
         signOut(auth);
-        showToast("Logged out successfully");
+        showToast("Signed out successfully");
       } else {
         openModal("modal-auth");
       }
     };
 
-    // 100% REAL FIREBASE LIVE ONLINE PRESENCE
+    // Real Firebase Live Online Presence
     const sessionVisitorId = localStorage.getItem("sd_session_id") || ("v_" + Math.random().toString(36).slice(2, 10));
     localStorage.setItem("sd_session_id", sessionVisitorId);
 
@@ -2519,12 +2619,9 @@
           uid: currentUser ? currentUser.uid : "guest",
           lastActive: nowMs
         }, { merge: true });
-
         const twoMinsAgo = nowMs - 120000;
-        const q = query(collection(db, "presence"), where("lastActive", ">=", twoMinsAgo));
-        const snap = await getDocs(q);
-        const realCount = Math.max(1, snap.size);
-        document.getElementById("onlineCountText").textContent = `${realCount} Online`;
+        const snap = await getDocs(query(collection(db, "presence"), where("lastActive", ">=", twoMinsAgo)));
+        document.getElementById("onlineCountText").textContent = `${Math.max(1, snap.size)} Online`;
       } catch (e) {
         document.getElementById("onlineCountText").textContent = "1 Online";
       }
@@ -2532,38 +2629,16 @@
     setInterval(updateRealLivePresence, 30000);
     updateRealLivePresence();
 
-    // Real Withdrawal Ticker
-    async function loadRealWithdrawalTicker() {
-      try {
-        const snap = await getDocs(query(collection(db, "payouts"), limit(15)));
-        if (snap.empty) return;
-        const items = [];
-        snap.forEach(d => {
-          const p = d.data();
-          if (p.name && p.item) {
-            items.push(`💸 ${p.name} (${p.uniqueId || 'Member'}) ne ${p.item} redeem lagaya (${p.status === 'approved' ? 'Approved ✅' : 'Processing ⏳'})`);
-          }
-        });
-        if (items.length > 0) {
-          document.getElementById("liveTickerText").textContent = items.join("   •   ");
-        }
-      } catch (e) {}
-    }
-
     function computeLevel(xp) {
       let current = LEVELS[0];
-      for (const item of LEVELS) {
-        if (xp >= item.minXp) current = item;
-      }
+      for (const item of LEVELS) if (xp >= item.minXp) current = item;
       return current;
     }
 
     function getTotalQuizRoundsLeft() {
       const today = getISTDateStr();
       const usedToday = userData.quizDate === today ? (Number(userData.quizPlaysToday) || 0) : 0;
-      const freeLeft = Math.max(0, 3 - usedToday);
-      const extraPack = Number(userData.extraQuizCredits) || 0;
-      return freeLeft + extraPack;
+      return Math.max(0, 3 - usedToday) + (Number(userData.extraQuizCredits) || 0);
     }
 
     function renderUI() {
@@ -2598,7 +2673,7 @@
       document.getElementById("nextLvlLabel").textContent = nextLvlObj ? `Next: Level ${nextLvlObj.lvl}` : "Max Level";
       document.getElementById("xpFillBar").style.width = `${pct}%`;
 
-      // Daily 5-Task Combo Chest
+      // Daily 5-Task Combo
       const comboCount = userData.comboDate === today ? (userData.comboTasksToday || 0) : 0;
       const comboClaimed = userData.comboDate === today && userData.comboClaimedToday;
       document.getElementById("comboProgressText").textContent = `Aaj ke koi 5 tasks/games complete karein (${Math.min(5, comboCount)} / 5)`;
@@ -2615,9 +2690,8 @@
         btnCombo.textContent = `${comboCount}/5`;
       }
 
-      // 7-Day Streak Visual Grid (100% Fixed)
-      const localDailyDone = currentUser && localStorage.getItem("sd_daily_" + currentUser.uid) === today;
-      const claimedToday = userData.lastDailyDate === today || localDailyDone;
+      // 7-Day Daily Check-In (100% Fixed for both old & new accounts)
+      const claimedToday = String(userData.lastDailyDate || "").slice(0, 10) === today;
       const curDayIdx = Number(userData.streakDay) || 0;
       const nextDayNum = claimedToday ? curDayIdx : (curDayIdx % 7) + 1;
       const btnDaily = document.getElementById("btnDailyClaim");
@@ -2642,7 +2716,7 @@
       document.getElementById("watchLimitLabel").textContent = `Today: ${watchedToday} / 10 Watched • +10 Coins`;
       if (watchedToday >= 10) markBtnDone("btnWatchAd", "10/10 ✓");
 
-      // Mini-Games Limits
+      // Scratch, Spin, Rush, Quiz Limits
       const scratchLeft = Math.max(0, 2 - (userData.scratchDate === today ? (userData.scratchCountToday || 0) : 0));
       document.getElementById("scratchLimitLabel").textContent = `${scratchLeft} / 2 Left Today`;
       if (scratchLeft === 0) markBtnDone("btnOpenScratch", "Done ✓");
@@ -2651,29 +2725,25 @@
       document.getElementById("spinLimitLabel").textContent = `${spinLeft} / 3 Left Today`;
       if (spinLeft === 0) markBtnDone("btnOpenSpin", "Done ✓");
 
-      const flipLeft = Math.max(0, 2 - (userData.flipDate === today ? (userData.flipCountToday || 0) : 0));
-      document.getElementById("flipLimitLabel").textContent = `${flipLeft} / 2 Left Today`;
-      if (flipLeft === 0) markBtnDone("btnOpenFlip", "Done ✓");
-
-      const diceLeft = Math.max(0, 2 - (userData.diceDate === today ? (userData.diceCountToday || 0) : 0));
-      document.getElementById("diceLimitLabel").textContent = `${diceLeft} / 2 Left Today`;
-      if (diceLeft === 0) markBtnDone("btnOpenDice", "Done ✓");
-
       const rushLeft = Math.max(0, 2 - (userData.rushDate === today ? (userData.rushCountToday || 0) : 0));
       document.getElementById("rushLimitLabel").textContent = `${rushLeft} / 2 Left Today`;
       if (rushLeft === 0) markBtnDone("btnOpenRush", "Done ✓");
 
-      // Quiz Rounds (Always clickable so user can unlock +20 Pack with 200 Coins!)
       const totalQuizLeft = getTotalQuizRoundsLeft();
       document.getElementById("quizLimitLabel").textContent = `${totalQuizLeft} Rounds • +20 Pack (200🪙)`;
       document.getElementById("quizAvailableRoundsBadge").textContent = `${totalQuizLeft} Rounds Left`;
 
-      // Arena Stats
+      // Arena & Performance Stats
       document.getElementById("arenaStreakPill").textContent = `🔥 ${userData.arenaStreak || 0} Streak`;
       document.getElementById("arenaRatingStat").textContent = userData.arenaRating || 1000;
       document.getElementById("arenaWinsStat").textContent = userData.arenaWins || 0;
       const arenaFreeLeft = Math.max(0, 3 - (userData.arenaFreeDate === today ? (userData.arenaFreeUsed || 0) : 0));
       document.getElementById("arenaFreeLeftStat").textContent = `${arenaFreeLeft} / 3`;
+
+      document.getElementById("perfLevelVal").textContent = `Level ${userData.level}`;
+      document.getElementById("perfEloVal").textContent = userData.arenaRating || 1000;
+      document.getElementById("perfWinsVal").textContent = userData.arenaWins || 0;
+      document.getElementById("perfStreakVal").textContent = `${userData.streakDay || 0} Days`;
 
       // Social Buttons
       const done = userData.completedActions || {};
@@ -2681,44 +2751,16 @@
       if (done.ig) markBtnDone("btnSocialIg", "Followed ✓");
       if (done.yt) markBtnDone("btnSocialYt", "Subscribed ✓");
 
-      // Level Roadmap
-      document.getElementById("levelRoadmapGrid").innerHTML = LEVELS.map(item => {
-        const isUnlocked = userData.level >= item.lvl;
-        return `<div class="lvl-card ${isUnlocked ? 'unlocked' : 'locked'}">
-          <div class="lvl-tag">${isUnlocked ? '🔓' : '🔒'} Level ${item.lvl} (${item.minXp.toLocaleString()} XP)</div>
-          <h5>${item.name}</h5>
-          <p>${item.desc}</p>
-        </div>`;
-      }).join("");
-
-      // Referral
+      // Referral & Profile
       const code = userData.refCode || "LOGIN-FIRST";
       document.getElementById("myRefLinkInput").value = `https://harrybk90.github.io/SkillDrop-/?ref=${code}`;
       document.getElementById("refCountStat").textContent = userData.refCount || 0;
       document.getElementById("refCoinsStat").textContent = `${userData.refCoins || 0} 🪙`;
 
-      // Profile & Badges
       document.getElementById("profAvatarDisplay").textContent = userData.avatar || "🚀";
       document.getElementById("profNameDisplay").textContent = userData.name || "Guest Creator";
-      document.getElementById("profSkillDisplay").textContent = userData.skill || "Mobile Video Editor";
-      document.getElementById("profBioDisplay").textContent = userData.bio || "Building skills on SkillDrop";
-      document.getElementById("profLevelStat").textContent = `Level ${userData.level}`;
-      document.getElementById("profCoinsStat").textContent = `${coins} 🪙`;
-      document.getElementById("profUpiDisplay").textContent = userData.upi || "Not Set";
-      document.getElementById("profCodeDisplay").textContent = code;
-
-      const badges = [
-        { icon: "🚀", label: "Starter", ok: !!currentUser },
-        { icon: "🔥", label: "7-Day Streak", ok: (userData.streakDay || 0) >= 7 },
-        { icon: "⚔️", label: "Arena Pro", ok: (userData.arenaWins || 0) >= 5 },
-        { icon: "👑", label: "Level 3+", ok: (userData.level || 1) >= 3 }
-      ];
-      document.getElementById("badgesGrid").innerHTML = badges.map(b => `
-        <div class="badge-item ${b.ok ? 'earned' : ''}">
-          <span>${b.icon}</span>
-          <small>${b.label}</small>
-        </div>
-      `).join("");
+      document.getElementById("profEmailDisplay").textContent = userData.email || "Login to sync account";
+      document.getElementById("soundToggleCheckbox").checked = soundEnabled;
     }
 
     function markBtnDone(btnId, label) {
@@ -2733,9 +2775,7 @@
       if (!currentUser) return;
       try {
         await addDoc(collection(db, "users", currentUser.uid, "history"), {
-          title,
-          coins: deltaCoins,
-          ts: Date.now()
+          title, coins: deltaCoins, ts: Date.now()
         });
       } catch (e) {}
     }
@@ -2756,7 +2796,6 @@
         const prevCombo = userData.comboDate === today ? (Number(userData.comboTasksToday) || 0) : 0;
         userData.comboDate = today;
         userData.comboTasksToday = prevCombo + 1;
-        if (userData.comboDate !== today) userData.comboClaimedToday = false;
       }
 
       if (actionKey) {
@@ -2767,15 +2806,13 @@
       renderUI();
       playCoinSound();
 
-      const cleanData = JSON.parse(JSON.stringify(userData));
       try {
-        await setDoc(doc(db, "users", currentUser.uid), cleanData, { merge: true });
+        await setDoc(doc(db, "users", currentUser.uid), JSON.parse(JSON.stringify(userData)), { merge: true });
         await logPassbook(reasonLabel, `+${coinsToAdd} 🪙`);
 
         if (userData.referredBy && coinsToAdd >= 10) {
           const commCoins = Math.max(1, Math.floor(coinsToAdd * 0.10));
-          const q = query(collection(db, "users"), where("refCode", "==", userData.referredBy), limit(1));
-          const qSnap = await getDocs(q);
+          const qSnap = await getDocs(query(collection(db, "users"), where("refCode", "==", userData.referredBy), limit(1)));
           qSnap.forEach(async (docSnap) => {
             await updateDoc(doc(db, "users", docSnap.id), {
               coins: increment(commCoins),
@@ -2789,7 +2826,7 @@
       return true;
     }
 
-    // Daily 5-Task Combo Chest
+    // Daily 5-Task Combo
     window.claimDailyCombo = async () => {
       if (!currentUser) return openModal("modal-auth");
       const today = getISTDateStr();
@@ -2799,48 +2836,38 @@
       await awardReward(30, 8, "Daily 5-Task Treasure Chest", null, { comboClaimedToday: true }, false);
     };
 
-    // 100% FIXED 7-DAY DAILY CHECK-IN CLAIM
+    // Fixed 7-Day Daily Check-In Claim
     window.claimDailyBonus = async () => {
-      if (!currentUser) {
-        openModal("modal-auth");
-        return showToast("Pehle Login karein!");
-      }
+      if (!currentUser) return openModal("modal-auth");
       const today = getISTDateStr();
-      const localDone = localStorage.getItem("sd_daily_" + currentUser.uid) === today;
-      if (userData.lastDailyDate === today || localDone) {
+      if (String(userData.lastDailyDate || "").slice(0, 10) === today) {
         return showToast("Aaj ka Daily Bonus already claimed hai!");
       }
-
       const btn = document.getElementById("btnDailyClaim");
       if (btn) { btn.disabled = true; btn.textContent = "Claiming..."; }
 
       const nextDay = ((Number(userData.streakDay) || 0) % 7) + 1;
       const rewardCoins = STREAK_REWARDS[nextDay - 1] || 10;
 
-      localStorage.setItem("sd_daily_" + currentUser.uid, today);
       await awardReward(rewardCoins, 5, `Day ${nextDay} Check-In Streak`, null, {
         lastDailyDate: today,
         streakDay: nextDay
       });
     };
 
-    // Watch Partner Spotlight (Opens Adsterra Smartlink!)
+    // Watch Partner Spotlight
     window.startWatchTask = () => {
       if (!currentUser) return openModal("modal-auth");
       const today = getISTDateStr();
       const watchedToday = userData.watchDate === today ? (userData.watchCountToday || 0) : 0;
       if (watchedToday >= 10) return showToast("Daily limit (10/10) reached!");
       const now = Date.now();
-      if (now < watchCooldownUntil) {
-        return showToast(`Wait ${Math.ceil((watchCooldownUntil - now) / 1000)}s cooldown!`);
-      }
+      if (now < watchCooldownUntil) return showToast(`Wait ${Math.ceil((watchCooldownUntil - now) / 1000)}s cooldown!`);
       const btn = document.getElementById("btnWatchAd");
       if (btn.disabled) return;
       btn.disabled = true;
 
-      // Open Adsterra Smartlink in new tab
       window.open(SMARTLINK_URL, "_blank");
-
       const wrap = document.getElementById("watchBarWrap");
       const fill = document.getElementById("watchBarFill");
       wrap.style.display = "block";
@@ -2851,9 +2878,8 @@
       btn.textContent = `${total}s...`;
       const timer = setInterval(async () => {
         elapsed++;
-        const rem = total - elapsed;
         fill.style.width = `${Math.round((elapsed / total) * 100)}%`;
-        btn.textContent = rem > 0 ? `${rem}s...` : "Done";
+        btn.textContent = (total - elapsed) > 0 ? `${total - elapsed}s...` : "Done";
         if (elapsed >= total) {
           clearInterval(timer);
           wrap.style.display = "none";
@@ -2861,35 +2887,278 @@
           btn.textContent = "Watch";
           watchCooldownUntil = Date.now() + 20000;
           await awardReward(10, 3, "Partner Spotlight Watch", null, {
-            watchDate: today,
-            watchCountToday: watchedToday + 1
+            watchDate: today, watchCountToday: watchedToday + 1
           });
         }
       }, 1000);
     };
 
+    // MATIKS-STYLE 1v1 SPEED MATH DUAL (CUSTOM NUMPAD + AUTO-SUBMIT)
+    let arenaStakeMode = "free";
+    let mYouPts = 0, mBotPts = 0, mTimeLeft = 45, mMathInt, mBotInt;
+    let mCurrentAns = 0, mUserInput = "";
+
+    window.setArenaStake = (mode, btnEl) => {
+      arenaStakeMode = mode;
+      document.querySelectorAll("#view-arena .sub-tab-btn").forEach(b => b.classList.remove("active"));
+      btnEl.classList.add("active");
+    };
+
+    async function deductArenaEntry() {
+      if (!currentUser) { openModal("modal-auth"); return false; }
+      const today = getISTDateStr();
+      const freeUsed = userData.arenaFreeDate === today ? (Number(userData.arenaFreeUsed) || 0) : 0;
+
+      if (arenaStakeMode === "free") {
+        if (freeUsed >= 3) { showToast("Aaj ke 3 Free Duels poore! 20-Coin Duel khelein."); return false; }
+        userData.arenaFreeDate = today;
+        userData.arenaFreeUsed = freeUsed + 1;
+      } else {
+        if ((Number(userData.coins) || 0) < 20) { showToast("20-Coin Duel ke liye kam-az-kam 20 Coins chahiye!"); return false; }
+        userData.coins -= 20;
+        await logPassbook("Arena 20-Coin Duel Entry", "-20 🪙");
+      }
+      renderUI();
+      await setDoc(doc(db, "users", currentUser.uid), {
+        coins: userData.coins, arenaFreeDate: userData.arenaFreeDate, arenaFreeUsed: userData.arenaFreeUsed
+      }, { merge: true });
+      return true;
+    }
+
+    window.openMatiksMathModal = async () => {
+      if (!(await deductArenaEntry())) return;
+      clearInterval(mMathInt); clearInterval(mBotInt);
+      mYouPts = 0; mBotPts = 0; mTimeLeft = 45;
+      const rivals = ["Sero", "Rohan_07", "SimranK", "Kabir_X", "Ananya_Pro"];
+      const rName = rivals[Math.floor(Math.random() * rivals.length)];
+      document.getElementById("mBotName").textContent = rName;
+      document.getElementById("mYouScore").textContent = "0";
+      document.getElementById("mBotScore").textContent = "0";
+      document.getElementById("mHintBadge").textContent = `Solve fast to beat ${rName}!`;
+      openModal("modal-matiks-math");
+      mNextQuestion();
+
+      mMathInt = setInterval(() => {
+        mTimeLeft--;
+        document.getElementById("mTimerPill").textContent = `⏱ 00:${mTimeLeft < 10 ? "0" + mTimeLeft : mTimeLeft}`;
+        if (mTimeLeft <= 0) finishMatiksMath(rName);
+      }, 1000);
+
+      mBotInt = setInterval(() => {
+        if (Math.random() > 0.38) {
+          mBotPts++;
+          document.getElementById("mBotScore").textContent = mBotPts;
+        }
+      }, 3600);
+    };
+
+    function mNextQuestion() {
+      mUserInput = "";
+      mUpdateAnsBox();
+      const ops = ["+", "-", "×"];
+      const op = ops[Math.floor(Math.random() * ops.length)];
+      let a, b;
+      if (op === "+") { a = Math.floor(Math.random() * 35) + 10; b = Math.floor(Math.random() * 25) + 5; mCurrentAns = a + b; }
+      else if (op === "-") { a = Math.floor(Math.random() * 40) + 20; b = Math.floor(Math.random() * 18) + 3; mCurrentAns = a - b; }
+      else { a = Math.floor(Math.random() * 11) + 2; b = Math.floor(Math.random() * 9) + 2; mCurrentAns = a * b; }
+      document.getElementById("mEqDisplay").innerHTML = `${a}<br>${op} ${b}`;
+    }
+
+    window.mPressNum = (n) => {
+      if (mUserInput.length >= 3) return;
+      mUserInput += n;
+      mUpdateAnsBox();
+      if (parseInt(mUserInput, 10) === mCurrentAns) {
+        mYouPts++;
+        document.getElementById("mYouScore").textContent = mYouPts;
+        const box = document.getElementById("mAnsBox");
+        box.classList.add("correct");
+        document.getElementById("mHintBadge").textContent = mYouPts > mBotPts ? "🔥 You're in the lead!" : "⚡ Keep pushing!";
+        setTimeout(() => { box.classList.remove("correct"); mNextQuestion(); }, 180);
+      } else if (mUserInput.length >= String(mCurrentAns).length) {
+        const box = document.getElementById("mAnsBox");
+        box.classList.add("wrong");
+        setTimeout(() => { box.classList.remove("wrong"); mUserInput = ""; mUpdateAnsBox(); }, 240);
+      }
+    };
+
+    window.mBackspace = () => { mUserInput = mUserInput.slice(0, -1); mUpdateAnsBox(); };
+    window.mClearInput = () => { mUserInput = ""; mUpdateAnsBox(); };
+    function mUpdateAnsBox() {
+      document.getElementById("mAnsBox").innerHTML = mUserInput || '<span style="color:#2563EB;">|</span>';
+    }
+
+    window.closeMatiksMath = () => {
+      clearInterval(mMathInt); clearInterval(mBotInt);
+      closeModal("modal-matiks-math");
+    };
+
+    async function finishMatiksMath(rName) {
+      closeMatiksMath();
+      const today = getISTDateStr();
+      let newStreak = Number(userData.arenaStreak) || 0;
+      if (userData.lastArenaDate !== today) newStreak++;
+
+      if (mYouPts >= mBotPts) {
+        const winCoins = arenaStakeMode === "coin20" ? 35 : 10;
+        await awardReward(winCoins, 5, "1v1 Math Dual Victory", null, {
+          arenaRating: (Number(userData.arenaRating) || 1000) + 15,
+          arenaWins: (Number(userData.arenaWins) || 0) + 1,
+          arenaStreak: newStreak,
+          lastArenaDate: today
+        });
+        showToast(`🏆 Beat ${rName} (${mYouPts} vs ${mBotPts})! +${winCoins} Coins!`);
+      } else {
+        userData.arenaRating = Math.max(800, (Number(userData.arenaRating) || 1000) - 8);
+        userData.arenaStreak = newStreak;
+        userData.lastArenaDate = today;
+        renderUI();
+        await setDoc(doc(db, "users", currentUser.uid), {
+          arenaRating: userData.arenaRating, arenaStreak: newStreak, lastArenaDate: today
+        }, { merge: true });
+        showToast(`Lost (${mYouPts} vs ${mBotPts}). Try again!`);
+      }
+    }
+
+    // MATIKS-STYLE MEMORY PATTERN GRID (3x3)
+    let memPattern = [], memUserTaps = [], memCanTap = false, memLvl = 1, memPts = 0;
+
+    window.openMemoryGridModal = async () => {
+      if (!(await deductArenaEntry())) return;
+      memLvl = 1; memPts = 0;
+      document.getElementById("memLvlDisplay").textContent = memLvl;
+      document.getElementById("memPtsDisplay").textContent = memPts;
+      openModal("modal-memory-grid");
+      setupMemoryGridBoard();
+    };
+
+    function setupMemoryGridBoard() {
+      const board = document.getElementById("memGridBoard");
+      board.innerHTML = "";
+      memPattern = []; memUserTaps = []; memCanTap = false;
+      const count = Math.min(3 + memLvl, 7);
+      while (memPattern.length < count) {
+        const r = Math.floor(Math.random() * 9);
+        if (!memPattern.includes(r)) memPattern.push(r);
+      }
+      document.getElementById("memPromptPill").textContent = "Remember the glowing tiles...";
+      document.getElementById("memTapsCounter").textContent = `0 / ${count} taps`;
+
+      for (let i = 0; i < 9; i++) {
+        const t = document.createElement("div");
+        t.className = "mem-tile";
+        t.onclick = () => tapMemoryTile(i, t);
+        board.appendChild(t);
+      }
+
+      const tiles = document.querySelectorAll(".mem-tile");
+      setTimeout(() => {
+        memPattern.forEach(idx => tiles[idx].classList.add("glow"));
+        setTimeout(() => {
+          memPattern.forEach(idx => tiles[idx].classList.remove("glow"));
+          memCanTap = true;
+          document.getElementById("memPromptPill").textContent = "Select the correct pattern";
+        }, 1250);
+      }, 450);
+    }
+
+    async function tapMemoryTile(idx, el) {
+      if (!memCanTap || memUserTaps.includes(idx)) return;
+      if (memPattern.includes(idx)) {
+        el.classList.add("glow");
+        memUserTaps.push(idx);
+        memPts++;
+        document.getElementById("memPtsDisplay").textContent = memPts;
+        document.getElementById("memTapsCounter").textContent = `${memUserTaps.length} / ${memPattern.length} taps`;
+        if (memUserTaps.length === memPattern.length) {
+          memCanTap = false;
+          memLvl++;
+          document.getElementById("memLvlDisplay").textContent = memLvl;
+          document.getElementById("memPromptPill").textContent = "✅ Pattern Matched!";
+          setTimeout(setupMemoryGridBoard, 850);
+        }
+      } else {
+        memCanTap = false;
+        el.classList.add("wrong-tile");
+        setTimeout(async () => {
+          closeModal("modal-memory-grid");
+          const earned = Math.min(35, Math.max(5, Math.floor(memPts * 1.5)));
+          await awardReward(earned, 4, `Memory Pattern Grid (Lvl ${memLvl})`, null, {
+            arenaWins: (Number(userData.arenaWins) || 0) + 1
+          });
+        }, 600);
+      }
+    }
+
+    // PUZZLE SEQUENCE DUAL
+    let pzTimerIv = null, pzMyPts = 0, pzOppPts = 0, pzCorrectAns = "";
+    window.startPuzzleDuel = async () => {
+      if (!(await deductArenaEntry())) return;
+      pzMyPts = 0; pzOppPts = 0;
+      document.getElementById("pzMyScore").textContent = "0";
+      document.getElementById("pzOppScore").textContent = "0";
+      openModal("modal-puzzle-duel");
+      let timeLeft = 30;
+      document.getElementById("pzTimerPill").textContent = `${timeLeft}s`;
+      nextPuzzleQ();
+      clearInterval(pzTimerIv);
+      pzTimerIv = setInterval(async () => {
+        timeLeft--;
+        document.getElementById("pzTimerPill").textContent = `${timeLeft}s`;
+        if (Math.random() > 0.65) {
+          pzOppPts += 10;
+          document.getElementById("pzOppScore").textContent = pzOppPts;
+        }
+        if (timeLeft <= 0) {
+          closePuzzleDuel();
+          if (pzMyPts >= pzOppPts) {
+            const winCoins = arenaStakeMode === "coin20" ? 35 : 10;
+            await awardReward(winCoins, 5, "Puzzle Sequence Duel Win");
+          } else {
+            showToast(`Puzzle Duel Lost (${pzMyPts} vs ${pzOppPts})`);
+          }
+        }
+      }, 1000);
+    };
+
+    function nextPuzzleQ() {
+      const start = 2 + Math.floor(Math.random() * 6);
+      const step = 3 + Math.floor(Math.random() * 5);
+      const ans = start + step * 3;
+      pzCorrectAns = String(ans);
+      document.getElementById("pzPromptBox").textContent = `${start}, ${start + step}, ${start + step * 2}, ?`;
+      const choices = [ans, ans + step, ans - 1, ans + 2].map(String).sort(() => 0.5 - Math.random());
+      document.getElementById("pzOptionsGrid").innerHTML = choices.map(c =>
+        `<button class="btn btn-primary" style="padding:12px;font-size:15px;" onclick="ansPuzzleQ('${c}')">${c}</button>`
+      ).join("");
+    }
+
+    window.ansPuzzleQ = (c) => {
+      pzMyPts = c === pzCorrectAns ? pzMyPts + 10 : Math.max(0, pzMyPts - 5);
+      document.getElementById("pzMyScore").textContent = pzMyPts;
+      nextPuzzleQ();
+    };
+
+    window.closePuzzleDuel = () => { clearInterval(pzTimerIv); closeModal("modal-puzzle-duel"); };
+
     // Scratch Card
-    let scratchStrokes = 0;
-    let scratchAwarded = false;
-    let currentScratchPrize = 10;
+    let scratchStrokes = 0, scratchAwarded = false, currentScratchPrize = 10;
     window.openScratchModal = () => {
       if (!currentUser) return openModal("modal-auth");
       const today = getISTDateStr();
       const used = userData.scratchDate === today ? (userData.scratchCountToday || 0) : 0;
       if (used >= 2) return showToast("Aaj ke 2 Scratch Cards khatam ho gaye!");
-
-      scratchStrokes = 0;
-      scratchAwarded = false;
-      const prizes = [5, 10, 12, 15, 20, 25];
+      scratchStrokes = 0; scratchAwarded = false;
+      const prizes = [5, 10, 12, 15, 20];
       currentScratchPrize = prizes[Math.floor(Math.random() * prizes.length)];
       document.getElementById("scratchPrizeText").textContent = `+${currentScratchPrize} Coins`;
 
       const canvas = document.getElementById("scratchCanvas");
       const ctx = canvas.getContext("2d");
       ctx.globalCompositeOperation = "source-over";
-      ctx.fillStyle = "#94a3b8";
+      ctx.fillStyle = "#CBD5E1";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#0f172a";
+      ctx.fillStyle = "#0F172A";
       ctx.font = "bold 15px Plus Jakarta Sans";
       ctx.textAlign = "center";
       ctx.fillText("RUB TO SCRATCH 🪙", canvas.width / 2, canvas.height / 2 + 5);
@@ -2898,24 +3167,19 @@
         e.preventDefault();
         const rect = canvas.getBoundingClientRect();
         const touch = e.touches ? e.touches[0] : e;
-        const x = touch.clientX - rect.left;
-        const y = touch.clientY - rect.top;
         ctx.globalCompositeOperation = "destination-out";
         ctx.beginPath();
-        ctx.arc(x, y, 22, 0, Math.PI * 2);
+        ctx.arc(touch.clientX - rect.left, touch.clientY - rect.top, 22, 0, Math.PI * 2);
         ctx.fill();
         scratchStrokes++;
-
         if (scratchStrokes >= 18 && !scratchAwarded) {
           scratchAwarded = true;
           ctx.clearRect(0, 0, canvas.width, canvas.height);
           await awardReward(currentScratchPrize, 2, "Lucky Scratch Card", null, {
-            scratchDate: today,
-            scratchCountToday: used + 1
+            scratchDate: today, scratchCountToday: used + 1
           });
         }
       };
-
       canvas.ontouchmove = scratchMove;
       canvas.onmousemove = (e) => { if (e.buttons === 1) scratchMove(e); };
       openModal("modal-scratch");
@@ -2941,7 +3205,7 @@
       const wheel = document.getElementById("spinWheelEl");
       const deg = 1440 + Math.floor(Math.random() * 360);
       wheel.style.transform = `rotate(${deg}deg)`;
-      const prizes = [5, 10, 15, 10, 20, 25];
+      const prizes = [5, 10, 15, 10, 20];
       const won = prizes[Math.floor(Math.random() * prizes.length)];
       setTimeout(async () => {
         isSpinning = false;
@@ -2955,79 +3219,8 @@
       }, 2500);
     };
 
-    // Flip & Win Mystery Cards
-    let flipPicked = false;
-    window.openFlipModal = () => {
-      if (!currentUser) return openModal("modal-auth");
-      const today = getISTDateStr();
-      const used = userData.flipDate === today ? (userData.flipCountToday || 0) : 0;
-      if (used >= 2) return showToast("Aaj ke 2 Flip Cards khatam ho gaye!");
-      flipPicked = false;
-      document.querySelectorAll(".flip-card").forEach(c => {
-        c.className = "flip-card";
-        c.textContent = "❓";
-      });
-      openModal("modal-flip");
-    };
-
-    window.pickFlipCard = async (idx, el) => {
-      if (flipPicked || !currentUser) return;
-      flipPicked = true;
-      const today = getISTDateStr();
-      const used = userData.flipDate === today ? (userData.flipCountToday || 0) : 0;
-      const rewards = [8, 15, 22].sort(() => 0.5 - Math.random());
-      document.querySelectorAll(".flip-card").forEach((c, i) => {
-        c.classList.add("revealed");
-        c.textContent = `+${rewards[i]} 🪙`;
-      });
-      await awardReward(rewards[idx], 3, "Flip & Win Mystery Card", null, {
-        flipDate: today,
-        flipCountToday: used + 1
-      });
-    };
-
-    // Lucky Dice Roll
-    let diceRolling = false;
-    window.openDiceModal = () => {
-      if (!currentUser) return openModal("modal-auth");
-      const today = getISTDateStr();
-      const used = userData.diceDate === today ? (userData.diceCountToday || 0) : 0;
-      if (used >= 2) return showToast("Aaj ke 2 Dice Rolls khatam ho gaye!");
-      document.getElementById("diceDisplayBox").textContent = "🎲";
-      document.getElementById("diceResultLabel").textContent = "";
-      openModal("modal-dice");
-    };
-
-    window.rollDiceNow = async () => {
-      if (diceRolling || !currentUser) return;
-      const today = getISTDateStr();
-      const used = userData.diceDate === today ? (userData.diceCountToday || 0) : 0;
-      if (used >= 2) return showToast("Daily limit reached!");
-      diceRolling = true;
-      const faces = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
-      let ticks = 0;
-      const iv = setInterval(async () => {
-        ticks++;
-        const rollIdx = Math.floor(Math.random() * 6);
-        document.getElementById("diceDisplayBox").textContent = faces[rollIdx];
-        if (ticks >= 10) {
-          clearInterval(iv);
-          diceRolling = false;
-          const num = rollIdx + 1;
-          const won = num * 3;
-          document.getElementById("diceResultLabel").textContent = `Rolled ${num} → Won +${won} Coins!`;
-          await awardReward(won, 3, `Lucky Dice Roll (${num}×3)`, null, {
-            diceDate: today,
-            diceCountToday: used + 1
-          });
-        }
-      }, 90);
-    };
-
     // 15s Speed Math Rush
-    let rushScore = 0;
-    let rushCorrectAns = 0;
-    let rushTimerIv = null;
+    let rushScore = 0, rushCorrectAns = 0, rushTimerIv = null;
     window.openRushModal = () => {
       if (!currentUser) return openModal("modal-auth");
       const today = getISTDateStr();
@@ -3038,22 +3231,16 @@
       document.getElementById("rushTimerBadge").textContent = `${timeLeft}s`;
       nextRushQuestion();
       openModal("modal-rush");
-
       clearInterval(rushTimerIv);
       rushTimerIv = setInterval(() => {
         timeLeft--;
         document.getElementById("rushTimerBadge").textContent = `${timeLeft}s`;
-        if (timeLeft <= 0) {
-          clearInterval(rushTimerIv);
-          closeModal("modal-rush");
-          showToast("Time up! Try again.");
-        }
+        if (timeLeft <= 0) { clearInterval(rushTimerIv); closeModal("modal-rush"); showToast("Time up! Try again."); }
       }, 1000);
     };
 
     function nextRushQuestion() {
-      const a = 4 + Math.floor(Math.random() * 15);
-      const b = 3 + Math.floor(Math.random() * 12);
+      const a = 4 + Math.floor(Math.random() * 15), b = 3 + Math.floor(Math.random() * 12);
       rushCorrectAns = a + b;
       document.getElementById("rushQuestionBox").textContent = `${a} + ${b} = ? (${rushScore}/3)`;
       const opts = [rushCorrectAns, rushCorrectAns + 2, rushCorrectAns - 1].sort(() => 0.5 - Math.random());
@@ -3066,27 +3253,16 @@
       if (val === rushCorrectAns) {
         rushScore++;
         if (rushScore >= 3) {
-          clearInterval(rushTimerIv);
-          closeModal("modal-rush");
+          clearInterval(rushTimerIv); closeModal("modal-rush");
           const today = getISTDateStr();
           const used = userData.rushDate === today ? (userData.rushCountToday || 0) : 0;
-          await awardReward(15, 4, "15s Speed Math Rush", null, {
-            rushDate: today,
-            rushCountToday: used + 1
-          });
-        } else {
-          nextRushQuestion();
-        }
-      } else {
-        showToast("Galat! Jaldi sahi chuno");
-      }
+          await awardReward(15, 4, "15s Speed Math Rush", null, { rushDate: today, rushCountToday: used + 1 });
+        } else nextRushQuestion();
+      } else showToast("Galat! Jaldi sahi chuno");
     };
 
-    // MIX MOOD QUIZ (4 DIFFICULTY MODES + 200 COINS = +20 ROUNDS PACK)
-    let activeQuestions = [];
-    let currentQIdx = 0;
-    let quizEarnedCoins = 0;
-    let selectedQuizMode = "easy";
+    // Mix Mood Quiz
+    let activeQuestions = [], currentQIdx = 0, quizEarnedCoins = 0, selectedQuizMode = "easy";
     const MODE_REWARDS = { easy: 5, medium: 10, hard: 15, ultra: 25 };
 
     window.openQuizModal = () => {
@@ -3099,41 +3275,24 @@
 
     window.buyQuiz20Pack = async () => {
       if (!currentUser) return openModal("modal-auth");
-      if ((Number(userData.coins) || 0) < 200) {
-        return showToast("Need 200 Coins to unlock +20 Quiz Rounds!");
-      }
+      if ((Number(userData.coins) || 0) < 200) return showToast("Need 200 Coins to unlock +20 Quiz Rounds!");
       userData.coins -= 200;
       userData.extraQuizCredits = (Number(userData.extraQuizCredits) || 0) + 20;
       renderUI();
       document.getElementById("quizAvailableRoundsBadge").textContent = `${getTotalQuizRoundsLeft()} Rounds Left`;
-      await setDoc(doc(db, "users", currentUser.uid), {
-        coins: userData.coins,
-        extraQuizCredits: userData.extraQuizCredits
-      }, { merge: true });
+      await setDoc(doc(db, "users", currentUser.uid), { coins: userData.coins, extraQuizCredits: userData.extraQuizCredits }, { merge: true });
       await logPassbook("Unlocked +20 Quiz Rounds Pack", "-200 🪙");
       showToast("🎉 +20 Quiz Rounds Unlocked!");
     };
 
     window.startQuizWithMode = (mode) => {
-      if (getTotalQuizRoundsLeft() <= 0) {
-        return showToast("Free rounds khatam! 200 Coins mein +20 Pack unlock karein.");
-      }
+      if (getTotalQuizRoundsLeft() <= 0) return showToast("Free rounds khatam! 200 Coins mein +20 Pack unlock karein.");
       selectedQuizMode = mode;
-      const seen = new Set([...(userData.seenQuizIds || []), ...JSON.parse(localStorage.getItem("sd_seen_q") || "[]")]);
-
+      const seen = new Set(userData.seenQuizIds || []);
       let pool = QUIZ_BANK.filter(item => item.diff === mode && !seen.has(item.id));
-      if (pool.length < 3) {
-        const otherUnseen = QUIZ_BANK.filter(item => !seen.has(item.id));
-        pool = pool.concat(otherUnseen);
-      }
-      if (pool.length < 3) {
-        pool = QUIZ_BANK.filter(item => item.diff === mode);
-      }
-
+      if (pool.length < 3) pool = QUIZ_BANK.filter(item => item.diff === mode);
       activeQuestions = [...pool].sort(() => 0.5 - Math.random()).slice(0, 3);
-      currentQIdx = 0;
-      quizEarnedCoins = 0;
-
+      currentQIdx = 0; quizEarnedCoins = 0;
       document.getElementById("quizModeStep").style.display = "none";
       document.getElementById("quizPlayStep").style.display = "block";
       renderQuizStep();
@@ -3144,218 +3303,32 @@
       document.getElementById("quizModeBadge").textContent = `${selectedQuizMode.toUpperCase()} • ${qObj.mood}`;
       document.getElementById("quizStepBadge").textContent = `Q ${currentQIdx + 1} / 3`;
       document.getElementById("quizQuestionText").textContent = qObj.q;
-
       const correctText = qObj.opts[qObj.ans];
       const shuffledOpts = [...qObj.opts].sort(() => 0.5 - Math.random());
-
       document.getElementById("quizOptionsBox").innerHTML = shuffledOpts.map((opt) =>
         `<button class="quiz-opt" onclick="answerQuiz('${opt.replace(/'/g, "\\'")}', '${correctText.replace(/'/g, "\\'")}', '${qObj.id}')">${opt}</button>`
       ).join("");
     }
 
     window.answerQuiz = async (chosenText, correctText, qId) => {
-      const localSeen = JSON.parse(localStorage.getItem("sd_seen_q") || "[]");
-      if (!localSeen.includes(qId)) localSeen.push(qId);
-      localStorage.setItem("sd_seen_q", JSON.stringify(localSeen));
-
       userData.seenQuizIds = userData.seenQuizIds || [];
       if (!userData.seenQuizIds.includes(qId)) userData.seenQuizIds.push(qId);
-
       const perQReward = MODE_REWARDS[selectedQuizMode] || 5;
-      if (chosenText === correctText) {
-        quizEarnedCoins += perQReward;
-        showToast(`Sahi Jawab! +${perQReward} Coins`);
-      } else {
-        showToast("Galat jawab!");
-      }
+      if (chosenText === correctText) { quizEarnedCoins += perQReward; showToast(`Sahi Jawab! +${perQReward} Coins`); }
+      else showToast("Galat jawab!");
 
       currentQIdx++;
-      if (currentQIdx < activeQuestions.length) {
-        renderQuizStep();
-      } else {
+      if (currentQIdx < activeQuestions.length) renderQuizStep();
+      else {
         closeModal("modal-quiz");
         const today = getISTDateStr();
         const prevPlays = userData.quizDate === today ? (Number(userData.quizPlaysToday) || 0) : 0;
-
         let extraFields = { seenQuizIds: userData.seenQuizIds };
-        if (prevPlays < 3) {
-          extraFields.quizDate = today;
-          extraFields.quizPlaysToday = prevPlays + 1;
-        } else if ((Number(userData.extraQuizCredits) || 0) > 0) {
-          extraFields.extraQuizCredits = Number(userData.extraQuizCredits) - 1;
-        }
-
-        const xpGain = selectedQuizMode === "ultra" ? 8 : selectedQuizMode === "hard" ? 5 : 3;
-        if (quizEarnedCoins > 0) {
-          await awardReward(quizEarnedCoins, xpGain, `Mix Quiz (${selectedQuizMode.toUpperCase()})`, null, extraFields);
-        } else {
-          Object.assign(userData, extraFields);
-          renderUI();
-          await setDoc(doc(db, "users", currentUser.uid), extraFields, { merge: true });
-          showToast("Round complete! Agli baar aur try karein.");
-        }
+        if (prevPlays < 3) { extraFields.quizDate = today; extraFields.quizPlaysToday = prevPlays + 1; }
+        else if ((Number(userData.extraQuizCredits) || 0) > 0) extraFields.extraQuizCredits = Number(userData.extraQuizCredits) - 1;
+        if (quizEarnedCoins > 0) await awardReward(quizEarnedCoins, 4, `Mix Quiz (${selectedQuizMode.toUpperCase()})`, null, extraFields);
+        else { Object.assign(userData, extraFields); renderUI(); await setDoc(doc(db, "users", currentUser.uid), extraFields, { merge: true }); }
       }
-    };
-
-    // MATIKS-STYLE 1-VS-1 LIVE BATTLE ARENA (Math Dual, Mind Snap Dual, Puzzle Dual)
-    let arenaStakeMode = "free";
-    let duelTimerIv = null;
-    let duelBotIv = null;
-    let duelMyPts = 0;
-    let duelOppPts = 0;
-    let duelCorrectAnswer = "";
-    let activeDuelType = "math";
-
-    window.setArenaStake = (mode, btnEl) => {
-      arenaStakeMode = mode;
-      document.querySelectorAll("#view-arena .sub-tab-btn").forEach(b => b.classList.remove("active"));
-      btnEl.classList.add("active");
-    };
-
-    window.startArenaDuel = async (type) => {
-      if (!currentUser) return openModal("modal-auth");
-      const today = getISTDateStr();
-      const freeUsed = userData.arenaFreeDate === today ? (Number(userData.arenaFreeUsed) || 0) : 0;
-
-      if (arenaStakeMode === "free") {
-        if (freeUsed >= 3) return showToast("Aaj ke 3 Free Duels poore! 20-Coin Duel khelein.");
-        userData.arenaFreeDate = today;
-        userData.arenaFreeUsed = freeUsed + 1;
-      } else {
-        if ((Number(userData.coins) || 0) < 20) return showToast("20-Coin Duel ke liye kam-az-kam 20 Coins chahiye!");
-        userData.coins -= 20;
-        await logPassbook("Arena 20-Coin Duel Entry", "-20 🪙");
-      }
-
-      renderUI();
-      await setDoc(doc(db, "users", currentUser.uid), {
-        coins: userData.coins,
-        arenaFreeDate: userData.arenaFreeDate,
-        arenaFreeUsed: userData.arenaFreeUsed
-      }, { merge: true });
-
-      activeDuelType = type;
-      duelMyPts = 0;
-      duelOppPts = 0;
-      const rivals = ["Rohan_Pro", "Simran_07", "Kabir_Math", "Ananya_X", "Gurpreet_SD", "Vikram_99"];
-      const rivalName = rivals[Math.floor(Math.random() * rivals.length)];
-
-      document.getElementById("duelModeTitle").textContent =
-        type === "math" ? "⚡ MATH DUAL" : type === "mindsnap" ? "👁️ MIND SNAP DUAL" : "🧩 PUZZLE DUAL";
-      document.getElementById("duelOppName").textContent = rivalName;
-      document.getElementById("duelMyScore").textContent = "0";
-      document.getElementById("duelOppScore").textContent = "0";
-      openModal("modal-duel");
-
-      let timeLeft = 30;
-      document.getElementById("duelTimerPill").textContent = `${timeLeft}s`;
-      nextArenaQuestion();
-
-      clearInterval(duelTimerIv);
-      clearInterval(duelBotIv);
-
-      duelBotIv = setInterval(() => {
-        if (Math.random() > 0.42) {
-          duelOppPts += 10;
-          document.getElementById("duelOppScore").textContent = duelOppPts;
-        }
-      }, 3200);
-
-      duelTimerIv = setInterval(async () => {
-        timeLeft--;
-        document.getElementById("duelTimerPill").textContent = `${timeLeft}s`;
-        if (timeLeft <= 0) {
-          finishArenaDuel();
-        }
-      }, 1000);
-    };
-
-    function nextArenaQuestion() {
-      const promptEl = document.getElementById("duelPromptBox");
-      const optsEl = document.getElementById("duelOptionsGrid");
-
-      if (activeDuelType === "math") {
-        const a = 6 + Math.floor(Math.random() * 19);
-        const b = 3 + Math.floor(Math.random() * 14);
-        const isMul = Math.random() > 0.5 && a < 16 && b < 12;
-        const ans = isMul ? a * b : a + b;
-        duelCorrectAnswer = String(ans);
-        promptEl.textContent = isMul ? `${a} × ${b} = ?` : `${a} + ${b} = ?`;
-        const choices = [ans, ans + 2, ans - 2, ans + 5].map(String).sort(() => 0.5 - Math.random());
-        optsEl.innerHTML = choices.map(c => `<button class="btn btn-primary" style="padding:12px;font-size:15px;" onclick="submitDuelAnswer('${c}')">${c}</button>`).join("");
-      } else if (activeDuelType === "mindsnap") {
-        const code = String(Math.floor(1000 + Math.random() * 8999));
-        duelCorrectAnswer = code;
-        promptEl.textContent = `Memorize: ${code}`;
-        optsEl.innerHTML = `<div style="grid-column:span 2;font-size:12px;color:var(--text-muted);">Yaad rakho... 2 second mein chhup jayega!</div>`;
-        setTimeout(() => {
-          if (!document.getElementById("modal-duel").classList.contains("open")) return;
-          promptEl.textContent = "Number kya tha? Snap!";
-          const f1 = String(Number(code) + 10);
-          const f2 = String(Number(code) - 11);
-          const f3 = code.split("").reverse().join("");
-          const choices = Array.from(new Set([code, f1, f2, f3])).slice(0, 4).sort(() => 0.5 - Math.random());
-          optsEl.innerHTML = choices.map(c => `<button class="btn btn-gold" style="padding:12px;font-size:15px;" onclick="submitDuelAnswer('${c}')">${c}</button>`).join("");
-        }, 1600);
-      } else {
-        const start = 2 + Math.floor(Math.random() * 6);
-        const step = 3 + Math.floor(Math.random() * 5);
-        const s1 = start, s2 = start + step, s3 = start + step * 2, ans = start + step * 3;
-        duelCorrectAnswer = String(ans);
-        promptEl.textContent = `${s1}, ${s2}, ${s3}, ?`;
-        const choices = [ans, ans + step, ans - 1, ans + 2].map(String).sort(() => 0.5 - Math.random());
-        optsEl.innerHTML = choices.map(c => `<button class="btn btn-primary" style="padding:12px;font-size:15px;" onclick="submitDuelAnswer('${c}')">${c}</button>`).join("");
-      }
-    }
-
-    window.submitDuelAnswer = (chosen) => {
-      if (chosen === duelCorrectAnswer) {
-        duelMyPts += 10;
-      } else {
-        duelMyPts = Math.max(0, duelMyPts - 5);
-      }
-      document.getElementById("duelMyScore").textContent = duelMyPts;
-      nextArenaQuestion();
-    };
-
-    async function finishArenaDuel() {
-      clearInterval(duelTimerIv);
-      clearInterval(duelBotIv);
-      closeModal("modal-duel");
-
-      const today = getISTDateStr();
-      let newArenaStreak = Number(userData.arenaStreak) || 0;
-      if (userData.lastArenaDate !== today) {
-        newArenaStreak += 1;
-      }
-
-      if (duelMyPts >= duelOppPts) {
-        const winCoins = arenaStakeMode === "coin20" ? 35 : 10;
-        await awardReward(winCoins, 5, `Arena ${activeDuelType.toUpperCase()} Win`, null, {
-          arenaRating: (Number(userData.arenaRating) || 1000) + 15,
-          arenaWins: (Number(userData.arenaWins) || 0) + 1,
-          arenaStreak: newArenaStreak,
-          lastArenaDate: today
-        });
-        showToast(`🏆 You Won (${duelMyPts} vs ${duelOppPts})! +${winCoins} Coins!`);
-      } else {
-        userData.arenaRating = Math.max(800, (Number(userData.arenaRating) || 1000) - 8);
-        userData.arenaStreak = newArenaStreak;
-        userData.lastArenaDate = today;
-        renderUI();
-        await setDoc(doc(db, "users", currentUser.uid), {
-          arenaRating: userData.arenaRating,
-          arenaStreak: newArenaStreak,
-          lastArenaDate: today
-        }, { merge: true });
-        showToast(`Match Lost (${duelMyPts} vs ${duelOppPts}). Streak: ${newArenaStreak} 🔥`);
-      }
-    }
-
-    window.forfeitDuel = () => {
-      clearInterval(duelTimerIv);
-      clearInterval(duelBotIv);
-      closeModal("modal-duel");
     };
 
     // Hourly Box & Promo Code
@@ -3373,31 +3346,24 @@
       if (!code) return showToast("Enter Promo Code");
       const used = userData.usedPromos || [];
       if (used.includes(code)) return showToast("Code already used!");
-
       await loadAppConfig();
       if (code === activePromo.code) {
-        if ((activePromo.usedCount || 0) >= (activePromo.maxUses || 50)) {
-          return showToast("Promo code user limit full ho gayi hai!");
-        }
+        if ((activePromo.usedCount || 0) >= (activePromo.maxUses || 50)) return showToast("Promo code user limit full ho gayi hai!");
         used.push(code);
         document.getElementById("promoCodeInput").value = "";
         await setDoc(doc(db, "config", "appSettings"), { promoUsedCount: increment(1) }, { merge: true });
         await awardReward(activePromo.coins, 4, `Promo Code (${code})`, null, { usedPromos: used });
-      } else {
-        showToast("Invalid or expired Promo Code");
-      }
+      } else showToast("Invalid or expired Promo Code");
     };
 
     window.completeSocialTask = async (key, url, coins, xp) => {
       if (!currentUser) return openModal("modal-auth");
       if (userData.completedActions && userData.completedActions[key]) return;
       window.open(url, "_blank");
-      setTimeout(async () => {
-        await awardReward(coins, xp, `Community Follow (${key.toUpperCase()})`, key);
-      }, 2500);
+      setTimeout(async () => { await awardReward(coins, xp, `Community Follow (${key.toUpperCase()})`, key); }, 2500);
     };
 
-    // COMMUNITY FEED, GROUP CHAT & PERSONAL 1-TO-1 DM
+    // COMMUNITY FEED (1 USER = 1 LIKE BUG 100% FIXED!)
     window.publishCommunityPost = async () => {
       if (!currentUser) return openModal("modal-auth");
       const txt = document.getElementById("newPostText").value.trim();
@@ -3411,7 +3377,7 @@
         avatar: userData.avatar || "🚀",
         level: userData.level || 1,
         text: txt,
-        likes: 0,
+        likedBy: [],
         ts: Date.now()
       });
       showToast("Post published!");
@@ -3430,30 +3396,38 @@
           box.innerHTML = `<div class="card" style="font-size:12px;color:var(--text-muted);text-align:center;">Abhi koi post nahi hai. "+ New Post" se shuruat karein!</div>`;
           return;
         }
-        box.innerHTML = list.map(p => `
-          <div class="card">
+        box.innerHTML = list.map(p => {
+          const likedArr = Array.isArray(p.likedBy) ? p.likedBy : [];
+          const hasLiked = currentUser && likedArr.includes(currentUser.uid);
+          const count = likedArr.length > 0 ? likedArr.length : (p.likes || 0);
+          return `<div class="card">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-              <span style="font-size:12.5px;font-weight:800;">${p.avatar || '🚀'} ${p.name} <small style="color:var(--teal-bright);">(${p.uniqueId || 'Member'} • Lvl ${p.level || 1})</small></span>
-              <button class="btn btn-outline" style="padding:3px 8px;font-size:10px;" onclick="startDmWith('${p.uniqueId || ''}')">💬 DM</button>
+              <span style="font-size:12.5px;font-weight:800;">${p.avatar || '🚀'} ${p.name} <small style="color:var(--emerald);">(${p.uniqueId || 'Member'} • Lvl ${p.level || 1})</small></span>
+              <button class="btn btn-outline" style="padding:4px 9px;font-size:10px;" onclick="startDmWith('${p.uniqueId || ''}')">💬 DM</button>
             </div>
-            <p style="font-size:12.5px;line-height:1.45;margin-bottom:8px;">${p.text}</p>
-            <button class="btn btn-outline" style="padding:4px 10px;font-size:11px;" onclick="likePost('${p.id}', this)">🔥 Like (${p.likes || 0})</button>
-          </div>
-        `).join("");
+            <p style="font-size:12.5px;line-height:1.45;margin-bottom:9px;">${p.text}</p>
+            <button class="btn ${hasLiked ? 'btn-primary' : 'btn-outline'}" style="padding:5px 11px;font-size:11px;" onclick="toggleLikePost('${p.id}', ${hasLiked})">
+              ${hasLiked ? '❤️ Liked' : '🤍 Like'} (${count})
+            </button>
+          </div>`;
+        }).join("");
       } catch (e) {}
     }
 
-    window.likePost = async (postId, btnEl) => {
+    window.toggleLikePost = async (postId, alreadyLiked) => {
       if (!currentUser) return openModal("modal-auth");
-      btnEl.disabled = true;
-      await updateDoc(doc(db, "posts", postId), { likes: increment(1) });
+      const postRef = doc(db, "posts", postId);
+      if (alreadyLiked) {
+        await updateDoc(postRef, { likedBy: arrayRemove(currentUser.uid) });
+      } else {
+        await updateDoc(postRef, { likedBy: arrayUnion(currentUser.uid) });
+      }
       loadCommunityFeed();
     };
 
     window.startDmWith = (targetUid) => {
       if (!targetUid) return showToast("User ID available nahi hai");
-      const dmTabBtn = document.querySelectorAll("#view-community .sub-tab-btn")[2];
-      switchCommTab("dm", dmTabBtn);
+      switchCommTab("dm", document.querySelectorAll("#view-community .sub-tab-btn")[2]);
       document.getElementById("dmTargetIdInput").value = targetUid;
       openDmConversation();
     };
@@ -3467,7 +3441,7 @@
         msgs.sort((a, b) => (a.ts || 0) - (b.ts || 0));
         box.innerHTML = msgs.map(m => `
           <div class="chat-msg ${m.uniqueId === userData.uniqueId ? 'mine' : ''}">
-            <div style="font-size:10px;color:var(--teal-bright);font-weight:700;margin-bottom:2px;">${m.name} (${m.uniqueId || 'Member'})</div>
+            <div style="font-size:10px;color:var(--emerald);font-weight:700;margin-bottom:2px;">${m.name} (${m.uniqueId || 'Member'})</div>
             <div>${m.text}</div>
           </div>
         `).join("") || "<div style='font-size:11px;color:var(--text-muted);text-align:center;'>Group chat mein pehla message bhejein!</div>";
@@ -3481,12 +3455,7 @@
       const txt = inp.value.trim();
       if (!txt) return;
       inp.value = "";
-      await addDoc(collection(db, "groupChat"), {
-        uniqueId: userData.uniqueId,
-        name: userData.name,
-        text: txt,
-        ts: Date.now()
-      });
+      await addDoc(collection(db, "groupChat"), { uniqueId: userData.uniqueId, name: userData.name, text: txt, ts: Date.now() });
       loadGroupChat();
     };
 
@@ -3498,7 +3467,6 @@
       const head = document.getElementById("dmActiveHeader");
       head.style.display = "block";
       head.textContent = `🔒 Private Personal Chat with ${targetId}`;
-
       const roomKey = [userData.uniqueId, targetId].sort().join("_");
       const box = document.getElementById("dmChatBox");
       try {
@@ -3508,7 +3476,7 @@
         msgs.sort((a, b) => (a.ts || 0) - (b.ts || 0));
         box.innerHTML = msgs.map(m => `
           <div class="chat-msg ${m.senderId === userData.uniqueId ? 'mine' : ''}">
-            <div style="font-size:10px;color:#fbbf24;font-weight:700;">${m.senderName} (${m.senderId})</div>
+            <div style="font-size:10px;color:#B45309;font-weight:700;">${m.senderName} (${m.senderId})</div>
             <div>${m.text}</div>
           </div>
         `).join("") || `<div style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:60px;">${targetId} ko personal message bhejein!</div>`;
@@ -3524,16 +3492,11 @@
       if (!txt) return;
       inp.value = "";
       const roomKey = [userData.uniqueId, activeDmTargetId].sort().join("_");
-      await addDoc(collection(db, "dms", roomKey, "messages"), {
-        senderId: userData.uniqueId,
-        senderName: userData.name,
-        text: txt,
-        ts: Date.now()
-      });
+      await addDoc(collection(db, "dms", roomKey, "messages"), { senderId: userData.uniqueId, senderName: userData.name, text: txt, ts: Date.now() });
       openDmConversation();
     };
 
-    // REDEEM STORE, COIN HISTORY & DELAY APPEAL
+    // REDEEM STORE & PASSBOOK
     window.openRedeemModal = (title, coinsCost) => {
       if (!currentUser) return openModal("modal-auth");
       selectedRedeemItem = { title, coins: coinsCost };
@@ -3548,26 +3511,18 @@
       const target = document.getElementById("redeemTargetInput").value.trim();
       if (!target) return showToast("Enter valid Gmail or UPI ID");
       if ((userData.coins || 0) < selectedRedeemItem.coins) return showToast(`Need ${selectedRedeemItem.coins} Coins!`);
-
       userData.coins -= selectedRedeemItem.coins;
       renderUI();
       closeModal("modal-redeem");
       await setDoc(doc(db, "users", currentUser.uid), { coins: userData.coins }, { merge: true });
       await addDoc(collection(db, "payouts"), {
-        uid: currentUser.uid,
-        uniqueId: userData.uniqueId,
-        name: userData.name,
-        item: selectedRedeemItem.title,
-        coins: selectedRedeemItem.coins,
-        target,
-        status: "pending",
-        voucherCode: "",
-        ts: Date.now()
+        uid: currentUser.uid, uniqueId: userData.uniqueId, name: userData.name,
+        item: selectedRedeemItem.title, coins: selectedRedeemItem.coins, target,
+        status: "pending", voucherCode: "", ts: Date.now()
       });
       await logPassbook(`Redeem: ${selectedRedeemItem.title}`, `-${selectedRedeemItem.coins} 🪙`);
-      showToast("Redeem request submitted! Check Coin History.");
-      loadMyWithdrawals();
-      loadPassbook();
+      showToast("Redeem request submitted! Check Coin Passbook.");
+      loadMyWithdrawals(); loadPassbook();
     };
 
     async function loadMyWithdrawals() {
@@ -3579,23 +3534,16 @@
         const rows = [];
         snap.forEach(d => rows.push(d.data()));
         rows.sort((a, b) => (b.ts || 0) - (a.ts || 0));
-
         box.innerHTML = rows.map(r => `
-          <div style="padding:9px 4px;border-bottom:1px solid rgba(255,255,255,0.08);text-align:left;">
+          <div style="padding:9px 4px;border-bottom:1px solid var(--border-subtle);text-align:left;">
             <div style="display:flex;justify-content:space-between;">
               <strong>${r.item}</strong>
-              <span style="color:${r.status === 'approved' ? 'var(--teal-bright)' : '#fbbf24'};font-weight:800;">
+              <span style="color:${r.status === 'approved' ? 'var(--emerald)' : '#B45309'};font-weight:800;">
                 ${r.status === 'approved' ? 'APPROVED ✅' : 'PENDING ⏳'}
               </span>
             </div>
             <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Sent to: ${r.target}</div>
-            ${r.voucherCode ? `<div style="background:rgba(20,184,166,0.16);padding:5px 8px;border-radius:7px;margin-top:5px;color:#fff;font-weight:800;">🎟️ Code: ${r.voucherCode}</div>` : ''}
-            ${r.status !== 'approved' ? `
-              <div style="display:flex;gap:6px;margin-top:6px;">
-                <button class="btn btn-outline" style="padding:4px 8px;font-size:10px;" onclick="openModal('modal-appeal')">📩 Appeal Delay</button>
-                <a href="https://t.me/skill_drop07" target="_blank" class="btn btn-primary" style="padding:4px 8px;font-size:10px;text-decoration:none;">✈️ Message Admin</a>
-              </div>
-            ` : ''}
+            ${r.voucherCode ? `<div style="background:var(--emerald-light);padding:5px 8px;border-radius:7px;margin-top:5px;color:var(--emerald);font-weight:800;">🎟️ Code: ${r.voucherCode}</div>` : ''}
           </div>
         `).join("");
       } catch (e) {}
@@ -3610,12 +3558,11 @@
         const list = [];
         snap.forEach(d => list.push(d.data()));
         list.sort((a, b) => (b.ts || 0) - (a.ts || 0));
-
         box.innerHTML = list.map(item => {
           const isPlus = String(item.coins).startsWith("+");
-          return `<div style="display:flex;justify-content:space-between;padding:7px 2px;border-bottom:1px solid rgba(255,255,255,0.06);text-align:left;">
+          return `<div style="display:flex;justify-content:space-between;padding:7px 2px;border-bottom:1px solid var(--border-subtle);text-align:left;">
             <span>${item.title}</span>
-            <strong style="color:${isPlus ? 'var(--teal-bright)' : '#fbbf24'};">${item.coins}</strong>
+            <strong style="color:${isPlus ? 'var(--emerald)' : '#B45309'};">${item.coins}</strong>
           </div>`;
         }).join("");
       } catch (e) {}
@@ -3626,14 +3573,7 @@
       const type = document.getElementById("appealTypeInput").value;
       const desc = document.getElementById("appealDescInput").value.trim();
       if (!desc) return showToast("Please describe your issue");
-      await addDoc(collection(db, "appeals"), {
-        uid: currentUser.uid,
-        uniqueId: userData.uniqueId,
-        name: userData.name,
-        type,
-        desc,
-        ts: Date.now()
-      });
+      await addDoc(collection(db, "appeals"), { uid: currentUser.uid, uniqueId: userData.uniqueId, name: userData.name, type, desc, ts: Date.now() });
       document.getElementById("appealDescInput").value = "";
       closeModal("modal-appeal");
       showToast(`Appeal submitted with ID ${userData.uniqueId}!`);
@@ -3646,28 +3586,22 @@
         const list = [];
         snap.forEach(d => list.push(d.data()));
         list.sort((a, b) => (b.coins || 0) - (a.coins || 0));
-
         box.innerHTML = list.slice(0, 10).map((u, idx) => {
           const medal = idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : `#${idx + 1}`;
-          return `<div style="display:flex;justify-content:space-between;align-items:center;padding:7px 2px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:12px;">
+          return `<div style="display:flex;justify-content:space-between;align-items:center;padding:7px 2px;border-bottom:1px solid var(--border-subtle);font-size:12px;">
             <span><strong>${medal}</strong> ${u.avatar || "🚀"} ${u.name || "Creator"} <small style="color:var(--text-muted);">(${u.uniqueId || 'SD'})</small></span>
-            <strong style="color:var(--teal-bright);">${u.coins || 0} 🪙</strong>
+            <strong style="color:var(--emerald);">${u.coins || 0} 🪙</strong>
           </div>`;
         }).join("");
       } catch (e) {}
     }
 
-    // Auth & Unique ID Generation
+    // AUTH & INIT
     window.loginWithGoogle = async () => {
-      try {
-        await signInWithPopup(auth, new GoogleAuthProvider());
-        closeModal("modal-auth");
-      } catch (err) {
-        try {
-          await signInWithRedirect(auth, new GoogleAuthProvider());
-        } catch (e2) {
-          showToast("Use Email Login below for in-app browsers!");
-        }
+      try { await signInWithPopup(auth, new GoogleAuthProvider()); closeModal("modal-auth"); }
+      catch (err) {
+        try { await signInWithRedirect(auth, new GoogleAuthProvider()); }
+        catch (e2) { showToast("Use Email Login below for in-app browsers!"); }
       }
     };
 
@@ -3676,17 +3610,13 @@
       const email = document.getElementById("authEmail").value.trim();
       const pass = document.getElementById("authPass").value.trim();
       if (!email || pass.length < 6) return showToast("Enter valid email & 6+ char password");
-      try {
-        await signInWithEmailAndPassword(auth, email, pass);
-        closeModal("modal-auth");
-      } catch (e) {
+      try { await signInWithEmailAndPassword(auth, email, pass); closeModal("modal-auth"); }
+      catch (e) {
         try {
           const cred = await createUserWithEmailAndPassword(auth, email, pass);
           await initNewUserDoc(cred.user, name);
           closeModal("modal-auth");
-        } catch (err2) {
-          showToast(err2.message);
-        }
+        } catch (err2) { showToast(err2.message); }
       }
     };
 
@@ -3701,35 +3631,28 @@
 
         userData = {
           uniqueId: genUniqueId, name: baseName, email: user.email, avatar: "🚀",
-          skill: "Mobile Video Editor", bio: "Learning & earning on SkillDrop", upi: "",
+          bio: "Learning & earning on SkillDrop", upi: "",
           coins: 0, xp: 0, level: 1, streakDay: 0, lastDailyDate: "",
           comboDate: "", comboTasksToday: 0, comboClaimedToday: false,
           watchDate: "", watchCountToday: 0, scratchDate: "", scratchCountToday: 0,
-          spinDate: "", spinCountToday: 0, flipDate: "", flipCountToday: 0,
-          diceDate: "", diceCountToday: 0, rushDate: "", rushCountToday: 0,
+          spinDate: "", spinCountToday: 0, rushDate: "", rushCountToday: 0,
           quizDate: "", quizPlaysToday: 0, extraQuizCredits: 0, seenQuizIds: [],
           arenaRating: 1000, arenaWins: 0, arenaStreak: 0, lastArenaDate: "", arenaFreeDate: "", arenaFreeUsed: 0,
           lastHourlyTs: 0, usedPromos: [], completedActions: {},
-          refCode: genRefCode, referredBy: appliedRef, refCount: 0, refCoins: 0,
-          banned: false
+          refCode: genRefCode, referredBy: appliedRef, refCount: 0, refCoins: 0, banned: false
         };
         await setDoc(ref, JSON.parse(JSON.stringify(userData)));
 
         if (appliedRef && appliedRef !== genRefCode) {
-          const q = query(collection(db, "users"), where("refCode", "==", appliedRef), limit(1));
-          const qSnap = await getDocs(q);
+          const qSnap = await getDocs(query(collection(db, "users"), where("refCode", "==", appliedRef), limit(1)));
           qSnap.forEach(async (docSnap) => {
             const d = docSnap.data();
             const newCount = (d.refCount || 0) + 1;
             let bonus = 100;
             if (newCount === 5) bonus += 200;
             if (newCount === 10) bonus += 500;
-            if (newCount === 25) bonus += 1500;
             await updateDoc(doc(db, "users", docSnap.id), {
-              refCount: increment(1),
-              refCoins: increment(bonus),
-              coins: increment(bonus),
-              xp: increment(15)
+              refCount: increment(1), refCoins: increment(bonus), coins: increment(bonus), xp: increment(15)
             });
           });
         }
@@ -3749,7 +3672,7 @@
       const settingsAuthBtn = document.getElementById("settingsAuthActionBtn");
       if (user) {
         topLoginBtn.style.display = "none";
-        settingsAuthBtn.textContent = "🚪 Logout Account";
+        settingsAuthBtn.textContent = "🚪 Sign Out";
         settingsAuthBtn.className = "btn btn-danger btn-full";
         await initNewUserDoc(user);
         loadInvitedFriends();
@@ -3764,16 +3687,15 @@
     async function loadInvitedFriends() {
       if (!userData.refCode) return;
       try {
-        const q = query(collection(db, "users"), where("referredBy", "==", userData.refCode), limit(25));
-        const snap = await getDocs(q);
+        const snap = await getDocs(query(collection(db, "users"), where("referredBy", "==", userData.refCode), limit(25)));
         const box = document.getElementById("invitedFriendsList");
         if (snap.empty) return;
         let html = "";
         snap.forEach(d => {
           const u = d.data();
-          html += `<div style="display:flex;justify-content:space-between;padding:7px 2px;border-bottom:1px solid rgba(255,255,255,0.06);">
+          html += `<div style="display:flex;justify-content:space-between;padding:7px 2px;border-bottom:1px solid var(--border-subtle);">
             <span>${u.avatar || "👤"} <strong>${u.name}</strong> <small style="color:var(--text-muted);">(${u.uniqueId || 'SD'})</small></span>
-            <span style="color:var(--teal-bright);">+100 + 10%</span>
+            <span style="color:var(--emerald);font-weight:700;">+100 + 10%</span>
           </div>`;
         });
         box.innerHTML = html;
@@ -3789,33 +3711,22 @@
 
     window.shareRefLink = () => {
       const link = document.getElementById("myRefLinkInput").value;
-      const text = `Join SkillDrop — 1,000 Coins = ₹10 Google Play & Amazon Gift Cards! 1v1 Live Arena, Mix Quiz & 6 Games: ${link}`;
-      if (navigator.share) {
-        navigator.share({ title: "SkillDrop", text, url: link });
-      } else {
-        window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
-      }
-    };
-
-    window.shareCreatorCard = () => {
-      const cardText = `🪪 SkillDrop Verified Creator\n👤 ${userData.name} (${userData.uniqueId || 'SD'})\n⭐ Level ${userData.level} • Arena ELO ${userData.arenaRating || 1000}\n🔗 Join: https://harrybk90.github.io/SkillDrop-/?ref=${userData.refCode || 'ITZH-152'}`;
-      if (navigator.share) navigator.share({ title: "SkillDrop Card", text: cardText });
-      else { navigator.clipboard.writeText(cardText); showToast("Creator Card copied!"); }
+      const text = `Join SkillDrop — 1,000 Coins = ₹10 Google Play & Amazon • 2,500 Coins = ₹25 UPI! 1v1 Math Dual & Memory Grid: ${link}`;
+      if (navigator.share) navigator.share({ title: "SkillDrop", text, url: link });
+      else window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
     };
 
     let selectedAvatar = "🚀";
     document.querySelectorAll(".av-opt").forEach(el => {
       el.addEventListener("click", () => {
-        document.querySelectorAll(".av-opt").forEach(x => x.classList.remove("selected"));
-        el.classList.add("selected");
         selectedAvatar = el.dataset.av;
+        showToast(`Avatar ${selectedAvatar} selected`);
       });
     });
 
     window.openEditProfileModal = () => {
       if (!currentUser) return openModal("modal-auth");
       document.getElementById("editNameInput").value = userData.name || "";
-      document.getElementById("editSkillInput").value = userData.skill || "Mobile Video Editor";
       document.getElementById("editBioInput").value = userData.bio || "";
       document.getElementById("editUpiInput").value = userData.upi || "";
       selectedAvatar = userData.avatar || "🚀";
@@ -3825,7 +3736,6 @@
     window.saveProfileChanges = async () => {
       if (!currentUser) return;
       userData.name = document.getElementById("editNameInput").value.trim() || userData.name;
-      userData.skill = document.getElementById("editSkillInput").value;
       userData.bio = document.getElementById("editBioInput").value.trim();
       userData.upi = document.getElementById("editUpiInput").value.trim();
       userData.avatar = selectedAvatar;
@@ -3836,16 +3746,12 @@
     };
 
     // SECRET 5-TAP ADMIN PANEL (PIN: 786090)
-    let logoTapCount = 0;
-    let logoTapTimer = null;
+    let logoTapCount = 0, logoTapTimer = null;
     document.getElementById("secretLogoTrigger").addEventListener("click", () => {
       logoTapCount++;
       clearTimeout(logoTapTimer);
       logoTapTimer = setTimeout(() => { logoTapCount = 0; }, 2000);
-      if (logoTapCount >= 5) {
-        logoTapCount = 0;
-        openModal("modal-admin");
-      }
+      if (logoTapCount >= 5) { logoTapCount = 0; openModal("modal-admin"); }
     });
 
     window.verifyAdminPin = () => {
@@ -3854,9 +3760,7 @@
         document.getElementById("adminDashboardContent").style.display = "block";
         showToast("Founder Admin Unlocked!");
         loadAdminDashboard();
-      } else {
-        showToast("Incorrect PIN");
-      }
+      } else showToast("Incorrect PIN");
     };
 
     window.switchAdminPayoutTab = (tab, btnEl) => {
@@ -3870,34 +3774,30 @@
       try {
         const uSnap = await getDocs(collection(db, "users"));
         document.getElementById("admTotalUsers").textContent = uSnap.size;
-
         const pSnap = await getDocs(collection(db, "payouts"));
-        const pendingArr = [];
-        const approvedArr = [];
+        const pendingArr = [], approvedArr = [];
         pSnap.forEach(d => {
           const item = { id: d.id, ...d.data() };
           if (item.status === "approved") approvedArr.push(item);
           else pendingArr.push(item);
         });
-
         document.getElementById("admPendingRedeems").textContent = pendingArr.length;
 
         document.getElementById("admPendingBox").innerHTML = pendingArr.map(p => `
-          <div style="padding:8px 4px;border-bottom:1px solid rgba(255,255,255,0.08);">
-            <strong>${p.name}</strong> <span style="color:var(--teal-bright);">(${p.uniqueId || 'SD'})</span><br/>
+          <div style="padding:8px 4px;border-bottom:1px solid var(--border-subtle);">
+            <strong>${p.name}</strong> <span style="color:var(--emerald);">(${p.uniqueId || 'SD'})</span><br/>
             <span>${p.item} → ${p.target}</span>
             <div style="display:flex;gap:5px;margin-top:5px;">
-              <input type="text" id="vcode_${p.id}" placeholder="Paste Gift Code (Optional)" style="flex:1;padding:4px 7px;font-size:11px;border-radius:7px;background:#070b14;color:#fff;border:1px solid #334155;" />
+              <input type="text" id="vcode_${p.id}" class="ref-input" placeholder="Paste Code / UTR" style="padding:4px 7px;font-size:11px;" />
               <button class="btn btn-gold" style="padding:4px 9px;font-size:10px;" onclick="approveRedeemWithCode('${p.id}')">Approve</button>
             </div>
           </div>
         `).join("") || "<div style='color:var(--text-muted);'>No pending requests.</div>";
 
         document.getElementById("admApprovedBox").innerHTML = approvedArr.map(p => `
-          <div style="padding:7px 4px;border-bottom:1px solid rgba(255,255,255,0.08);">
-            <strong>${p.name}</strong> (${p.uniqueId || 'SD'}) • <span style="color:var(--teal-bright);">Approved ✅</span><br/>
+          <div style="padding:7px 4px;border-bottom:1px solid var(--border-subtle);">
+            <strong>${p.name}</strong> (${p.uniqueId || 'SD'}) • <span style="color:var(--emerald);">Approved ✅</span><br/>
             <span style="color:var(--text-muted);">${p.item} (${p.target})</span>
-            ${p.voucherCode ? `<div style="color:#fbbf24;">Code: ${p.voucherCode}</div>` : ''}
           </div>
         `).join("") || "<div style='color:var(--text-muted);'>No approved payouts yet.</div>";
 
@@ -3906,8 +3806,8 @@
         aSnap.forEach(d => appeals.push(d.data()));
         appeals.sort((a, b) => (b.ts || 0) - (a.ts || 0));
         document.getElementById("admAppealsBox").innerHTML = appeals.map(a => `
-          <div style="padding:6px 4px;border-bottom:1px solid rgba(255,255,255,0.08);">
-            <strong style="color:#fbbf24;">${a.uniqueId || 'SD'} • ${a.name}</strong> (${a.type})<br/>
+          <div style="padding:6px 4px;border-bottom:1px solid var(--border-subtle);">
+            <strong style="color:#B45309;">${a.uniqueId || 'SD'} • ${a.name}</strong> (${a.type})<br/>
             <span>${a.desc}</span>
           </div>
         `).join("") || "<div style='color:var(--text-muted);'>No payment appeals.</div>";
@@ -3916,11 +3816,8 @@
 
     window.approveRedeemWithCode = async (docId) => {
       const codeVal = document.getElementById(`vcode_${docId}`)?.value.trim() || "";
-      await updateDoc(doc(db, "payouts", docId), {
-        status: "approved",
-        voucherCode: codeVal
-      });
-      showToast("Approved & moved to Approved List!");
+      await updateDoc(doc(db, "payouts", docId), { status: "approved", voucherCode: codeVal });
+      showToast("Approved!");
       loadAdminDashboard();
     };
 
@@ -3931,34 +3828,13 @@
       resBox.textContent = "Searching...";
       try {
         const uSnap = await getDocs(query(collection(db, "users"), where("uniqueId", "==", searchId), limit(1)));
-        if (uSnap.empty) {
-          resBox.textContent = `No user found with ID ${searchId}`;
-          return;
-        }
+        if (uSnap.empty) { resBox.textContent = `No user found with ID ${searchId}`; return; }
         let uInfo = null;
         uSnap.forEach(d => uInfo = d.data());
-
-        const pSnap = await getDocs(query(collection(db, "payouts"), where("uniqueId", "==", searchId)));
-        let paySummary = "No withdrawals yet";
-        if (!pSnap.empty) {
-          const statuses = [];
-          pSnap.forEach(d => {
-            const p = d.data();
-            statuses.push(`${p.item}: ${p.status.toUpperCase()}`);
-          });
-          paySummary = statuses.join(" | ");
-        }
-
-        resBox.innerHTML = `
-          <div style="background:rgba(0,0,0,0.4);padding:8px;border-radius:9px;">
-            <strong>👤 ${uInfo.name} (${uInfo.uniqueId})</strong><br/>
-            Coins: <strong>${uInfo.coins} 🪙</strong> • Referrals: <strong>${uInfo.refCount || 0}</strong><br/>
-            Payout Status: <strong style="color:#fbbf24;">${paySummary}</strong>
-          </div>
-        `;
-      } catch (e) {
-        resBox.textContent = "Error searching user.";
-      }
+        resBox.innerHTML = `<div style="background:var(--bg-soft);padding:8px;border-radius:9px;">
+          <strong>👤 ${uInfo.name} (${uInfo.uniqueId})</strong> • Coins: <strong>${uInfo.coins} 🪙</strong>
+        </div>`;
+      } catch (e) { resBox.textContent = "Error searching user."; }
     };
 
     window.adminSavePromo = async () => {
@@ -3967,13 +3843,8 @@
       const maxU = parseInt(document.getElementById("admPromoLimit").value, 10) || 50;
       if (!c) return;
       activePromo = { code: c, coins: val, maxUses: maxU, usedCount: 0 };
-      await setDoc(doc(db, "config", "appSettings"), {
-        promoCode: c,
-        promoCoins: val,
-        promoMaxUses: maxU,
-        promoUsedCount: 0
-      }, { merge: true });
-      showToast(`Promo ${c} (+${val} Coins, Limit: ${maxU} Users) Live!`);
+      await setDoc(doc(db, "config", "appSettings"), { promoCode: c, promoCoins: val, promoMaxUses: maxU, promoUsedCount: 0 }, { merge: true });
+      showToast(`Promo ${c} Live!`);
     };
 
     window.adminUpdateNotice = async () => {
@@ -3981,14 +3852,14 @@
       if (!txt) return;
       document.getElementById("importantNoticeText").textContent = txt;
       await setDoc(doc(db, "config", "appSettings"), { notice: txt }, { merge: true });
-      showToast("Important Notice Updated!");
+      showToast("Notice Updated!");
     };
 
     window.toggleMaintenance = async () => {
       isMaintenanceActive = !isMaintenanceActive;
       await setDoc(doc(db, "config", "appSettings"), { maintenance: isMaintenanceActive }, { merge: true });
       applyMaintenanceCheck();
-      showToast(isMaintenanceActive ? "Maintenance ON (Only You Can Access)" : "Maintenance OFF (Live for Everyone)");
+      showToast(isMaintenanceActive ? "Maintenance ON" : "Maintenance OFF");
     };
 
     async function loadAppConfig() {
@@ -3996,14 +3867,7 @@
         const snap = await getDoc(doc(db, "config", "appSettings"));
         if (snap.exists()) {
           const cfg = snap.data();
-          if (cfg.promoCode) {
-            activePromo = {
-              code: cfg.promoCode,
-              coins: cfg.promoCoins || 25,
-              maxUses: cfg.promoMaxUses || 50,
-              usedCount: cfg.promoUsedCount || 0
-            };
-          }
+          if (cfg.promoCode) activePromo = { code: cfg.promoCode, coins: cfg.promoCoins || 25, maxUses: cfg.promoMaxUses || 50, usedCount: cfg.promoUsedCount || 0 };
           if (cfg.notice) document.getElementById("importantNoticeText").textContent = cfg.notice;
           isMaintenanceActive = !!cfg.maintenance;
           applyMaintenanceCheck();
@@ -4012,7 +3876,6 @@
     }
 
     loadAppConfig();
-    loadRealWithdrawalTicker();
     renderUI();
   </script>
 </body>
